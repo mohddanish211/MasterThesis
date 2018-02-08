@@ -1,0 +1,6 @@
+package org.xtext.ui;
+import org.xtext.ui.Test.IReferenceSearch;
+
+public class Test implement IReferenceSearch{
+
+}

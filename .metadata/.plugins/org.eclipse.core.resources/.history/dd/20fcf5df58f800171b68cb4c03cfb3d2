@@ -1,0 +1,5 @@
+source.. = src/,\
+           lib/
+output.. = bin/
+jars.compile.order = .
+jars.extra.classpath = lib/absfrontend.jar

@@ -1,0 +1,9 @@
+grammar org.xtext.example.mydsl.TestingXtext with org.eclipse.xtext.common.Terminals
+
+generate testingXtext "http://www.xtext.org/example/mydsl/TestingXtext"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

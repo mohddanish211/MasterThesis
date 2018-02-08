@@ -1,0 +1,30 @@
+
+import org.xtext.generator.AbsGenerator;
+import org.xtext.ui.labeling.AbsLabelProvider;
+
+import com.google.inject.Inject;
+
+import javax.annotation.Resource;
+
+import org.eclipse.xtext.generator.IFileSystemAccess2;
+import org.eclipse.xtext.generator.IGeneratorContext;
+import org.xtext.abs.Compilation_Unit;
+import org.xtext.abs.Productline_decl;
+
+
+public class Test extends AbsGenerator{
+	
+	// private AbsGenerator generator;
+	@Inject private AbsLabelProvider label;
+	@Inject private Compilation_Unit compilationUnit;
+	
+	public void myMethod() {
+		
+	Productline_decl e = compilationUnit.getProductline_decl();
+	//String b=generator.compile(e);
+	//System.out.println("Heeellloooooooooooooooooooooooooooo............");
+		
+		
+	}
+	
+}

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='update site: file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/workspace/.metadata/.plugins/org.eclipse.pde.core/p2/org.eclipse.equinox.p2.core/cache/' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1514077082644'/>
+    <property name='site.checksum' value='0'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='0'/>
+</repository>

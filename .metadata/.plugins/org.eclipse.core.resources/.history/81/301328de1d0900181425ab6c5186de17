@@ -1,0 +1,7 @@
+package Test;
+
+import org.eclipse.xtext.EcoreUtil2;
+
+public class DeltaToFeature{
+	EcoreUtil2.getAllReferencedObjects(null,null);
+}

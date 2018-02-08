@@ -1,0 +1,17 @@
+package org.xtext.ui;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
+import org.xtext.abs.Delta_decl;
+
+public class MyDslEObjectDocumentationProvider implements IEObjectDocumentationProvider {
+
+	@Override
+	public String getDocumentation(EObject o) {
+		if (o instanceof Delta_decl) {
+			return "This is a nice Greeting";
+		}
+		return null;
+	}
+
+}

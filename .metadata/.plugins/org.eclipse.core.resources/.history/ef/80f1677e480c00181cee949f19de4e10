@@ -1,0 +1,12 @@
+import org.xtext.generator.AbsGenerator;
+import org.xtext.ui.labeling.AbsLabelProvider;
+
+import com.google.inject.Inject;
+
+public class Test{
+	
+	@Inject private AbsGenerator generator;
+	@Inject private AbsLabelProvider label;
+	
+
+}

@@ -1,0 +1,40 @@
+grammar org.xtext.example.mydsl.TestingXtext with org.eclipse.xtext.common.Terminals
+
+generate testingXtext "http://www.xtext.org/example/mydsl/TestingXtext"
+
+DomainModel:
+	(elements+=AbstractElement)*;
+
+AbstractElement:
+	PackageDeclaration | Type | Import;
+
+Import:
+	'import' importedNamespace=QualifiedNameWithWildCard;
+
+PackageDeclaration:
+	'package' name=QualifiedName '{'
+	(elements+=AbstractElement)*'}'
+;
+
+Type:
+	Entity | DataType;
+
+DataType:
+	'datatype' name=ID;
+
+Entity:
+	'entity' name=ID ('extends' superType=[Entity|QualifiedName])? '{'
+	(features+=Feature)*'}'
+;
+
+Feature:
+	name=ID ':' type=TypeRef;
+
+TypeRef:
+	referenced=[Type|QualifiedName] (multi?='*')?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;

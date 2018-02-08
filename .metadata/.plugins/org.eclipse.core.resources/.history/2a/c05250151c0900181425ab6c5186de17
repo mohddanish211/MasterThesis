@@ -1,0 +1,20 @@
+package mypack.DeltaToFeature;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.xtext.ui.resource.IResourceSetProvider;
+
+class DeltaToFeature implements IResourceSetProvider {
+
+	@Override
+	public ResourceSet get(IProject project) {
+		// TODO Auto-generated method stub
+		System.out.println("Project is"+project);
+		
+		return null;
+	}
+
+	
+
+}

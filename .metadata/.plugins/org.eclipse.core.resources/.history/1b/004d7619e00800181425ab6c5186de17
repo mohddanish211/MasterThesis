@@ -1,0 +1,15 @@
+package org.xtext.ui;
+
+import org.eclipse.xtext.resource.ILocationInFileProvider;
+
+/**
+ * Use this class to register components to be used at runtime / without the Equinox extension registry.
+ */
+public class MyDslRuntimeModule extends org.xtext.example.mydsl.AbstractMyDslRuntimeModule {
+
+	@Override
+	public Class<? extends ILocationInFileProvider> bindILocationInFileProvider() {
+		return MyDslLocationInFileProvider.class;
+	}
+	
+}

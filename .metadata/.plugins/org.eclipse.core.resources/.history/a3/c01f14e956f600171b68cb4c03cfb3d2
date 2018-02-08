@@ -1,0 +1,14 @@
+source.. = src/,\
+           lib/
+output.. = bin/
+bin.includes = plugin.xml,\
+               META-INF/,\
+               .,\
+               icons/,\
+               lib/absfrontend.jar,\
+               build.properties
+jars.compile.order = lib/absfrontend.jar,\
+                     .
+jars.extra.classpath = lib/absfrontend.jar
+source.lib/absfrontend.jar = 
+src.includes = lib/

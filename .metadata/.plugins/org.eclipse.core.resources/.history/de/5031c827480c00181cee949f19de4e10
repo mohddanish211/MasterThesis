@@ -1,0 +1,11 @@
+import org.xtext.generator.AbsGenerator;
+
+import com.google.inject.Inject;
+
+public class Test{
+	
+	@Inject private AbsGenerator generator;
+
+	
+
+}

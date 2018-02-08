@@ -1,0 +1,18 @@
+grammar org.xtext.example.mydsl.TestingXtext with org.eclipse.xtext.common.Terminals
+
+generate testingXtext "http://www.xtext.org/example/mydsl/TestingXtext"
+
+DomainModel:
+	(elements+=Element)*
+;
+
+Element:
+	Feature|Delta
+;
+
+Feature:	
+		'feature' name=ID 
+;
+
+Delta: 
+		'delta' name=ID ('when' type=[Feature])?;

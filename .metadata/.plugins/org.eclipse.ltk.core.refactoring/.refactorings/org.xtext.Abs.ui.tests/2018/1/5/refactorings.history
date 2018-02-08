@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 3 elements from project &apos;org.xtext.Abs.ui.tests&apos;&#x0A;- Original project: &apos;org.xtext.Abs.ui.tests&apos;&#x0A;- Original elements:&#x0A;     org.xtext.Abs.ui.tests/tests&#x0A;     org.xtext.Abs.ui.tests/tests/org.eclipse.xtext.ui.tests.findrefs&#x0A;     org.eclipse.xtext.ui.tests.findrefs.DelegatingReferenceFinderTest.java" description="Delete elements" element1="/tests" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1517262703027" subPackages="false" version="1.0"/>
+</session>

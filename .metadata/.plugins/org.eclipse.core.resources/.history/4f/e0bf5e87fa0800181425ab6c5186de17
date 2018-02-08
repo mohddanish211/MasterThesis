@@ -1,0 +1,7 @@
+package org.xtext.ui;
+import org.xtext.ui.Test.IReferenceSearch;
+
+@ImplementedBy (PredicateReferenceSearch.class) 
+public class Test implements IReferenceSearch{
+
+}

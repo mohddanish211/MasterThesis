@@ -1,0 +1,24 @@
+package org.xtext.Abs.ui
+
+
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.xtext.generator.IFileSystemAccess2
+import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.generator.AbsGenerator
+import org.xtext.abs.Delta_decl
+
+class Test123{
+	
+	def doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		for (e : input.allContents.toIterable.filter(Delta_decl)) {
+                
+			e.compile12();
+		}
+		
+		throw new UnsupportedOperationException("TODO: auto-generated method stub2")
+	}
+	
+	def compile12(Delta_decl e) {
+		println("helloooooooooooooooxtend")
+	}
+}

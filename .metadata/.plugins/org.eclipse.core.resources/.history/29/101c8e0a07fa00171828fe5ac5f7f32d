@@ -1,0 +1,25 @@
+grammar org.xtext.example.mydsl.Abs with org.eclipse.xtext.common.Terminals
+
+generate abs "http://www.xtext.org/example/mydsl/Abs"
+
+Model:
+	(elements+=Type)*;
+	
+Type:
+	Datatype | Entity;
+	
+Datatype:
+	"datatype" name=ID
+;
+
+Entity:
+	"entity" name=ID ("extends" superType=[Entity])? "{"
+	(features+=Features)*
+	"}"
+;
+Features:
+	name=ID type=TypeRef
+;
+TypeRef:
+	referenced=[Type] (multi?="*")?
+;

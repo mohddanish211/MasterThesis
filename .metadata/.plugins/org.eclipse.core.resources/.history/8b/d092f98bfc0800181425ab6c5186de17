@@ -1,0 +1,8 @@
+package org.xtext.ui;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.EcoreUtil2;
+
+public class Test extends EcoreUtil{
+List<EObject>listOfRef = getAllReferencedObjects()
+}

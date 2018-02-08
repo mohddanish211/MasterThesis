@@ -1,0 +1,6 @@
+output.. = bin/
+jars.compile.order = .
+jars.extra.classpath = lib/absfrontend.jar
+bin.includes = plugin.xml,\
+               build.properties,\
+               bin/

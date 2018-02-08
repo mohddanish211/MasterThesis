@@ -1,0 +1,5 @@
+package org.xtext.Abs.ui.tests;
+import org.eclipse.xtext.EcoreUtil2; 
+public class DeltaToFeature {
+
+}

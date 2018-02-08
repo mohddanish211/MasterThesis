@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AbsAnalysis
+Bundle-SymbolicName: AbsAnalysis;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.osgi;bundle-version="3.12.50"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

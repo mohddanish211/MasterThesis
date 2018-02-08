@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            name="Sample Command"
+            categoryId="ABSAnalysis.commands.category"
+            id="ABSAnalysis.commands.sampleCommand">
+      </command>
+      <category
+            id="ABSAnalysis.commands.MHPcategory"
+            name="MHPCategory">
+      </category>
+      <category
+            id="ABSAnalysis.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="ABSAnalysis.commands.MHPcategory"
+            id="ABSAnalysis.commands.MHPCommand"
+            name="MHP Command">
+      </command>
+      <category
+            id="ABSAnalysis.commands.DeadLockcategory"
+            name="DeadLockcategory">
+      </category>
+      <command
+            categoryId="ABSAnalysis.commands.DeadLockcategory"
+            id="ABSAnalysis.commands.DeadLockCommand"
+            name="DeadLock Command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="ABSAnalysis.commands.sampleCommand"
+            class="absanalysis.handlers.SampleHandler">
+      </handler>
+      <handler
+            class="absanalysis.handlers.MHPHandler"
+            commandId="ABSAnalysis.commands.MHPCommand">
+      </handler>
+      <handler
+            class="absanalysis.handlers.DeadlockHandler"
+            commandId="ABSAnalysis.commands.DeadLockCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="ABSAnalysis.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="ABSAnalysis.commands.MHPCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+7">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Sample Menu"
+               mnemonic="M"
+               id="ABSAnalysis.menus.sampleMenu">
+            <command
+                  commandId="ABSAnalysis.commands.sampleCommand"
+                  mnemonic="S"
+                  id="ABSAnalysis.menus.sampleCommand">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="ABSAnalysis.toolbars.sampleToolbar">
+            <command
+                  commandId="ABSAnalysis.commands.sampleCommand"
+                  icon="icons/sample.png"
+                  tooltip="Say hello world"
+                  id="ABSAnalysis.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="ABSAnalysis.menus.AbsMenu"
+               label="ABS Analysis"
+               mnemonic="A">
+            <command
+                  commandId="ABSAnalysis.commands.MHPCommand"
+                  id="ABSAnalysis.menus.MHPmenu"
+                  label="MHP Analysis"
+                  style="push">
+            </command>
+            <command
+                  commandId="ABSAnalysis.commands.DeadLockCommand"
+                  id="ABSAnalysis.menus.Deadlockmenu"
+                  label="Deadlock Analysis"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

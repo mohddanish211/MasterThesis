@@ -1,0 +1,23 @@
+grammar org.xtext.example.mydsl.TestingXtext with org.eclipse.xtext.common.Terminals
+
+generate testingXtext "http://www.xtext.org/example/mydsl/TestingXtext"
+
+DomainModel :
+	(elements+=Type)*;
+
+Type:
+	DataType | Entity;
+
+DataType:
+	'datatype' dataType=ID;
+
+Entity:
+	'entity' entity=ID ('extends' superType=[Entity])? '{'
+	(features+=Feature)*'}'
+;
+
+Feature:
+	feature=ID ':' type=TypeRef;
+
+TypeRef:
+	referenced=[Type];

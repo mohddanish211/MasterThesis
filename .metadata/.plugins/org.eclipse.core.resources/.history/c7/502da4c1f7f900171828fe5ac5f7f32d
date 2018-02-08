@@ -1,0 +1,9 @@
+grammar org.xtext.example.mydsl.Abs with org.eclipse.xtext.common.Terminals
+
+generate abs "http://www.xtext.org/example/mydsl/Abs"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

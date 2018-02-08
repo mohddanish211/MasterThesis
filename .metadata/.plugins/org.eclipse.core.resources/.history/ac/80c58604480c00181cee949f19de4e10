@@ -1,0 +1,9 @@
+import org.xtext.generator.AbsGenerator;
+
+public class Test{
+	
+	@Inject private AbsGenerator dao;
+
+	
+
+}
