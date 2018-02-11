@@ -78,8 +78,11 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Function_name_list">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function_name_decl" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function_name_decl" upperBound="-1"
+        eType="#//Function_name_decl" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function_name_decl">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataType_decl">
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
@@ -100,6 +103,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Data_constructor_arg">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type_use" eType="#//Type_use"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Annotations">
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" upperBound="-1"
@@ -112,8 +116,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type_use">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type_use" upperBound="-1"
         eType="#//Type_use" containment="true"/>
@@ -197,8 +199,6 @@
         eType="#//Param_decl" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Param_decl">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotation"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type_exp" eType="#//Type_exp"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -211,8 +211,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Function_decl">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type_use" eType="#//Type_use"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -231,15 +229,11 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Exception_decl">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" unique="false" upperBound="-1"
         eType="#//Data_constructor_arg"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface_decl">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="interface_name" unique="false"
         upperBound="-1" eType="#//Interface_decl"/>
@@ -250,8 +244,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Methodsig">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type_use" eType="#//Type_use"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -259,8 +251,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class_decl">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="paramlist" eType="#//Param_list"
         containment="true"/>
@@ -278,8 +268,6 @@
         eType="#//Method" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Field_decl">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type_use" eType="#//Type_use"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -287,8 +275,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Stmt">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stmt_annotations" eType="#//Annotations"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type_exp" eType="#//Type_exp"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -384,8 +370,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="trait_exp" eType="#//Trait_expr"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Method">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type_use" eType="#//Type_use"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

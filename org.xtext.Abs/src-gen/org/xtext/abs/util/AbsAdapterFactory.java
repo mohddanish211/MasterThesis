@@ -116,6 +116,11 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
         return createFunction_name_listAdapter();
       }
       @Override
+      public Adapter caseFunction_name_decl(Function_name_decl object)
+      {
+        return createFunction_name_declAdapter();
+      }
+      @Override
       public Adapter caseDataType_decl(DataType_decl object)
       {
         return createDataType_declAdapter();
@@ -713,6 +718,21 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFunction_name_listAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.abs.Function_name_decl <em>Function name decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.abs.Function_name_decl
+   * @generated
+   */
+  public Adapter createFunction_name_declAdapter()
   {
     return null;
   }

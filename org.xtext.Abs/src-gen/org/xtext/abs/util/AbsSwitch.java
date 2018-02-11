@@ -130,6 +130,13 @@ public class AbsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AbsPackage.FUNCTION_NAME_DECL:
+      {
+        Function_name_decl function_name_decl = (Function_name_decl)theEObject;
+        T result = caseFunction_name_decl(function_name_decl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AbsPackage.DATA_TYPE_DECL:
       {
         DataType_decl dataType_decl = (DataType_decl)theEObject;
@@ -926,6 +933,22 @@ public class AbsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFunction_name_list(Function_name_list object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function name decl</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function name decl</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunction_name_decl(Function_name_decl object)
   {
     return null;
   }

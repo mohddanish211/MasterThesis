@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.Field_decl;
 import org.xtext.abs.Pure_exp;
 import org.xtext.abs.Type_use;
@@ -25,7 +24,6 @@ import org.xtext.abs.Type_use;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Field_declImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Field_declImpl#getType_use <em>Type use</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Field_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Field_declImpl#getPure_exp <em>Pure exp</em>}</li>
@@ -36,16 +34,6 @@ import org.xtext.abs.Type_use;
  */
 public class Field_declImpl extends MinimalEObjectImpl.Container implements Field_decl
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations annotations;
-
   /**
    * The cached value of the '{@link #getType_use() <em>Type use</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -105,54 +93,6 @@ public class Field_declImpl extends MinimalEObjectImpl.Container implements Fiel
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.FIELD_DECL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Annotations getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
-  {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.FIELD_DECL__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotations newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FIELD_DECL__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FIELD_DECL__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FIELD_DECL__ANNOTATIONS, newAnnotations, newAnnotations));
   }
 
   /**
@@ -284,8 +224,6 @@ public class Field_declImpl extends MinimalEObjectImpl.Container implements Fiel
   {
     switch (featureID)
     {
-      case AbsPackage.FIELD_DECL__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
       case AbsPackage.FIELD_DECL__TYPE_USE:
         return basicSetType_use(null, msgs);
       case AbsPackage.FIELD_DECL__PURE_EXP:
@@ -304,8 +242,6 @@ public class Field_declImpl extends MinimalEObjectImpl.Container implements Fiel
   {
     switch (featureID)
     {
-      case AbsPackage.FIELD_DECL__ANNOTATIONS:
-        return getAnnotations();
       case AbsPackage.FIELD_DECL__TYPE_USE:
         return getType_use();
       case AbsPackage.FIELD_DECL__NAME:
@@ -326,9 +262,6 @@ public class Field_declImpl extends MinimalEObjectImpl.Container implements Fiel
   {
     switch (featureID)
     {
-      case AbsPackage.FIELD_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
-        return;
       case AbsPackage.FIELD_DECL__TYPE_USE:
         setType_use((Type_use)newValue);
         return;
@@ -352,9 +285,6 @@ public class Field_declImpl extends MinimalEObjectImpl.Container implements Fiel
   {
     switch (featureID)
     {
-      case AbsPackage.FIELD_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)null);
-        return;
       case AbsPackage.FIELD_DECL__TYPE_USE:
         setType_use((Type_use)null);
         return;
@@ -378,8 +308,6 @@ public class Field_declImpl extends MinimalEObjectImpl.Container implements Fiel
   {
     switch (featureID)
     {
-      case AbsPackage.FIELD_DECL__ANNOTATIONS:
-        return annotations != null;
       case AbsPackage.FIELD_DECL__TYPE_USE:
         return type_use != null;
       case AbsPackage.FIELD_DECL__NAME:

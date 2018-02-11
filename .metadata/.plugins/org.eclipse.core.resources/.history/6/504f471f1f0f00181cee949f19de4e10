@@ -1,0 +1,6 @@
+package org.xtext.generator;
+
+import org.eclipse.xtext.findReferences.IReferenceFinder;
+
+public interface ITest extends IReferenceFinder {
+}

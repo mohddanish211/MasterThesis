@@ -1,0 +1,9 @@
+package org.xtext.generator;
+
+import org.eclipse.xtext.findReferences.IReferenceFinder;
+
+import com.google.inject.Inject;
+
+public class Test{
+	@Inject IReferenceFinder referenceFinder;
+}

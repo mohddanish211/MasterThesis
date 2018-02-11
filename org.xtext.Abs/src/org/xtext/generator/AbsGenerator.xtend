@@ -13,13 +13,16 @@ import org.xtext.abs.Application_condition
 import org.xtext.abs.AppOr_exp
 import org.xtext.abs.AppAnd_exp
 import com.google.inject.Inject;
+import org.xtext.abs.Delta_decl
+import org.eclipse.emf.ecore.EObject
+import org.xtext.abs.Product_decl
+
 /**
  * Generates code from your model files on save.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class AbsGenerator extends AbstractGenerator {
-	@Inject private Test testGeneartorObj;
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 //
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
@@ -28,10 +31,20 @@ class AbsGenerator extends AbstractGenerator {
 //				.map[name]
 //				.join(', '))
 
+	for (EObject content : resource.getContents()) {
+			println("content.eCrossReferences");
+			
+			for(EObject e1 : content.eContents){
+				println("content eCrossReferences");
+				println(e1);	
+			}
+		}
 	for (e : resource.allContents.toIterable.filter(Productline_decl)) {
                 
 			e.compile();
 		}
+	
+
 
 	}
 	
@@ -46,7 +59,7 @@ class AbsGenerator extends AbstractGenerator {
 				}
 				//f.deltaspec.name = featureNames.toString
 				print(f.deltaspec.name+"----->"+featureNames);
-				testGeneartorObj.label = featureNames.toString;
+//				testGeneartorObj.label = featureNames.toString;
 				
 			}catch(Exception err){
 				println(err.toString);
@@ -54,6 +67,29 @@ class AbsGenerator extends AbstractGenerator {
 			println();
 		}
 		return featureNames;
+	}
+
+
+	def compile(Delta_decl e) {
+		var StringBuffer featureNames = new StringBuffer;
+		for(EObject o: e.eContainer.eAllContents.toIterable.filter(Productline_decl)){
+			println("------xxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----");
+			for(Delta_clause delta_clause: o.eAllContents.toIterable.filter(Delta_clause)){
+			featureNames.setLength(0);
+			try{
+				if((delta_clause.deltaspec.name).equals(e.name)){
+					if((delta_clause.when_condition.application_condition)!==null){
+					resolveApplicationCondition(delta_clause.when_condition.application_condition,featureNames);
+						}
+					print(delta_clause.deltaspec.name+"----->"+featureNames);
+					return featureNames.toString
+					}
+				}catch(Exception err){
+				println(err.toString);
+				}
+			}
+		}
+		return "error"
 	}
 	
 	

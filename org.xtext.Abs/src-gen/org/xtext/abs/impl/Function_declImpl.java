@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.Function_decl;
 import org.xtext.abs.Param_list;
 import org.xtext.abs.Pure_exp;
@@ -32,7 +31,6 @@ import org.xtext.abs.Type_use;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Function_declImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getType_use <em>Type use</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getLt <em>Lt</em>}</li>
@@ -47,16 +45,6 @@ import org.xtext.abs.Type_use;
  */
 public class Function_declImpl extends MinimalEObjectImpl.Container implements Function_decl
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations annotations;
-
   /**
    * The cached value of the '{@link #getType_use() <em>Type use</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -176,54 +164,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.FUNCTION_DECL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Annotations getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
-  {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_DECL__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotations newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FUNCTION_DECL__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FUNCTION_DECL__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_DECL__ANNOTATIONS, newAnnotations, newAnnotations));
   }
 
   /**
@@ -463,8 +403,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
-      case AbsPackage.FUNCTION_DECL__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         return basicSetType_use(null, msgs);
       case AbsPackage.FUNCTION_DECL__PARAMLIST:
@@ -485,8 +423,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
-      case AbsPackage.FUNCTION_DECL__ANNOTATIONS:
-        return getAnnotations();
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         return getType_use();
       case AbsPackage.FUNCTION_DECL__NAME:
@@ -516,9 +452,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
-      case AbsPackage.FUNCTION_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
-        return;
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)newValue);
         return;
@@ -555,9 +488,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
-      case AbsPackage.FUNCTION_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)null);
-        return;
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)null);
         return;
@@ -593,8 +523,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
-      case AbsPackage.FUNCTION_DECL__ANNOTATIONS:
-        return annotations != null;
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         return type_use != null;
       case AbsPackage.FUNCTION_DECL__NAME:

@@ -6,12 +6,10 @@ package org.xtext.abs.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -19,7 +17,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.Data_constructor_arg;
 import org.xtext.abs.Exception_decl;
 
@@ -30,7 +27,6 @@ import org.xtext.abs.Exception_decl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Exception_declImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Exception_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Exception_declImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -40,16 +36,6 @@ import org.xtext.abs.Exception_decl;
  */
 public class Exception_declImpl extends MinimalEObjectImpl.Container implements Exception_decl
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations annotations;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -106,54 +92,6 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Annotations getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
-  {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.EXCEPTION_DECL__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotations newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EXCEPTION_DECL__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EXCEPTION_DECL__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EXCEPTION_DECL__ANNOTATIONS, newAnnotations, newAnnotations));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -192,28 +130,10 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.EXCEPTION_DECL__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case AbsPackage.EXCEPTION_DECL__ANNOTATIONS:
-        return getAnnotations();
       case AbsPackage.EXCEPTION_DECL__NAME:
         return getName();
       case AbsPackage.EXCEPTION_DECL__TYPE:
@@ -233,9 +153,6 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.EXCEPTION_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
-        return;
       case AbsPackage.EXCEPTION_DECL__NAME:
         setName((String)newValue);
         return;
@@ -257,9 +174,6 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.EXCEPTION_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)null);
-        return;
       case AbsPackage.EXCEPTION_DECL__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -280,8 +194,6 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.EXCEPTION_DECL__ANNOTATIONS:
-        return annotations != null;
       case AbsPackage.EXCEPTION_DECL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.EXCEPTION_DECL__TYPE:

@@ -6,15 +6,12 @@ package org.xtext.ui.labeling
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-//import org.xtext.abs.Delta_decl
 import org.xtext.abs.Productline_decl
-//import org.eclipse.emf.ecore.util.EcoreUtil.UsageCrossReferencer
-//import java.util.Collection
-//import org.eclipse.xtext.resource.IResourceServiceProvider
-//import org.xtext.abs.Product_decl
-//import org.xtext.abs.impl.Product_declImpl
-//import org.xtext.generator.Test
 import org.xtext.generator.AbsGenerator
+import org.xtext.abs.Delta_decl
+import org.xtext.abs.Feature_decl
+import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider
+
 //import org.xtext.abs.Compilation_Unit
 
 /**
@@ -22,7 +19,7 @@ import org.xtext.generator.AbsGenerator
  * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
-class AbsLabelProvider extends DefaultEObjectLabelProvider {
+class AbsLabelProvider extends DefaultEObjectLabelProvider implements IStyledLabelProvider{
 	@Inject AbsGenerator generator;
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
@@ -34,7 +31,14 @@ class AbsLabelProvider extends DefaultEObjectLabelProvider {
 	def text(Productline_decl ele) {
 		return 'A greeting to ' + ele.name+ generator.compile(ele);
 		}
-		
+
+	def text(Delta_decl ele) {
+		return generator.compile(ele);
+		}		
+	
+	def text(Feature_decl ele) {
+		return "gjhghg";
+		}		
 //
 //	def image(Greeting ele) {
 //		'Greeting.gif'

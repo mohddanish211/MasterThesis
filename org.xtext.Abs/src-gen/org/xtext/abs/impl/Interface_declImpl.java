@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.Interface_decl;
 import org.xtext.abs.Methodsig;
 
@@ -32,7 +31,6 @@ import org.xtext.abs.Methodsig;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Interface_declImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Interface_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Interface_declImpl#getInterface_name <em>Interface name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Interface_declImpl#getMethodsig <em>Methodsig</em>}</li>
@@ -43,16 +41,6 @@ import org.xtext.abs.Methodsig;
  */
 public class Interface_declImpl extends MinimalEObjectImpl.Container implements Interface_decl
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations annotations;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -119,54 +107,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Annotations getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
-  {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.INTERFACE_DECL__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotations newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.INTERFACE_DECL__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.INTERFACE_DECL__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.INTERFACE_DECL__ANNOTATIONS, newAnnotations, newAnnotations));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -223,8 +163,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.INTERFACE_DECL__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
       case AbsPackage.INTERFACE_DECL__METHODSIG:
         return ((InternalEList<?>)getMethodsig()).basicRemove(otherEnd, msgs);
     }
@@ -241,8 +179,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.INTERFACE_DECL__ANNOTATIONS:
-        return getAnnotations();
       case AbsPackage.INTERFACE_DECL__NAME:
         return getName();
       case AbsPackage.INTERFACE_DECL__INTERFACE_NAME:
@@ -264,9 +200,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.INTERFACE_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
-        return;
       case AbsPackage.INTERFACE_DECL__NAME:
         setName((String)newValue);
         return;
@@ -292,9 +225,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.INTERFACE_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)null);
-        return;
       case AbsPackage.INTERFACE_DECL__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -318,8 +248,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.INTERFACE_DECL__ANNOTATIONS:
-        return annotations != null;
       case AbsPackage.INTERFACE_DECL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.INTERFACE_DECL__INTERFACE_NAME:

@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.Method;
 import org.xtext.abs.Param_list;
 import org.xtext.abs.Stmt;
@@ -33,7 +32,6 @@ import org.xtext.abs.Type_use;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.MethodImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.MethodImpl#getType_use <em>Type use</em>}</li>
  *   <li>{@link org.xtext.abs.impl.MethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.MethodImpl#getParamlist <em>Paramlist</em>}</li>
@@ -45,16 +43,6 @@ import org.xtext.abs.Type_use;
  */
 public class MethodImpl extends MinimalEObjectImpl.Container implements Method
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations annotations;
-
   /**
    * The cached value of the '{@link #getType_use() <em>Type use</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -124,54 +112,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.METHOD;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Annotations getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
-  {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.METHOD__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotations newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.METHOD__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.METHOD__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.METHOD__ANNOTATIONS, newAnnotations, newAnnotations));
   }
 
   /**
@@ -317,8 +257,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AbsPackage.METHOD__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
       case AbsPackage.METHOD__TYPE_USE:
         return basicSetType_use(null, msgs);
       case AbsPackage.METHOD__PARAMLIST:
@@ -339,8 +277,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AbsPackage.METHOD__ANNOTATIONS:
-        return getAnnotations();
       case AbsPackage.METHOD__TYPE_USE:
         return getType_use();
       case AbsPackage.METHOD__NAME:
@@ -364,9 +300,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AbsPackage.METHOD__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
-        return;
       case AbsPackage.METHOD__TYPE_USE:
         setType_use((Type_use)newValue);
         return;
@@ -394,9 +327,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AbsPackage.METHOD__ANNOTATIONS:
-        setAnnotations((Annotations)null);
-        return;
       case AbsPackage.METHOD__TYPE_USE:
         setType_use((Type_use)null);
         return;
@@ -423,8 +353,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AbsPackage.METHOD__ANNOTATIONS:
-        return annotations != null;
       case AbsPackage.METHOD__TYPE_USE:
         return type_use != null;
       case AbsPackage.METHOD__NAME:

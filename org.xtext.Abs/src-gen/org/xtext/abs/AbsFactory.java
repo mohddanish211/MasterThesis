@@ -96,6 +96,15 @@ public interface AbsFactory extends EFactory
   Function_name_list createFunction_name_list();
 
   /**
+   * Returns a new object of class '<em>Function name decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function name decl</em>'.
+   * @generated
+   */
+  Function_name_decl createFunction_name_decl();
+
+  /**
    * Returns a new object of class '<em>Data Type decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

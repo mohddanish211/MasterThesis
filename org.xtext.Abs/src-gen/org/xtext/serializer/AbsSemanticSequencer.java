@@ -57,6 +57,7 @@ import org.xtext.abs.Fnode;
 import org.xtext.abs.From_condition;
 import org.xtext.abs.Function_decl;
 import org.xtext.abs.Function_list;
+import org.xtext.abs.Function_name_decl;
 import org.xtext.abs.Function_name_list;
 import org.xtext.abs.Function_name_param_decl;
 import org.xtext.abs.Function_param;
@@ -266,6 +267,9 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case AbsPackage.FUNCTION_LIST:
 				sequence_Function_list(context, (Function_list) semanticObject); 
+				return; 
+			case AbsPackage.FUNCTION_NAME_DECL:
+				sequence_Function_name_decl(context, (Function_name_decl) semanticObject); 
 				return; 
 			case AbsPackage.FUNCTION_NAME_LIST:
 				sequence_Function_name_list(context, (Function_name_list) semanticObject); 
@@ -827,7 +831,6 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         annotations=Annotations 
 	 *         name=TYPE_IDENTIFIER 
 	 *         paramlist=Param_list? 
 	 *         (interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER] interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER]*)? 
@@ -934,16 +937,10 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Data_constructor_arg returns Data_constructor_arg
 	 *
 	 * Constraint:
-	 *     type_use=Type_use
+	 *     (type_use=Type_use name=IDENTIFIER?)
 	 */
 	protected void sequence_Data_constructor_arg(ISerializationContext context, Data_constructor_arg semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.DATA_CONSTRUCTOR_ARG__TYPE_USE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.DATA_CONSTRUCTOR_ARG__TYPE_USE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getData_constructor_argAccess().getType_useType_useParserRuleCall_0_0(), semanticObject.getType_use());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1082,7 +1079,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Exception_decl returns Exception_decl
 	 *
 	 * Constraint:
-	 *     (annotations=Annotations name=TYPE_IDENTIFIER (type+=[Data_constructor_arg|IDENTIFIER] type+=[Data_constructor_arg|IDENTIFIER]*)?)
+	 *     (name=TYPE_IDENTIFIER (type+=[Data_constructor_arg|IDENTIFIER] type+=[Data_constructor_arg|IDENTIFIER]*)?)
 	 */
 	protected void sequence_Exception_decl(ISerializationContext context, Exception_decl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1186,7 +1183,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Field_decl returns Field_decl
 	 *
 	 * Constraint:
-	 *     (annotations=Annotations type_use=Type_use name=IDENTIFIER pure_exp=Pure_exp?)
+	 *     (type_use=Type_use name=IDENTIFIER pure_exp=Pure_exp?)
 	 */
 	protected void sequence_Field_decl(ISerializationContext context, Field_decl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1229,7 +1226,6 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         annotations=Annotations 
 	 *         type_use=Type_use 
 	 *         name=IDENTIFIER 
 	 *         (lt=LT importedNamespace+=TYPE_IDENTIFIER importedNamespace+=TYPE_IDENTIFIER* gt=GT)? 
@@ -1251,6 +1247,24 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Function_list(ISerializationContext context, Function_list semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Function_name_decl returns Function_name_decl
+	 *
+	 * Constraint:
+	 *     name=IDENTIFIER
+	 */
+	protected void sequence_Function_name_decl(ISerializationContext context, Function_name_decl semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.FUNCTION_NAME_DECL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.FUNCTION_NAME_DECL__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFunction_name_declAccess().getNameIDENTIFIERTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -1348,7 +1362,6 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         annotations=Annotations 
 	 *         name=TYPE_IDENTIFIER 
 	 *         (interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER] interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER]*)? 
 	 *         methodsig+=Methodsig*
@@ -1406,7 +1419,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Method returns Method
 	 *
 	 * Constraint:
-	 *     (annotations=Annotations type_use=Type_use name=IDENTIFIER paramlist=Param_list stmt+=Stmt*)
+	 *     (type_use=Type_use name=IDENTIFIER paramlist=Param_list stmt+=Stmt*)
 	 */
 	protected void sequence_Method(ISerializationContext context, Method semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1418,12 +1431,10 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Methodsig returns Methodsig
 	 *
 	 * Constraint:
-	 *     (annotations=Annotations type_use=Type_use name=IDENTIFIER paramlist=Param_list)
+	 *     (type_use=Type_use name=IDENTIFIER paramlist=Param_list)
 	 */
 	protected void sequence_Methodsig(ISerializationContext context, Methodsig semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.METHODSIG__ANNOTATIONS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.METHODSIG__ANNOTATIONS));
 			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.METHODSIG__TYPE_USE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.METHODSIG__TYPE_USE));
 			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.METHODSIG__NAME) == ValueTransient.YES)
@@ -1432,10 +1443,9 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.METHODSIG__PARAMLIST));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMethodsigAccess().getAnnotationsAnnotationsParserRuleCall_0_0(), semanticObject.getAnnotations());
-		feeder.accept(grammarAccess.getMethodsigAccess().getType_useType_useParserRuleCall_1_0(), semanticObject.getType_use());
-		feeder.accept(grammarAccess.getMethodsigAccess().getNameIDENTIFIERTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMethodsigAccess().getParamlistParam_listParserRuleCall_3_0(), semanticObject.getParamlist());
+		feeder.accept(grammarAccess.getMethodsigAccess().getType_useType_useParserRuleCall_0_0(), semanticObject.getType_use());
+		feeder.accept(grammarAccess.getMethodsigAccess().getNameIDENTIFIERTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMethodsigAccess().getParamlistParam_listParserRuleCall_2_0(), semanticObject.getParamlist());
 		feeder.finish();
 	}
 	
@@ -1859,21 +1869,18 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Param_decl returns Param_decl
 	 *
 	 * Constraint:
-	 *     (annotations=Annotation type_exp=Type_exp name=IDENTIFIER)
+	 *     (type_exp=Type_exp name=IDENTIFIER)
 	 */
 	protected void sequence_Param_decl(ISerializationContext context, Param_decl semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PARAM_DECL__ANNOTATIONS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PARAM_DECL__ANNOTATIONS));
 			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PARAM_DECL__TYPE_EXP) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PARAM_DECL__TYPE_EXP));
 			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PARAM_DECL__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PARAM_DECL__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParam_declAccess().getAnnotationsAnnotationParserRuleCall_0_0(), semanticObject.getAnnotations());
-		feeder.accept(grammarAccess.getParam_declAccess().getType_expType_expParserRuleCall_1_0(), semanticObject.getType_exp());
-		feeder.accept(grammarAccess.getParam_declAccess().getNameIDENTIFIERTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParam_declAccess().getType_expType_expParserRuleCall_0_0(), semanticObject.getType_exp());
+		feeder.accept(grammarAccess.getParam_declAccess().getNameIDENTIFIERTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -2067,26 +2074,23 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         stmt_annotations=Annotations 
-	 *         (
-	 *             (type_exp=Type_exp name=IDENTIFIER exp=Exp?) | 
-	 *             (var_or_field_ref=Var_or_field_ref exp=Exp) | 
-	 *             exp=Exp | 
-	 *             exp=Exp | 
-	 *             stmt+=Stmt+ | 
-	 *             (pure_exp=Pure_exp ifstmt=Stmt r=Stmt?) | 
-	 *             (condition=Pure_exp whilestmt=Stmt) | 
-	 *             (i=IDENTIFIER l=Pure_exp foreachstmt=Stmt) | 
-	 *             (trystmt=Stmt (casestmtbranch+=Casestmtbranch+ | casestmtbranch+=Casestmtbranch)? stmt+=Stmt?) | 
-	 *             guard=Guard | 
-	 *             (f=Pure_exp t=Pure_exp) | 
-	 *             throwPureExp=Pure_exp | 
-	 *             diePureExp=Pure_exp | 
-	 *             pure_exp=Pure_exp | 
-	 *             exp=Exp | 
-	 *             (c=Pure_exp casestmtbranch+=Casestmtbranch*)
-	 *         )?
-	 *     )
+	 *         (type_exp=Type_exp name=IDENTIFIER exp=Exp?) | 
+	 *         (var_or_field_ref=Var_or_field_ref exp=Exp) | 
+	 *         exp=Exp | 
+	 *         exp=Exp | 
+	 *         stmt+=Stmt+ | 
+	 *         (pure_exp=Pure_exp ifstmt=Stmt r=Stmt?) | 
+	 *         (condition=Pure_exp whilestmt=Stmt) | 
+	 *         (i=IDENTIFIER l=Pure_exp foreachstmt=Stmt) | 
+	 *         (trystmt=Stmt (casestmtbranch+=Casestmtbranch+ | casestmtbranch+=Casestmtbranch)? stmt+=Stmt?) | 
+	 *         guard=Guard | 
+	 *         (f=Pure_exp t=Pure_exp) | 
+	 *         throwPureExp=Pure_exp | 
+	 *         diePureExp=Pure_exp | 
+	 *         pure_exp=Pure_exp | 
+	 *         exp=Exp | 
+	 *         (c=Pure_exp casestmtbranch+=Casestmtbranch*)
+	 *     )?
 	 */
 	protected void sequence_Stmt(ISerializationContext context, Stmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2178,7 +2182,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Type_use returns Type_use
 	 *
 	 * Constraint:
-	 *     (annotations=Annotations name=QUALIFIED_TYPE_IDENTIFIER (type_use+=Type_use type_use+=Type_use*)?)
+	 *     (name=QUALIFIED_TYPE_IDENTIFIER (type_use+=Type_use type_use+=Type_use*)?)
 	 */
 	protected void sequence_Type_use(ISerializationContext context, Type_use semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

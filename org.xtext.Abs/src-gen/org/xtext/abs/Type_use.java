@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Type_use#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.Type_use#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.Type_use#getType_use <em>Type use</em>}</li>
  * </ul>
@@ -27,32 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Type_use extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Annotations</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Annotations</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Annotations</em>' containment reference.
-   * @see #setAnnotations(Annotations)
-   * @see org.xtext.abs.AbsPackage#getType_use_Annotations()
-   * @model containment="true"
-   * @generated
-   */
-  Annotations getAnnotations();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Type_use#getAnnotations <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Annotations</em>' containment reference.
-   * @see #getAnnotations()
-   * @generated
-   */
-  void setAnnotations(Annotations value);
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

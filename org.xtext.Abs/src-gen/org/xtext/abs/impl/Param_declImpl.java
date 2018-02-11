@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotation;
 import org.xtext.abs.Param_decl;
 import org.xtext.abs.Type_exp;
 
@@ -24,7 +23,6 @@ import org.xtext.abs.Type_exp;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Param_declImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Param_declImpl#getType_exp <em>Type exp</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Param_declImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -34,16 +32,6 @@ import org.xtext.abs.Type_exp;
  */
 public class Param_declImpl extends MinimalEObjectImpl.Container implements Param_decl
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotation annotations;
-
   /**
    * The cached value of the '{@link #getType_exp() <em>Type exp</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -93,54 +81,6 @@ public class Param_declImpl extends MinimalEObjectImpl.Container implements Para
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.PARAM_DECL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Annotation getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotation newAnnotations, NotificationChain msgs)
-  {
-    Annotation oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PARAM_DECL__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotation newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PARAM_DECL__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PARAM_DECL__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PARAM_DECL__ANNOTATIONS, newAnnotations, newAnnotations));
   }
 
   /**
@@ -224,8 +164,6 @@ public class Param_declImpl extends MinimalEObjectImpl.Container implements Para
   {
     switch (featureID)
     {
-      case AbsPackage.PARAM_DECL__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
       case AbsPackage.PARAM_DECL__TYPE_EXP:
         return basicSetType_exp(null, msgs);
     }
@@ -242,8 +180,6 @@ public class Param_declImpl extends MinimalEObjectImpl.Container implements Para
   {
     switch (featureID)
     {
-      case AbsPackage.PARAM_DECL__ANNOTATIONS:
-        return getAnnotations();
       case AbsPackage.PARAM_DECL__TYPE_EXP:
         return getType_exp();
       case AbsPackage.PARAM_DECL__NAME:
@@ -262,9 +198,6 @@ public class Param_declImpl extends MinimalEObjectImpl.Container implements Para
   {
     switch (featureID)
     {
-      case AbsPackage.PARAM_DECL__ANNOTATIONS:
-        setAnnotations((Annotation)newValue);
-        return;
       case AbsPackage.PARAM_DECL__TYPE_EXP:
         setType_exp((Type_exp)newValue);
         return;
@@ -285,9 +218,6 @@ public class Param_declImpl extends MinimalEObjectImpl.Container implements Para
   {
     switch (featureID)
     {
-      case AbsPackage.PARAM_DECL__ANNOTATIONS:
-        setAnnotations((Annotation)null);
-        return;
       case AbsPackage.PARAM_DECL__TYPE_EXP:
         setType_exp((Type_exp)null);
         return;
@@ -308,8 +238,6 @@ public class Param_declImpl extends MinimalEObjectImpl.Container implements Para
   {
     switch (featureID)
     {
-      case AbsPackage.PARAM_DECL__ANNOTATIONS:
-        return annotations != null;
       case AbsPackage.PARAM_DECL__TYPE_EXP:
         return type_exp != null;
       case AbsPackage.PARAM_DECL__NAME:

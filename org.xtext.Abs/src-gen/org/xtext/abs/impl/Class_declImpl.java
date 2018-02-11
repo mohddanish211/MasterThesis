@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.Casestmtbranch;
 import org.xtext.abs.Class_decl;
 import org.xtext.abs.Field_decl;
@@ -38,7 +37,6 @@ import org.xtext.abs.Trait_usage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Class_declImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Class_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Class_declImpl#getParamlist <em>Paramlist</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Class_declImpl#getInterface_name <em>Interface name</em>}</li>
@@ -54,16 +52,6 @@ import org.xtext.abs.Trait_usage;
  */
 public class Class_declImpl extends MinimalEObjectImpl.Container implements Class_decl
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations annotations;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -173,54 +161,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.CLASS_DECL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Annotations getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
-  {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.CLASS_DECL__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotations newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.CLASS_DECL__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.CLASS_DECL__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.CLASS_DECL__ANNOTATIONS, newAnnotations, newAnnotations));
   }
 
   /**
@@ -388,8 +328,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_DECL__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
       case AbsPackage.CLASS_DECL__PARAMLIST:
         return basicSetParamlist(null, msgs);
       case AbsPackage.CLASS_DECL__FIELD_DECL:
@@ -416,8 +354,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_DECL__ANNOTATIONS:
-        return getAnnotations();
       case AbsPackage.CLASS_DECL__NAME:
         return getName();
       case AbsPackage.CLASS_DECL__PARAMLIST:
@@ -449,9 +385,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
-        return;
       case AbsPackage.CLASS_DECL__NAME:
         setName((String)newValue);
         return;
@@ -496,9 +429,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)null);
-        return;
       case AbsPackage.CLASS_DECL__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -537,8 +467,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_DECL__ANNOTATIONS:
-        return annotations != null;
       case AbsPackage.CLASS_DECL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.CLASS_DECL__PARAMLIST:

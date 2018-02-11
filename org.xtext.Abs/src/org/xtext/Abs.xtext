@@ -60,7 +60,7 @@ Function_name_list:{Function_name_list}
 
 //Function Name Declaration
 Function_name_decl:
-	IDENTIFIER
+	name=IDENTIFIER
 ;
 
 //DataType_decl
@@ -76,7 +76,7 @@ Data_constructor:name=TYPE_IDENTIFIER ('('
 ;
 
 //Data Constructor Argument
-Data_constructor_arg: type_use=Type_use IDENTIFIER?
+Data_constructor_arg:type_use=Type_use name=IDENTIFIER?
 ;
 
 //Annotations
@@ -88,7 +88,8 @@ Annotations:{Annotations}('['annotation+=Annotation(',' annotation+=Annotation)*
 Annotation:(type_use=Type_use ':')? pure_exp=Pure_exp;
 
 //Type_use (Check may have error, removed annotations from starting)
-Type_use: annotations=Annotations name=QUALIFIED_TYPE_IDENTIFIER
+Type_use: //annotations=Annotations 
+	name=QUALIFIED_TYPE_IDENTIFIER
 	(LT type_use+=Type_use (',' type_use+=Type_use)* GT)?
 ;
  
@@ -189,7 +190,8 @@ Param_list:{Param_list}'('(param_decl+=Param_decl(',' param_decl+=Param_decl)*)?
 ;
 
 //Param_declaration
-Param_decl:annotations=Annotation type_exp=Type_exp name=IDENTIFIER
+Param_decl://annotations=Annotation 
+	type_exp=Type_exp name=IDENTIFIER
 ;
 
 //Type Expression
@@ -198,7 +200,8 @@ Type_exp:name=QUALIFIED_TYPE_IDENTIFIER
 ;
 
 //Function Declaration
-Function_decl: annotations=Annotations 'def' type_use=Type_use name=IDENTIFIER
+Function_decl: //annotations=Annotations 
+'def' type_use=Type_use name=IDENTIFIER
 	(lt=LT importedNamespace+=TYPE_IDENTIFIER(',' importedNamespace+=TYPE_IDENTIFIER)* gt=GT)?
 	paramlist=Param_list '=' ('builtin'|pure_exp=Pure_exp)';'
 ;
@@ -210,12 +213,14 @@ Typesyn_decl:
 
 
 //Exception Declaration
-Exception_decl:annotations=Annotations 'exception' name=TYPE_IDENTIFIER
+Exception_decl://annotations=Annotations 
+'exception' name=TYPE_IDENTIFIER
 	('('type+=[Data_constructor_arg|IDENTIFIER](',' type+=[Data_constructor_arg|IDENTIFIER])*')')?';'
 ;
 
 //Interface Declaration
-Interface_decl:annotations=Annotations 'interface' name=TYPE_IDENTIFIER
+Interface_decl://annotations=Annotations 
+'interface' name=TYPE_IDENTIFIER
 	('extends' interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER]
 		(',' interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER])*)?
 	'{' methodsig+=Methodsig* '}'
@@ -225,14 +230,18 @@ Interface_decl:annotations=Annotations 'interface' name=TYPE_IDENTIFIER
 Interface_name: name=QUALIFIED_TYPE_IDENTIFIER	
 ;
 
-//Method Signature 
-Methodsig:annotations=Annotations type_use=Type_use 
+
+//Method Signature
+//Annotations is commented to avoid hanging problem.  
+Methodsig://annotations=Annotations 
+	type_use=Type_use 
 	name=IDENTIFIER paramlist=Param_list ';'
 ;
 
 
 //Class Declaration
-Class_decl:annotations=Annotations 'class' name=TYPE_IDENTIFIER paramlist=Param_list?
+Class_decl://annotations=Annotations 
+'class' name=TYPE_IDENTIFIER paramlist=Param_list?
 	('implements' interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER] 
 		(',' interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER])*)?
 	'{'
@@ -245,12 +254,13 @@ Class_decl:annotations=Annotations 'class' name=TYPE_IDENTIFIER paramlist=Param_
 ;
 
 // Field Declaration Error due to left recursion solve
-Field_decl:annotations=Annotations type_use=Type_use 
-	name=IDENTIFIER ('=' pure_exp=Pure_exp)?';'
+Field_decl://annotations=Annotations
+	 type_use=Type_use name=IDENTIFIER ('=' pure_exp=Pure_exp)?';'
 ;
 
 //Statements Declaration
-Stmt: stmt_annotations=Annotations (type_exp=Type_exp name=IDENTIFIER
+Stmt: {Stmt}//stmt_annotations=Annotations 
+	(type_exp=Type_exp name=IDENTIFIER
 	('=' exp=Exp)? ';'
 	|var_or_field_ref=Var_or_field_ref '=' exp=Exp ';'
 	|'skip' ';'
@@ -331,7 +341,7 @@ Trait_oper:
 
 //Method Declaration
 Method:
-	annotations=Annotations 
+	//annotations=Annotations 
 	type_use=Type_use
 	name=IDENTIFIER paramlist=Param_list '{'stmt+=Stmt*'}' 
 ;
@@ -642,7 +652,7 @@ terminal STR_ESC:
 	'\\'('\\'|'"')
 ;
 terminal STRINGLITERAL:
-	'"'(STR_ESC|NEGATION_CREOL('\\'|'"'|'\r'|'\n'))*'"'
+	'"' (STR_ESC|NEGATION_CREOL('\\'|'"'|'\r'|'\n'))* '"'
 ;
 
 // Identifier

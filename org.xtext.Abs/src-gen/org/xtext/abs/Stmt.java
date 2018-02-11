@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Stmt#getStmt_annotations <em>Stmt annotations</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getType_exp <em>Type exp</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getExp <em>Exp</em>}</li>
@@ -46,32 +45,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Stmt extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Stmt annotations</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Stmt annotations</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Stmt annotations</em>' containment reference.
-   * @see #setStmt_annotations(Annotations)
-   * @see org.xtext.abs.AbsPackage#getStmt_Stmt_annotations()
-   * @model containment="true"
-   * @generated
-   */
-  Annotations getStmt_annotations();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Stmt#getStmt_annotations <em>Stmt annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Stmt annotations</em>' containment reference.
-   * @see #getStmt_annotations()
-   * @generated
-   */
-  void setStmt_annotations(Annotations value);
-
   /**
    * Returns the value of the '<em><b>Type exp</b></em>' containment reference.
    * <!-- begin-user-doc -->

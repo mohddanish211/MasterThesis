@@ -73,6 +73,7 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
       case AbsPackage.DECL: return createDecl();
       case AbsPackage.PAR_FUNCTION_DECL: return createPar_function_decl();
       case AbsPackage.FUNCTION_NAME_LIST: return createFunction_name_list();
+      case AbsPackage.FUNCTION_NAME_DECL: return createFunction_name_decl();
       case AbsPackage.DATA_TYPE_DECL: return createDataType_decl();
       case AbsPackage.DATA_CONSTRUCTOR: return createData_constructor();
       case AbsPackage.DATA_CONSTRUCTOR_ARG: return createData_constructor_arg();
@@ -256,6 +257,17 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
   {
     Function_name_listImpl function_name_list = new Function_name_listImpl();
     return function_name_list;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Function_name_decl createFunction_name_decl()
+  {
+    Function_name_declImpl function_name_decl = new Function_name_declImpl();
+    return function_name_decl;
   }
 
   /**

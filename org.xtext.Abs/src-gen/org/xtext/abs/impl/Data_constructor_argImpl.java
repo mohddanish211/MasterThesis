@@ -24,6 +24,7 @@ import org.xtext.abs.Type_use;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.abs.impl.Data_constructor_argImpl#getType_use <em>Type use</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Data_constructor_argImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,6 +41,26 @@ public class Data_constructor_argImpl extends MinimalEObjectImpl.Container imple
    * @ordered
    */
   protected Type_use type_use;
+
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -115,6 +136,29 @@ public class Data_constructor_argImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DATA_CONSTRUCTOR_ARG__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -138,6 +182,8 @@ public class Data_constructor_argImpl extends MinimalEObjectImpl.Container imple
     {
       case AbsPackage.DATA_CONSTRUCTOR_ARG__TYPE_USE:
         return getType_use();
+      case AbsPackage.DATA_CONSTRUCTOR_ARG__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -154,6 +200,9 @@ public class Data_constructor_argImpl extends MinimalEObjectImpl.Container imple
     {
       case AbsPackage.DATA_CONSTRUCTOR_ARG__TYPE_USE:
         setType_use((Type_use)newValue);
+        return;
+      case AbsPackage.DATA_CONSTRUCTOR_ARG__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -172,6 +221,9 @@ public class Data_constructor_argImpl extends MinimalEObjectImpl.Container imple
       case AbsPackage.DATA_CONSTRUCTOR_ARG__TYPE_USE:
         setType_use((Type_use)null);
         return;
+      case AbsPackage.DATA_CONSTRUCTOR_ARG__NAME:
+        setName(NAME_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -188,8 +240,27 @@ public class Data_constructor_argImpl extends MinimalEObjectImpl.Container imple
     {
       case AbsPackage.DATA_CONSTRUCTOR_ARG__TYPE_USE:
         return type_use != null;
+      case AbsPackage.DATA_CONSTRUCTOR_ARG__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //Data_constructor_argImpl

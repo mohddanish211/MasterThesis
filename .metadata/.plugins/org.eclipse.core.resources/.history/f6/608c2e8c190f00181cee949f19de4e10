@@ -1,0 +1,7 @@
+package org.xtext.generator;
+
+import com.google.inject.Inject;
+
+public class Test{
+	@Inject IReferenceFinder referenceFinder;
+}

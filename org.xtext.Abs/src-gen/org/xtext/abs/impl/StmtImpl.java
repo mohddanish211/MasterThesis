@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.Casestmtbranch;
 import org.xtext.abs.Exp;
 import org.xtext.abs.Guard;
@@ -36,7 +35,6 @@ import org.xtext.abs.Var_or_field_ref;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.StmtImpl#getStmt_annotations <em>Stmt annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getType_exp <em>Type exp</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getExp <em>Exp</em>}</li>
@@ -65,16 +63,6 @@ import org.xtext.abs.Var_or_field_ref;
  */
 public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
 {
-  /**
-   * The cached value of the '{@link #getStmt_annotations() <em>Stmt annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStmt_annotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations stmt_annotations;
-
   /**
    * The cached value of the '{@link #getType_exp() <em>Type exp</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -324,54 +312,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.STMT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Annotations getStmt_annotations()
-  {
-    return stmt_annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetStmt_annotations(Annotations newStmt_annotations, NotificationChain msgs)
-  {
-    Annotations oldStmt_annotations = stmt_annotations;
-    stmt_annotations = newStmt_annotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__STMT_ANNOTATIONS, oldStmt_annotations, newStmt_annotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStmt_annotations(Annotations newStmt_annotations)
-  {
-    if (newStmt_annotations != stmt_annotations)
-    {
-      NotificationChain msgs = null;
-      if (stmt_annotations != null)
-        msgs = ((InternalEObject)stmt_annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__STMT_ANNOTATIONS, null, msgs);
-      if (newStmt_annotations != null)
-        msgs = ((InternalEObject)newStmt_annotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__STMT_ANNOTATIONS, null, msgs);
-      msgs = basicSetStmt_annotations(newStmt_annotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__STMT_ANNOTATIONS, newStmt_annotations, newStmt_annotations));
   }
 
   /**
@@ -1274,8 +1214,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
   {
     switch (featureID)
     {
-      case AbsPackage.STMT__STMT_ANNOTATIONS:
-        return basicSetStmt_annotations(null, msgs);
       case AbsPackage.STMT__TYPE_EXP:
         return basicSetType_exp(null, msgs);
       case AbsPackage.STMT__EXP:
@@ -1328,8 +1266,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
   {
     switch (featureID)
     {
-      case AbsPackage.STMT__STMT_ANNOTATIONS:
-        return getStmt_annotations();
       case AbsPackage.STMT__TYPE_EXP:
         return getType_exp();
       case AbsPackage.STMT__NAME:
@@ -1387,9 +1323,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
   {
     switch (featureID)
     {
-      case AbsPackage.STMT__STMT_ANNOTATIONS:
-        setStmt_annotations((Annotations)newValue);
-        return;
       case AbsPackage.STMT__TYPE_EXP:
         setType_exp((Type_exp)newValue);
         return;
@@ -1469,9 +1402,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
   {
     switch (featureID)
     {
-      case AbsPackage.STMT__STMT_ANNOTATIONS:
-        setStmt_annotations((Annotations)null);
-        return;
       case AbsPackage.STMT__TYPE_EXP:
         setType_exp((Type_exp)null);
         return;
@@ -1549,8 +1479,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
   {
     switch (featureID)
     {
-      case AbsPackage.STMT__STMT_ANNOTATIONS:
-        return stmt_annotations != null;
       case AbsPackage.STMT__TYPE_EXP:
         return type_exp != null;
       case AbsPackage.STMT__NAME:

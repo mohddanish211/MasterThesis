@@ -5,15 +5,20 @@ package org.xtext.abs.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
+import org.xtext.abs.Function_name_decl;
 import org.xtext.abs.Function_name_list;
 
 /**
@@ -32,14 +37,14 @@ import org.xtext.abs.Function_name_list;
 public class Function_name_listImpl extends MinimalEObjectImpl.Container implements Function_name_list
 {
   /**
-   * The cached value of the '{@link #getFunction_name_decl() <em>Function name decl</em>}' attribute list.
+   * The cached value of the '{@link #getFunction_name_decl() <em>Function name decl</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFunction_name_decl()
    * @generated
    * @ordered
    */
-  protected EList<String> function_name_decl;
+  protected EList<Function_name_decl> function_name_decl;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,13 +72,29 @@ public class Function_name_listImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getFunction_name_decl()
+  public EList<Function_name_decl> getFunction_name_decl()
   {
     if (function_name_decl == null)
     {
-      function_name_decl = new EDataTypeEList<String>(String.class, this, AbsPackage.FUNCTION_NAME_LIST__FUNCTION_NAME_DECL);
+      function_name_decl = new EObjectContainmentEList<Function_name_decl>(Function_name_decl.class, this, AbsPackage.FUNCTION_NAME_LIST__FUNCTION_NAME_DECL);
     }
     return function_name_decl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case AbsPackage.FUNCTION_NAME_LIST__FUNCTION_NAME_DECL:
+        return ((InternalEList<?>)getFunction_name_decl()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -105,7 +126,7 @@ public class Function_name_listImpl extends MinimalEObjectImpl.Container impleme
     {
       case AbsPackage.FUNCTION_NAME_LIST__FUNCTION_NAME_DECL:
         getFunction_name_decl().clear();
-        getFunction_name_decl().addAll((Collection<? extends String>)newValue);
+        getFunction_name_decl().addAll((Collection<? extends Function_name_decl>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,23 +163,6 @@ public class Function_name_listImpl extends MinimalEObjectImpl.Container impleme
         return function_name_decl != null && !function_name_decl.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (function_name_decl: ");
-    result.append(function_name_decl);
-    result.append(')');
-    return result.toString();
   }
 
 } //Function_name_listImpl

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAbsLexer extends Lexer {
     public static final int T__50=50;
-    public static final int RULE_GT=9;
+    public static final int RULE_GT=8;
     public static final int T__59=59;
     public static final int RULE_SMALLLETTER=29;
     public static final int T__55=55;
@@ -26,12 +26,12 @@ public class InternalAbsLexer extends Lexer {
     public static final int T__54=54;
     public static final int T__60=60;
     public static final int T__61=61;
-    public static final int RULE_MOD=16;
-    public static final int RULE_EQUIV=21;
+    public static final int RULE_MOD=15;
+    public static final int RULE_EQUIV=20;
     public static final int RULE_CAPITALLETTER=30;
-    public static final int RULE_ANDAND=23;
+    public static final int RULE_ANDAND=22;
     public static final int RULE_DIGIT=31;
-    public static final int RULE_NOTEQ=7;
+    public static final int RULE_NOTEQ=6;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=25;
     public static final int T__67=67;
@@ -41,7 +41,7 @@ public class InternalAbsLexer extends Lexer {
     public static final int T__63=63;
     public static final int T__64=64;
     public static final int T__65=65;
-    public static final int RULE_OROR=22;
+    public static final int RULE_OROR=21;
     public static final int T__37=37;
     public static final int T__38=38;
     public static final int T__39=39;
@@ -50,8 +50,8 @@ public class InternalAbsLexer extends Lexer {
     public static final int T__35=35;
     public static final int T__36=36;
     public static final int T__32=32;
-    public static final int RULE_IMPLIES=20;
-    public static final int RULE_TYPE_IDENTIFIER=5;
+    public static final int RULE_IMPLIES=19;
+    public static final int RULE_TYPE_IDENTIFIER=4;
     public static final int T__48=48;
     public static final int T__49=49;
     public static final int T__44=44;
@@ -71,29 +71,29 @@ public class InternalAbsLexer extends Lexer {
     public static final int T__101=101;
     public static final int T__90=90;
     public static final int RULE_STRINGLITERAL=24;
-    public static final int RULE_DIV=15;
+    public static final int RULE_DIV=14;
     public static final int T__99=99;
-    public static final int RULE_EQEQ=6;
+    public static final int RULE_EQEQ=5;
     public static final int T__95=95;
     public static final int T__96=96;
     public static final int T__97=97;
     public static final int T__98=98;
-    public static final int RULE_GTEQ=11;
-    public static final int RULE_LT=8;
-    public static final int RULE_LTEQ=10;
-    public static final int RULE_MULT=14;
+    public static final int RULE_GTEQ=10;
+    public static final int RULE_LT=7;
+    public static final int RULE_LTEQ=9;
+    public static final int RULE_MULT=13;
     public static final int RULE_STR_ESC=28;
     public static final int T__70=70;
     public static final int T__71=71;
     public static final int T__72=72;
-    public static final int RULE_NEGATION_CREOL=18;
-    public static final int RULE_IDENTIFIER=4;
+    public static final int RULE_NEGATION_CREOL=17;
+    public static final int RULE_IDENTIFIER=23;
     public static final int RULE_SL_COMMENT=26;
     public static final int T__77=77;
     public static final int T__78=78;
     public static final int T__118=118;
     public static final int T__79=79;
-    public static final int RULE_PLUS=12;
+    public static final int RULE_PLUS=11;
     public static final int T__73=73;
     public static final int T__115=115;
     public static final int EOF=-1;
@@ -101,7 +101,7 @@ public class InternalAbsLexer extends Lexer {
     public static final int T__114=114;
     public static final int T__75=75;
     public static final int T__117=117;
-    public static final int RULE_NEGATION=17;
+    public static final int RULE_NEGATION=16;
     public static final int T__76=76;
     public static final int T__116=116;
     public static final int T__80=80;
@@ -113,8 +113,8 @@ public class InternalAbsLexer extends Lexer {
     public static final int T__83=83;
     public static final int T__112=112;
     public static final int RULE_WS=27;
-    public static final int RULE_INTLITERAL=19;
-    public static final int RULE_MINUS=13;
+    public static final int RULE_INTLITERAL=18;
+    public static final int RULE_MINUS=12;
     public static final int T__88=88;
     public static final int T__108=108;
     public static final int T__89=89;
@@ -1958,12 +1958,12 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32591:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalAbs.g:32591:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalAbs.g:32228:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalAbs.g:32228:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalAbs.g:32591:24: ( options {greedy=false; } : . )*
+            // InternalAbs.g:32228:24: ( options {greedy=false; } : . )*
             loop1:
             do {
                 int alt1=2;
@@ -1988,7 +1988,7 @@ public class InternalAbsLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalAbs.g:32591:52: .
+            	    // InternalAbs.g:32228:52: .
             	    {
             	    matchAny(); 
 
@@ -2018,12 +2018,12 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32593:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalAbs.g:32593:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalAbs.g:32230:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalAbs.g:32230:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalAbs.g:32593:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalAbs.g:32230:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop2:
             do {
                 int alt2=2;
@@ -2036,7 +2036,7 @@ public class InternalAbsLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalAbs.g:32593:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalAbs.g:32230:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2056,7 +2056,7 @@ public class InternalAbsLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalAbs.g:32593:40: ( ( '\\r' )? '\\n' )?
+            // InternalAbs.g:32230:40: ( ( '\\r' )? '\\n' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2065,9 +2065,9 @@ public class InternalAbsLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalAbs.g:32593:41: ( '\\r' )? '\\n'
+                    // InternalAbs.g:32230:41: ( '\\r' )? '\\n'
                     {
-                    // InternalAbs.g:32593:41: ( '\\r' )?
+                    // InternalAbs.g:32230:41: ( '\\r' )?
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -2076,7 +2076,7 @@ public class InternalAbsLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // InternalAbs.g:32593:41: '\\r'
+                            // InternalAbs.g:32230:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2108,10 +2108,10 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32595:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalAbs.g:32595:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAbs.g:32232:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalAbs.g:32232:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalAbs.g:32595:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAbs.g:32232:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt5=0;
             loop5:
             do {
@@ -2163,8 +2163,8 @@ public class InternalAbsLexer extends Lexer {
     // $ANTLR start "RULE_STR_ESC"
     public final void mRULE_STR_ESC() throws RecognitionException {
         try {
-            // InternalAbs.g:32597:23: ( '\\\\' ( '\\\\' | '\"' ) )
-            // InternalAbs.g:32597:25: '\\\\' ( '\\\\' | '\"' )
+            // InternalAbs.g:32234:23: ( '\\\\' ( '\\\\' | '\"' ) )
+            // InternalAbs.g:32234:25: '\\\\' ( '\\\\' | '\"' )
             {
             match('\\'); 
             if ( input.LA(1)=='\"'||input.LA(1)=='\\' ) {
@@ -2190,11 +2190,11 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_STRINGLITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32599:20: ( '\"' ( RULE_STR_ESC | RULE_NEGATION_CREOL ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"' )
-            // InternalAbs.g:32599:22: '\"' ( RULE_STR_ESC | RULE_NEGATION_CREOL ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"'
+            // InternalAbs.g:32236:20: ( '\"' ( RULE_STR_ESC | RULE_NEGATION_CREOL ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"' )
+            // InternalAbs.g:32236:22: '\"' ( RULE_STR_ESC | RULE_NEGATION_CREOL ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"'
             {
             match('\"'); 
-            // InternalAbs.g:32599:26: ( RULE_STR_ESC | RULE_NEGATION_CREOL ( '\\\\' | '\"' | '\\r' | '\\n' ) )*
+            // InternalAbs.g:32236:26: ( RULE_STR_ESC | RULE_NEGATION_CREOL ( '\\\\' | '\"' | '\\r' | '\\n' ) )*
             loop6:
             do {
                 int alt6=3;
@@ -2210,14 +2210,14 @@ public class InternalAbsLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalAbs.g:32599:27: RULE_STR_ESC
+            	    // InternalAbs.g:32236:27: RULE_STR_ESC
             	    {
             	    mRULE_STR_ESC(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // InternalAbs.g:32599:40: RULE_NEGATION_CREOL ( '\\\\' | '\"' | '\\r' | '\\n' )
+            	    // InternalAbs.g:32236:40: RULE_NEGATION_CREOL ( '\\\\' | '\"' | '\\r' | '\\n' )
             	    {
             	    mRULE_NEGATION_CREOL(); 
             	    if ( input.LA(1)=='\n'||input.LA(1)=='\r'||input.LA(1)=='\"'||input.LA(1)=='\\' ) {
@@ -2253,8 +2253,8 @@ public class InternalAbsLexer extends Lexer {
     // $ANTLR start "RULE_SMALLLETTER"
     public final void mRULE_SMALLLETTER() throws RecognitionException {
         try {
-            // InternalAbs.g:32601:27: ( 'a' .. 'z' )
-            // InternalAbs.g:32601:29: 'a' .. 'z'
+            // InternalAbs.g:32238:27: ( 'a' .. 'z' )
+            // InternalAbs.g:32238:29: 'a' .. 'z'
             {
             matchRange('a','z'); 
 
@@ -2269,8 +2269,8 @@ public class InternalAbsLexer extends Lexer {
     // $ANTLR start "RULE_CAPITALLETTER"
     public final void mRULE_CAPITALLETTER() throws RecognitionException {
         try {
-            // InternalAbs.g:32603:29: ( 'A' .. 'Z' )
-            // InternalAbs.g:32603:31: 'A' .. 'Z'
+            // InternalAbs.g:32240:29: ( 'A' .. 'Z' )
+            // InternalAbs.g:32240:31: 'A' .. 'Z'
             {
             matchRange('A','Z'); 
 
@@ -2285,8 +2285,8 @@ public class InternalAbsLexer extends Lexer {
     // $ANTLR start "RULE_DIGIT"
     public final void mRULE_DIGIT() throws RecognitionException {
         try {
-            // InternalAbs.g:32605:21: ( '0' .. '9' )
-            // InternalAbs.g:32605:23: '0' .. '9'
+            // InternalAbs.g:32242:21: ( '0' .. '9' )
+            // InternalAbs.g:32242:23: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -2303,11 +2303,11 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_INTLITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32607:17: ( RULE_DIGIT ( RULE_DIGIT )* )
-            // InternalAbs.g:32607:19: RULE_DIGIT ( RULE_DIGIT )*
+            // InternalAbs.g:32244:17: ( RULE_DIGIT ( RULE_DIGIT )* )
+            // InternalAbs.g:32244:19: RULE_DIGIT ( RULE_DIGIT )*
             {
             mRULE_DIGIT(); 
-            // InternalAbs.g:32607:30: ( RULE_DIGIT )*
+            // InternalAbs.g:32244:30: ( RULE_DIGIT )*
             loop7:
             do {
                 int alt7=2;
@@ -2320,7 +2320,7 @@ public class InternalAbsLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalAbs.g:32607:30: RULE_DIGIT
+            	    // InternalAbs.g:32244:30: RULE_DIGIT
             	    {
             	    mRULE_DIGIT(); 
 
@@ -2348,11 +2348,11 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_IDENTIFIER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32609:17: ( RULE_SMALLLETTER ( RULE_SMALLLETTER | '_' | RULE_DIGIT )* )
-            // InternalAbs.g:32609:19: RULE_SMALLLETTER ( RULE_SMALLLETTER | '_' | RULE_DIGIT )*
+            // InternalAbs.g:32246:17: ( RULE_SMALLLETTER ( RULE_SMALLLETTER | '_' | RULE_DIGIT )* )
+            // InternalAbs.g:32246:19: RULE_SMALLLETTER ( RULE_SMALLLETTER | '_' | RULE_DIGIT )*
             {
             mRULE_SMALLLETTER(); 
-            // InternalAbs.g:32609:36: ( RULE_SMALLLETTER | '_' | RULE_DIGIT )*
+            // InternalAbs.g:32246:36: ( RULE_SMALLLETTER | '_' | RULE_DIGIT )*
             loop8:
             do {
                 int alt8=2;
@@ -2401,11 +2401,11 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_TYPE_IDENTIFIER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32611:22: ( RULE_CAPITALLETTER ( RULE_SMALLLETTER | '_' | RULE_DIGIT )* )
-            // InternalAbs.g:32611:24: RULE_CAPITALLETTER ( RULE_SMALLLETTER | '_' | RULE_DIGIT )*
+            // InternalAbs.g:32248:22: ( RULE_CAPITALLETTER ( RULE_SMALLLETTER | '_' | RULE_DIGIT )* )
+            // InternalAbs.g:32248:24: RULE_CAPITALLETTER ( RULE_SMALLLETTER | '_' | RULE_DIGIT )*
             {
             mRULE_CAPITALLETTER(); 
-            // InternalAbs.g:32611:43: ( RULE_SMALLLETTER | '_' | RULE_DIGIT )*
+            // InternalAbs.g:32248:43: ( RULE_SMALLLETTER | '_' | RULE_DIGIT )*
             loop9:
             do {
                 int alt9=2;
@@ -2454,8 +2454,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_NEGATION_CREOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32613:21: ( '~' )
-            // InternalAbs.g:32613:23: '~'
+            // InternalAbs.g:32250:21: ( '~' )
+            // InternalAbs.g:32250:23: '~'
             {
             match('~'); 
 
@@ -2474,8 +2474,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_NEGATION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32615:15: ( '!' )
-            // InternalAbs.g:32615:17: '!'
+            // InternalAbs.g:32252:15: ( '!' )
+            // InternalAbs.g:32252:17: '!'
             {
             match('!'); 
 
@@ -2494,8 +2494,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32617:12: ( '-' )
-            // InternalAbs.g:32617:14: '-'
+            // InternalAbs.g:32254:12: ( '-' )
+            // InternalAbs.g:32254:14: '-'
             {
             match('-'); 
 
@@ -2514,8 +2514,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_MULT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32619:11: ( '*' )
-            // InternalAbs.g:32619:13: '*'
+            // InternalAbs.g:32256:11: ( '*' )
+            // InternalAbs.g:32256:13: '*'
             {
             match('*'); 
 
@@ -2534,8 +2534,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32621:10: ( '/' )
-            // InternalAbs.g:32621:12: '/'
+            // InternalAbs.g:32258:10: ( '/' )
+            // InternalAbs.g:32258:12: '/'
             {
             match('/'); 
 
@@ -2554,8 +2554,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_MOD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32623:10: ( '%' )
-            // InternalAbs.g:32623:12: '%'
+            // InternalAbs.g:32260:10: ( '%' )
+            // InternalAbs.g:32260:12: '%'
             {
             match('%'); 
 
@@ -2574,8 +2574,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32625:11: ( '+' )
-            // InternalAbs.g:32625:13: '+'
+            // InternalAbs.g:32262:11: ( '+' )
+            // InternalAbs.g:32262:13: '+'
             {
             match('+'); 
 
@@ -2594,8 +2594,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_LTEQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32627:11: ( '<=' )
-            // InternalAbs.g:32627:13: '<='
+            // InternalAbs.g:32264:11: ( '<=' )
+            // InternalAbs.g:32264:13: '<='
             {
             match("<="); 
 
@@ -2615,8 +2615,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_GTEQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32629:11: ( '>=' )
-            // InternalAbs.g:32629:13: '>='
+            // InternalAbs.g:32266:11: ( '>=' )
+            // InternalAbs.g:32266:13: '>='
             {
             match(">="); 
 
@@ -2636,8 +2636,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32631:9: ( '<' )
-            // InternalAbs.g:32631:11: '<'
+            // InternalAbs.g:32268:9: ( '<' )
+            // InternalAbs.g:32268:11: '<'
             {
             match('<'); 
 
@@ -2656,8 +2656,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32633:9: ( '>' )
-            // InternalAbs.g:32633:11: '>'
+            // InternalAbs.g:32270:9: ( '>' )
+            // InternalAbs.g:32270:11: '>'
             {
             match('>'); 
 
@@ -2676,8 +2676,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_ANDAND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32635:13: ( '&&' )
-            // InternalAbs.g:32635:15: '&&'
+            // InternalAbs.g:32272:13: ( '&&' )
+            // InternalAbs.g:32272:15: '&&'
             {
             match("&&"); 
 
@@ -2697,8 +2697,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_OROR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32637:11: ( '||' )
-            // InternalAbs.g:32637:13: '||'
+            // InternalAbs.g:32274:11: ( '||' )
+            // InternalAbs.g:32274:13: '||'
             {
             match("||"); 
 
@@ -2718,8 +2718,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_EQEQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32639:11: ( '==' )
-            // InternalAbs.g:32639:13: '=='
+            // InternalAbs.g:32276:11: ( '==' )
+            // InternalAbs.g:32276:13: '=='
             {
             match("=="); 
 
@@ -2739,8 +2739,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_NOTEQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32641:12: ( '!=' )
-            // InternalAbs.g:32641:14: '!='
+            // InternalAbs.g:32278:12: ( '!=' )
+            // InternalAbs.g:32278:14: '!='
             {
             match("!="); 
 
@@ -2760,8 +2760,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_IMPLIES;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32643:14: ( '->' )
-            // InternalAbs.g:32643:16: '->'
+            // InternalAbs.g:32280:14: ( '->' )
+            // InternalAbs.g:32280:16: '->'
             {
             match("->"); 
 
@@ -2781,8 +2781,8 @@ public class InternalAbsLexer extends Lexer {
         try {
             int _type = RULE_EQUIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAbs.g:32645:12: ( '<->' )
-            // InternalAbs.g:32645:14: '<->'
+            // InternalAbs.g:32282:12: ( '<->' )
+            // InternalAbs.g:32282:14: '<->'
             {
             match("<->"); 
 

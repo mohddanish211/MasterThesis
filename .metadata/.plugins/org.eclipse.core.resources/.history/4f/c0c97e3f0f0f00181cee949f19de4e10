@@ -1,0 +1,39 @@
+package org.xtext.generator;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.findReferences.IReferenceFinder;
+import org.eclipse.xtext.findReferences.IReferenceFinder.Acceptor;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.resource.IFragmentProvider;
+
+import com.google.inject.Inject;
+import com.ibm.icu.util.BytesTrie.Iterator;
+
+public class Test implements IFragmentProvider {
+	 
+	  @Inject
+	  private IQualifiedNameProvider qualifiedNameProvider;
+	 
+	  public String getFragment(EObject obj, Fallback fallback) {
+	    String qName = qualifiedNameProvider.getFullyQualifiedName(obj);
+	    return qName != null ? qName : fallback.getFragment(obj);
+	  }
+	 
+	  public EObject getEObject(Resource resource,
+	                            String fragment,
+	                            Fallback fallback) {
+	    if (fragment != null) {
+	      Iterator<EObject> i = EcoreUtil.getAllContents(resource, false);
+	      while(i.hasNext()) {
+	        EObject eObject = i.next();
+	        String candidateFragment = (eObject.eIsProxy())? ((InternalEObject) eObject).eProxyURI().fragment()
+	            : getFragment(eObject, fallback);
+	        if (fragment.equals(candidateFragment))
+	          return eObject;
+	      }
+	    }
+	    return fallback.getEObject(fragment);
+	  }
+	}

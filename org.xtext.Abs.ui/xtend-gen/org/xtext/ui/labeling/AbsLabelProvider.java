@@ -5,7 +5,10 @@ package org.xtext.ui.labeling;
 
 import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.xtext.abs.Delta_decl;
+import org.xtext.abs.Feature_decl;
 import org.xtext.abs.Productline_decl;
 import org.xtext.generator.AbsGenerator;
 
@@ -15,7 +18,7 @@ import org.xtext.generator.AbsGenerator;
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
 @SuppressWarnings("all")
-public class AbsLabelProvider extends DefaultEObjectLabelProvider {
+public class AbsLabelProvider extends DefaultEObjectLabelProvider implements DelegatingStyledCellLabelProvider.IStyledLabelProvider {
   @Inject
   private AbsGenerator generator;
   
@@ -29,5 +32,13 @@ public class AbsLabelProvider extends DefaultEObjectLabelProvider {
     String _plus = ("A greeting to " + _name);
     StringBuffer _compile = this.generator.compile(ele);
     return (_plus + _compile);
+  }
+  
+  public String text(final Delta_decl ele) {
+    return this.generator.compile(ele);
+  }
+  
+  public String text(final Feature_decl ele) {
+    return "gjhghg";
   }
 }

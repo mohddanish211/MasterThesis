@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.Type_use;
 
 /**
@@ -30,7 +29,6 @@ import org.xtext.abs.Type_use;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Type_useImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Type_useImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Type_useImpl#getType_use <em>Type use</em>}</li>
  * </ul>
@@ -40,16 +38,6 @@ import org.xtext.abs.Type_use;
  */
 public class Type_useImpl extends MinimalEObjectImpl.Container implements Type_use
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations annotations;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -106,54 +94,6 @@ public class Type_useImpl extends MinimalEObjectImpl.Container implements Type_u
    * <!-- end-user-doc -->
    * @generated
    */
-  public Annotations getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
-  {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.TYPE_USE__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotations newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TYPE_USE__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TYPE_USE__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TYPE_USE__ANNOTATIONS, newAnnotations, newAnnotations));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -196,8 +136,6 @@ public class Type_useImpl extends MinimalEObjectImpl.Container implements Type_u
   {
     switch (featureID)
     {
-      case AbsPackage.TYPE_USE__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
       case AbsPackage.TYPE_USE__TYPE_USE:
         return ((InternalEList<?>)getType_use()).basicRemove(otherEnd, msgs);
     }
@@ -214,8 +152,6 @@ public class Type_useImpl extends MinimalEObjectImpl.Container implements Type_u
   {
     switch (featureID)
     {
-      case AbsPackage.TYPE_USE__ANNOTATIONS:
-        return getAnnotations();
       case AbsPackage.TYPE_USE__NAME:
         return getName();
       case AbsPackage.TYPE_USE__TYPE_USE:
@@ -235,9 +171,6 @@ public class Type_useImpl extends MinimalEObjectImpl.Container implements Type_u
   {
     switch (featureID)
     {
-      case AbsPackage.TYPE_USE__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
-        return;
       case AbsPackage.TYPE_USE__NAME:
         setName((String)newValue);
         return;
@@ -259,9 +192,6 @@ public class Type_useImpl extends MinimalEObjectImpl.Container implements Type_u
   {
     switch (featureID)
     {
-      case AbsPackage.TYPE_USE__ANNOTATIONS:
-        setAnnotations((Annotations)null);
-        return;
       case AbsPackage.TYPE_USE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -282,8 +212,6 @@ public class Type_useImpl extends MinimalEObjectImpl.Container implements Type_u
   {
     switch (featureID)
     {
-      case AbsPackage.TYPE_USE__ANNOTATIONS:
-        return annotations != null;
       case AbsPackage.TYPE_USE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.TYPE_USE__TYPE_USE:
