@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Eff_expr;
 import org.xtext.abs.Exp;
 import org.xtext.abs.Pure_exp;
+import org.xtext.abs.Pure_exp_list;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +24,7 @@ import org.xtext.abs.Pure_exp;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.ExpImpl#getEff_expr <em>Eff expr</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.ExpImpl#getPure_exp_list <em>Pure exp list</em>}</li>
  *   <li>{@link org.xtext.abs.impl.ExpImpl#getPure_exp <em>Pure exp</em>}</li>
  * </ul>
  * </p>
@@ -34,14 +34,14 @@ import org.xtext.abs.Pure_exp;
 public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
 {
   /**
-   * The cached value of the '{@link #getEff_expr() <em>Eff expr</em>}' containment reference.
+   * The cached value of the '{@link #getPure_exp_list() <em>Pure exp list</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEff_expr()
+   * @see #getPure_exp_list()
    * @generated
    * @ordered
    */
-  protected Eff_expr eff_expr;
+  protected Pure_exp_list pure_exp_list;
 
   /**
    * The cached value of the '{@link #getPure_exp() <em>Pure exp</em>}' containment reference.
@@ -79,9 +79,9 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Eff_expr getEff_expr()
+  public Pure_exp_list getPure_exp_list()
   {
-    return eff_expr;
+    return pure_exp_list;
   }
 
   /**
@@ -89,13 +89,13 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetEff_expr(Eff_expr newEff_expr, NotificationChain msgs)
+  public NotificationChain basicSetPure_exp_list(Pure_exp_list newPure_exp_list, NotificationChain msgs)
   {
-    Eff_expr oldEff_expr = eff_expr;
-    eff_expr = newEff_expr;
+    Pure_exp_list oldPure_exp_list = pure_exp_list;
+    pure_exp_list = newPure_exp_list;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.EXP__EFF_EXPR, oldEff_expr, newEff_expr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.EXP__PURE_EXP_LIST, oldPure_exp_list, newPure_exp_list);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -106,20 +106,20 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEff_expr(Eff_expr newEff_expr)
+  public void setPure_exp_list(Pure_exp_list newPure_exp_list)
   {
-    if (newEff_expr != eff_expr)
+    if (newPure_exp_list != pure_exp_list)
     {
       NotificationChain msgs = null;
-      if (eff_expr != null)
-        msgs = ((InternalEObject)eff_expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EXP__EFF_EXPR, null, msgs);
-      if (newEff_expr != null)
-        msgs = ((InternalEObject)newEff_expr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EXP__EFF_EXPR, null, msgs);
-      msgs = basicSetEff_expr(newEff_expr, msgs);
+      if (pure_exp_list != null)
+        msgs = ((InternalEObject)pure_exp_list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EXP__PURE_EXP_LIST, null, msgs);
+      if (newPure_exp_list != null)
+        msgs = ((InternalEObject)newPure_exp_list).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EXP__PURE_EXP_LIST, null, msgs);
+      msgs = basicSetPure_exp_list(newPure_exp_list, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EXP__EFF_EXPR, newEff_expr, newEff_expr));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EXP__PURE_EXP_LIST, newPure_exp_list, newPure_exp_list));
   }
 
   /**
@@ -180,8 +180,8 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
-      case AbsPackage.EXP__EFF_EXPR:
-        return basicSetEff_expr(null, msgs);
+      case AbsPackage.EXP__PURE_EXP_LIST:
+        return basicSetPure_exp_list(null, msgs);
       case AbsPackage.EXP__PURE_EXP:
         return basicSetPure_exp(null, msgs);
     }
@@ -198,8 +198,8 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
-      case AbsPackage.EXP__EFF_EXPR:
-        return getEff_expr();
+      case AbsPackage.EXP__PURE_EXP_LIST:
+        return getPure_exp_list();
       case AbsPackage.EXP__PURE_EXP:
         return getPure_exp();
     }
@@ -216,8 +216,8 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
-      case AbsPackage.EXP__EFF_EXPR:
-        setEff_expr((Eff_expr)newValue);
+      case AbsPackage.EXP__PURE_EXP_LIST:
+        setPure_exp_list((Pure_exp_list)newValue);
         return;
       case AbsPackage.EXP__PURE_EXP:
         setPure_exp((Pure_exp)newValue);
@@ -236,8 +236,8 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
-      case AbsPackage.EXP__EFF_EXPR:
-        setEff_expr((Eff_expr)null);
+      case AbsPackage.EXP__PURE_EXP_LIST:
+        setPure_exp_list((Pure_exp_list)null);
         return;
       case AbsPackage.EXP__PURE_EXP:
         setPure_exp((Pure_exp)null);
@@ -256,8 +256,8 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
-      case AbsPackage.EXP__EFF_EXPR:
-        return eff_expr != null;
+      case AbsPackage.EXP__PURE_EXP_LIST:
+        return pure_exp_list != null;
       case AbsPackage.EXP__PURE_EXP:
         return pure_exp != null;
     }

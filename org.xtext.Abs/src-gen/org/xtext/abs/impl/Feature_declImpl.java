@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -41,7 +40,7 @@ import org.xtext.abs.Feature_decl_group;
  *
  * @generated
  */
-public class Feature_declImpl extends MinimalEObjectImpl.Container implements Feature_decl
+public class Feature_declImpl extends FnodeImpl implements Feature_decl
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

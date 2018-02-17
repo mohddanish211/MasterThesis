@@ -1,9 +1,0 @@
-aspect ActiveClasses {
-
-    // TODO: check for no arguments as well?
-    syn boolean ClassDecl.isActiveClass() = lookupMethod("run") != null;
-
-}
-// Local Variables:
-// mode: java
-// End:

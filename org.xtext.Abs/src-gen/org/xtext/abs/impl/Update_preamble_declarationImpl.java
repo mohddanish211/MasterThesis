@@ -3,17 +3,11 @@
  */
 package org.xtext.abs.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Type_exp;
 import org.xtext.abs.Update_preamble_declaration;
 
 /**
@@ -21,26 +15,12 @@ import org.xtext.abs.Update_preamble_declaration;
  * An implementation of the model object '<em><b>Update preamble declaration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are implemented:
- * <ul>
- *   <li>{@link org.xtext.abs.impl.Update_preamble_declarationImpl#getType_exp <em>Type exp</em>}</li>
- * </ul>
  * </p>
  *
  * @generated
  */
 public class Update_preamble_declarationImpl extends MinimalEObjectImpl.Container implements Update_preamble_declaration
 {
-  /**
-   * The cached value of the '{@link #getType_exp() <em>Type exp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType_exp()
-   * @generated
-   * @ordered
-   */
-  protected Type_exp type_exp;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -60,136 +40,6 @@ public class Update_preamble_declarationImpl extends MinimalEObjectImpl.Containe
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.UPDATE_PREAMBLE_DECLARATION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Type_exp getType_exp()
-  {
-    return type_exp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetType_exp(Type_exp newType_exp, NotificationChain msgs)
-  {
-    Type_exp oldType_exp = type_exp;
-    type_exp = newType_exp;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.UPDATE_PREAMBLE_DECLARATION__TYPE_EXP, oldType_exp, newType_exp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType_exp(Type_exp newType_exp)
-  {
-    if (newType_exp != type_exp)
-    {
-      NotificationChain msgs = null;
-      if (type_exp != null)
-        msgs = ((InternalEObject)type_exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.UPDATE_PREAMBLE_DECLARATION__TYPE_EXP, null, msgs);
-      if (newType_exp != null)
-        msgs = ((InternalEObject)newType_exp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.UPDATE_PREAMBLE_DECLARATION__TYPE_EXP, null, msgs);
-      msgs = basicSetType_exp(newType_exp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.UPDATE_PREAMBLE_DECLARATION__TYPE_EXP, newType_exp, newType_exp));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.UPDATE_PREAMBLE_DECLARATION__TYPE_EXP:
-        return basicSetType_exp(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.UPDATE_PREAMBLE_DECLARATION__TYPE_EXP:
-        return getType_exp();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.UPDATE_PREAMBLE_DECLARATION__TYPE_EXP:
-        setType_exp((Type_exp)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.UPDATE_PREAMBLE_DECLARATION__TYPE_EXP:
-        setType_exp((Type_exp)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.UPDATE_PREAMBLE_DECLARATION__TYPE_EXP:
-        return type_exp != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //Update_preamble_declarationImpl

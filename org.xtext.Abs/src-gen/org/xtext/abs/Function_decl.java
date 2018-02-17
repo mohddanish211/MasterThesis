@@ -5,8 +5,6 @@ package org.xtext.abs;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Function decl</b></em>'.
@@ -16,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.abs.Function_decl#getType_use <em>Type use</em>}</li>
- *   <li>{@link org.xtext.abs.Function_decl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.Function_decl#getLt <em>Lt</em>}</li>
  *   <li>{@link org.xtext.abs.Function_decl#getImportedNamespace <em>Imported Namespace</em>}</li>
  *   <li>{@link org.xtext.abs.Function_decl#getGt <em>Gt</em>}</li>
@@ -29,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Function_decl extends EObject
+public interface Function_decl extends Decl, Functional_modifier
 {
   /**
    * Returns the value of the '<em><b>Type use</b></em>' containment reference.
@@ -56,32 +53,6 @@ public interface Function_decl extends EObject
    * @generated
    */
   void setType_use(Type_use value);
-
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.abs.AbsPackage#getFunction_decl_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Function_decl#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Lt</b></em>' attribute.

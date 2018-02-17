@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Class_decl" key="selection"/>
+		<item value="Delta_decl" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="Class_Decl"/>
-			<item value="ClassDecl"/>
-			<item value="Interface"/>
-			<item value="param_decl"/>
-			<item value="class"/>
-			<item value="class_decl"/>
-			<item value="type_use"/>
-			<item value="type_exp"/>
-			<item value="interface_name"/>
-			<item value="case_branch"/>
-			<item value="casebranch"/>
-			<item value="pattern"/>
-			<item value="pure_exp_list"/>
-			<item value="list_literal"/>
-			<item value="casestmtbranch"/>
+			<item value="delta_decl"/>
+			<item value="image"/>
+			<item value="icons"/>
+			<item value="extension"/>
+			<item value="target"/>
+			<item value="Var_or_field_ref"/>
+			<item value="Var_field"/>
+			<item value="Var_field_"/>
+			<item value="Var_field_or_ref"/>
+			<item value="method"/>
+			<item value="Feature"/>
+			<item value="DEltaDEcl"/>
+			<item value="get"/>
+			<item value="&quot;"/>
+			<item value="&quot;&quot;"/>
 		</list>
 		<list key="replacehistory">
 		</list>

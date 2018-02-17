@@ -5,7 +5,6 @@ package org.xtext.abs.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -30,11 +28,6 @@ import org.xtext.abs.Fnode;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Feature_decl_groupImpl#getO <em>O</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Feature_decl_groupImpl#getA <em>A</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Feature_decl_groupImpl#getL <em>L</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Feature_decl_groupImpl#getU <em>U</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Feature_decl_groupImpl#getS <em>S</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Feature_decl_groupImpl#getFnode <em>Fnode</em>}</li>
  * </ul>
  * </p>
@@ -43,106 +36,6 @@ import org.xtext.abs.Fnode;
  */
 public class Feature_decl_groupImpl extends MinimalEObjectImpl.Container implements Feature_decl_group
 {
-  /**
-   * The default value of the '{@link #getO() <em>O</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getO()
-   * @generated
-   * @ordered
-   */
-  protected static final String O_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getO() <em>O</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getO()
-   * @generated
-   * @ordered
-   */
-  protected String o = O_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getA() <em>A</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getA()
-   * @generated
-   * @ordered
-   */
-  protected static final String A_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getA() <em>A</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getA()
-   * @generated
-   * @ordered
-   */
-  protected String a = A_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getL() <em>L</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getL()
-   * @generated
-   * @ordered
-   */
-  protected static final int L_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getL() <em>L</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getL()
-   * @generated
-   * @ordered
-   */
-  protected int l = L_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getU() <em>U</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getU()
-   * @generated
-   * @ordered
-   */
-  protected static final int U_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getU() <em>U</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getU()
-   * @generated
-   * @ordered
-   */
-  protected int u = U_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getS() <em>S</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getS()
-   * @generated
-   * @ordered
-   */
-  protected static final String S_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getS() <em>S</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getS()
-   * @generated
-   * @ordered
-   */
-  protected String s = S_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getFnode() <em>Fnode</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -172,121 +65,6 @@ public class Feature_decl_groupImpl extends MinimalEObjectImpl.Container impleme
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.FEATURE_DECL_GROUP;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getO()
-  {
-    return o;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setO(String newO)
-  {
-    String oldO = o;
-    o = newO;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_GROUP__O, oldO, o));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getA()
-  {
-    return a;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setA(String newA)
-  {
-    String oldA = a;
-    a = newA;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_GROUP__A, oldA, a));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getL()
-  {
-    return l;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setL(int newL)
-  {
-    int oldL = l;
-    l = newL;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_GROUP__L, oldL, l));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getU()
-  {
-    return u;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setU(int newU)
-  {
-    int oldU = u;
-    u = newU;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_GROUP__U, oldU, u));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getS()
-  {
-    return s;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setS(String newS)
-  {
-    String oldS = s;
-    s = newS;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_GROUP__S, oldS, s));
   }
 
   /**
@@ -329,16 +107,6 @@ public class Feature_decl_groupImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case AbsPackage.FEATURE_DECL_GROUP__O:
-        return getO();
-      case AbsPackage.FEATURE_DECL_GROUP__A:
-        return getA();
-      case AbsPackage.FEATURE_DECL_GROUP__L:
-        return getL();
-      case AbsPackage.FEATURE_DECL_GROUP__U:
-        return getU();
-      case AbsPackage.FEATURE_DECL_GROUP__S:
-        return getS();
       case AbsPackage.FEATURE_DECL_GROUP__FNODE:
         return getFnode();
     }
@@ -356,21 +124,6 @@ public class Feature_decl_groupImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case AbsPackage.FEATURE_DECL_GROUP__O:
-        setO((String)newValue);
-        return;
-      case AbsPackage.FEATURE_DECL_GROUP__A:
-        setA((String)newValue);
-        return;
-      case AbsPackage.FEATURE_DECL_GROUP__L:
-        setL((Integer)newValue);
-        return;
-      case AbsPackage.FEATURE_DECL_GROUP__U:
-        setU((Integer)newValue);
-        return;
-      case AbsPackage.FEATURE_DECL_GROUP__S:
-        setS((String)newValue);
-        return;
       case AbsPackage.FEATURE_DECL_GROUP__FNODE:
         getFnode().clear();
         getFnode().addAll((Collection<? extends Fnode>)newValue);
@@ -389,21 +142,6 @@ public class Feature_decl_groupImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case AbsPackage.FEATURE_DECL_GROUP__O:
-        setO(O_EDEFAULT);
-        return;
-      case AbsPackage.FEATURE_DECL_GROUP__A:
-        setA(A_EDEFAULT);
-        return;
-      case AbsPackage.FEATURE_DECL_GROUP__L:
-        setL(L_EDEFAULT);
-        return;
-      case AbsPackage.FEATURE_DECL_GROUP__U:
-        setU(U_EDEFAULT);
-        return;
-      case AbsPackage.FEATURE_DECL_GROUP__S:
-        setS(S_EDEFAULT);
-        return;
       case AbsPackage.FEATURE_DECL_GROUP__FNODE:
         getFnode().clear();
         return;
@@ -421,45 +159,10 @@ public class Feature_decl_groupImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case AbsPackage.FEATURE_DECL_GROUP__O:
-        return O_EDEFAULT == null ? o != null : !O_EDEFAULT.equals(o);
-      case AbsPackage.FEATURE_DECL_GROUP__A:
-        return A_EDEFAULT == null ? a != null : !A_EDEFAULT.equals(a);
-      case AbsPackage.FEATURE_DECL_GROUP__L:
-        return l != L_EDEFAULT;
-      case AbsPackage.FEATURE_DECL_GROUP__U:
-        return u != U_EDEFAULT;
-      case AbsPackage.FEATURE_DECL_GROUP__S:
-        return S_EDEFAULT == null ? s != null : !S_EDEFAULT.equals(s);
       case AbsPackage.FEATURE_DECL_GROUP__FNODE:
         return fnode != null && !fnode.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (o: ");
-    result.append(o);
-    result.append(", a: ");
-    result.append(a);
-    result.append(", l: ");
-    result.append(l);
-    result.append(", u: ");
-    result.append(u);
-    result.append(", s: ");
-    result.append(s);
-    result.append(')');
-    return result.toString();
   }
 
 } //Feature_decl_groupImpl

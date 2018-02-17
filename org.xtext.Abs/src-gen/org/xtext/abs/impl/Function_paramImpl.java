@@ -3,18 +3,11 @@
  */
 package org.xtext.abs.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Anon_function_decl;
-import org.xtext.abs.Function_name_param_decl;
 import org.xtext.abs.Function_param;
 
 /**
@@ -22,37 +15,12 @@ import org.xtext.abs.Function_param;
  * An implementation of the model object '<em><b>Function param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are implemented:
- * <ul>
- *   <li>{@link org.xtext.abs.impl.Function_paramImpl#getFunction_param <em>Function param</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Function_paramImpl#getAnon_param <em>Anon param</em>}</li>
- * </ul>
  * </p>
  *
  * @generated
  */
 public class Function_paramImpl extends MinimalEObjectImpl.Container implements Function_param
 {
-  /**
-   * The cached value of the '{@link #getFunction_param() <em>Function param</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFunction_param()
-   * @generated
-   * @ordered
-   */
-  protected Function_name_param_decl function_param;
-
-  /**
-   * The cached value of the '{@link #getAnon_param() <em>Anon param</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnon_param()
-   * @generated
-   * @ordered
-   */
-  protected Anon_function_decl anon_param;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -72,196 +40,6 @@ public class Function_paramImpl extends MinimalEObjectImpl.Container implements 
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.FUNCTION_PARAM;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Function_name_param_decl getFunction_param()
-  {
-    return function_param;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFunction_param(Function_name_param_decl newFunction_param, NotificationChain msgs)
-  {
-    Function_name_param_decl oldFunction_param = function_param;
-    function_param = newFunction_param;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_PARAM__FUNCTION_PARAM, oldFunction_param, newFunction_param);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFunction_param(Function_name_param_decl newFunction_param)
-  {
-    if (newFunction_param != function_param)
-    {
-      NotificationChain msgs = null;
-      if (function_param != null)
-        msgs = ((InternalEObject)function_param).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FUNCTION_PARAM__FUNCTION_PARAM, null, msgs);
-      if (newFunction_param != null)
-        msgs = ((InternalEObject)newFunction_param).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FUNCTION_PARAM__FUNCTION_PARAM, null, msgs);
-      msgs = basicSetFunction_param(newFunction_param, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_PARAM__FUNCTION_PARAM, newFunction_param, newFunction_param));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Anon_function_decl getAnon_param()
-  {
-    return anon_param;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnon_param(Anon_function_decl newAnon_param, NotificationChain msgs)
-  {
-    Anon_function_decl oldAnon_param = anon_param;
-    anon_param = newAnon_param;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_PARAM__ANON_PARAM, oldAnon_param, newAnon_param);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnon_param(Anon_function_decl newAnon_param)
-  {
-    if (newAnon_param != anon_param)
-    {
-      NotificationChain msgs = null;
-      if (anon_param != null)
-        msgs = ((InternalEObject)anon_param).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FUNCTION_PARAM__ANON_PARAM, null, msgs);
-      if (newAnon_param != null)
-        msgs = ((InternalEObject)newAnon_param).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FUNCTION_PARAM__ANON_PARAM, null, msgs);
-      msgs = basicSetAnon_param(newAnon_param, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_PARAM__ANON_PARAM, newAnon_param, newAnon_param));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FUNCTION_PARAM__FUNCTION_PARAM:
-        return basicSetFunction_param(null, msgs);
-      case AbsPackage.FUNCTION_PARAM__ANON_PARAM:
-        return basicSetAnon_param(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FUNCTION_PARAM__FUNCTION_PARAM:
-        return getFunction_param();
-      case AbsPackage.FUNCTION_PARAM__ANON_PARAM:
-        return getAnon_param();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FUNCTION_PARAM__FUNCTION_PARAM:
-        setFunction_param((Function_name_param_decl)newValue);
-        return;
-      case AbsPackage.FUNCTION_PARAM__ANON_PARAM:
-        setAnon_param((Anon_function_decl)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FUNCTION_PARAM__FUNCTION_PARAM:
-        setFunction_param((Function_name_param_decl)null);
-        return;
-      case AbsPackage.FUNCTION_PARAM__ANON_PARAM:
-        setAnon_param((Anon_function_decl)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FUNCTION_PARAM__FUNCTION_PARAM:
-        return function_param != null;
-      case AbsPackage.FUNCTION_PARAM__ANON_PARAM:
-        return anon_param != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //Function_paramImpl

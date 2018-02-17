@@ -4,13 +4,15 @@
 package org.xtext.abs.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
+import org.xtext.abs.Exp;
 import org.xtext.abs.Var_or_field_ref;
 
 /**
@@ -21,12 +23,13 @@ import org.xtext.abs.Var_or_field_ref;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.abs.impl.Var_or_field_refImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Var_or_field_refImpl#getExp <em>Exp</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class Var_or_field_refImpl extends MinimalEObjectImpl.Container implements Var_or_field_ref
+public class Var_or_field_refImpl extends Pure_expImpl implements Var_or_field_ref
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -47,6 +50,16 @@ public class Var_or_field_refImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExp()
+   * @generated
+   * @ordered
+   */
+  protected Exp exp;
 
   /**
    * <!-- begin-user-doc -->
@@ -97,6 +110,70 @@ public class Var_or_field_refImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public Exp getExp()
+  {
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExp(Exp newExp, NotificationChain msgs)
+  {
+    Exp oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.VAR_OR_FIELD_REF__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExp(Exp newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.VAR_OR_FIELD_REF__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.VAR_OR_FIELD_REF__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.VAR_OR_FIELD_REF__EXP, newExp, newExp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case AbsPackage.VAR_OR_FIELD_REF__EXP:
+        return basicSetExp(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -104,6 +181,8 @@ public class Var_or_field_refImpl extends MinimalEObjectImpl.Container implement
     {
       case AbsPackage.VAR_OR_FIELD_REF__NAME:
         return getName();
+      case AbsPackage.VAR_OR_FIELD_REF__EXP:
+        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,6 +199,9 @@ public class Var_or_field_refImpl extends MinimalEObjectImpl.Container implement
     {
       case AbsPackage.VAR_OR_FIELD_REF__NAME:
         setName((String)newValue);
+        return;
+      case AbsPackage.VAR_OR_FIELD_REF__EXP:
+        setExp((Exp)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,6 +220,9 @@ public class Var_or_field_refImpl extends MinimalEObjectImpl.Container implement
       case AbsPackage.VAR_OR_FIELD_REF__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case AbsPackage.VAR_OR_FIELD_REF__EXP:
+        setExp((Exp)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -154,6 +239,8 @@ public class Var_or_field_refImpl extends MinimalEObjectImpl.Container implement
     {
       case AbsPackage.VAR_OR_FIELD_REF__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case AbsPackage.VAR_OR_FIELD_REF__EXP:
+        return exp != null;
     }
     return super.eIsSet(featureID);
   }

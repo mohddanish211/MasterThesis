@@ -3,7 +3,6 @@
  */
 package org.xtext.abs;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Function_name_param_decl extends EObject
+public interface Function_name_param_decl extends Function_param
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

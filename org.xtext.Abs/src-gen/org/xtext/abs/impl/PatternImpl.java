@@ -14,13 +14,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Pattern;
+import org.xtext.abs.Pure_exp;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,55 +29,24 @@ import org.xtext.abs.Pattern;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.PatternImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.xtext.abs.impl.PatternImpl#getVal <em>Val</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.PatternImpl#getPure_exp <em>Pure exp</em>}</li>
  *   <li>{@link org.xtext.abs.impl.PatternImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
+public class PatternImpl extends Case_branchImpl implements Pattern
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getPure_exp() <em>Pure exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getPure_exp()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getVal() <em>Val</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVal()
-   * @generated
-   * @ordered
-   */
-  protected static final int VAL_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getVal() <em>Val</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVal()
-   * @generated
-   * @ordered
-   */
-  protected int val = VAL_EDEFAULT;
+  protected Pure_exp pure_exp;
 
   /**
    * The cached value of the '{@link #getPattern() <em>Pattern</em>}' containment reference list.
@@ -115,9 +84,9 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public Pure_exp getPure_exp()
   {
-    return value;
+    return pure_exp;
   }
 
   /**
@@ -125,12 +94,16 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public NotificationChain basicSetPure_exp(Pure_exp newPure_exp, NotificationChain msgs)
   {
-    String oldValue = value;
-    value = newValue;
+    Pure_exp oldPure_exp = pure_exp;
+    pure_exp = newPure_exp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PATTERN__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PATTERN__PURE_EXP, oldPure_exp, newPure_exp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -138,22 +111,20 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getVal()
+  public void setPure_exp(Pure_exp newPure_exp)
   {
-    return val;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVal(int newVal)
-  {
-    int oldVal = val;
-    val = newVal;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PATTERN__VAL, oldVal, val));
+    if (newPure_exp != pure_exp)
+    {
+      NotificationChain msgs = null;
+      if (pure_exp != null)
+        msgs = ((InternalEObject)pure_exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PATTERN__PURE_EXP, null, msgs);
+      if (newPure_exp != null)
+        msgs = ((InternalEObject)newPure_exp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PATTERN__PURE_EXP, null, msgs);
+      msgs = basicSetPure_exp(newPure_exp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PATTERN__PURE_EXP, newPure_exp, newPure_exp));
   }
 
   /**
@@ -180,6 +151,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
   {
     switch (featureID)
     {
+      case AbsPackage.PATTERN__PURE_EXP:
+        return basicSetPure_exp(null, msgs);
       case AbsPackage.PATTERN__PATTERN:
         return ((InternalEList<?>)getPattern()).basicRemove(otherEnd, msgs);
     }
@@ -196,10 +169,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
   {
     switch (featureID)
     {
-      case AbsPackage.PATTERN__VALUE:
-        return getValue();
-      case AbsPackage.PATTERN__VAL:
-        return getVal();
+      case AbsPackage.PATTERN__PURE_EXP:
+        return getPure_exp();
       case AbsPackage.PATTERN__PATTERN:
         return getPattern();
     }
@@ -217,11 +188,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
   {
     switch (featureID)
     {
-      case AbsPackage.PATTERN__VALUE:
-        setValue((String)newValue);
-        return;
-      case AbsPackage.PATTERN__VAL:
-        setVal((Integer)newValue);
+      case AbsPackage.PATTERN__PURE_EXP:
+        setPure_exp((Pure_exp)newValue);
         return;
       case AbsPackage.PATTERN__PATTERN:
         getPattern().clear();
@@ -241,11 +209,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
   {
     switch (featureID)
     {
-      case AbsPackage.PATTERN__VALUE:
-        setValue(VALUE_EDEFAULT);
-        return;
-      case AbsPackage.PATTERN__VAL:
-        setVal(VAL_EDEFAULT);
+      case AbsPackage.PATTERN__PURE_EXP:
+        setPure_exp((Pure_exp)null);
         return;
       case AbsPackage.PATTERN__PATTERN:
         getPattern().clear();
@@ -264,33 +229,12 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
   {
     switch (featureID)
     {
-      case AbsPackage.PATTERN__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-      case AbsPackage.PATTERN__VAL:
-        return val != VAL_EDEFAULT;
+      case AbsPackage.PATTERN__PURE_EXP:
+        return pure_exp != null;
       case AbsPackage.PATTERN__PATTERN:
         return pattern != null && !pattern.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(", val: ");
-    result.append(val);
-    result.append(')');
-    return result.toString();
   }
 
 } //PatternImpl

@@ -10,13 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Delta param</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link org.xtext.abs.Delta_param#getParam_decl <em>Param decl</em>}</li>
- *   <li>{@link org.xtext.abs.Delta_param#getHas_condition <em>Has condition</em>}</li>
- * </ul>
- * </p>
  *
  * @see org.xtext.abs.AbsPackage#getDelta_param()
  * @model
@@ -24,56 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Delta_param extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Param decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Param decl</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Param decl</em>' containment reference.
-   * @see #setParam_decl(Param_decl)
-   * @see org.xtext.abs.AbsPackage#getDelta_param_Param_decl()
-   * @model containment="true"
-   * @generated
-   */
-  Param_decl getParam_decl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Delta_param#getParam_decl <em>Param decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Param decl</em>' containment reference.
-   * @see #getParam_decl()
-   * @generated
-   */
-  void setParam_decl(Param_decl value);
-
-  /**
-   * Returns the value of the '<em><b>Has condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Has condition</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Has condition</em>' containment reference.
-   * @see #setHas_condition(Has_condition)
-   * @see org.xtext.abs.AbsPackage#getDelta_param_Has_condition()
-   * @model containment="true"
-   * @generated
-   */
-  Has_condition getHas_condition();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Delta_param#getHas_condition <em>Has condition</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Has condition</em>' containment reference.
-   * @see #getHas_condition()
-   * @generated
-   */
-  void setHas_condition(Has_condition value);
-
 } // Delta_param

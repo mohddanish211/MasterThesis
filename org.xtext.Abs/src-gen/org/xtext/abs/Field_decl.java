@@ -3,7 +3,6 @@
  */
 package org.xtext.abs;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Field_decl extends EObject
+public interface Field_decl extends Class_modifier_fragment
 {
   /**
    * Returns the value of the '<em><b>Type use</b></em>' containment reference.

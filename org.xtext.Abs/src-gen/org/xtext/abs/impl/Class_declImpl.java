@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -37,7 +36,6 @@ import org.xtext.abs.Trait_usage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Class_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Class_declImpl#getParamlist <em>Paramlist</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Class_declImpl#getInterface_name <em>Interface name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Class_declImpl#getField_decl <em>Field decl</em>}</li>
@@ -50,28 +48,8 @@ import org.xtext.abs.Trait_usage;
  *
  * @generated
  */
-public class Class_declImpl extends MinimalEObjectImpl.Container implements Class_decl
+public class Class_declImpl extends DeclImpl implements Class_decl
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getParamlist() <em>Paramlist</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -161,29 +139,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.CLASS_DECL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.CLASS_DECL__NAME, oldName, name));
   }
 
   /**
@@ -354,8 +309,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_DECL__NAME:
-        return getName();
       case AbsPackage.CLASS_DECL__PARAMLIST:
         return getParamlist();
       case AbsPackage.CLASS_DECL__INTERFACE_NAME:
@@ -385,9 +338,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_DECL__NAME:
-        setName((String)newValue);
-        return;
       case AbsPackage.CLASS_DECL__PARAMLIST:
         setParamlist((Param_list)newValue);
         return;
@@ -429,9 +379,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_DECL__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case AbsPackage.CLASS_DECL__PARAMLIST:
         setParamlist((Param_list)null);
         return;
@@ -467,8 +414,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_DECL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.CLASS_DECL__PARAMLIST:
         return paramlist != null;
       case AbsPackage.CLASS_DECL__INTERFACE_NAME:
@@ -485,23 +430,6 @@ public class Class_declImpl extends MinimalEObjectImpl.Container implements Clas
         return method != null && !method.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //Class_declImpl

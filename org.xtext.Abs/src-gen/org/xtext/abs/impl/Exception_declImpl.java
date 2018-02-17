@@ -5,14 +5,9 @@ package org.xtext.abs.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
@@ -27,35 +22,14 @@ import org.xtext.abs.Exception_decl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Exception_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Exception_declImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class Exception_declImpl extends MinimalEObjectImpl.Container implements Exception_decl
+public class Exception_declImpl extends DeclImpl implements Exception_decl
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' reference list.
    * <!-- begin-user-doc -->
@@ -92,29 +66,6 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EXCEPTION_DECL__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Data_constructor_arg> getType()
   {
     if (type == null)
@@ -134,8 +85,6 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.EXCEPTION_DECL__NAME:
-        return getName();
       case AbsPackage.EXCEPTION_DECL__TYPE:
         return getType();
     }
@@ -153,9 +102,6 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.EXCEPTION_DECL__NAME:
-        setName((String)newValue);
-        return;
       case AbsPackage.EXCEPTION_DECL__TYPE:
         getType().clear();
         getType().addAll((Collection<? extends Data_constructor_arg>)newValue);
@@ -174,9 +120,6 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.EXCEPTION_DECL__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case AbsPackage.EXCEPTION_DECL__TYPE:
         getType().clear();
         return;
@@ -194,29 +137,10 @@ public class Exception_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.EXCEPTION_DECL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.EXCEPTION_DECL__TYPE:
         return type != null && !type.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //Exception_declImpl

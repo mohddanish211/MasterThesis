@@ -14,14 +14,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.DataType_decl;
 import org.xtext.abs.Data_constructor;
 
@@ -32,8 +30,6 @@ import org.xtext.abs.Data_constructor;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.DataType_declImpl#getAnnotations <em>Annotations</em>}</li>
- *   <li>{@link org.xtext.abs.impl.DataType_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.DataType_declImpl#getLt <em>Lt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.DataType_declImpl#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.abs.impl.DataType_declImpl#getGt <em>Gt</em>}</li>
@@ -43,38 +39,8 @@ import org.xtext.abs.Data_constructor;
  *
  * @generated
  */
-public class DataType_declImpl extends MinimalEObjectImpl.Container implements DataType_decl
+public class DataType_declImpl extends DeclImpl implements DataType_decl
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations annotations;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getLt() <em>Lt</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -161,77 +127,6 @@ public class DataType_declImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public Annotations getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
-  {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.DATA_TYPE_DECL__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotations newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DATA_TYPE_DECL__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DATA_TYPE_DECL__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DATA_TYPE_DECL__ANNOTATIONS, newAnnotations, newAnnotations));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DATA_TYPE_DECL__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getLt()
   {
     return lt;
@@ -311,8 +206,6 @@ public class DataType_declImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case AbsPackage.DATA_TYPE_DECL__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
       case AbsPackage.DATA_TYPE_DECL__DATA_CONSTRUCTOR:
         return ((InternalEList<?>)getData_constructor()).basicRemove(otherEnd, msgs);
     }
@@ -329,10 +222,6 @@ public class DataType_declImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case AbsPackage.DATA_TYPE_DECL__ANNOTATIONS:
-        return getAnnotations();
-      case AbsPackage.DATA_TYPE_DECL__NAME:
-        return getName();
       case AbsPackage.DATA_TYPE_DECL__LT:
         return getLt();
       case AbsPackage.DATA_TYPE_DECL__P:
@@ -356,12 +245,6 @@ public class DataType_declImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case AbsPackage.DATA_TYPE_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
-        return;
-      case AbsPackage.DATA_TYPE_DECL__NAME:
-        setName((String)newValue);
-        return;
       case AbsPackage.DATA_TYPE_DECL__LT:
         setLt((String)newValue);
         return;
@@ -390,12 +273,6 @@ public class DataType_declImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case AbsPackage.DATA_TYPE_DECL__ANNOTATIONS:
-        setAnnotations((Annotations)null);
-        return;
-      case AbsPackage.DATA_TYPE_DECL__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case AbsPackage.DATA_TYPE_DECL__LT:
         setLt(LT_EDEFAULT);
         return;
@@ -422,10 +299,6 @@ public class DataType_declImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case AbsPackage.DATA_TYPE_DECL__ANNOTATIONS:
-        return annotations != null;
-      case AbsPackage.DATA_TYPE_DECL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.DATA_TYPE_DECL__LT:
         return LT_EDEFAULT == null ? lt != null : !LT_EDEFAULT.equals(lt);
       case AbsPackage.DATA_TYPE_DECL__P:
@@ -449,9 +322,7 @@ public class DataType_declImpl extends MinimalEObjectImpl.Container implements D
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", lt: ");
+    result.append(" (lt: ");
     result.append(lt);
     result.append(", p: ");
     result.append(p);

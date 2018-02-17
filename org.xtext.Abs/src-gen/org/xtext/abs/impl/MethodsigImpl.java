@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Methodsig;
@@ -32,7 +31,7 @@ import org.xtext.abs.Type_use;
  *
  * @generated
  */
-public class MethodsigImpl extends MinimalEObjectImpl.Container implements Methodsig
+public class MethodsigImpl extends Interface_modifier_fragmentImpl implements Methodsig
 {
   /**
    * The cached value of the '{@link #getType_use() <em>Type use</em>}' containment reference.

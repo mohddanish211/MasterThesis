@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -40,7 +39,7 @@ import org.xtext.abs.Trait_oper;
  *
  * @generated
  */
-public class Trait_operImpl extends MinimalEObjectImpl.Container implements Trait_oper
+public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait_oper
 {
   /**
    * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.

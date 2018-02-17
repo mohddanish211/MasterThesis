@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Trait_decl;
@@ -23,35 +22,14 @@ import org.xtext.abs.Trait_expr;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Trait_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Trait_declImpl#getTrait_expr <em>Trait expr</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class Trait_declImpl extends MinimalEObjectImpl.Container implements Trait_decl
+public class Trait_declImpl extends DeclImpl implements Trait_decl
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getTrait_expr() <em>Trait expr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -81,29 +59,6 @@ public class Trait_declImpl extends MinimalEObjectImpl.Container implements Trai
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.TRAIT_DECL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_DECL__NAME, oldName, name));
   }
 
   /**
@@ -180,8 +135,6 @@ public class Trait_declImpl extends MinimalEObjectImpl.Container implements Trai
   {
     switch (featureID)
     {
-      case AbsPackage.TRAIT_DECL__NAME:
-        return getName();
       case AbsPackage.TRAIT_DECL__TRAIT_EXPR:
         return getTrait_expr();
     }
@@ -198,9 +151,6 @@ public class Trait_declImpl extends MinimalEObjectImpl.Container implements Trai
   {
     switch (featureID)
     {
-      case AbsPackage.TRAIT_DECL__NAME:
-        setName((String)newValue);
-        return;
       case AbsPackage.TRAIT_DECL__TRAIT_EXPR:
         setTrait_expr((Trait_expr)newValue);
         return;
@@ -218,9 +168,6 @@ public class Trait_declImpl extends MinimalEObjectImpl.Container implements Trai
   {
     switch (featureID)
     {
-      case AbsPackage.TRAIT_DECL__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case AbsPackage.TRAIT_DECL__TRAIT_EXPR:
         setTrait_expr((Trait_expr)null);
         return;
@@ -238,29 +185,10 @@ public class Trait_declImpl extends MinimalEObjectImpl.Container implements Trai
   {
     switch (featureID)
     {
-      case AbsPackage.TRAIT_DECL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.TRAIT_DECL__TRAIT_EXPR:
         return trait_expr != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //Trait_declImpl

@@ -3,18 +3,26 @@
  */
 package org.xtext.abs.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Guard;
+import org.xtext.abs.Object_update_assign_stmt;
 import org.xtext.abs.Pure_exp;
+import org.xtext.abs.Update_preamble_declaration;
 import org.xtext.abs.Var_or_field_ref;
 
 /**
@@ -28,12 +36,15 @@ import org.xtext.abs.Var_or_field_ref;
  *   <li>{@link org.xtext.abs.impl.GuardImpl#getMin <em>Min</em>}</li>
  *   <li>{@link org.xtext.abs.impl.GuardImpl#getMax <em>Max</em>}</li>
  *   <li>{@link org.xtext.abs.impl.GuardImpl#getE <em>E</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.GuardImpl#getUpdate_preamble_declaration <em>Update preamble declaration</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.GuardImpl#getPre <em>Pre</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.GuardImpl#getPost <em>Post</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
+public class GuardImpl extends Object_updateImpl implements Guard
 {
   /**
    * The cached value of the '{@link #getVar_or_field_ref() <em>Var or field ref</em>}' reference.
@@ -74,6 +85,36 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
    * @ordered
    */
   protected Pure_exp e;
+
+  /**
+   * The cached value of the '{@link #getUpdate_preamble_declaration() <em>Update preamble declaration</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUpdate_preamble_declaration()
+   * @generated
+   * @ordered
+   */
+  protected EList<Update_preamble_declaration> update_preamble_declaration;
+
+  /**
+   * The cached value of the '{@link #getPre() <em>Pre</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPre()
+   * @generated
+   * @ordered
+   */
+  protected EList<Object_update_assign_stmt> pre;
+
+  /**
+   * The cached value of the '{@link #getPost() <em>Post</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPost()
+   * @generated
+   * @ordered
+   */
+  protected EList<Object_update_assign_stmt> post;
 
   /**
    * <!-- begin-user-doc -->
@@ -288,6 +329,48 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Update_preamble_declaration> getUpdate_preamble_declaration()
+  {
+    if (update_preamble_declaration == null)
+    {
+      update_preamble_declaration = new EObjectContainmentEList<Update_preamble_declaration>(Update_preamble_declaration.class, this, AbsPackage.GUARD__UPDATE_PREAMBLE_DECLARATION);
+    }
+    return update_preamble_declaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Object_update_assign_stmt> getPre()
+  {
+    if (pre == null)
+    {
+      pre = new EObjectContainmentEList<Object_update_assign_stmt>(Object_update_assign_stmt.class, this, AbsPackage.GUARD__PRE);
+    }
+    return pre;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Object_update_assign_stmt> getPost()
+  {
+    if (post == null)
+    {
+      post = new EObjectContainmentEList<Object_update_assign_stmt>(Object_update_assign_stmt.class, this, AbsPackage.GUARD__POST);
+    }
+    return post;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -299,6 +382,12 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
         return basicSetMax(null, msgs);
       case AbsPackage.GUARD__E:
         return basicSetE(null, msgs);
+      case AbsPackage.GUARD__UPDATE_PREAMBLE_DECLARATION:
+        return ((InternalEList<?>)getUpdate_preamble_declaration()).basicRemove(otherEnd, msgs);
+      case AbsPackage.GUARD__PRE:
+        return ((InternalEList<?>)getPre()).basicRemove(otherEnd, msgs);
+      case AbsPackage.GUARD__POST:
+        return ((InternalEList<?>)getPost()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -322,6 +411,12 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
         return getMax();
       case AbsPackage.GUARD__E:
         return getE();
+      case AbsPackage.GUARD__UPDATE_PREAMBLE_DECLARATION:
+        return getUpdate_preamble_declaration();
+      case AbsPackage.GUARD__PRE:
+        return getPre();
+      case AbsPackage.GUARD__POST:
+        return getPost();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -331,6 +426,7 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -347,6 +443,18 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
         return;
       case AbsPackage.GUARD__E:
         setE((Pure_exp)newValue);
+        return;
+      case AbsPackage.GUARD__UPDATE_PREAMBLE_DECLARATION:
+        getUpdate_preamble_declaration().clear();
+        getUpdate_preamble_declaration().addAll((Collection<? extends Update_preamble_declaration>)newValue);
+        return;
+      case AbsPackage.GUARD__PRE:
+        getPre().clear();
+        getPre().addAll((Collection<? extends Object_update_assign_stmt>)newValue);
+        return;
+      case AbsPackage.GUARD__POST:
+        getPost().clear();
+        getPost().addAll((Collection<? extends Object_update_assign_stmt>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -374,6 +482,15 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
       case AbsPackage.GUARD__E:
         setE((Pure_exp)null);
         return;
+      case AbsPackage.GUARD__UPDATE_PREAMBLE_DECLARATION:
+        getUpdate_preamble_declaration().clear();
+        return;
+      case AbsPackage.GUARD__PRE:
+        getPre().clear();
+        return;
+      case AbsPackage.GUARD__POST:
+        getPost().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -396,6 +513,12 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
         return max != null;
       case AbsPackage.GUARD__E:
         return e != null;
+      case AbsPackage.GUARD__UPDATE_PREAMBLE_DECLARATION:
+        return update_preamble_declaration != null && !update_preamble_declaration.isEmpty();
+      case AbsPackage.GUARD__PRE:
+        return pre != null && !pre.isEmpty();
+      case AbsPackage.GUARD__POST:
+        return post != null && !post.isEmpty();
     }
     return super.eIsSet(featureID);
   }

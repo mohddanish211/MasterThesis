@@ -12,10 +12,12 @@ import org.xtext.abs.Delta_clause
 import org.xtext.abs.Application_condition
 import org.xtext.abs.AppOr_exp
 import org.xtext.abs.AppAnd_exp
-import com.google.inject.Inject;
+//import com.google.inject.Inject;
 import org.xtext.abs.Delta_decl
 import org.eclipse.emf.ecore.EObject
-import org.xtext.abs.Product_decl
+//import org.xtext.abs.Product_decl
+import org.xtext.abs.Feature_decl
+import org.xtext.abs.Feature
 
 /**
  * Generates code from your model files on save.
@@ -58,7 +60,7 @@ class AbsGenerator extends AbstractGenerator {
 				resolveApplicationCondition(f.when_condition.application_condition,featureNames);
 				}
 				//f.deltaspec.name = featureNames.toString
-				print(f.deltaspec.name+"----->"+featureNames);
+				//print(f.deltaspec.name+"----->"+featureNames);
 //				testGeneartorObj.label = featureNames.toString;
 				
 			}catch(Exception err){
@@ -69,11 +71,12 @@ class AbsGenerator extends AbstractGenerator {
 		return featureNames;
 	}
 
+//Delta to Feature Visualization.
 
 	def compile(Delta_decl e) {
 		var StringBuffer featureNames = new StringBuffer;
 		for(EObject o: e.eContainer.eAllContents.toIterable.filter(Productline_decl)){
-			println("------xxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----");
+			println("------xx Delta TO Feature xx-----");
 			for(Delta_clause delta_clause: o.eAllContents.toIterable.filter(Delta_clause)){
 			featureNames.setLength(0);
 			try{
@@ -81,7 +84,7 @@ class AbsGenerator extends AbstractGenerator {
 					if((delta_clause.when_condition.application_condition)!==null){
 					resolveApplicationCondition(delta_clause.when_condition.application_condition,featureNames);
 						}
-					print(delta_clause.deltaspec.name+"----->"+featureNames);
+					println(delta_clause.deltaspec.name+"----->"+featureNames);
 					return featureNames.toString
 					}
 				}catch(Exception err){
@@ -92,22 +95,44 @@ class AbsGenerator extends AbstractGenerator {
 		return "error"
 	}
 	
+//Feature to Delta Visualization
+
+	def compile(Feature_decl e) {
+		var StringBuffer featureNames = new StringBuffer;
+		for(EObject o: e.eContainer.eAllContents.toIterable.filter(Productline_decl)){
+			println("------xx  Feature TO Delta  xx-----");
+			for(Delta_clause delta_clause: o.eAllContents.toIterable.filter(Delta_clause)){
+			featureNames.setLength(0);
+			try{
+				if((delta_clause.deltaspec.name).equals(e.name)){
+					if((delta_clause.when_condition.application_condition)!==null){
+					resolveApplicationCondition(delta_clause.when_condition.application_condition,featureNames);
+						}
+					print(featureNames+"----->"+delta_clause.deltaspec.name);
+					return delta_clause.deltaspec.name.toString
+					}
+				}catch(Exception err){
+				println(err.toString);
+				}
+			}
+		}
+		return "error"
+	}
+	
+	
 	
 	def resolveApplicationCondition(Application_condition app_cond,StringBuffer featureName){
 	try{
 			
 		
 			if(app_cond instanceof AppOr_exp){
-				//println("I am object of or");
 				resolveApplicationCondition(app_cond.left,featureName);
 				resolveApplicationCondition(app_cond.right,featureName);
 			}else if(app_cond instanceof AppAnd_exp){
-				//println("I am object of and")
 				resolveApplicationCondition(app_cond.left,featureName);
 				resolveApplicationCondition(app_cond.right,featureName);
 			}else{
 				if(app_cond.feature!== null){
-					//println("I am object of feature");
 					if(featureName.length==0){
 						featureName.append(app_cond.feature.name);
 						}else{
@@ -115,7 +140,6 @@ class AbsGenerator extends AbstractGenerator {
 						}
 					
 				}else{
-					//println("I am object of negation");
 					resolveApplicationCondition(app_cond.app_cond,featureName);
 				}
 				

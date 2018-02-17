@@ -4,24 +4,14 @@
 package org.xtext.abs.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Class_decl;
-import org.xtext.abs.DataType_decl;
 import org.xtext.abs.Decl;
-import org.xtext.abs.Exception_decl;
-import org.xtext.abs.Function_decl;
-import org.xtext.abs.Interface_decl;
-import org.xtext.abs.Par_function_decl;
-import org.xtext.abs.Trait_decl;
-import org.xtext.abs.Typesyn_decl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,14 +20,7 @@ import org.xtext.abs.Typesyn_decl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.DeclImpl#getDataType_decl <em>Data Type decl</em>}</li>
- *   <li>{@link org.xtext.abs.impl.DeclImpl#getFunction_decl <em>Function decl</em>}</li>
- *   <li>{@link org.xtext.abs.impl.DeclImpl#getPar_function_decl <em>Par function decl</em>}</li>
- *   <li>{@link org.xtext.abs.impl.DeclImpl#getTypesyn_decl <em>Typesyn decl</em>}</li>
- *   <li>{@link org.xtext.abs.impl.DeclImpl#getException_decl <em>Exception decl</em>}</li>
- *   <li>{@link org.xtext.abs.impl.DeclImpl#getInterface_decl <em>Interface decl</em>}</li>
- *   <li>{@link org.xtext.abs.impl.DeclImpl#getClass_decl <em>Class decl</em>}</li>
- *   <li>{@link org.xtext.abs.impl.DeclImpl#getTrait_decl <em>Trait decl</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.DeclImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,84 +29,24 @@ import org.xtext.abs.Typesyn_decl;
 public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
 {
   /**
-   * The cached value of the '{@link #getDataType_decl() <em>Data Type decl</em>}' containment reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDataType_decl()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected DataType_decl dataType_decl;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFunction_decl() <em>Function decl</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFunction_decl()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected Function_decl function_decl;
-
-  /**
-   * The cached value of the '{@link #getPar_function_decl() <em>Par function decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPar_function_decl()
-   * @generated
-   * @ordered
-   */
-  protected Par_function_decl par_function_decl;
-
-  /**
-   * The cached value of the '{@link #getTypesyn_decl() <em>Typesyn decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypesyn_decl()
-   * @generated
-   * @ordered
-   */
-  protected Typesyn_decl typesyn_decl;
-
-  /**
-   * The cached value of the '{@link #getException_decl() <em>Exception decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getException_decl()
-   * @generated
-   * @ordered
-   */
-  protected Exception_decl exception_decl;
-
-  /**
-   * The cached value of the '{@link #getInterface_decl() <em>Interface decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInterface_decl()
-   * @generated
-   * @ordered
-   */
-  protected Interface_decl interface_decl;
-
-  /**
-   * The cached value of the '{@link #getClass_decl() <em>Class decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getClass_decl()
-   * @generated
-   * @ordered
-   */
-  protected Class_decl class_decl;
-
-  /**
-   * The cached value of the '{@link #getTrait_decl() <em>Trait decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTrait_decl()
-   * @generated
-   * @ordered
-   */
-  protected Trait_decl trait_decl;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -151,9 +74,9 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataType_decl getDataType_decl()
+  public String getName()
   {
-    return dataType_decl;
+    return name;
   }
 
   /**
@@ -161,403 +84,12 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDataType_decl(DataType_decl newDataType_decl, NotificationChain msgs)
+  public void setName(String newName)
   {
-    DataType_decl oldDataType_decl = dataType_decl;
-    dataType_decl = newDataType_decl;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__DATA_TYPE_DECL, oldDataType_decl, newDataType_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDataType_decl(DataType_decl newDataType_decl)
-  {
-    if (newDataType_decl != dataType_decl)
-    {
-      NotificationChain msgs = null;
-      if (dataType_decl != null)
-        msgs = ((InternalEObject)dataType_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__DATA_TYPE_DECL, null, msgs);
-      if (newDataType_decl != null)
-        msgs = ((InternalEObject)newDataType_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__DATA_TYPE_DECL, null, msgs);
-      msgs = basicSetDataType_decl(newDataType_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__DATA_TYPE_DECL, newDataType_decl, newDataType_decl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Function_decl getFunction_decl()
-  {
-    return function_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFunction_decl(Function_decl newFunction_decl, NotificationChain msgs)
-  {
-    Function_decl oldFunction_decl = function_decl;
-    function_decl = newFunction_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__FUNCTION_DECL, oldFunction_decl, newFunction_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFunction_decl(Function_decl newFunction_decl)
-  {
-    if (newFunction_decl != function_decl)
-    {
-      NotificationChain msgs = null;
-      if (function_decl != null)
-        msgs = ((InternalEObject)function_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__FUNCTION_DECL, null, msgs);
-      if (newFunction_decl != null)
-        msgs = ((InternalEObject)newFunction_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__FUNCTION_DECL, null, msgs);
-      msgs = basicSetFunction_decl(newFunction_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__FUNCTION_DECL, newFunction_decl, newFunction_decl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Par_function_decl getPar_function_decl()
-  {
-    return par_function_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPar_function_decl(Par_function_decl newPar_function_decl, NotificationChain msgs)
-  {
-    Par_function_decl oldPar_function_decl = par_function_decl;
-    par_function_decl = newPar_function_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__PAR_FUNCTION_DECL, oldPar_function_decl, newPar_function_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPar_function_decl(Par_function_decl newPar_function_decl)
-  {
-    if (newPar_function_decl != par_function_decl)
-    {
-      NotificationChain msgs = null;
-      if (par_function_decl != null)
-        msgs = ((InternalEObject)par_function_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__PAR_FUNCTION_DECL, null, msgs);
-      if (newPar_function_decl != null)
-        msgs = ((InternalEObject)newPar_function_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__PAR_FUNCTION_DECL, null, msgs);
-      msgs = basicSetPar_function_decl(newPar_function_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__PAR_FUNCTION_DECL, newPar_function_decl, newPar_function_decl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Typesyn_decl getTypesyn_decl()
-  {
-    return typesyn_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTypesyn_decl(Typesyn_decl newTypesyn_decl, NotificationChain msgs)
-  {
-    Typesyn_decl oldTypesyn_decl = typesyn_decl;
-    typesyn_decl = newTypesyn_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__TYPESYN_DECL, oldTypesyn_decl, newTypesyn_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTypesyn_decl(Typesyn_decl newTypesyn_decl)
-  {
-    if (newTypesyn_decl != typesyn_decl)
-    {
-      NotificationChain msgs = null;
-      if (typesyn_decl != null)
-        msgs = ((InternalEObject)typesyn_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__TYPESYN_DECL, null, msgs);
-      if (newTypesyn_decl != null)
-        msgs = ((InternalEObject)newTypesyn_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__TYPESYN_DECL, null, msgs);
-      msgs = basicSetTypesyn_decl(newTypesyn_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__TYPESYN_DECL, newTypesyn_decl, newTypesyn_decl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Exception_decl getException_decl()
-  {
-    return exception_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetException_decl(Exception_decl newException_decl, NotificationChain msgs)
-  {
-    Exception_decl oldException_decl = exception_decl;
-    exception_decl = newException_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__EXCEPTION_DECL, oldException_decl, newException_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setException_decl(Exception_decl newException_decl)
-  {
-    if (newException_decl != exception_decl)
-    {
-      NotificationChain msgs = null;
-      if (exception_decl != null)
-        msgs = ((InternalEObject)exception_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__EXCEPTION_DECL, null, msgs);
-      if (newException_decl != null)
-        msgs = ((InternalEObject)newException_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__EXCEPTION_DECL, null, msgs);
-      msgs = basicSetException_decl(newException_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__EXCEPTION_DECL, newException_decl, newException_decl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Interface_decl getInterface_decl()
-  {
-    return interface_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetInterface_decl(Interface_decl newInterface_decl, NotificationChain msgs)
-  {
-    Interface_decl oldInterface_decl = interface_decl;
-    interface_decl = newInterface_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__INTERFACE_DECL, oldInterface_decl, newInterface_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setInterface_decl(Interface_decl newInterface_decl)
-  {
-    if (newInterface_decl != interface_decl)
-    {
-      NotificationChain msgs = null;
-      if (interface_decl != null)
-        msgs = ((InternalEObject)interface_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__INTERFACE_DECL, null, msgs);
-      if (newInterface_decl != null)
-        msgs = ((InternalEObject)newInterface_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__INTERFACE_DECL, null, msgs);
-      msgs = basicSetInterface_decl(newInterface_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__INTERFACE_DECL, newInterface_decl, newInterface_decl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Class_decl getClass_decl()
-  {
-    return class_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetClass_decl(Class_decl newClass_decl, NotificationChain msgs)
-  {
-    Class_decl oldClass_decl = class_decl;
-    class_decl = newClass_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__CLASS_DECL, oldClass_decl, newClass_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setClass_decl(Class_decl newClass_decl)
-  {
-    if (newClass_decl != class_decl)
-    {
-      NotificationChain msgs = null;
-      if (class_decl != null)
-        msgs = ((InternalEObject)class_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__CLASS_DECL, null, msgs);
-      if (newClass_decl != null)
-        msgs = ((InternalEObject)newClass_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__CLASS_DECL, null, msgs);
-      msgs = basicSetClass_decl(newClass_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__CLASS_DECL, newClass_decl, newClass_decl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Trait_decl getTrait_decl()
-  {
-    return trait_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTrait_decl(Trait_decl newTrait_decl, NotificationChain msgs)
-  {
-    Trait_decl oldTrait_decl = trait_decl;
-    trait_decl = newTrait_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__TRAIT_DECL, oldTrait_decl, newTrait_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTrait_decl(Trait_decl newTrait_decl)
-  {
-    if (newTrait_decl != trait_decl)
-    {
-      NotificationChain msgs = null;
-      if (trait_decl != null)
-        msgs = ((InternalEObject)trait_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__TRAIT_DECL, null, msgs);
-      if (newTrait_decl != null)
-        msgs = ((InternalEObject)newTrait_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.DECL__TRAIT_DECL, null, msgs);
-      msgs = basicSetTrait_decl(newTrait_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__TRAIT_DECL, newTrait_decl, newTrait_decl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.DECL__DATA_TYPE_DECL:
-        return basicSetDataType_decl(null, msgs);
-      case AbsPackage.DECL__FUNCTION_DECL:
-        return basicSetFunction_decl(null, msgs);
-      case AbsPackage.DECL__PAR_FUNCTION_DECL:
-        return basicSetPar_function_decl(null, msgs);
-      case AbsPackage.DECL__TYPESYN_DECL:
-        return basicSetTypesyn_decl(null, msgs);
-      case AbsPackage.DECL__EXCEPTION_DECL:
-        return basicSetException_decl(null, msgs);
-      case AbsPackage.DECL__INTERFACE_DECL:
-        return basicSetInterface_decl(null, msgs);
-      case AbsPackage.DECL__CLASS_DECL:
-        return basicSetClass_decl(null, msgs);
-      case AbsPackage.DECL__TRAIT_DECL:
-        return basicSetTrait_decl(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DECL__NAME, oldName, name));
   }
 
   /**
@@ -570,22 +102,8 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
-      case AbsPackage.DECL__DATA_TYPE_DECL:
-        return getDataType_decl();
-      case AbsPackage.DECL__FUNCTION_DECL:
-        return getFunction_decl();
-      case AbsPackage.DECL__PAR_FUNCTION_DECL:
-        return getPar_function_decl();
-      case AbsPackage.DECL__TYPESYN_DECL:
-        return getTypesyn_decl();
-      case AbsPackage.DECL__EXCEPTION_DECL:
-        return getException_decl();
-      case AbsPackage.DECL__INTERFACE_DECL:
-        return getInterface_decl();
-      case AbsPackage.DECL__CLASS_DECL:
-        return getClass_decl();
-      case AbsPackage.DECL__TRAIT_DECL:
-        return getTrait_decl();
+      case AbsPackage.DECL__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -600,29 +118,8 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
-      case AbsPackage.DECL__DATA_TYPE_DECL:
-        setDataType_decl((DataType_decl)newValue);
-        return;
-      case AbsPackage.DECL__FUNCTION_DECL:
-        setFunction_decl((Function_decl)newValue);
-        return;
-      case AbsPackage.DECL__PAR_FUNCTION_DECL:
-        setPar_function_decl((Par_function_decl)newValue);
-        return;
-      case AbsPackage.DECL__TYPESYN_DECL:
-        setTypesyn_decl((Typesyn_decl)newValue);
-        return;
-      case AbsPackage.DECL__EXCEPTION_DECL:
-        setException_decl((Exception_decl)newValue);
-        return;
-      case AbsPackage.DECL__INTERFACE_DECL:
-        setInterface_decl((Interface_decl)newValue);
-        return;
-      case AbsPackage.DECL__CLASS_DECL:
-        setClass_decl((Class_decl)newValue);
-        return;
-      case AbsPackage.DECL__TRAIT_DECL:
-        setTrait_decl((Trait_decl)newValue);
+      case AbsPackage.DECL__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -638,29 +135,8 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
-      case AbsPackage.DECL__DATA_TYPE_DECL:
-        setDataType_decl((DataType_decl)null);
-        return;
-      case AbsPackage.DECL__FUNCTION_DECL:
-        setFunction_decl((Function_decl)null);
-        return;
-      case AbsPackage.DECL__PAR_FUNCTION_DECL:
-        setPar_function_decl((Par_function_decl)null);
-        return;
-      case AbsPackage.DECL__TYPESYN_DECL:
-        setTypesyn_decl((Typesyn_decl)null);
-        return;
-      case AbsPackage.DECL__EXCEPTION_DECL:
-        setException_decl((Exception_decl)null);
-        return;
-      case AbsPackage.DECL__INTERFACE_DECL:
-        setInterface_decl((Interface_decl)null);
-        return;
-      case AbsPackage.DECL__CLASS_DECL:
-        setClass_decl((Class_decl)null);
-        return;
-      case AbsPackage.DECL__TRAIT_DECL:
-        setTrait_decl((Trait_decl)null);
+      case AbsPackage.DECL__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -676,24 +152,27 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
-      case AbsPackage.DECL__DATA_TYPE_DECL:
-        return dataType_decl != null;
-      case AbsPackage.DECL__FUNCTION_DECL:
-        return function_decl != null;
-      case AbsPackage.DECL__PAR_FUNCTION_DECL:
-        return par_function_decl != null;
-      case AbsPackage.DECL__TYPESYN_DECL:
-        return typesyn_decl != null;
-      case AbsPackage.DECL__EXCEPTION_DECL:
-        return exception_decl != null;
-      case AbsPackage.DECL__INTERFACE_DECL:
-        return interface_decl != null;
-      case AbsPackage.DECL__CLASS_DECL:
-        return class_decl != null;
-      case AbsPackage.DECL__TRAIT_DECL:
-        return trait_decl != null;
+      case AbsPackage.DECL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //DeclImpl

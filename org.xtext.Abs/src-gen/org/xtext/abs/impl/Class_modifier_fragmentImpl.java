@@ -4,7 +4,6 @@
 package org.xtext.abs.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -15,7 +14,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Class_modifier_fragment;
 import org.xtext.abs.Field_decl;
-import org.xtext.abs.Trait_oper;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,9 +22,7 @@ import org.xtext.abs.Trait_oper;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Class_modifier_fragmentImpl#getField_decl <em>Field decl</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Class_modifier_fragmentImpl#getF <em>F</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Class_modifier_fragmentImpl#getTrait_oper <em>Trait oper</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,16 +30,6 @@ import org.xtext.abs.Trait_oper;
  */
 public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container implements Class_modifier_fragment
 {
-  /**
-   * The cached value of the '{@link #getField_decl() <em>Field decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getField_decl()
-   * @generated
-   * @ordered
-   */
-  protected Field_decl field_decl;
-
   /**
    * The cached value of the '{@link #getF() <em>F</em>}' reference.
    * <!-- begin-user-doc -->
@@ -53,16 +39,6 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
    * @ordered
    */
   protected Field_decl f;
-
-  /**
-   * The cached value of the '{@link #getTrait_oper() <em>Trait oper</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTrait_oper()
-   * @generated
-   * @ordered
-   */
-  protected Trait_oper trait_oper;
 
   /**
    * <!-- begin-user-doc -->
@@ -83,54 +59,6 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.CLASS_MODIFIER_FRAGMENT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Field_decl getField_decl()
-  {
-    return field_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetField_decl(Field_decl newField_decl, NotificationChain msgs)
-  {
-    Field_decl oldField_decl = field_decl;
-    field_decl = newField_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.CLASS_MODIFIER_FRAGMENT__FIELD_DECL, oldField_decl, newField_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setField_decl(Field_decl newField_decl)
-  {
-    if (newField_decl != field_decl)
-    {
-      NotificationChain msgs = null;
-      if (field_decl != null)
-        msgs = ((InternalEObject)field_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.CLASS_MODIFIER_FRAGMENT__FIELD_DECL, null, msgs);
-      if (newField_decl != null)
-        msgs = ((InternalEObject)newField_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.CLASS_MODIFIER_FRAGMENT__FIELD_DECL, null, msgs);
-      msgs = basicSetField_decl(newField_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.CLASS_MODIFIER_FRAGMENT__FIELD_DECL, newField_decl, newField_decl));
   }
 
   /**
@@ -181,84 +109,14 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public Trait_oper getTrait_oper()
-  {
-    return trait_oper;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTrait_oper(Trait_oper newTrait_oper, NotificationChain msgs)
-  {
-    Trait_oper oldTrait_oper = trait_oper;
-    trait_oper = newTrait_oper;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.CLASS_MODIFIER_FRAGMENT__TRAIT_OPER, oldTrait_oper, newTrait_oper);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTrait_oper(Trait_oper newTrait_oper)
-  {
-    if (newTrait_oper != trait_oper)
-    {
-      NotificationChain msgs = null;
-      if (trait_oper != null)
-        msgs = ((InternalEObject)trait_oper).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.CLASS_MODIFIER_FRAGMENT__TRAIT_OPER, null, msgs);
-      if (newTrait_oper != null)
-        msgs = ((InternalEObject)newTrait_oper).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.CLASS_MODIFIER_FRAGMENT__TRAIT_OPER, null, msgs);
-      msgs = basicSetTrait_oper(newTrait_oper, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.CLASS_MODIFIER_FRAGMENT__TRAIT_OPER, newTrait_oper, newTrait_oper));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__FIELD_DECL:
-        return basicSetField_decl(null, msgs);
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__TRAIT_OPER:
-        return basicSetTrait_oper(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__FIELD_DECL:
-        return getField_decl();
       case AbsPackage.CLASS_MODIFIER_FRAGMENT__F:
         if (resolve) return getF();
         return basicGetF();
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__TRAIT_OPER:
-        return getTrait_oper();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -273,14 +131,8 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__FIELD_DECL:
-        setField_decl((Field_decl)newValue);
-        return;
       case AbsPackage.CLASS_MODIFIER_FRAGMENT__F:
         setF((Field_decl)newValue);
-        return;
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__TRAIT_OPER:
-        setTrait_oper((Trait_oper)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -296,14 +148,8 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__FIELD_DECL:
-        setField_decl((Field_decl)null);
-        return;
       case AbsPackage.CLASS_MODIFIER_FRAGMENT__F:
         setF((Field_decl)null);
-        return;
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__TRAIT_OPER:
-        setTrait_oper((Trait_oper)null);
         return;
     }
     super.eUnset(featureID);
@@ -319,12 +165,8 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__FIELD_DECL:
-        return field_decl != null;
       case AbsPackage.CLASS_MODIFIER_FRAGMENT__F:
         return f != null;
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__TRAIT_OPER:
-        return trait_oper != null;
     }
     return super.eIsSet(featureID);
   }

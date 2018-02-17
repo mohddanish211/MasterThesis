@@ -10,12 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Update preamble declaration</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link org.xtext.abs.Update_preamble_declaration#getType_exp <em>Type exp</em>}</li>
- * </ul>
- * </p>
  *
  * @see org.xtext.abs.AbsPackage#getUpdate_preamble_declaration()
  * @model
@@ -23,30 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Update_preamble_declaration extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Type exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Type exp</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Type exp</em>' containment reference.
-   * @see #setType_exp(Type_exp)
-   * @see org.xtext.abs.AbsPackage#getUpdate_preamble_declaration_Type_exp()
-   * @model containment="true"
-   * @generated
-   */
-  Type_exp getType_exp();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Update_preamble_declaration#getType_exp <em>Type exp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type exp</em>' containment reference.
-   * @see #getType_exp()
-   * @generated
-   */
-  void setType_exp(Type_exp value);
-
 } // Update_preamble_declaration

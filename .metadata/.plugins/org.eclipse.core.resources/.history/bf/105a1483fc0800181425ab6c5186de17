@@ -1,7 +1,0 @@
-package org.xtext.ui;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
-public class Test extends EcoreUtil{
-
-}

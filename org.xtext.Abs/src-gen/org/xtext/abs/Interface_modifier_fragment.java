@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Interface_modifier_fragment#getAddMethodsig <em>Add Methodsig</em>}</li>
  *   <li>{@link org.xtext.abs.Interface_modifier_fragment#getRemovedMethod <em>Removed Method</em>}</li>
  * </ul>
  * </p>
@@ -24,32 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Interface_modifier_fragment extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Add Methodsig</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Add Methodsig</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Add Methodsig</em>' containment reference.
-   * @see #setAddMethodsig(Methodsig)
-   * @see org.xtext.abs.AbsPackage#getInterface_modifier_fragment_AddMethodsig()
-   * @model containment="true"
-   * @generated
-   */
-  Methodsig getAddMethodsig();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Interface_modifier_fragment#getAddMethodsig <em>Add Methodsig</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Add Methodsig</em>' containment reference.
-   * @see #getAddMethodsig()
-   * @generated
-   */
-  void setAddMethodsig(Methodsig value);
-
   /**
    * Returns the value of the '<em><b>Removed Method</b></em>' reference.
    * <!-- begin-user-doc -->

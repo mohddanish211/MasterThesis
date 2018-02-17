@@ -14,14 +14,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotation;
 import org.xtext.abs.Function_name_list;
 import org.xtext.abs.Par_function_decl;
 import org.xtext.abs.Param_list;
@@ -35,9 +31,7 @@ import org.xtext.abs.Type_use;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getAnnotation <em>Annotation</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getType_use <em>Type use</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getLt <em>Lt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getGt <em>Gt</em>}</li>
@@ -49,18 +43,8 @@ import org.xtext.abs.Type_use;
  *
  * @generated
  */
-public class Par_function_declImpl extends MinimalEObjectImpl.Container implements Par_function_decl
+public class Par_function_declImpl extends DeclImpl implements Par_function_decl
 {
-  /**
-   * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotation()
-   * @generated
-   * @ordered
-   */
-  protected EList<Annotation> annotation;
-
   /**
    * The cached value of the '{@link #getType_use() <em>Type use</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -70,26 +54,6 @@ public class Par_function_declImpl extends MinimalEObjectImpl.Container implemen
    * @ordered
    */
   protected Type_use type_use;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getLt() <em>Lt</em>}' attribute.
@@ -197,20 +161,6 @@ public class Par_function_declImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Annotation> getAnnotation()
-  {
-    if (annotation == null)
-    {
-      annotation = new EObjectContainmentEList<Annotation>(Annotation.class, this, AbsPackage.PAR_FUNCTION_DECL__ANNOTATION);
-    }
-    return annotation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Type_use getType_use()
   {
     return type_use;
@@ -252,29 +202,6 @@ public class Par_function_declImpl extends MinimalEObjectImpl.Container implemen
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PAR_FUNCTION_DECL__TYPE_USE, newType_use, newType_use));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PAR_FUNCTION_DECL__NAME, oldName, name));
   }
 
   /**
@@ -491,8 +418,6 @@ public class Par_function_declImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case AbsPackage.PAR_FUNCTION_DECL__ANNOTATION:
-        return ((InternalEList<?>)getAnnotation()).basicRemove(otherEnd, msgs);
       case AbsPackage.PAR_FUNCTION_DECL__TYPE_USE:
         return basicSetType_use(null, msgs);
       case AbsPackage.PAR_FUNCTION_DECL__FUNCTIONS:
@@ -515,12 +440,8 @@ public class Par_function_declImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case AbsPackage.PAR_FUNCTION_DECL__ANNOTATION:
-        return getAnnotation();
       case AbsPackage.PAR_FUNCTION_DECL__TYPE_USE:
         return getType_use();
-      case AbsPackage.PAR_FUNCTION_DECL__NAME:
-        return getName();
       case AbsPackage.PAR_FUNCTION_DECL__LT:
         return getLt();
       case AbsPackage.PAR_FUNCTION_DECL__P:
@@ -548,15 +469,8 @@ public class Par_function_declImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case AbsPackage.PAR_FUNCTION_DECL__ANNOTATION:
-        getAnnotation().clear();
-        getAnnotation().addAll((Collection<? extends Annotation>)newValue);
-        return;
       case AbsPackage.PAR_FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)newValue);
-        return;
-      case AbsPackage.PAR_FUNCTION_DECL__NAME:
-        setName((String)newValue);
         return;
       case AbsPackage.PAR_FUNCTION_DECL__LT:
         setLt((String)newValue);
@@ -591,14 +505,8 @@ public class Par_function_declImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case AbsPackage.PAR_FUNCTION_DECL__ANNOTATION:
-        getAnnotation().clear();
-        return;
       case AbsPackage.PAR_FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)null);
-        return;
-      case AbsPackage.PAR_FUNCTION_DECL__NAME:
-        setName(NAME_EDEFAULT);
         return;
       case AbsPackage.PAR_FUNCTION_DECL__LT:
         setLt(LT_EDEFAULT);
@@ -632,12 +540,8 @@ public class Par_function_declImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case AbsPackage.PAR_FUNCTION_DECL__ANNOTATION:
-        return annotation != null && !annotation.isEmpty();
       case AbsPackage.PAR_FUNCTION_DECL__TYPE_USE:
         return type_use != null;
-      case AbsPackage.PAR_FUNCTION_DECL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.PAR_FUNCTION_DECL__LT:
         return LT_EDEFAULT == null ? lt != null : !LT_EDEFAULT.equals(lt);
       case AbsPackage.PAR_FUNCTION_DECL__P:
@@ -665,9 +569,7 @@ public class Par_function_declImpl extends MinimalEObjectImpl.Container implemen
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", lt: ");
+    result.append(" (lt: ");
     result.append(lt);
     result.append(", p: ");
     result.append(p);

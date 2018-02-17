@@ -5,14 +5,9 @@ package org.xtext.abs.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
@@ -26,7 +21,6 @@ import org.xtext.abs.Module_export;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Module_exportImpl#getStar <em>Star</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Module_exportImpl#getAnyPackage <em>Any Package</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Module_exportImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
  * </ul>
@@ -34,28 +28,8 @@ import org.xtext.abs.Module_export;
  *
  * @generated
  */
-public class Module_exportImpl extends MinimalEObjectImpl.Container implements Module_export
+public class Module_exportImpl extends Namespace_modifierImpl implements Module_export
 {
-  /**
-   * The default value of the '{@link #getStar() <em>Star</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStar()
-   * @generated
-   * @ordered
-   */
-  protected static final String STAR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getStar() <em>Star</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStar()
-   * @generated
-   * @ordered
-   */
-  protected String star = STAR_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getAnyPackage() <em>Any Package</em>}' attribute list.
    * <!-- begin-user-doc -->
@@ -102,29 +76,6 @@ public class Module_exportImpl extends MinimalEObjectImpl.Container implements M
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getStar()
-  {
-    return star;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStar(String newStar)
-  {
-    String oldStar = star;
-    star = newStar;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.MODULE_EXPORT__STAR, oldStar, star));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<String> getAnyPackage()
   {
     if (anyPackage == null)
@@ -158,8 +109,6 @@ public class Module_exportImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case AbsPackage.MODULE_EXPORT__STAR:
-        return getStar();
       case AbsPackage.MODULE_EXPORT__ANY_PACKAGE:
         return getAnyPackage();
       case AbsPackage.MODULE_EXPORT__IMPORTED_NAMESPACE:
@@ -179,9 +128,6 @@ public class Module_exportImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case AbsPackage.MODULE_EXPORT__STAR:
-        setStar((String)newValue);
-        return;
       case AbsPackage.MODULE_EXPORT__ANY_PACKAGE:
         getAnyPackage().clear();
         getAnyPackage().addAll((Collection<? extends String>)newValue);
@@ -204,9 +150,6 @@ public class Module_exportImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case AbsPackage.MODULE_EXPORT__STAR:
-        setStar(STAR_EDEFAULT);
-        return;
       case AbsPackage.MODULE_EXPORT__ANY_PACKAGE:
         getAnyPackage().clear();
         return;
@@ -227,8 +170,6 @@ public class Module_exportImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case AbsPackage.MODULE_EXPORT__STAR:
-        return STAR_EDEFAULT == null ? star != null : !STAR_EDEFAULT.equals(star);
       case AbsPackage.MODULE_EXPORT__ANY_PACKAGE:
         return anyPackage != null && !anyPackage.isEmpty();
       case AbsPackage.MODULE_EXPORT__IMPORTED_NAMESPACE:
@@ -248,9 +189,7 @@ public class Module_exportImpl extends MinimalEObjectImpl.Container implements M
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (star: ");
-    result.append(star);
-    result.append(", anyPackage: ");
+    result.append(" (anyPackage: ");
     result.append(anyPackage);
     result.append(", importedNamespace: ");
     result.append(importedNamespace);

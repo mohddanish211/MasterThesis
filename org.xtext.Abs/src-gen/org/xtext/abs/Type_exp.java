@@ -5,8 +5,6 @@ package org.xtext.abs;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Type exp</b></em>'.
@@ -26,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Type_exp extends EObject
+public interface Type_exp extends Update_preamble_declaration
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -5,6 +5,7 @@ package org.xtext.abs.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Function_list;
 import org.xtext.abs.Function_param;
+import org.xtext.abs.Pure_exp_list;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,14 +30,25 @@ import org.xtext.abs.Function_param;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.xtext.abs.impl.Function_listImpl#getPartial_function_pure_exp_list <em>Partial function pure exp list</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Function_listImpl#getFunction_param <em>Function param</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class Function_listImpl extends MinimalEObjectImpl.Container implements Function_list
+public class Function_listImpl extends Pure_expImpl implements Function_list
 {
+  /**
+   * The cached value of the '{@link #getPartial_function_pure_exp_list() <em>Partial function pure exp list</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPartial_function_pure_exp_list()
+   * @generated
+   * @ordered
+   */
+  protected Pure_exp_list partial_function_pure_exp_list;
+
   /**
    * The cached value of the '{@link #getFunction_param() <em>Function param</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -72,6 +85,54 @@ public class Function_listImpl extends MinimalEObjectImpl.Container implements F
    * <!-- end-user-doc -->
    * @generated
    */
+  public Pure_exp_list getPartial_function_pure_exp_list()
+  {
+    return partial_function_pure_exp_list;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPartial_function_pure_exp_list(Pure_exp_list newPartial_function_pure_exp_list, NotificationChain msgs)
+  {
+    Pure_exp_list oldPartial_function_pure_exp_list = partial_function_pure_exp_list;
+    partial_function_pure_exp_list = newPartial_function_pure_exp_list;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST, oldPartial_function_pure_exp_list, newPartial_function_pure_exp_list);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPartial_function_pure_exp_list(Pure_exp_list newPartial_function_pure_exp_list)
+  {
+    if (newPartial_function_pure_exp_list != partial_function_pure_exp_list)
+    {
+      NotificationChain msgs = null;
+      if (partial_function_pure_exp_list != null)
+        msgs = ((InternalEObject)partial_function_pure_exp_list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST, null, msgs);
+      if (newPartial_function_pure_exp_list != null)
+        msgs = ((InternalEObject)newPartial_function_pure_exp_list).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST, null, msgs);
+      msgs = basicSetPartial_function_pure_exp_list(newPartial_function_pure_exp_list, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST, newPartial_function_pure_exp_list, newPartial_function_pure_exp_list));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Function_param> getFunction_param()
   {
     if (function_param == null)
@@ -91,6 +152,8 @@ public class Function_listImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
+      case AbsPackage.FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST:
+        return basicSetPartial_function_pure_exp_list(null, msgs);
       case AbsPackage.FUNCTION_LIST__FUNCTION_PARAM:
         return ((InternalEList<?>)getFunction_param()).basicRemove(otherEnd, msgs);
     }
@@ -107,6 +170,8 @@ public class Function_listImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
+      case AbsPackage.FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST:
+        return getPartial_function_pure_exp_list();
       case AbsPackage.FUNCTION_LIST__FUNCTION_PARAM:
         return getFunction_param();
     }
@@ -124,6 +189,9 @@ public class Function_listImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
+      case AbsPackage.FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST:
+        setPartial_function_pure_exp_list((Pure_exp_list)newValue);
+        return;
       case AbsPackage.FUNCTION_LIST__FUNCTION_PARAM:
         getFunction_param().clear();
         getFunction_param().addAll((Collection<? extends Function_param>)newValue);
@@ -142,6 +210,9 @@ public class Function_listImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
+      case AbsPackage.FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST:
+        setPartial_function_pure_exp_list((Pure_exp_list)null);
+        return;
       case AbsPackage.FUNCTION_LIST__FUNCTION_PARAM:
         getFunction_param().clear();
         return;
@@ -159,6 +230,8 @@ public class Function_listImpl extends MinimalEObjectImpl.Container implements F
   {
     switch (featureID)
     {
+      case AbsPackage.FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST:
+        return partial_function_pure_exp_list != null;
       case AbsPackage.FUNCTION_LIST__FUNCTION_PARAM:
         return function_param != null && !function_param.isEmpty();
     }

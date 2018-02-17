@@ -4,6 +4,7 @@
 package org.xtext.ui.outline
 
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import org.xtext.abs.Delta_decl
 
 /**
  * Customization of the default outline structure.
@@ -11,6 +12,10 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#outline
  */
 class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
+	
+	def Object _text(Delta_decl element){
+		return element.name;
+	}
 	
 
 }

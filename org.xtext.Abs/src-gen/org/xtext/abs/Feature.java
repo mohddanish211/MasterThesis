@@ -80,19 +80,19 @@ public interface Feature extends EObject
   void setP(String value);
 
   /**
-   * Returns the value of the '<em><b>Attr assignment</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.abs.Attr_assignment}.
+   * Returns the value of the '<em><b>Attr assignment</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Attr assignment</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Attr assignment</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attr assignment</em>' containment reference list.
+   * @return the value of the '<em>Attr assignment</em>' attribute list.
    * @see org.xtext.abs.AbsPackage#getFeature_Attr_assignment()
-   * @model containment="true"
+   * @model unique="false"
    * @generated
    */
-  EList<Attr_assignment> getAttr_assignment();
+  EList<String> getAttr_assignment();
 
 } // Feature

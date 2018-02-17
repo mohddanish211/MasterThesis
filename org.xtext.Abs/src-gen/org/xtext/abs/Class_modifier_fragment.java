@@ -13,9 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Class_modifier_fragment#getField_decl <em>Field decl</em>}</li>
  *   <li>{@link org.xtext.abs.Class_modifier_fragment#getF <em>F</em>}</li>
- *   <li>{@link org.xtext.abs.Class_modifier_fragment#getTrait_oper <em>Trait oper</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,32 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Class_modifier_fragment extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Field decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Field decl</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Field decl</em>' containment reference.
-   * @see #setField_decl(Field_decl)
-   * @see org.xtext.abs.AbsPackage#getClass_modifier_fragment_Field_decl()
-   * @model containment="true"
-   * @generated
-   */
-  Field_decl getField_decl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Class_modifier_fragment#getField_decl <em>Field decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Field decl</em>' containment reference.
-   * @see #getField_decl()
-   * @generated
-   */
-  void setField_decl(Field_decl value);
-
   /**
    * Returns the value of the '<em><b>F</b></em>' reference.
    * <!-- begin-user-doc -->
@@ -76,31 +48,5 @@ public interface Class_modifier_fragment extends EObject
    * @generated
    */
   void setF(Field_decl value);
-
-  /**
-   * Returns the value of the '<em><b>Trait oper</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Trait oper</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Trait oper</em>' containment reference.
-   * @see #setTrait_oper(Trait_oper)
-   * @see org.xtext.abs.AbsPackage#getClass_modifier_fragment_Trait_oper()
-   * @model containment="true"
-   * @generated
-   */
-  Trait_oper getTrait_oper();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Class_modifier_fragment#getTrait_oper <em>Trait oper</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Trait oper</em>' containment reference.
-   * @see #getTrait_oper()
-   * @generated
-   */
-  void setTrait_oper(Trait_oper value);
 
 } // Class_modifier_fragment

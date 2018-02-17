@@ -1,9 +1,0 @@
-Buildfile: /mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ABS_SE/abstools/eclipse/eclipse-plugin/build.xml
-
-init:
-
-generate-update-site:
-     [java] Error: Could not find or load main class org.eclipse.equinox.launcher.Main
-
-BUILD SUCCESSFUL
-Total time: 0 seconds

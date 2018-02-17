@@ -10,12 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Trait usage</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link org.xtext.abs.Trait_usage#getTrait_expr <em>Trait expr</em>}</li>
- * </ul>
- * </p>
  *
  * @see org.xtext.abs.AbsPackage#getTrait_usage()
  * @model
@@ -23,30 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Trait_usage extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Trait expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Trait expr</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Trait expr</em>' containment reference.
-   * @see #setTrait_expr(Trait_expr)
-   * @see org.xtext.abs.AbsPackage#getTrait_usage_Trait_expr()
-   * @model containment="true"
-   * @generated
-   */
-  Trait_expr getTrait_expr();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Trait_usage#getTrait_expr <em>Trait expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Trait expr</em>' containment reference.
-   * @see #getTrait_expr()
-   * @generated
-   */
-  void setTrait_expr(Trait_expr value);
-
 } // Trait_usage

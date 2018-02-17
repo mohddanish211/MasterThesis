@@ -14,18 +14,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Case_branch;
-import org.xtext.abs.Function_list;
 import org.xtext.abs.Pure_exp;
 import org.xtext.abs.Pure_exp_list;
 import org.xtext.abs.Type_use;
-import org.xtext.abs.Var_or_field_ref;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,9 +31,6 @@ import org.xtext.abs.Var_or_field_ref;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getPure_exp_list <em>Pure exp list</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getPartial_function_list <em>Partial function list</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getPartial_function_pure_exp_list <em>Partial function pure exp list</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getFunction_expr <em>Function expr</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getVariadic_exp_list <em>Variadic exp list</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getC <em>C</em>}</li>
@@ -47,48 +41,13 @@ import org.xtext.abs.Var_or_field_ref;
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getI <em>I</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getB <em>B</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getPure_exp <em>Pure exp</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getVal <em>Val</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getVar_or_field_ref <em>Var or field ref</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getRight <em>Right</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_exp
+public class Pure_expImpl extends ExpImpl implements Pure_exp
 {
-  /**
-   * The cached value of the '{@link #getPure_exp_list() <em>Pure exp list</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPure_exp_list()
-   * @generated
-   * @ordered
-   */
-  protected Pure_exp_list pure_exp_list;
-
-  /**
-   * The cached value of the '{@link #getPartial_function_list() <em>Partial function list</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPartial_function_list()
-   * @generated
-   * @ordered
-   */
-  protected Function_list partial_function_list;
-
-  /**
-   * The cached value of the '{@link #getPartial_function_pure_exp_list() <em>Partial function pure exp list</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPartial_function_pure_exp_list()
-   * @generated
-   * @ordered
-   */
-  protected Pure_exp_list partial_function_pure_exp_list;
-
   /**
    * The cached value of the '{@link #getFunction_expr() <em>Function expr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -200,66 +159,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
   protected Pure_exp b;
 
   /**
-   * The cached value of the '{@link #getPure_exp() <em>Pure exp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPure_exp()
-   * @generated
-   * @ordered
-   */
-  protected Pure_exp pure_exp;
-
-  /**
-   * The default value of the '{@link #getVal() <em>Val</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVal()
-   * @generated
-   * @ordered
-   */
-  protected static final int VAL_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getVal() <em>Val</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVal()
-   * @generated
-   * @ordered
-   */
-  protected int val = VAL_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getVar_or_field_ref() <em>Var or field ref</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVar_or_field_ref()
-   * @generated
-   * @ordered
-   */
-  protected Var_or_field_ref var_or_field_ref;
-
-  /**
-   * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLeft()
-   * @generated
-   * @ordered
-   */
-  protected Pure_exp left;
-
-  /**
-   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRight()
-   * @generated
-   * @ordered
-   */
-  protected Pure_exp right;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -278,150 +177,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.PURE_EXP;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Pure_exp_list getPure_exp_list()
-  {
-    return pure_exp_list;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPure_exp_list(Pure_exp_list newPure_exp_list, NotificationChain msgs)
-  {
-    Pure_exp_list oldPure_exp_list = pure_exp_list;
-    pure_exp_list = newPure_exp_list;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PURE_EXP_LIST, oldPure_exp_list, newPure_exp_list);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPure_exp_list(Pure_exp_list newPure_exp_list)
-  {
-    if (newPure_exp_list != pure_exp_list)
-    {
-      NotificationChain msgs = null;
-      if (pure_exp_list != null)
-        msgs = ((InternalEObject)pure_exp_list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PURE_EXP_LIST, null, msgs);
-      if (newPure_exp_list != null)
-        msgs = ((InternalEObject)newPure_exp_list).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PURE_EXP_LIST, null, msgs);
-      msgs = basicSetPure_exp_list(newPure_exp_list, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PURE_EXP_LIST, newPure_exp_list, newPure_exp_list));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Function_list getPartial_function_list()
-  {
-    return partial_function_list;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPartial_function_list(Function_list newPartial_function_list, NotificationChain msgs)
-  {
-    Function_list oldPartial_function_list = partial_function_list;
-    partial_function_list = newPartial_function_list;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PARTIAL_FUNCTION_LIST, oldPartial_function_list, newPartial_function_list);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPartial_function_list(Function_list newPartial_function_list)
-  {
-    if (newPartial_function_list != partial_function_list)
-    {
-      NotificationChain msgs = null;
-      if (partial_function_list != null)
-        msgs = ((InternalEObject)partial_function_list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PARTIAL_FUNCTION_LIST, null, msgs);
-      if (newPartial_function_list != null)
-        msgs = ((InternalEObject)newPartial_function_list).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PARTIAL_FUNCTION_LIST, null, msgs);
-      msgs = basicSetPartial_function_list(newPartial_function_list, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PARTIAL_FUNCTION_LIST, newPartial_function_list, newPartial_function_list));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Pure_exp_list getPartial_function_pure_exp_list()
-  {
-    return partial_function_pure_exp_list;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPartial_function_pure_exp_list(Pure_exp_list newPartial_function_pure_exp_list, NotificationChain msgs)
-  {
-    Pure_exp_list oldPartial_function_pure_exp_list = partial_function_pure_exp_list;
-    partial_function_pure_exp_list = newPartial_function_pure_exp_list;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST, oldPartial_function_pure_exp_list, newPartial_function_pure_exp_list);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPartial_function_pure_exp_list(Pure_exp_list newPartial_function_pure_exp_list)
-  {
-    if (newPartial_function_pure_exp_list != partial_function_pure_exp_list)
-    {
-      NotificationChain msgs = null;
-      if (partial_function_pure_exp_list != null)
-        msgs = ((InternalEObject)partial_function_pure_exp_list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST, null, msgs);
-      if (newPartial_function_pure_exp_list != null)
-        msgs = ((InternalEObject)newPartial_function_pure_exp_list).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST, null, msgs);
-      msgs = basicSetPartial_function_pure_exp_list(newPartial_function_pure_exp_list, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST, newPartial_function_pure_exp_list, newPartial_function_pure_exp_list));
   }
 
   /**
@@ -850,232 +605,11 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
    * <!-- end-user-doc -->
    * @generated
    */
-  public Pure_exp getPure_exp()
-  {
-    return pure_exp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPure_exp(Pure_exp newPure_exp, NotificationChain msgs)
-  {
-    Pure_exp oldPure_exp = pure_exp;
-    pure_exp = newPure_exp;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PURE_EXP, oldPure_exp, newPure_exp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPure_exp(Pure_exp newPure_exp)
-  {
-    if (newPure_exp != pure_exp)
-    {
-      NotificationChain msgs = null;
-      if (pure_exp != null)
-        msgs = ((InternalEObject)pure_exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PURE_EXP, null, msgs);
-      if (newPure_exp != null)
-        msgs = ((InternalEObject)newPure_exp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PURE_EXP, null, msgs);
-      msgs = basicSetPure_exp(newPure_exp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PURE_EXP, newPure_exp, newPure_exp));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getVal()
-  {
-    return val;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVal(int newVal)
-  {
-    int oldVal = val;
-    val = newVal;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__VAL, oldVal, val));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Var_or_field_ref getVar_or_field_ref()
-  {
-    return var_or_field_ref;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetVar_or_field_ref(Var_or_field_ref newVar_or_field_ref, NotificationChain msgs)
-  {
-    Var_or_field_ref oldVar_or_field_ref = var_or_field_ref;
-    var_or_field_ref = newVar_or_field_ref;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__VAR_OR_FIELD_REF, oldVar_or_field_ref, newVar_or_field_ref);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVar_or_field_ref(Var_or_field_ref newVar_or_field_ref)
-  {
-    if (newVar_or_field_ref != var_or_field_ref)
-    {
-      NotificationChain msgs = null;
-      if (var_or_field_ref != null)
-        msgs = ((InternalEObject)var_or_field_ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__VAR_OR_FIELD_REF, null, msgs);
-      if (newVar_or_field_ref != null)
-        msgs = ((InternalEObject)newVar_or_field_ref).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__VAR_OR_FIELD_REF, null, msgs);
-      msgs = basicSetVar_or_field_ref(newVar_or_field_ref, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__VAR_OR_FIELD_REF, newVar_or_field_ref, newVar_or_field_ref));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Pure_exp getLeft()
-  {
-    return left;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetLeft(Pure_exp newLeft, NotificationChain msgs)
-  {
-    Pure_exp oldLeft = left;
-    left = newLeft;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__LEFT, oldLeft, newLeft);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLeft(Pure_exp newLeft)
-  {
-    if (newLeft != left)
-    {
-      NotificationChain msgs = null;
-      if (left != null)
-        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__LEFT, null, msgs);
-      if (newLeft != null)
-        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__LEFT, null, msgs);
-      msgs = basicSetLeft(newLeft, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__LEFT, newLeft, newLeft));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Pure_exp getRight()
-  {
-    return right;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRight(Pure_exp newRight, NotificationChain msgs)
-  {
-    Pure_exp oldRight = right;
-    right = newRight;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__RIGHT, oldRight, newRight);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRight(Pure_exp newRight)
-  {
-    if (newRight != right)
-    {
-      NotificationChain msgs = null;
-      if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__RIGHT, null, msgs);
-      if (newRight != null)
-        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__RIGHT, null, msgs);
-      msgs = basicSetRight(newRight, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__RIGHT, newRight, newRight));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
-        return basicSetPure_exp_list(null, msgs);
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_LIST:
-        return basicSetPartial_function_list(null, msgs);
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
-        return basicSetPartial_function_pure_exp_list(null, msgs);
       case AbsPackage.PURE_EXP__FUNCTION_EXPR:
         return basicSetFunction_expr(null, msgs);
       case AbsPackage.PURE_EXP__VARIADIC_EXP_LIST:
@@ -1094,14 +628,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
         return basicSetI(null, msgs);
       case AbsPackage.PURE_EXP__B:
         return basicSetB(null, msgs);
-      case AbsPackage.PURE_EXP__PURE_EXP:
-        return basicSetPure_exp(null, msgs);
-      case AbsPackage.PURE_EXP__VAR_OR_FIELD_REF:
-        return basicSetVar_or_field_ref(null, msgs);
-      case AbsPackage.PURE_EXP__LEFT:
-        return basicSetLeft(null, msgs);
-      case AbsPackage.PURE_EXP__RIGHT:
-        return basicSetRight(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -1116,12 +642,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
   {
     switch (featureID)
     {
-      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
-        return getPure_exp_list();
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_LIST:
-        return getPartial_function_list();
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
-        return getPartial_function_pure_exp_list();
       case AbsPackage.PURE_EXP__FUNCTION_EXPR:
         return getFunction_expr();
       case AbsPackage.PURE_EXP__VARIADIC_EXP_LIST:
@@ -1142,16 +662,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
         return getI();
       case AbsPackage.PURE_EXP__B:
         return getB();
-      case AbsPackage.PURE_EXP__PURE_EXP:
-        return getPure_exp();
-      case AbsPackage.PURE_EXP__VAL:
-        return getVal();
-      case AbsPackage.PURE_EXP__VAR_OR_FIELD_REF:
-        return getVar_or_field_ref();
-      case AbsPackage.PURE_EXP__LEFT:
-        return getLeft();
-      case AbsPackage.PURE_EXP__RIGHT:
-        return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -1167,15 +677,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
   {
     switch (featureID)
     {
-      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
-        setPure_exp_list((Pure_exp_list)newValue);
-        return;
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_LIST:
-        setPartial_function_list((Function_list)newValue);
-        return;
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
-        setPartial_function_pure_exp_list((Pure_exp_list)newValue);
-        return;
       case AbsPackage.PURE_EXP__FUNCTION_EXPR:
         setFunction_expr((Pure_exp_list)newValue);
         return;
@@ -1207,21 +708,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
       case AbsPackage.PURE_EXP__B:
         setB((Pure_exp)newValue);
         return;
-      case AbsPackage.PURE_EXP__PURE_EXP:
-        setPure_exp((Pure_exp)newValue);
-        return;
-      case AbsPackage.PURE_EXP__VAL:
-        setVal((Integer)newValue);
-        return;
-      case AbsPackage.PURE_EXP__VAR_OR_FIELD_REF:
-        setVar_or_field_ref((Var_or_field_ref)newValue);
-        return;
-      case AbsPackage.PURE_EXP__LEFT:
-        setLeft((Pure_exp)newValue);
-        return;
-      case AbsPackage.PURE_EXP__RIGHT:
-        setRight((Pure_exp)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -1236,15 +722,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
   {
     switch (featureID)
     {
-      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
-        setPure_exp_list((Pure_exp_list)null);
-        return;
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_LIST:
-        setPartial_function_list((Function_list)null);
-        return;
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
-        setPartial_function_pure_exp_list((Pure_exp_list)null);
-        return;
       case AbsPackage.PURE_EXP__FUNCTION_EXPR:
         setFunction_expr((Pure_exp_list)null);
         return;
@@ -1275,21 +752,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
       case AbsPackage.PURE_EXP__B:
         setB((Pure_exp)null);
         return;
-      case AbsPackage.PURE_EXP__PURE_EXP:
-        setPure_exp((Pure_exp)null);
-        return;
-      case AbsPackage.PURE_EXP__VAL:
-        setVal(VAL_EDEFAULT);
-        return;
-      case AbsPackage.PURE_EXP__VAR_OR_FIELD_REF:
-        setVar_or_field_ref((Var_or_field_ref)null);
-        return;
-      case AbsPackage.PURE_EXP__LEFT:
-        setLeft((Pure_exp)null);
-        return;
-      case AbsPackage.PURE_EXP__RIGHT:
-        setRight((Pure_exp)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -1304,12 +766,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
   {
     switch (featureID)
     {
-      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
-        return pure_exp_list != null;
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_LIST:
-        return partial_function_list != null;
-      case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
-        return partial_function_pure_exp_list != null;
       case AbsPackage.PURE_EXP__FUNCTION_EXPR:
         return function_expr != null;
       case AbsPackage.PURE_EXP__VARIADIC_EXP_LIST:
@@ -1330,16 +786,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
         return i != null;
       case AbsPackage.PURE_EXP__B:
         return b != null;
-      case AbsPackage.PURE_EXP__PURE_EXP:
-        return pure_exp != null;
-      case AbsPackage.PURE_EXP__VAL:
-        return val != VAL_EDEFAULT;
-      case AbsPackage.PURE_EXP__VAR_OR_FIELD_REF:
-        return var_or_field_ref != null;
-      case AbsPackage.PURE_EXP__LEFT:
-        return left != null;
-      case AbsPackage.PURE_EXP__RIGHT:
-        return right != null;
     }
     return super.eIsSet(featureID);
   }
@@ -1357,8 +803,6 @@ public class Pure_expImpl extends MinimalEObjectImpl.Container implements Pure_e
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (value: ");
     result.append(value);
-    result.append(", val: ");
-    result.append(val);
     result.append(')');
     return result.toString();
   }

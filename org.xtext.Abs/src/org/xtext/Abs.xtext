@@ -1,4 +1,4 @@
-grammar org.xtext.Abs hidden(WS,ML_COMMENT)
+grammar org.xtext.Abs hidden(WS,ML_COMMENT,SL_COMMENT) 
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
@@ -36,19 +36,20 @@ Module_import:'import' (star=MULT 'from' importedNamespace=QUALIFIED_TYPE_IDENTI
 
 //Declaration
 Decl: 
-	dataType_decl =DataType_decl
-	| function_decl =Function_decl
-	| par_function_decl=Par_function_decl
-	| typesyn_decl=Typesyn_decl
-	| exception_decl=Exception_decl
-	| interface_decl=Interface_decl
-	| class_decl=Class_decl
-	| trait_decl=Trait_decl
+	  DataType_decl
+	| Function_decl
+	| Par_function_decl
+	| Typesyn_decl
+	| Exception_decl
+	| Interface_decl
+	| Class_decl
+	| Trait_decl
 ;
 
 //Par Function Declaration
 Par_function_decl:
-	 annotation+=Annotation 'def' type_use=Type_use name=IDENTIFIER 
+	 //annotation+=Annotation 
+	 'def' type_use=Type_use name=IDENTIFIER 
 	(lt=LT p+=TYPE_IDENTIFIER(',' p+=TYPE_IDENTIFIER)* gt=GT)?
 	'(' functions=Function_name_list ')' params=Param_list '=' e=Pure_exp ';'	
 ;
@@ -59,12 +60,12 @@ Function_name_list:{Function_name_list}
 ;
 
 //Function Name Declaration
-Function_name_decl:
-	name=IDENTIFIER
+Function_name_decl: name=IDENTIFIER
 ;
 
 //DataType_decl
-DataType_decl: annotations=Annotations 'data' name=TYPE_IDENTIFIER
+DataType_decl: //annotations=Annotations 
+	'data' name=TYPE_IDENTIFIER
 	(lt=LT p+=TYPE_IDENTIFIER(',' p+=TYPE_IDENTIFIER)* gt=GT)?
 	('=' data_constructor+=Data_constructor('|' data_constructor+=Data_constructor)*)?';'
 ;
@@ -76,7 +77,7 @@ Data_constructor:name=TYPE_IDENTIFIER ('('
 ;
 
 //Data Constructor Argument
-Data_constructor_arg:type_use=Type_use name=IDENTIFIER?
+Data_constructor_arg: Type_use IDENTIFIER?
 ;
 
 //Annotations
@@ -85,11 +86,11 @@ Annotations:{Annotations}('['annotation+=Annotation(',' annotation+=Annotation)*
 ;
 
 //Annotation
-Annotation:(type_use=Type_use ':')? pure_exp=Pure_exp;
+Annotation:(Type_use ':')? pure_exp=Pure_exp;
 
 //Type_use (Check may have error, removed annotations from starting)
 Type_use: //annotations=Annotations 
-	name=QUALIFIED_TYPE_IDENTIFIER
+		name=QUALIFIED_TYPE_IDENTIFIER
 	(LT type_use+=Type_use (',' type_use+=Type_use)* GT)?
 ;
  
@@ -97,7 +98,7 @@ Type_use: //annotations=Annotations
 Pure_exp:
 	{Pure_exp}QUALIFIED_IDENTIFIER '(' pure_exp_list=Pure_exp_list ')'
 	|QUALIFIED_IDENTIFIER
-	'('partial_function_list=Function_list ')' '('partial_function_pure_exp_list=Pure_exp_list ')'
+	'('Function_list ')' '('partial_function_pure_exp_list=Pure_exp_list ')'
 	|{Pure_exp}QUALIFIED_TYPE_IDENTIFIER ('('function_expr=Pure_exp_list')')?
 	|QUALIFIED_IDENTIFIER '['variadic_exp_list=Pure_exp_list']'
 	|Or_expr
@@ -134,7 +135,7 @@ PlusOrMinus_expr returns Pure_exp:
 
 //MulDivOrMod_expr
 MulDivOrMod_expr returns Pure_exp:
-	Primary_expr({MulDivOrMod_expr.left=current} op=(MULT|DIV|MOD) right=Primary_expr)*
+	Primary_expr({MulDivOrMod_expr.left=current} op=(MULT|'/'|MOD) right=Primary_expr)*
 ;
 
 //Primary_expr
@@ -144,24 +145,25 @@ Primary_expr returns Pure_exp:
 
 //Atomic_expr
 Atomic_expr returns Pure_exp:
-	val=INTLITERAL
-	|value=STRINGLITERAL|
-	var_or_field_ref=Var_or_field_ref|
-	 {Pure_exp}'this'|{Pure_exp}'null';
+				{Pure_exp}INTLITERAL
+				|{Pure_exp}STRINGLITERAL
+				|Var_or_field_ref
+				|{Pure_exp}'this'
+				|{Pure_exp}'null';
 
 Var_or_field_ref:('this' '.')? name=IDENTIFIER;
 
 //Case_branch
 Case_branch:
-	pattern=Pattern '=>' pure_exp=Pure_exp ';'
+	Pattern '=>' pure_exp=Pure_exp ';'
 ;
 
 //Pattern
-Pattern:value='_'
-	|val = INTLITERAL
-	|value = STRINGLITERAL
-	|value = IDENTIFIER
-	|value = QUALIFIED_TYPE_IDENTIFIER('('(pattern+=Pattern(',' pattern+=Pattern )*)?')')
+Pattern:{Pattern}('_'
+	|INTLITERAL
+	|STRINGLITERAL
+	|IDENTIFIER
+	|QUALIFIED_TYPE_IDENTIFIER('('(pattern+=Pattern(',' pattern+=Pattern )*)?')'))
 	
 ;
 
@@ -174,7 +176,8 @@ Function_list:{Function_list}(function_param+=Function_param (',' function_param
 ;
 
 //Function_parameters
-Function_param: function_param=Function_name_param_decl | anon_param=Anon_function_decl
+Function_param: Function_name_param_decl 
+				| Anon_function_decl
 ;
 
 //Function_name_param_decl
@@ -201,7 +204,7 @@ Type_exp:name=QUALIFIED_TYPE_IDENTIFIER
 
 //Function Declaration
 Function_decl: //annotations=Annotations 
-'def' type_use=Type_use name=IDENTIFIER
+	'def' type_use=Type_use name=IDENTIFIER
 	(lt=LT importedNamespace+=TYPE_IDENTIFIER(',' importedNamespace+=TYPE_IDENTIFIER)* gt=GT)?
 	paramlist=Param_list '=' ('builtin'|pure_exp=Pure_exp)';'
 ;
@@ -214,13 +217,13 @@ Typesyn_decl:
 
 //Exception Declaration
 Exception_decl://annotations=Annotations 
-'exception' name=TYPE_IDENTIFIER
+	'exception' name=TYPE_IDENTIFIER
 	('('type+=[Data_constructor_arg|IDENTIFIER](',' type+=[Data_constructor_arg|IDENTIFIER])*')')?';'
 ;
 
 //Interface Declaration
 Interface_decl://annotations=Annotations 
-'interface' name=TYPE_IDENTIFIER
+	'interface' name=TYPE_IDENTIFIER
 	('extends' interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER]
 		(',' interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER])*)?
 	'{' methodsig+=Methodsig* '}'
@@ -230,18 +233,15 @@ Interface_decl://annotations=Annotations
 Interface_name: name=QUALIFIED_TYPE_IDENTIFIER	
 ;
 
-
-//Method Signature
-//Annotations is commented to avoid hanging problem.  
+//Method Signature 
 Methodsig://annotations=Annotations 
-	type_use=Type_use 
-	name=IDENTIFIER paramlist=Param_list ';'
+	type_use=Type_use name=IDENTIFIER paramlist=Param_list ';'
 ;
 
 
 //Class Declaration
 Class_decl://annotations=Annotations 
-'class' name=TYPE_IDENTIFIER paramlist=Param_list?
+	'class' name=TYPE_IDENTIFIER paramlist=Param_list?
 	('implements' interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER] 
 		(',' interface_name+=[Interface_decl|QUALIFIED_TYPE_IDENTIFIER])*)?
 	'{'
@@ -254,8 +254,9 @@ Class_decl://annotations=Annotations
 ;
 
 // Field Declaration Error due to left recursion solve
-Field_decl://annotations=Annotations
-	 type_use=Type_use name=IDENTIFIER ('=' pure_exp=Pure_exp)?';'
+Field_decl://annotations=Annotations 
+	type_use=Type_use 
+	name=IDENTIFIER ('=' pure_exp=Pure_exp)?';'
 ;
 
 //Statements Declaration
@@ -283,8 +284,8 @@ Stmt: {Stmt}//stmt_annotations=Annotations
 ;
 
 // Expressions Error check causing error
-Exp: eff_expr=Eff_expr	|
-	pure_exp=Pure_exp
+Exp: Eff_expr	|
+	Pure_exp
 ;
 
 //Eff Expression
@@ -320,7 +321,7 @@ Casestmtbranch:
 
 //Trait Usage
 Trait_usage:
-	'uses' trait_expr=Trait_expr 
+	'uses' Trait_expr 
 ;
 
 //Trait Expression CHECK LAST OPTION
@@ -351,7 +352,7 @@ Trait_decl: 'trait' name=TYPE_IDENTIFIER '=' trait_expr=Trait_expr
 ;
 
 //Main Block Remove annotation uncommented solve the error later
-Main_block: {Main_block} annotations=Annotations
+Main_block: {Main_block} //annotations=Annotations
 	'{' stmt+=Stmt* '}'
 ;
 
@@ -366,7 +367,7 @@ Delta_decl:'delta' name=TYPE_IDENTIFIER
 ;
 	
 Delta_param:
-	param_decl=Param_decl |(QUALIFIED_TYPE_IDENTIFIER has_condition=Has_condition)	
+	Param_decl |(QUALIFIED_TYPE_IDENTIFIER Has_condition)	
 ;
 
 Has_condition:'hasField' f=[Field_decl|IDENTIFIER]
@@ -377,41 +378,43 @@ Has_condition:'hasField' f=[Field_decl|IDENTIFIER]
 Delta_access:'uses' name=QUALIFIED_TYPE_IDENTIFIER ';'
 ;
 
-Module_modifier:Functional_modifier|OO_modifier|Namespace_modifier
+Module_modifier:Functional_modifier
+				|OO_modifier
+				|Namespace_modifier
 ;
 
-Functional_modifier:'adds' function_decl=Function_decl
-	| 'adds' datatype_decl=DataType_decl
-	| 'adds' typesyn_decl=Typesyn_decl
-	| 'modifies' modifiedtypesyn_decl=Typesyn_decl
-	| 'modifies' modifiedDatatype_decl=DataType_decl
+Functional_modifier:  'adds' Function_decl
+					| 'adds' DataType_decl
+					| 'adds' Typesyn_decl
+					| 'modifies' Typesyn_decl
+					| 'modifies' DataType_decl
 	
 ;
 
 OO_modifier:{OO_modifier}('adds' class_decl=Class_decl
-	| 'removes' 'class' class=[Class_decl|QUALIFIED_TYPE_IDENTIFIER] ';'
-	| 'modifies' 'class' QUALIFIED_TYPE_IDENTIFIER 
-		('adds' i+=Interface_name (',' i+=Interface_name)*)?
-		('removes' i+=Interface_name (',' i+=Interface_name)*)?
-		'{' ((class_modifier_fragment+=Class_modifier_fragment)*) '}'
-	| 'adds' interface_decl=Interface_decl
-	| 'removes' 'interface' QUALIFIED_TYPE_IDENTIFIER ';' 
-	| 'modifies' 'interface' QUALIFIED_TYPE_IDENTIFIER
-	  '{' (interface_modifier_fragment+=Interface_modifier_fragment)* '}' )
+			| 'removes' 'class' class=[Class_decl|QUALIFIED_TYPE_IDENTIFIER] ';'
+			| 'modifies' 'class' QUALIFIED_TYPE_IDENTIFIER 
+			('adds' i+=Interface_name (',' i+=Interface_name)*)?
+			('removes' i+=Interface_name (',' i+=Interface_name)*)?
+			'{' ((class_modifier_fragment+=Class_modifier_fragment)*) '}'
+			| 'adds' interface_decl=Interface_decl
+			| 'removes' 'interface' QUALIFIED_TYPE_IDENTIFIER ';' 
+			| 'modifies' 'interface' QUALIFIED_TYPE_IDENTIFIER
+	  		'{' (interface_modifier_fragment+=Interface_modifier_fragment)* '}' )
 ;
 
 //Error trait_oper is commented temporarily
-Class_modifier_fragment:'adds' field_decl=Field_decl
-	| 'removes' f=[Field_decl|IDENTIFIER]
-	| trait_oper=Trait_oper 
+Class_modifier_fragment:'adds' Field_decl
+						| 'removes' f=[Field_decl|IDENTIFIER]
+						| Trait_oper 
 ;
 
-Interface_modifier_fragment:'adds' addMethodsig=Methodsig
-	|'removes' removedMethod=[Methodsig|IDENTIFIER]
+Interface_modifier_fragment:'adds' Methodsig
+							|'removes' removedMethod=[Methodsig|IDENTIFIER]
 ;
 
-Namespace_modifier:'adds' module_import=Module_import
-	| 'adds' module_export=Module_export
+Namespace_modifier:   'adds' Module_import
+					| 'adds' Module_export
 	
 ;
 
@@ -426,17 +429,17 @@ Update_decl:'stateupdate' name=TYPE_IDENTIFIER ';' object_update+=Object_update*
 	
 ;
 
-Object_update: 'objectupdate' QUALIFIED_TYPE_IDENTIFIER '{' 'await' guard=Guard ';' 
+Object_update: 'objectupdate' QUALIFIED_TYPE_IDENTIFIER '{' 'await' Guard ';' 
 	update_preamble_declaration+=Update_preamble_declaration*
 	pre+=Object_update_assign_stmt*
 	'classupdate' ';' post+=Object_update_assign_stmt* '}'
 ;
 
-Update_preamble_declaration: type_exp=Type_exp IDENTIFIER
+Update_preamble_declaration: Type_exp IDENTIFIER
 	
 ;
 
-Object_update_assign_stmt:var_or_field_ref=Var_or_field_ref '=' exp=Exp ';' 
+Object_update_assign_stmt:Var_or_field_ref '=' exp=Exp ';' 
 	
 ;
 
@@ -457,7 +460,7 @@ Feature:name=TYPE_IDENTIFIER (p='\'')? ('{'
 	
 ;
 
-Attr_assignment:IDENTIFIER '=' (i=INTLITERAL|b=TYPE_IDENTIFIER|s=STRINGLITERAL)
+Attr_assignment:IDENTIFIER '=' (INTLITERAL|TYPE_IDENTIFIER|STRINGLITERAL)
 	
 ;
 
@@ -536,6 +539,8 @@ ProductPrimary_exp returns Product_expr:
 	'(' Product_expr ')'|{ProductPrimary_exp}MINUS
 ;
 
+
+//Product reconfiguration
 Product_reconfiguration: name=TYPE_IDENTIFIER 'delta' delta_id+=Delta_id(',' delta_id+=Delta_id)*
 	'stateupdate' update=TYPE_IDENTIFIER ';'
 	
@@ -546,19 +551,25 @@ Product_reconfiguration: name=TYPE_IDENTIFIER 'delta' delta_id+=Delta_id(',' del
  * 
  */
  
+ 
  Feature_decl:name=TYPE_IDENTIFIER ('{' feature_decl_group=Feature_decl_group?
  	(feature_decl_attribute+=Feature_decl_attribute
  	|feature_decl_constraint+=Feature_decl_constraint)*
  	'}')?
 ;
 
-Feature_decl_group:'group' (o='oneof' | a='allof' | '[' l=INTLITERAL '..' (u=INTLITERAL | s=MULT) ']')
-'{' fnode+=Fnode (',' fnode+=Fnode)* '}'
+
+//Feature declaration group
+Feature_decl_group:'group'('oneof' | 'allof' | '[' INTLITERAL '..' (INTLITERAL | MULT) ']')
+'{'fnode+=Fnode (',' fnode+=Fnode)*'}'
 	
 ;
 
-Fnode:o='opt'? feature_decl=Feature_decl;
+//Feature Node
+Fnode:'opt'? Feature_decl;
 
+
+//Feature declaration attribute
 Feature_decl_attribute:TYPE_IDENTIFIER IDENTIFIER 'in' 
 	 '{' boundary_val+=Boundary_val (',' boundary_val+=Boundary_val)* '}' ';'
 | TYPE_IDENTIFIER IDENTIFIER 'in' '[' lBoundary_int=Boundary_int '..' uBoundary_int=Boundary_int ']' ';'
@@ -568,18 +579,22 @@ Feature_decl_attribute:TYPE_IDENTIFIER IDENTIFIER 'in'
 ;
 
 Boundary_val:
-	m=MINUS ? i=INTLITERAL
+	MINUS? INTLITERAL
 ;
 
-Boundary_int:star=MULT | Boundary_val
+Boundary_int:MULT | Boundary_val
 ;
 
+
+//Feature declaration constraint
 Feature_decl_constraint:('ifin' ':')? mexp=Mexp ';'  
 	|'ifout' ':' mexp=Mexp ';'
 	|{Feature_decl_constraint}'exclude' ':' TYPE_IDENTIFIER ';'
 	|{Feature_decl_constraint}'require' ':' TYPE_IDENTIFIER ';'
 ;
 
+
+//Mexp
 Mexp:{Mexp}TYPE_IDENTIFIER '.' IDENTIFIER
 	|{Mexp}TYPE_IDENTIFIER
 	|{Mexp}IDENTIFIER
@@ -617,7 +632,7 @@ MexpPlusOrMinus_expr returns Mexp:
 
 //MulDivOrMod_expr
 MexpMulDivOrMod_expr returns Mexp:
-	MexpPrimary_expr({MexpMulDivOrMod_expr.left=current} op=(MULT|DIV|MOD) right=MexpPrimary_expr)*
+	MexpPrimary_expr({MexpMulDivOrMod_expr.left=current} op=(MULT|'/'|MOD) right=MexpPrimary_expr)*
 ;
 
 //Primary_expr
@@ -652,7 +667,7 @@ terminal STR_ESC:
 	'\\'('\\'|'"')
 ;
 terminal STRINGLITERAL:
-	'"' (STR_ESC|NEGATION_CREOL('\\'|'"'|'\r'|'\n'))* '"'
+	'"'(STR_ESC|NEGATION_CREOL('\\'|'"'|'\r'|'\n'))*'"'
 ;
 
 // Identifier
@@ -671,11 +686,11 @@ terminal INTLITERAL returns ecore::EInt :
 ;
 
 terminal IDENTIFIER:
-	(SMALLLETTER)(SMALLLETTER|'_'|DIGIT)*
+	(SMALLLETTER)(CAPITALLETTER|SMALLLETTER|'_'|DIGIT)*
 ;
 
 terminal TYPE_IDENTIFIER:
-	(CAPITALLETTER)(SMALLLETTER|'_'|DIGIT)*
+	(CAPITALLETTER)(CAPITALLETTER|SMALLLETTER|'_'|DIGIT)*
 ;
 QUALIFIED_IDENTIFIER:
 	(TYPE_IDENTIFIER'.')* IDENTIFIER
@@ -695,9 +710,7 @@ terminal MINUS:
 terminal MULT:
 	'*'
 ;
-terminal DIV:
-	'/'
-;
+//terminal DIV:'/';
 terminal MOD:
 	'%'
 ;
@@ -738,4 +751,3 @@ terminal EQUIV:
 ANY_IDENTIFIER:
 	QUALIFIED_IDENTIFIER |QUALIFIED_TYPE_IDENTIFIER
 ;
-	

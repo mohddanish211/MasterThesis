@@ -4,16 +4,12 @@
 package org.xtext.abs.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Module_export;
-import org.xtext.abs.Module_import;
 import org.xtext.abs.Namespace_modifier;
 
 /**
@@ -23,8 +19,7 @@ import org.xtext.abs.Namespace_modifier;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Namespace_modifierImpl#getModule_import <em>Module import</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Namespace_modifierImpl#getModule_export <em>Module export</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Namespace_modifierImpl#getStar <em>Star</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,24 +28,24 @@ import org.xtext.abs.Namespace_modifier;
 public class Namespace_modifierImpl extends Module_modifierImpl implements Namespace_modifier
 {
   /**
-   * The cached value of the '{@link #getModule_import() <em>Module import</em>}' containment reference.
+   * The default value of the '{@link #getStar() <em>Star</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getModule_import()
+   * @see #getStar()
    * @generated
    * @ordered
    */
-  protected Module_import module_import;
+  protected static final String STAR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getModule_export() <em>Module export</em>}' containment reference.
+   * The cached value of the '{@link #getStar() <em>Star</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getModule_export()
+   * @see #getStar()
    * @generated
    * @ordered
    */
-  protected Module_export module_export;
+  protected String star = STAR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,9 +73,9 @@ public class Namespace_modifierImpl extends Module_modifierImpl implements Names
    * <!-- end-user-doc -->
    * @generated
    */
-  public Module_import getModule_import()
+  public String getStar()
   {
-    return module_import;
+    return star;
   }
 
   /**
@@ -88,103 +83,12 @@ public class Namespace_modifierImpl extends Module_modifierImpl implements Names
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetModule_import(Module_import newModule_import, NotificationChain msgs)
+  public void setStar(String newStar)
   {
-    Module_import oldModule_import = module_import;
-    module_import = newModule_import;
+    String oldStar = star;
+    star = newStar;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.NAMESPACE_MODIFIER__MODULE_IMPORT, oldModule_import, newModule_import);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setModule_import(Module_import newModule_import)
-  {
-    if (newModule_import != module_import)
-    {
-      NotificationChain msgs = null;
-      if (module_import != null)
-        msgs = ((InternalEObject)module_import).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.NAMESPACE_MODIFIER__MODULE_IMPORT, null, msgs);
-      if (newModule_import != null)
-        msgs = ((InternalEObject)newModule_import).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.NAMESPACE_MODIFIER__MODULE_IMPORT, null, msgs);
-      msgs = basicSetModule_import(newModule_import, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.NAMESPACE_MODIFIER__MODULE_IMPORT, newModule_import, newModule_import));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Module_export getModule_export()
-  {
-    return module_export;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetModule_export(Module_export newModule_export, NotificationChain msgs)
-  {
-    Module_export oldModule_export = module_export;
-    module_export = newModule_export;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.NAMESPACE_MODIFIER__MODULE_EXPORT, oldModule_export, newModule_export);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setModule_export(Module_export newModule_export)
-  {
-    if (newModule_export != module_export)
-    {
-      NotificationChain msgs = null;
-      if (module_export != null)
-        msgs = ((InternalEObject)module_export).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.NAMESPACE_MODIFIER__MODULE_EXPORT, null, msgs);
-      if (newModule_export != null)
-        msgs = ((InternalEObject)newModule_export).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.NAMESPACE_MODIFIER__MODULE_EXPORT, null, msgs);
-      msgs = basicSetModule_export(newModule_export, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.NAMESPACE_MODIFIER__MODULE_EXPORT, newModule_export, newModule_export));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_IMPORT:
-        return basicSetModule_import(null, msgs);
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_EXPORT:
-        return basicSetModule_export(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.NAMESPACE_MODIFIER__STAR, oldStar, star));
   }
 
   /**
@@ -197,10 +101,8 @@ public class Namespace_modifierImpl extends Module_modifierImpl implements Names
   {
     switch (featureID)
     {
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_IMPORT:
-        return getModule_import();
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_EXPORT:
-        return getModule_export();
+      case AbsPackage.NAMESPACE_MODIFIER__STAR:
+        return getStar();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -215,11 +117,8 @@ public class Namespace_modifierImpl extends Module_modifierImpl implements Names
   {
     switch (featureID)
     {
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_IMPORT:
-        setModule_import((Module_import)newValue);
-        return;
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_EXPORT:
-        setModule_export((Module_export)newValue);
+      case AbsPackage.NAMESPACE_MODIFIER__STAR:
+        setStar((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +134,8 @@ public class Namespace_modifierImpl extends Module_modifierImpl implements Names
   {
     switch (featureID)
     {
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_IMPORT:
-        setModule_import((Module_import)null);
-        return;
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_EXPORT:
-        setModule_export((Module_export)null);
+      case AbsPackage.NAMESPACE_MODIFIER__STAR:
+        setStar(STAR_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -255,12 +151,27 @@ public class Namespace_modifierImpl extends Module_modifierImpl implements Names
   {
     switch (featureID)
     {
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_IMPORT:
-        return module_import != null;
-      case AbsPackage.NAMESPACE_MODIFIER__MODULE_EXPORT:
-        return module_export != null;
+      case AbsPackage.NAMESPACE_MODIFIER__STAR:
+        return STAR_EDEFAULT == null ? star != null : !STAR_EDEFAULT.equals(star);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (star: ");
+    result.append(star);
+    result.append(')');
+    return result.toString();
   }
 
 } //Namespace_modifierImpl

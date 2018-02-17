@@ -1,7 +1,0 @@
-package org.eclipse.xtext.ui.tests.findrefs;
-
-import org.eclipse.xtext.junit4.AbstractXtextTests;
-
-public class DelegatingReferenceFinderTest extends AbstractXtextTests{
-
-}

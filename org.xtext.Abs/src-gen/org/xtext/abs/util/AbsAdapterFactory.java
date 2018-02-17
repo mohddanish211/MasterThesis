@@ -386,11 +386,6 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
         return createFeatureAdapter();
       }
       @Override
-      public Adapter caseAttr_assignment(Attr_assignment object)
-      {
-        return createAttr_assignmentAdapter();
-      }
-      @Override
       public Adapter caseDelta_clause(Delta_clause object)
       {
         return createDelta_clauseAdapter();
@@ -454,16 +449,6 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFeature_decl_attribute(Feature_decl_attribute object)
       {
         return createFeature_decl_attributeAdapter();
-      }
-      @Override
-      public Adapter caseBoundary_val(Boundary_val object)
-      {
-        return createBoundary_valAdapter();
-      }
-      @Override
-      public Adapter caseBoundary_int(Boundary_int object)
-      {
-        return createBoundary_intAdapter();
       }
       @Override
       public Adapter caseFeature_decl_constraint(Feature_decl_constraint object)
@@ -1533,21 +1518,6 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.abs.Attr_assignment <em>Attr assignment</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.abs.Attr_assignment
-   * @generated
-   */
-  public Adapter createAttr_assignmentAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.abs.Delta_clause <em>Delta clause</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1738,36 +1708,6 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFeature_decl_attributeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.abs.Boundary_val <em>Boundary val</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.abs.Boundary_val
-   * @generated
-   */
-  public Adapter createBoundary_valAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.abs.Boundary_int <em>Boundary int</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.abs.Boundary_int
-   * @generated
-   */
-  public Adapter createBoundary_intAdapter()
   {
     return null;
   }

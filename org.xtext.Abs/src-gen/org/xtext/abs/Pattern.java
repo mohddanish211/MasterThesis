@@ -5,8 +5,6 @@ package org.xtext.abs;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern</b></em>'.
@@ -15,8 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Pattern#getValue <em>Value</em>}</li>
- *   <li>{@link org.xtext.abs.Pattern#getVal <em>Val</em>}</li>
+ *   <li>{@link org.xtext.abs.Pattern#getPure_exp <em>Pure exp</em>}</li>
  *   <li>{@link org.xtext.abs.Pattern#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
@@ -25,59 +22,33 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Pattern extends EObject
+public interface Pattern extends Case_branch
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Pure exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Pure exp</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
-   * @see org.xtext.abs.AbsPackage#getPattern_Value()
-   * @model
+   * @return the value of the '<em>Pure exp</em>' containment reference.
+   * @see #setPure_exp(Pure_exp)
+   * @see org.xtext.abs.AbsPackage#getPattern_Pure_exp()
+   * @model containment="true"
    * @generated
    */
-  String getValue();
+  Pure_exp getPure_exp();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Pattern#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.abs.Pattern#getPure_exp <em>Pure exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
+   * @param value the new value of the '<em>Pure exp</em>' containment reference.
+   * @see #getPure_exp()
    * @generated
    */
-  void setValue(String value);
-
-  /**
-   * Returns the value of the '<em><b>Val</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Val</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Val</em>' attribute.
-   * @see #setVal(int)
-   * @see org.xtext.abs.AbsPackage#getPattern_Val()
-   * @model
-   * @generated
-   */
-  int getVal();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Pattern#getVal <em>Val</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Val</em>' attribute.
-   * @see #getVal()
-   * @generated
-   */
-  void setVal(int value);
+  void setPure_exp(Pure_exp value);
 
   /**
    * Returns the value of the '<em><b>Pattern</b></em>' containment reference list.

@@ -13,14 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Decl#getDataType_decl <em>Data Type decl</em>}</li>
- *   <li>{@link org.xtext.abs.Decl#getFunction_decl <em>Function decl</em>}</li>
- *   <li>{@link org.xtext.abs.Decl#getPar_function_decl <em>Par function decl</em>}</li>
- *   <li>{@link org.xtext.abs.Decl#getTypesyn_decl <em>Typesyn decl</em>}</li>
- *   <li>{@link org.xtext.abs.Decl#getException_decl <em>Exception decl</em>}</li>
- *   <li>{@link org.xtext.abs.Decl#getInterface_decl <em>Interface decl</em>}</li>
- *   <li>{@link org.xtext.abs.Decl#getClass_decl <em>Class decl</em>}</li>
- *   <li>{@link org.xtext.abs.Decl#getTrait_decl <em>Trait decl</em>}</li>
+ *   <li>{@link org.xtext.abs.Decl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,211 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Decl extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Data Type decl</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Data Type decl</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Data Type decl</em>' containment reference.
-   * @see #setDataType_decl(DataType_decl)
-   * @see org.xtext.abs.AbsPackage#getDecl_DataType_decl()
-   * @model containment="true"
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.abs.AbsPackage#getDecl_Name()
+   * @model
    * @generated
    */
-  DataType_decl getDataType_decl();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Decl#getDataType_decl <em>Data Type decl</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Decl#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Data Type decl</em>' containment reference.
-   * @see #getDataType_decl()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setDataType_decl(DataType_decl value);
-
-  /**
-   * Returns the value of the '<em><b>Function decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Function decl</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Function decl</em>' containment reference.
-   * @see #setFunction_decl(Function_decl)
-   * @see org.xtext.abs.AbsPackage#getDecl_Function_decl()
-   * @model containment="true"
-   * @generated
-   */
-  Function_decl getFunction_decl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Decl#getFunction_decl <em>Function decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Function decl</em>' containment reference.
-   * @see #getFunction_decl()
-   * @generated
-   */
-  void setFunction_decl(Function_decl value);
-
-  /**
-   * Returns the value of the '<em><b>Par function decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Par function decl</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Par function decl</em>' containment reference.
-   * @see #setPar_function_decl(Par_function_decl)
-   * @see org.xtext.abs.AbsPackage#getDecl_Par_function_decl()
-   * @model containment="true"
-   * @generated
-   */
-  Par_function_decl getPar_function_decl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Decl#getPar_function_decl <em>Par function decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Par function decl</em>' containment reference.
-   * @see #getPar_function_decl()
-   * @generated
-   */
-  void setPar_function_decl(Par_function_decl value);
-
-  /**
-   * Returns the value of the '<em><b>Typesyn decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Typesyn decl</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Typesyn decl</em>' containment reference.
-   * @see #setTypesyn_decl(Typesyn_decl)
-   * @see org.xtext.abs.AbsPackage#getDecl_Typesyn_decl()
-   * @model containment="true"
-   * @generated
-   */
-  Typesyn_decl getTypesyn_decl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Decl#getTypesyn_decl <em>Typesyn decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Typesyn decl</em>' containment reference.
-   * @see #getTypesyn_decl()
-   * @generated
-   */
-  void setTypesyn_decl(Typesyn_decl value);
-
-  /**
-   * Returns the value of the '<em><b>Exception decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Exception decl</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exception decl</em>' containment reference.
-   * @see #setException_decl(Exception_decl)
-   * @see org.xtext.abs.AbsPackage#getDecl_Exception_decl()
-   * @model containment="true"
-   * @generated
-   */
-  Exception_decl getException_decl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Decl#getException_decl <em>Exception decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exception decl</em>' containment reference.
-   * @see #getException_decl()
-   * @generated
-   */
-  void setException_decl(Exception_decl value);
-
-  /**
-   * Returns the value of the '<em><b>Interface decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Interface decl</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Interface decl</em>' containment reference.
-   * @see #setInterface_decl(Interface_decl)
-   * @see org.xtext.abs.AbsPackage#getDecl_Interface_decl()
-   * @model containment="true"
-   * @generated
-   */
-  Interface_decl getInterface_decl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Decl#getInterface_decl <em>Interface decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Interface decl</em>' containment reference.
-   * @see #getInterface_decl()
-   * @generated
-   */
-  void setInterface_decl(Interface_decl value);
-
-  /**
-   * Returns the value of the '<em><b>Class decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Class decl</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Class decl</em>' containment reference.
-   * @see #setClass_decl(Class_decl)
-   * @see org.xtext.abs.AbsPackage#getDecl_Class_decl()
-   * @model containment="true"
-   * @generated
-   */
-  Class_decl getClass_decl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Decl#getClass_decl <em>Class decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Class decl</em>' containment reference.
-   * @see #getClass_decl()
-   * @generated
-   */
-  void setClass_decl(Class_decl value);
-
-  /**
-   * Returns the value of the '<em><b>Trait decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Trait decl</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Trait decl</em>' containment reference.
-   * @see #setTrait_decl(Trait_decl)
-   * @see org.xtext.abs.AbsPackage#getDecl_Trait_decl()
-   * @model containment="true"
-   * @generated
-   */
-  Trait_decl getTrait_decl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Decl#getTrait_decl <em>Trait decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Trait decl</em>' containment reference.
-   * @see #getTrait_decl()
-   * @generated
-   */
-  void setTrait_decl(Trait_decl value);
+  void setName(String value);
 
 } // Decl

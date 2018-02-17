@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
@@ -26,7 +25,6 @@ import org.xtext.abs.Module_import;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Module_importImpl#getStar <em>Star</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Module_importImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Module_importImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -34,28 +32,8 @@ import org.xtext.abs.Module_import;
  *
  * @generated
  */
-public class Module_importImpl extends MinimalEObjectImpl.Container implements Module_import
+public class Module_importImpl extends Namespace_modifierImpl implements Module_import
 {
-  /**
-   * The default value of the '{@link #getStar() <em>Star</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStar()
-   * @generated
-   * @ordered
-   */
-  protected static final String STAR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getStar() <em>Star</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStar()
-   * @generated
-   * @ordered
-   */
-  protected String star = STAR_EDEFAULT;
-
   /**
    * The default value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -112,29 +90,6 @@ public class Module_importImpl extends MinimalEObjectImpl.Container implements M
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getStar()
-  {
-    return star;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStar(String newStar)
-  {
-    String oldStar = star;
-    star = newStar;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.MODULE_IMPORT__STAR, oldStar, star));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getImportedNamespace()
   {
     return importedNamespace;
@@ -177,8 +132,6 @@ public class Module_importImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case AbsPackage.MODULE_IMPORT__STAR:
-        return getStar();
       case AbsPackage.MODULE_IMPORT__IMPORTED_NAMESPACE:
         return getImportedNamespace();
       case AbsPackage.MODULE_IMPORT__NAME:
@@ -198,9 +151,6 @@ public class Module_importImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case AbsPackage.MODULE_IMPORT__STAR:
-        setStar((String)newValue);
-        return;
       case AbsPackage.MODULE_IMPORT__IMPORTED_NAMESPACE:
         setImportedNamespace((String)newValue);
         return;
@@ -222,9 +172,6 @@ public class Module_importImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case AbsPackage.MODULE_IMPORT__STAR:
-        setStar(STAR_EDEFAULT);
-        return;
       case AbsPackage.MODULE_IMPORT__IMPORTED_NAMESPACE:
         setImportedNamespace(IMPORTED_NAMESPACE_EDEFAULT);
         return;
@@ -245,8 +192,6 @@ public class Module_importImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case AbsPackage.MODULE_IMPORT__STAR:
-        return STAR_EDEFAULT == null ? star != null : !STAR_EDEFAULT.equals(star);
       case AbsPackage.MODULE_IMPORT__IMPORTED_NAMESPACE:
         return IMPORTED_NAMESPACE_EDEFAULT == null ? importedNamespace != null : !IMPORTED_NAMESPACE_EDEFAULT.equals(importedNamespace);
       case AbsPackage.MODULE_IMPORT__NAME:
@@ -266,9 +211,7 @@ public class Module_importImpl extends MinimalEObjectImpl.Container implements M
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (star: ");
-    result.append(star);
-    result.append(", importedNamespace: ");
+    result.append(" (importedNamespace: ");
     result.append(importedNamespace);
     result.append(", name: ");
     result.append(name);

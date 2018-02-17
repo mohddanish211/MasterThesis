@@ -21,9 +21,6 @@ import org.xtext.abs.Anon_function_decl;
 import org.xtext.abs.AppAnd_exp;
 import org.xtext.abs.AppOr_exp;
 import org.xtext.abs.Application_condition;
-import org.xtext.abs.Attr_assignment;
-import org.xtext.abs.Boundary_int;
-import org.xtext.abs.Boundary_val;
 import org.xtext.abs.Case_branch;
 import org.xtext.abs.Casestmtbranch;
 import org.xtext.abs.Class_decl;
@@ -561,13 +558,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass attr_assignmentEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass delta_clauseEClass = null;
 
   /**
@@ -653,20 +643,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * @generated
    */
   private EClass feature_decl_attributeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass boundary_valEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass boundary_intEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1057,7 +1033,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModule_export_Star()
+  public EAttribute getModule_export_AnyPackage()
   {
     return (EAttribute)module_exportEClass.getEStructuralFeatures().get(0);
   }
@@ -1067,19 +1043,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModule_export_AnyPackage()
-  {
-    return (EAttribute)module_exportEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getModule_export_ImportedNamespace()
   {
-    return (EAttribute)module_exportEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)module_exportEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1097,7 +1063,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModule_import_Star()
+  public EAttribute getModule_import_ImportedNamespace()
   {
     return (EAttribute)module_importEClass.getEStructuralFeatures().get(0);
   }
@@ -1107,19 +1073,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModule_import_ImportedNamespace()
-  {
-    return (EAttribute)module_importEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getModule_import_Name()
   {
-    return (EAttribute)module_importEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)module_importEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1137,79 +1093,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDecl_DataType_decl()
+  public EAttribute getDecl_Name()
   {
-    return (EReference)declEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDecl_Function_decl()
-  {
-    return (EReference)declEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDecl_Par_function_decl()
-  {
-    return (EReference)declEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDecl_Typesyn_decl()
-  {
-    return (EReference)declEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDecl_Exception_decl()
-  {
-    return (EReference)declEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDecl_Interface_decl()
-  {
-    return (EReference)declEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDecl_Class_decl()
-  {
-    return (EReference)declEClass.getEStructuralFeatures().get(6);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDecl_Trait_decl()
-  {
-    return (EReference)declEClass.getEStructuralFeatures().get(7);
+    return (EAttribute)declEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1227,7 +1113,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPar_function_decl_Annotation()
+  public EReference getPar_function_decl_Type_use()
   {
     return (EReference)par_function_declEClass.getEStructuralFeatures().get(0);
   }
@@ -1237,29 +1123,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPar_function_decl_Type_use()
-  {
-    return (EReference)par_function_declEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPar_function_decl_Name()
-  {
-    return (EAttribute)par_function_declEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getPar_function_decl_Lt()
   {
-    return (EAttribute)par_function_declEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)par_function_declEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1269,7 +1135,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EAttribute getPar_function_decl_P()
   {
-    return (EAttribute)par_function_declEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)par_function_declEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1279,7 +1145,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EAttribute getPar_function_decl_Gt()
   {
-    return (EAttribute)par_function_declEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)par_function_declEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1289,7 +1155,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getPar_function_decl_Functions()
   {
-    return (EReference)par_function_declEClass.getEStructuralFeatures().get(6);
+    return (EReference)par_function_declEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1299,7 +1165,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getPar_function_decl_Params()
   {
-    return (EReference)par_function_declEClass.getEStructuralFeatures().get(7);
+    return (EReference)par_function_declEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1309,7 +1175,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getPar_function_decl_E()
   {
-    return (EReference)par_function_declEClass.getEStructuralFeatures().get(8);
+    return (EReference)par_function_declEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1367,29 +1233,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataType_decl_Annotations()
-  {
-    return (EReference)dataType_declEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getDataType_decl_Name()
-  {
-    return (EAttribute)dataType_declEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getDataType_decl_Lt()
   {
-    return (EAttribute)dataType_declEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)dataType_declEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1399,7 +1245,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EAttribute getDataType_decl_P()
   {
-    return (EAttribute)dataType_declEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)dataType_declEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1409,7 +1255,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EAttribute getDataType_decl_Gt()
   {
-    return (EAttribute)dataType_declEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)dataType_declEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1419,7 +1265,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getDataType_decl_Data_constructor()
   {
-    return (EReference)dataType_declEClass.getEStructuralFeatures().get(5);
+    return (EReference)dataType_declEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1467,26 +1313,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getData_constructor_arg_Type_use()
-  {
-    return (EReference)data_constructor_argEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getData_constructor_arg_Name()
-  {
-    return (EAttribute)data_constructor_argEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getAnnotations()
   {
     return annotationsEClass;
@@ -1517,19 +1343,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAnnotation_Type_use()
-  {
-    return (EReference)annotationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getAnnotation_Pure_exp()
   {
-    return (EReference)annotationEClass.getEStructuralFeatures().get(1);
+    return (EReference)annotationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1577,7 +1393,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPure_exp_Pure_exp_list()
+  public EReference getPure_exp_Function_expr()
   {
     return (EReference)pure_expEClass.getEStructuralFeatures().get(0);
   }
@@ -1587,7 +1403,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPure_exp_Partial_function_list()
+  public EReference getPure_exp_Variadic_exp_list()
   {
     return (EReference)pure_expEClass.getEStructuralFeatures().get(1);
   }
@@ -1597,7 +1413,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPure_exp_Partial_function_pure_exp_list()
+  public EReference getPure_exp_C()
   {
     return (EReference)pure_expEClass.getEStructuralFeatures().get(2);
   }
@@ -1607,7 +1423,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPure_exp_Function_expr()
+  public EReference getPure_exp_L()
   {
     return (EReference)pure_expEClass.getEStructuralFeatures().get(3);
   }
@@ -1617,7 +1433,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPure_exp_Variadic_exp_list()
+  public EReference getPure_exp_Else()
   {
     return (EReference)pure_expEClass.getEStructuralFeatures().get(4);
   }
@@ -1627,7 +1443,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPure_exp_C()
+  public EReference getPure_exp_Casebranch()
   {
     return (EReference)pure_expEClass.getEStructuralFeatures().get(5);
   }
@@ -1637,7 +1453,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPure_exp_L()
+  public EReference getPure_exp_Type_use()
   {
     return (EReference)pure_expEClass.getEStructuralFeatures().get(6);
   }
@@ -1647,39 +1463,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPure_exp_Else()
-  {
-    return (EReference)pure_expEClass.getEStructuralFeatures().get(7);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPure_exp_Casebranch()
-  {
-    return (EReference)pure_expEClass.getEStructuralFeatures().get(8);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPure_exp_Type_use()
-  {
-    return (EReference)pure_expEClass.getEStructuralFeatures().get(9);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getPure_exp_Value()
   {
-    return (EAttribute)pure_expEClass.getEStructuralFeatures().get(10);
+    return (EAttribute)pure_expEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1689,7 +1475,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getPure_exp_I()
   {
-    return (EReference)pure_expEClass.getEStructuralFeatures().get(11);
+    return (EReference)pure_expEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -1699,57 +1485,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getPure_exp_B()
   {
-    return (EReference)pure_expEClass.getEStructuralFeatures().get(12);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPure_exp_Pure_exp()
-  {
-    return (EReference)pure_expEClass.getEStructuralFeatures().get(13);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPure_exp_Val()
-  {
-    return (EAttribute)pure_expEClass.getEStructuralFeatures().get(14);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPure_exp_Var_or_field_ref()
-  {
-    return (EReference)pure_expEClass.getEStructuralFeatures().get(15);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPure_exp_Left()
-  {
-    return (EReference)pure_expEClass.getEStructuralFeatures().get(16);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPure_exp_Right()
-  {
-    return (EReference)pure_expEClass.getEStructuralFeatures().get(17);
+    return (EReference)pure_expEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -1777,29 +1513,19 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getVar_or_field_ref_Exp()
+  {
+    return (EReference)var_or_field_refEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCase_branch()
   {
     return case_branchEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCase_branch_Pattern()
-  {
-    return (EReference)case_branchEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCase_branch_Pure_exp()
-  {
-    return (EReference)case_branchEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1817,19 +1543,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPattern_Value()
+  public EReference getPattern_Pure_exp()
   {
-    return (EAttribute)patternEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPattern_Val()
-  {
-    return (EAttribute)patternEClass.getEStructuralFeatures().get(1);
+    return (EReference)patternEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1839,7 +1555,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getPattern_Pattern()
   {
-    return (EReference)patternEClass.getEStructuralFeatures().get(2);
+    return (EReference)patternEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1877,9 +1593,19 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_list_Function_param()
+  public EReference getFunction_list_Partial_function_pure_exp_list()
   {
     return (EReference)function_listEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunction_list_Function_param()
+  {
+    return (EReference)function_listEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1890,26 +1616,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
   public EClass getFunction_param()
   {
     return function_paramEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFunction_param_Function_param()
-  {
-    return (EReference)function_paramEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFunction_param_Anon_param()
-  {
-    return (EReference)function_paramEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2087,7 +1793,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFunction_decl_Name()
+  public EAttribute getFunction_decl_Lt()
   {
     return (EAttribute)function_declEClass.getEStructuralFeatures().get(1);
   }
@@ -2097,7 +1803,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFunction_decl_Lt()
+  public EAttribute getFunction_decl_ImportedNamespace()
   {
     return (EAttribute)function_declEClass.getEStructuralFeatures().get(2);
   }
@@ -2107,7 +1813,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFunction_decl_ImportedNamespace()
+  public EAttribute getFunction_decl_Gt()
   {
     return (EAttribute)function_declEClass.getEStructuralFeatures().get(3);
   }
@@ -2117,19 +1823,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFunction_decl_Gt()
-  {
-    return (EAttribute)function_declEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getFunction_decl_Paramlist()
   {
-    return (EReference)function_declEClass.getEStructuralFeatures().get(5);
+    return (EReference)function_declEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2139,7 +1835,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getFunction_decl_Pure_exp()
   {
-    return (EReference)function_declEClass.getEStructuralFeatures().get(6);
+    return (EReference)function_declEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -2157,19 +1853,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypesyn_decl_Name()
-  {
-    return (EAttribute)typesyn_declEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getTypesyn_decl_Type_use()
   {
-    return (EReference)typesyn_declEClass.getEStructuralFeatures().get(1);
+    return (EReference)typesyn_declEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2187,19 +1873,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getException_decl_Name()
-  {
-    return (EAttribute)exception_declEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getException_decl_Type()
   {
-    return (EReference)exception_declEClass.getEStructuralFeatures().get(1);
+    return (EReference)exception_declEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2217,19 +1893,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getInterface_decl_Name()
-  {
-    return (EAttribute)interface_declEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getInterface_decl_Interface_name()
   {
-    return (EReference)interface_declEClass.getEStructuralFeatures().get(1);
+    return (EReference)interface_declEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2239,7 +1905,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getInterface_decl_Methodsig()
   {
-    return (EReference)interface_declEClass.getEStructuralFeatures().get(2);
+    return (EReference)interface_declEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2317,19 +1983,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClass_decl_Name()
-  {
-    return (EAttribute)class_declEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getClass_decl_Paramlist()
   {
-    return (EReference)class_declEClass.getEStructuralFeatures().get(1);
+    return (EReference)class_declEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2339,7 +1995,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getClass_decl_Interface_name()
   {
-    return (EReference)class_declEClass.getEStructuralFeatures().get(2);
+    return (EReference)class_declEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2349,7 +2005,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getClass_decl_Field_decl()
   {
-    return (EReference)class_declEClass.getEStructuralFeatures().get(3);
+    return (EReference)class_declEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2359,7 +2015,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getClass_decl_Stmt()
   {
-    return (EReference)class_declEClass.getEStructuralFeatures().get(4);
+    return (EReference)class_declEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2369,7 +2025,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getClass_decl_Casestmtbranch()
   {
-    return (EReference)class_declEClass.getEStructuralFeatures().get(5);
+    return (EReference)class_declEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2379,7 +2035,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getClass_decl_Trait_usage()
   {
-    return (EReference)class_declEClass.getEStructuralFeatures().get(6);
+    return (EReference)class_declEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -2389,7 +2045,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getClass_decl_Method()
   {
-    return (EReference)class_declEClass.getEStructuralFeatures().get(7);
+    return (EReference)class_declEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -2667,7 +2323,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExp_Eff_expr()
+  public EReference getExp_Pure_exp_list()
   {
     return (EReference)expEClass.getEStructuralFeatures().get(0);
   }
@@ -2697,19 +2353,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEff_expr_Pure_exp()
-  {
-    return (EReference)eff_exprEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getEff_expr_L()
   {
-    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2719,17 +2365,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EAttribute getEff_expr_C()
   {
-    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEff_expr_Pure_exp_list()
-  {
-    return (EReference)eff_exprEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2739,7 +2375,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EAttribute getEff_expr_A()
   {
-    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2749,7 +2385,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EReference getEff_expr_O()
   {
-    return (EReference)eff_exprEClass.getEStructuralFeatures().get(5);
+    return (EReference)eff_exprEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2759,7 +2395,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EAttribute getEff_expr_M()
   {
-    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2769,7 +2405,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    */
   public EAttribute getEff_expr_D()
   {
-    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(7);
+    return (EAttribute)eff_exprEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -2827,6 +2463,36 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getGuard_Update_preamble_declaration()
+  {
+    return (EReference)guardEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGuard_Pre()
+  {
+    return (EReference)guardEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGuard_Post()
+  {
+    return (EReference)guardEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCasestmtbranch()
   {
     return casestmtbranchEClass;
@@ -2860,16 +2526,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
   public EClass getTrait_usage()
   {
     return trait_usageEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTrait_usage_Trait_expr()
-  {
-    return (EReference)trait_usageEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3047,19 +2703,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTrait_decl_Name()
-  {
-    return (EAttribute)trait_declEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getTrait_decl_Trait_expr()
   {
-    return (EReference)trait_declEClass.getEStructuralFeatures().get(1);
+    return (EReference)trait_declEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3077,19 +2723,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMain_block_Annotations()
-  {
-    return (EReference)main_blockEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getMain_block_Stmt()
   {
-    return (EReference)main_blockEClass.getEStructuralFeatures().get(1);
+    return (EReference)main_blockEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3150,26 +2786,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
   public EClass getDelta_param()
   {
     return delta_paramEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDelta_param_Param_decl()
-  {
-    return (EReference)delta_paramEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDelta_param_Has_condition()
-  {
-    return (EReference)delta_paramEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3257,56 +2873,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunctional_modifier_Function_decl()
-  {
-    return (EReference)functional_modifierEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFunctional_modifier_Datatype_decl()
-  {
-    return (EReference)functional_modifierEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFunctional_modifier_Typesyn_decl()
-  {
-    return (EReference)functional_modifierEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFunctional_modifier_Modifiedtypesyn_decl()
-  {
-    return (EReference)functional_modifierEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFunctional_modifier_ModifiedDatatype_decl()
-  {
-    return (EReference)functional_modifierEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getOO_modifier()
   {
     return oO_modifierEClass;
@@ -3387,29 +2953,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClass_modifier_fragment_Field_decl()
-  {
-    return (EReference)class_modifier_fragmentEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getClass_modifier_fragment_F()
   {
-    return (EReference)class_modifier_fragmentEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getClass_modifier_fragment_Trait_oper()
-  {
-    return (EReference)class_modifier_fragmentEClass.getEStructuralFeatures().get(2);
+    return (EReference)class_modifier_fragmentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3427,19 +2973,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getInterface_modifier_fragment_AddMethodsig()
-  {
-    return (EReference)interface_modifier_fragmentEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getInterface_modifier_fragment_RemovedMethod()
   {
-    return (EReference)interface_modifier_fragmentEClass.getEStructuralFeatures().get(1);
+    return (EReference)interface_modifier_fragmentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3457,19 +2993,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getNamespace_modifier_Module_import()
+  public EAttribute getNamespace_modifier_Star()
   {
-    return (EReference)namespace_modifierEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getNamespace_modifier_Module_export()
-  {
-    return (EReference)namespace_modifierEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)namespace_modifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3517,46 +3043,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getObject_update_Guard()
-  {
-    return (EReference)object_updateEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getObject_update_Update_preamble_declaration()
-  {
-    return (EReference)object_updateEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getObject_update_Pre()
-  {
-    return (EReference)object_updateEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getObject_update_Post()
-  {
-    return (EReference)object_updateEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getUpdate_preamble_declaration()
   {
     return update_preamble_declarationEClass;
@@ -3567,39 +3053,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUpdate_preamble_declaration_Type_exp()
-  {
-    return (EReference)update_preamble_declarationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getObject_update_assign_stmt()
   {
     return object_update_assign_stmtEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getObject_update_assign_stmt_Var_or_field_ref()
-  {
-    return (EReference)object_update_assign_stmtEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getObject_update_assign_stmt_Exp()
-  {
-    return (EReference)object_update_assign_stmtEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3677,49 +3133,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeature_Attr_assignment()
+  public EAttribute getFeature_Attr_assignment()
   {
-    return (EReference)featureEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAttr_assignment()
-  {
-    return attr_assignmentEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAttr_assignment_I()
-  {
-    return (EAttribute)attr_assignmentEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAttr_assignment_B()
-  {
-    return (EAttribute)attr_assignmentEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAttr_assignment_S()
-  {
-    return (EAttribute)attr_assignmentEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4067,59 +3483,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_decl_group_O()
-  {
-    return (EAttribute)feature_decl_groupEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFeature_decl_group_A()
-  {
-    return (EAttribute)feature_decl_groupEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFeature_decl_group_L()
-  {
-    return (EAttribute)feature_decl_groupEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFeature_decl_group_U()
-  {
-    return (EAttribute)feature_decl_groupEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFeature_decl_group_S()
-  {
-    return (EAttribute)feature_decl_groupEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getFeature_decl_group_Fnode()
   {
-    return (EReference)feature_decl_groupEClass.getEStructuralFeatures().get(5);
+    return (EReference)feature_decl_groupEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4137,26 +3503,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFnode_O()
-  {
-    return (EAttribute)fnodeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFnode_Feature_decl()
-  {
-    return (EReference)fnodeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getFeature_decl_attribute()
   {
     return feature_decl_attributeEClass;
@@ -4167,9 +3513,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeature_decl_attribute_Boundary_val()
+  public EAttribute getFeature_decl_attribute_Boundary_val()
   {
-    return (EReference)feature_decl_attributeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)feature_decl_attributeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4177,9 +3523,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeature_decl_attribute_LBoundary_int()
+  public EAttribute getFeature_decl_attribute_LBoundary_int()
   {
-    return (EReference)feature_decl_attributeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)feature_decl_attributeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4187,59 +3533,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeature_decl_attribute_UBoundary_int()
+  public EAttribute getFeature_decl_attribute_UBoundary_int()
   {
-    return (EReference)feature_decl_attributeEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBoundary_val()
-  {
-    return boundary_valEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBoundary_val_M()
-  {
-    return (EAttribute)boundary_valEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBoundary_val_I()
-  {
-    return (EAttribute)boundary_valEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBoundary_int()
-  {
-    return boundary_intEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBoundary_int_Star()
-  {
-    return (EAttribute)boundary_intEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)feature_decl_attributeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4337,9 +3633,49 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getOr_expr_Left()
+  {
+    return (EReference)or_exprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOr_expr_Right()
+  {
+    return (EReference)or_exprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAnd_expr()
   {
     return and_exprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAnd_expr_Left()
+  {
+    return (EReference)and_exprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAnd_expr_Right()
+  {
+    return (EReference)and_exprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4357,9 +3693,29 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getEquality_expr_Left()
+  {
+    return (EReference)equality_exprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getEquality_expr_Op()
   {
-    return (EAttribute)equality_exprEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)equality_exprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEquality_expr_Right()
+  {
+    return (EReference)equality_exprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4377,9 +3733,29 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getComparison_expr_Left()
+  {
+    return (EReference)comparison_exprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getComparison_expr_Op()
   {
-    return (EAttribute)comparison_exprEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)comparison_exprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getComparison_expr_Right()
+  {
+    return (EReference)comparison_exprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4397,9 +3773,29 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPlusOrMinus_expr_Left()
+  {
+    return (EReference)plusOrMinus_exprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getPlusOrMinus_expr_Op()
   {
-    return (EAttribute)plusOrMinus_exprEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)plusOrMinus_exprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPlusOrMinus_expr_Right()
+  {
+    return (EReference)plusOrMinus_exprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4417,9 +3813,29 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMulDivOrMod_expr_Left()
+  {
+    return (EReference)mulDivOrMod_exprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getMulDivOrMod_expr_Op()
   {
-    return (EAttribute)mulDivOrMod_exprEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)mulDivOrMod_exprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMulDivOrMod_expr_Right()
+  {
+    return (EReference)mulDivOrMod_exprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4881,29 +4297,18 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(module_declEClass, MODULE_DECL__MAIN_BLOCK);
 
     module_exportEClass = createEClass(MODULE_EXPORT);
-    createEAttribute(module_exportEClass, MODULE_EXPORT__STAR);
     createEAttribute(module_exportEClass, MODULE_EXPORT__ANY_PACKAGE);
     createEAttribute(module_exportEClass, MODULE_EXPORT__IMPORTED_NAMESPACE);
 
     module_importEClass = createEClass(MODULE_IMPORT);
-    createEAttribute(module_importEClass, MODULE_IMPORT__STAR);
     createEAttribute(module_importEClass, MODULE_IMPORT__IMPORTED_NAMESPACE);
     createEAttribute(module_importEClass, MODULE_IMPORT__NAME);
 
     declEClass = createEClass(DECL);
-    createEReference(declEClass, DECL__DATA_TYPE_DECL);
-    createEReference(declEClass, DECL__FUNCTION_DECL);
-    createEReference(declEClass, DECL__PAR_FUNCTION_DECL);
-    createEReference(declEClass, DECL__TYPESYN_DECL);
-    createEReference(declEClass, DECL__EXCEPTION_DECL);
-    createEReference(declEClass, DECL__INTERFACE_DECL);
-    createEReference(declEClass, DECL__CLASS_DECL);
-    createEReference(declEClass, DECL__TRAIT_DECL);
+    createEAttribute(declEClass, DECL__NAME);
 
     par_function_declEClass = createEClass(PAR_FUNCTION_DECL);
-    createEReference(par_function_declEClass, PAR_FUNCTION_DECL__ANNOTATION);
     createEReference(par_function_declEClass, PAR_FUNCTION_DECL__TYPE_USE);
-    createEAttribute(par_function_declEClass, PAR_FUNCTION_DECL__NAME);
     createEAttribute(par_function_declEClass, PAR_FUNCTION_DECL__LT);
     createEAttribute(par_function_declEClass, PAR_FUNCTION_DECL__P);
     createEAttribute(par_function_declEClass, PAR_FUNCTION_DECL__GT);
@@ -4918,8 +4323,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEAttribute(function_name_declEClass, FUNCTION_NAME_DECL__NAME);
 
     dataType_declEClass = createEClass(DATA_TYPE_DECL);
-    createEReference(dataType_declEClass, DATA_TYPE_DECL__ANNOTATIONS);
-    createEAttribute(dataType_declEClass, DATA_TYPE_DECL__NAME);
     createEAttribute(dataType_declEClass, DATA_TYPE_DECL__LT);
     createEAttribute(dataType_declEClass, DATA_TYPE_DECL__P);
     createEAttribute(dataType_declEClass, DATA_TYPE_DECL__GT);
@@ -4930,14 +4333,11 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(data_constructorEClass, DATA_CONSTRUCTOR__DATA_CONSTRUCTOR_ARG);
 
     data_constructor_argEClass = createEClass(DATA_CONSTRUCTOR_ARG);
-    createEReference(data_constructor_argEClass, DATA_CONSTRUCTOR_ARG__TYPE_USE);
-    createEAttribute(data_constructor_argEClass, DATA_CONSTRUCTOR_ARG__NAME);
 
     annotationsEClass = createEClass(ANNOTATIONS);
     createEReference(annotationsEClass, ANNOTATIONS__ANNOTATION);
 
     annotationEClass = createEClass(ANNOTATION);
-    createEReference(annotationEClass, ANNOTATION__TYPE_USE);
     createEReference(annotationEClass, ANNOTATION__PURE_EXP);
 
     type_useEClass = createEClass(TYPE_USE);
@@ -4945,9 +4345,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(type_useEClass, TYPE_USE__TYPE_USE);
 
     pure_expEClass = createEClass(PURE_EXP);
-    createEReference(pure_expEClass, PURE_EXP__PURE_EXP_LIST);
-    createEReference(pure_expEClass, PURE_EXP__PARTIAL_FUNCTION_LIST);
-    createEReference(pure_expEClass, PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST);
     createEReference(pure_expEClass, PURE_EXP__FUNCTION_EXPR);
     createEReference(pure_expEClass, PURE_EXP__VARIADIC_EXP_LIST);
     createEReference(pure_expEClass, PURE_EXP__C);
@@ -4958,33 +4355,25 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEAttribute(pure_expEClass, PURE_EXP__VALUE);
     createEReference(pure_expEClass, PURE_EXP__I);
     createEReference(pure_expEClass, PURE_EXP__B);
-    createEReference(pure_expEClass, PURE_EXP__PURE_EXP);
-    createEAttribute(pure_expEClass, PURE_EXP__VAL);
-    createEReference(pure_expEClass, PURE_EXP__VAR_OR_FIELD_REF);
-    createEReference(pure_expEClass, PURE_EXP__LEFT);
-    createEReference(pure_expEClass, PURE_EXP__RIGHT);
 
     var_or_field_refEClass = createEClass(VAR_OR_FIELD_REF);
     createEAttribute(var_or_field_refEClass, VAR_OR_FIELD_REF__NAME);
+    createEReference(var_or_field_refEClass, VAR_OR_FIELD_REF__EXP);
 
     case_branchEClass = createEClass(CASE_BRANCH);
-    createEReference(case_branchEClass, CASE_BRANCH__PATTERN);
-    createEReference(case_branchEClass, CASE_BRANCH__PURE_EXP);
 
     patternEClass = createEClass(PATTERN);
-    createEAttribute(patternEClass, PATTERN__VALUE);
-    createEAttribute(patternEClass, PATTERN__VAL);
+    createEReference(patternEClass, PATTERN__PURE_EXP);
     createEReference(patternEClass, PATTERN__PATTERN);
 
     pure_exp_listEClass = createEClass(PURE_EXP_LIST);
     createEReference(pure_exp_listEClass, PURE_EXP_LIST__PURE_EXP);
 
     function_listEClass = createEClass(FUNCTION_LIST);
+    createEReference(function_listEClass, FUNCTION_LIST__PARTIAL_FUNCTION_PURE_EXP_LIST);
     createEReference(function_listEClass, FUNCTION_LIST__FUNCTION_PARAM);
 
     function_paramEClass = createEClass(FUNCTION_PARAM);
-    createEReference(function_paramEClass, FUNCTION_PARAM__FUNCTION_PARAM);
-    createEReference(function_paramEClass, FUNCTION_PARAM__ANON_PARAM);
 
     function_name_param_declEClass = createEClass(FUNCTION_NAME_PARAM_DECL);
     createEAttribute(function_name_param_declEClass, FUNCTION_NAME_PARAM_DECL__VALUE);
@@ -5008,7 +4397,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
 
     function_declEClass = createEClass(FUNCTION_DECL);
     createEReference(function_declEClass, FUNCTION_DECL__TYPE_USE);
-    createEAttribute(function_declEClass, FUNCTION_DECL__NAME);
     createEAttribute(function_declEClass, FUNCTION_DECL__LT);
     createEAttribute(function_declEClass, FUNCTION_DECL__IMPORTED_NAMESPACE);
     createEAttribute(function_declEClass, FUNCTION_DECL__GT);
@@ -5016,15 +4404,12 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(function_declEClass, FUNCTION_DECL__PURE_EXP);
 
     typesyn_declEClass = createEClass(TYPESYN_DECL);
-    createEAttribute(typesyn_declEClass, TYPESYN_DECL__NAME);
     createEReference(typesyn_declEClass, TYPESYN_DECL__TYPE_USE);
 
     exception_declEClass = createEClass(EXCEPTION_DECL);
-    createEAttribute(exception_declEClass, EXCEPTION_DECL__NAME);
     createEReference(exception_declEClass, EXCEPTION_DECL__TYPE);
 
     interface_declEClass = createEClass(INTERFACE_DECL);
-    createEAttribute(interface_declEClass, INTERFACE_DECL__NAME);
     createEReference(interface_declEClass, INTERFACE_DECL__INTERFACE_NAME);
     createEReference(interface_declEClass, INTERFACE_DECL__METHODSIG);
 
@@ -5037,7 +4422,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(methodsigEClass, METHODSIG__PARAMLIST);
 
     class_declEClass = createEClass(CLASS_DECL);
-    createEAttribute(class_declEClass, CLASS_DECL__NAME);
     createEReference(class_declEClass, CLASS_DECL__PARAMLIST);
     createEReference(class_declEClass, CLASS_DECL__INTERFACE_NAME);
     createEReference(class_declEClass, CLASS_DECL__FIELD_DECL);
@@ -5075,14 +4459,12 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(stmtEClass, STMT__C);
 
     expEClass = createEClass(EXP);
-    createEReference(expEClass, EXP__EFF_EXPR);
+    createEReference(expEClass, EXP__PURE_EXP_LIST);
     createEReference(expEClass, EXP__PURE_EXP);
 
     eff_exprEClass = createEClass(EFF_EXPR);
-    createEReference(eff_exprEClass, EFF_EXPR__PURE_EXP);
     createEAttribute(eff_exprEClass, EFF_EXPR__L);
     createEAttribute(eff_exprEClass, EFF_EXPR__C);
-    createEReference(eff_exprEClass, EFF_EXPR__PURE_EXP_LIST);
     createEAttribute(eff_exprEClass, EFF_EXPR__A);
     createEReference(eff_exprEClass, EFF_EXPR__O);
     createEAttribute(eff_exprEClass, EFF_EXPR__M);
@@ -5093,13 +4475,15 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(guardEClass, GUARD__MIN);
     createEReference(guardEClass, GUARD__MAX);
     createEReference(guardEClass, GUARD__E);
+    createEReference(guardEClass, GUARD__UPDATE_PREAMBLE_DECLARATION);
+    createEReference(guardEClass, GUARD__PRE);
+    createEReference(guardEClass, GUARD__POST);
 
     casestmtbranchEClass = createEClass(CASESTMTBRANCH);
     createEReference(casestmtbranchEClass, CASESTMTBRANCH__PATTERN);
     createEReference(casestmtbranchEClass, CASESTMTBRANCH__STMT);
 
     trait_usageEClass = createEClass(TRAIT_USAGE);
-    createEReference(trait_usageEClass, TRAIT_USAGE__TRAIT_EXPR);
 
     trait_exprEClass = createEClass(TRAIT_EXPR);
     createEReference(trait_exprEClass, TRAIT_EXPR__METHOD);
@@ -5121,11 +4505,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(methodEClass, METHOD__STMT);
 
     trait_declEClass = createEClass(TRAIT_DECL);
-    createEAttribute(trait_declEClass, TRAIT_DECL__NAME);
     createEReference(trait_declEClass, TRAIT_DECL__TRAIT_EXPR);
 
     main_blockEClass = createEClass(MAIN_BLOCK);
-    createEReference(main_blockEClass, MAIN_BLOCK__ANNOTATIONS);
     createEReference(main_blockEClass, MAIN_BLOCK__STMT);
 
     delta_declEClass = createEClass(DELTA_DECL);
@@ -5135,8 +4517,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(delta_declEClass, DELTA_DECL__MODULE_MODIFIER);
 
     delta_paramEClass = createEClass(DELTA_PARAM);
-    createEReference(delta_paramEClass, DELTA_PARAM__PARAM_DECL);
-    createEReference(delta_paramEClass, DELTA_PARAM__HAS_CONDITION);
 
     has_conditionEClass = createEClass(HAS_CONDITION);
     createEReference(has_conditionEClass, HAS_CONDITION__F);
@@ -5149,11 +4529,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     module_modifierEClass = createEClass(MODULE_MODIFIER);
 
     functional_modifierEClass = createEClass(FUNCTIONAL_MODIFIER);
-    createEReference(functional_modifierEClass, FUNCTIONAL_MODIFIER__FUNCTION_DECL);
-    createEReference(functional_modifierEClass, FUNCTIONAL_MODIFIER__DATATYPE_DECL);
-    createEReference(functional_modifierEClass, FUNCTIONAL_MODIFIER__TYPESYN_DECL);
-    createEReference(functional_modifierEClass, FUNCTIONAL_MODIFIER__MODIFIEDTYPESYN_DECL);
-    createEReference(functional_modifierEClass, FUNCTIONAL_MODIFIER__MODIFIED_DATATYPE_DECL);
 
     oO_modifierEClass = createEClass(OO_MODIFIER);
     createEReference(oO_modifierEClass, OO_MODIFIER__CLASS_DECL);
@@ -5164,34 +4539,23 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(oO_modifierEClass, OO_MODIFIER__INTERFACE_MODIFIER_FRAGMENT);
 
     class_modifier_fragmentEClass = createEClass(CLASS_MODIFIER_FRAGMENT);
-    createEReference(class_modifier_fragmentEClass, CLASS_MODIFIER_FRAGMENT__FIELD_DECL);
     createEReference(class_modifier_fragmentEClass, CLASS_MODIFIER_FRAGMENT__F);
-    createEReference(class_modifier_fragmentEClass, CLASS_MODIFIER_FRAGMENT__TRAIT_OPER);
 
     interface_modifier_fragmentEClass = createEClass(INTERFACE_MODIFIER_FRAGMENT);
-    createEReference(interface_modifier_fragmentEClass, INTERFACE_MODIFIER_FRAGMENT__ADD_METHODSIG);
     createEReference(interface_modifier_fragmentEClass, INTERFACE_MODIFIER_FRAGMENT__REMOVED_METHOD);
 
     namespace_modifierEClass = createEClass(NAMESPACE_MODIFIER);
-    createEReference(namespace_modifierEClass, NAMESPACE_MODIFIER__MODULE_IMPORT);
-    createEReference(namespace_modifierEClass, NAMESPACE_MODIFIER__MODULE_EXPORT);
+    createEAttribute(namespace_modifierEClass, NAMESPACE_MODIFIER__STAR);
 
     update_declEClass = createEClass(UPDATE_DECL);
     createEAttribute(update_declEClass, UPDATE_DECL__NAME);
     createEReference(update_declEClass, UPDATE_DECL__OBJECT_UPDATE);
 
     object_updateEClass = createEClass(OBJECT_UPDATE);
-    createEReference(object_updateEClass, OBJECT_UPDATE__GUARD);
-    createEReference(object_updateEClass, OBJECT_UPDATE__UPDATE_PREAMBLE_DECLARATION);
-    createEReference(object_updateEClass, OBJECT_UPDATE__PRE);
-    createEReference(object_updateEClass, OBJECT_UPDATE__POST);
 
     update_preamble_declarationEClass = createEClass(UPDATE_PREAMBLE_DECLARATION);
-    createEReference(update_preamble_declarationEClass, UPDATE_PREAMBLE_DECLARATION__TYPE_EXP);
 
     object_update_assign_stmtEClass = createEClass(OBJECT_UPDATE_ASSIGN_STMT);
-    createEReference(object_update_assign_stmtEClass, OBJECT_UPDATE_ASSIGN_STMT__VAR_OR_FIELD_REF);
-    createEReference(object_update_assign_stmtEClass, OBJECT_UPDATE_ASSIGN_STMT__EXP);
 
     productline_declEClass = createEClass(PRODUCTLINE_DECL);
     createEAttribute(productline_declEClass, PRODUCTLINE_DECL__NAME);
@@ -5201,12 +4565,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     featureEClass = createEClass(FEATURE);
     createEAttribute(featureEClass, FEATURE__NAME);
     createEAttribute(featureEClass, FEATURE__P);
-    createEReference(featureEClass, FEATURE__ATTR_ASSIGNMENT);
-
-    attr_assignmentEClass = createEClass(ATTR_ASSIGNMENT);
-    createEAttribute(attr_assignmentEClass, ATTR_ASSIGNMENT__I);
-    createEAttribute(attr_assignmentEClass, ATTR_ASSIGNMENT__B);
-    createEAttribute(attr_assignmentEClass, ATTR_ASSIGNMENT__S);
+    createEAttribute(featureEClass, FEATURE__ATTR_ASSIGNMENT);
 
     delta_clauseEClass = createEClass(DELTA_CLAUSE);
     createEReference(delta_clauseEClass, DELTA_CLAUSE__DELTASPEC);
@@ -5252,28 +4611,14 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(feature_declEClass, FEATURE_DECL__FEATURE_DECL_CONSTRAINT);
 
     feature_decl_groupEClass = createEClass(FEATURE_DECL_GROUP);
-    createEAttribute(feature_decl_groupEClass, FEATURE_DECL_GROUP__O);
-    createEAttribute(feature_decl_groupEClass, FEATURE_DECL_GROUP__A);
-    createEAttribute(feature_decl_groupEClass, FEATURE_DECL_GROUP__L);
-    createEAttribute(feature_decl_groupEClass, FEATURE_DECL_GROUP__U);
-    createEAttribute(feature_decl_groupEClass, FEATURE_DECL_GROUP__S);
     createEReference(feature_decl_groupEClass, FEATURE_DECL_GROUP__FNODE);
 
     fnodeEClass = createEClass(FNODE);
-    createEAttribute(fnodeEClass, FNODE__O);
-    createEReference(fnodeEClass, FNODE__FEATURE_DECL);
 
     feature_decl_attributeEClass = createEClass(FEATURE_DECL_ATTRIBUTE);
-    createEReference(feature_decl_attributeEClass, FEATURE_DECL_ATTRIBUTE__BOUNDARY_VAL);
-    createEReference(feature_decl_attributeEClass, FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT);
-    createEReference(feature_decl_attributeEClass, FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT);
-
-    boundary_valEClass = createEClass(BOUNDARY_VAL);
-    createEAttribute(boundary_valEClass, BOUNDARY_VAL__M);
-    createEAttribute(boundary_valEClass, BOUNDARY_VAL__I);
-
-    boundary_intEClass = createEClass(BOUNDARY_INT);
-    createEAttribute(boundary_intEClass, BOUNDARY_INT__STAR);
+    createEAttribute(feature_decl_attributeEClass, FEATURE_DECL_ATTRIBUTE__BOUNDARY_VAL);
+    createEAttribute(feature_decl_attributeEClass, FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT);
+    createEAttribute(feature_decl_attributeEClass, FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT);
 
     feature_decl_constraintEClass = createEClass(FEATURE_DECL_CONSTRAINT);
     createEReference(feature_decl_constraintEClass, FEATURE_DECL_CONSTRAINT__MEXP);
@@ -5287,20 +4632,32 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(fextensionEClass, FEXTENSION__FEATURE_DECL_CONSTRAINT);
 
     or_exprEClass = createEClass(OR_EXPR);
+    createEReference(or_exprEClass, OR_EXPR__LEFT);
+    createEReference(or_exprEClass, OR_EXPR__RIGHT);
 
     and_exprEClass = createEClass(AND_EXPR);
+    createEReference(and_exprEClass, AND_EXPR__LEFT);
+    createEReference(and_exprEClass, AND_EXPR__RIGHT);
 
     equality_exprEClass = createEClass(EQUALITY_EXPR);
+    createEReference(equality_exprEClass, EQUALITY_EXPR__LEFT);
     createEAttribute(equality_exprEClass, EQUALITY_EXPR__OP);
+    createEReference(equality_exprEClass, EQUALITY_EXPR__RIGHT);
 
     comparison_exprEClass = createEClass(COMPARISON_EXPR);
+    createEReference(comparison_exprEClass, COMPARISON_EXPR__LEFT);
     createEAttribute(comparison_exprEClass, COMPARISON_EXPR__OP);
+    createEReference(comparison_exprEClass, COMPARISON_EXPR__RIGHT);
 
     plusOrMinus_exprEClass = createEClass(PLUS_OR_MINUS_EXPR);
+    createEReference(plusOrMinus_exprEClass, PLUS_OR_MINUS_EXPR__LEFT);
     createEAttribute(plusOrMinus_exprEClass, PLUS_OR_MINUS_EXPR__OP);
+    createEReference(plusOrMinus_exprEClass, PLUS_OR_MINUS_EXPR__RIGHT);
 
     mulDivOrMod_exprEClass = createEClass(MUL_DIV_OR_MOD_EXPR);
+    createEReference(mulDivOrMod_exprEClass, MUL_DIV_OR_MOD_EXPR__LEFT);
     createEAttribute(mulDivOrMod_exprEClass, MUL_DIV_OR_MOD_EXPR__OP);
+    createEReference(mulDivOrMod_exprEClass, MUL_DIV_OR_MOD_EXPR__RIGHT);
 
     andGuardEClass = createEClass(AND_GUARD);
     createEReference(andGuardEClass, AND_GUARD__LEFT);
@@ -5388,10 +4745,41 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
 
     // Add supertypes to classes
     compilation_UnitEClass.getESuperTypes().add(this.getDomainModel());
+    module_exportEClass.getESuperTypes().add(this.getNamespace_modifier());
+    module_importEClass.getESuperTypes().add(this.getNamespace_modifier());
+    par_function_declEClass.getESuperTypes().add(this.getDecl());
+    dataType_declEClass.getESuperTypes().add(this.getDecl());
+    dataType_declEClass.getESuperTypes().add(this.getFunctional_modifier());
+    type_useEClass.getESuperTypes().add(this.getData_constructor_arg());
+    type_useEClass.getESuperTypes().add(this.getAnnotation());
+    pure_expEClass.getESuperTypes().add(this.getExp());
+    var_or_field_refEClass.getESuperTypes().add(this.getPure_exp());
+    var_or_field_refEClass.getESuperTypes().add(this.getObject_update_assign_stmt());
+    patternEClass.getESuperTypes().add(this.getCase_branch());
+    function_listEClass.getESuperTypes().add(this.getPure_exp());
+    function_name_param_declEClass.getESuperTypes().add(this.getFunction_param());
+    anon_function_declEClass.getESuperTypes().add(this.getFunction_param());
+    param_declEClass.getESuperTypes().add(this.getDelta_param());
+    type_expEClass.getESuperTypes().add(this.getUpdate_preamble_declaration());
+    function_declEClass.getESuperTypes().add(this.getDecl());
+    function_declEClass.getESuperTypes().add(this.getFunctional_modifier());
+    typesyn_declEClass.getESuperTypes().add(this.getDecl());
+    typesyn_declEClass.getESuperTypes().add(this.getFunctional_modifier());
+    exception_declEClass.getESuperTypes().add(this.getDecl());
+    interface_declEClass.getESuperTypes().add(this.getDecl());
+    methodsigEClass.getESuperTypes().add(this.getInterface_modifier_fragment());
+    class_declEClass.getESuperTypes().add(this.getDecl());
+    field_declEClass.getESuperTypes().add(this.getClass_modifier_fragment());
+    eff_exprEClass.getESuperTypes().add(this.getExp());
+    guardEClass.getESuperTypes().add(this.getObject_update());
+    trait_exprEClass.getESuperTypes().add(this.getTrait_usage());
+    trait_operEClass.getESuperTypes().add(this.getClass_modifier_fragment());
+    trait_declEClass.getESuperTypes().add(this.getDecl());
+    has_conditionEClass.getESuperTypes().add(this.getDelta_param());
     functional_modifierEClass.getESuperTypes().add(this.getModule_modifier());
     oO_modifierEClass.getESuperTypes().add(this.getModule_modifier());
     namespace_modifierEClass.getESuperTypes().add(this.getModule_modifier());
-    boundary_valEClass.getESuperTypes().add(this.getBoundary_int());
+    feature_declEClass.getESuperTypes().add(this.getFnode());
     or_exprEClass.getESuperTypes().add(this.getPure_exp());
     and_exprEClass.getESuperTypes().add(this.getPure_exp());
     equality_exprEClass.getESuperTypes().add(this.getPure_exp());
@@ -5433,29 +4821,18 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getModule_decl_Main_block(), this.getMain_block(), null, "main_block", null, 0, -1, Module_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(module_exportEClass, Module_export.class, "Module_export", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModule_export_Star(), ecorePackage.getEString(), "star", null, 0, 1, Module_export.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getModule_export_AnyPackage(), ecorePackage.getEString(), "anyPackage", null, 0, -1, Module_export.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getModule_export_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, -1, Module_export.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(module_importEClass, Module_import.class, "Module_import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModule_import_Star(), ecorePackage.getEString(), "star", null, 0, 1, Module_import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getModule_import_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Module_import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getModule_import_Name(), ecorePackage.getEString(), "name", null, 0, -1, Module_import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declEClass, Decl.class, "Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDecl_DataType_decl(), this.getDataType_decl(), null, "dataType_decl", null, 0, 1, Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDecl_Function_decl(), this.getFunction_decl(), null, "function_decl", null, 0, 1, Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDecl_Par_function_decl(), this.getPar_function_decl(), null, "par_function_decl", null, 0, 1, Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDecl_Typesyn_decl(), this.getTypesyn_decl(), null, "typesyn_decl", null, 0, 1, Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDecl_Exception_decl(), this.getException_decl(), null, "exception_decl", null, 0, 1, Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDecl_Interface_decl(), this.getInterface_decl(), null, "interface_decl", null, 0, 1, Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDecl_Class_decl(), this.getClass_decl(), null, "class_decl", null, 0, 1, Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDecl_Trait_decl(), this.getTrait_decl(), null, "trait_decl", null, 0, 1, Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(par_function_declEClass, Par_function_decl.class, "Par_function_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPar_function_decl_Annotation(), this.getAnnotation(), null, "annotation", null, 0, -1, Par_function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPar_function_decl_Type_use(), this.getType_use(), null, "type_use", null, 0, 1, Par_function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPar_function_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Par_function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPar_function_decl_Lt(), ecorePackage.getEString(), "lt", null, 0, 1, Par_function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPar_function_decl_P(), ecorePackage.getEString(), "p", null, 0, -1, Par_function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPar_function_decl_Gt(), ecorePackage.getEString(), "gt", null, 0, 1, Par_function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5470,8 +4847,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEAttribute(getFunction_name_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function_name_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataType_declEClass, DataType_decl.class, "DataType_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDataType_decl_Annotations(), this.getAnnotations(), null, "annotations", null, 0, 1, DataType_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDataType_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataType_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDataType_decl_Lt(), ecorePackage.getEString(), "lt", null, 0, 1, DataType_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDataType_decl_P(), ecorePackage.getEString(), "p", null, 0, -1, DataType_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDataType_decl_Gt(), ecorePackage.getEString(), "gt", null, 0, 1, DataType_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5482,14 +4857,11 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getData_constructor_Data_constructor_arg(), this.getData_constructor_arg(), null, "data_constructor_arg", null, 0, -1, Data_constructor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(data_constructor_argEClass, Data_constructor_arg.class, "Data_constructor_arg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getData_constructor_arg_Type_use(), this.getType_use(), null, "type_use", null, 0, 1, Data_constructor_arg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getData_constructor_arg_Name(), ecorePackage.getEString(), "name", null, 0, 1, Data_constructor_arg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(annotationsEClass, Annotations.class, "Annotations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnnotations_Annotation(), this.getAnnotation(), null, "annotation", null, 0, -1, Annotations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAnnotation_Type_use(), this.getType_use(), null, "type_use", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnnotation_Pure_exp(), this.getPure_exp(), null, "pure_exp", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(type_useEClass, Type_use.class, "Type_use", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5497,9 +4869,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getType_use_Type_use(), this.getType_use(), null, "type_use", null, 0, -1, Type_use.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pure_expEClass, Pure_exp.class, "Pure_exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPure_exp_Pure_exp_list(), this.getPure_exp_list(), null, "pure_exp_list", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPure_exp_Partial_function_list(), this.getFunction_list(), null, "partial_function_list", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPure_exp_Partial_function_pure_exp_list(), this.getPure_exp_list(), null, "partial_function_pure_exp_list", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPure_exp_Function_expr(), this.getPure_exp_list(), null, "function_expr", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPure_exp_Variadic_exp_list(), this.getPure_exp_list(), null, "variadic_exp_list", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPure_exp_C(), this.getPure_exp(), null, "c", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5510,33 +4879,25 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEAttribute(getPure_exp_Value(), ecorePackage.getEString(), "value", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPure_exp_I(), this.getPure_exp(), null, "i", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPure_exp_B(), this.getPure_exp(), null, "b", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPure_exp_Pure_exp(), this.getPure_exp(), null, "pure_exp", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPure_exp_Val(), ecorePackage.getEInt(), "val", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPure_exp_Var_or_field_ref(), this.getVar_or_field_ref(), null, "var_or_field_ref", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPure_exp_Left(), this.getPure_exp(), null, "left", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPure_exp_Right(), this.getPure_exp(), null, "right", null, 0, 1, Pure_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(var_or_field_refEClass, Var_or_field_ref.class, "Var_or_field_ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVar_or_field_ref_Name(), ecorePackage.getEString(), "name", null, 0, 1, Var_or_field_ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVar_or_field_ref_Exp(), this.getExp(), null, "exp", null, 0, 1, Var_or_field_ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(case_branchEClass, Case_branch.class, "Case_branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCase_branch_Pattern(), this.getPattern(), null, "pattern", null, 0, 1, Case_branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCase_branch_Pure_exp(), this.getPure_exp(), null, "pure_exp", null, 0, 1, Case_branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(patternEClass, Pattern.class, "Pattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPattern_Value(), ecorePackage.getEString(), "value", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPattern_Val(), ecorePackage.getEInt(), "val", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPattern_Pure_exp(), this.getPure_exp(), null, "pure_exp", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPattern_Pattern(), this.getPattern(), null, "pattern", null, 0, -1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pure_exp_listEClass, Pure_exp_list.class, "Pure_exp_list", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPure_exp_list_Pure_exp(), this.getPure_exp(), null, "pure_exp", null, 0, -1, Pure_exp_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(function_listEClass, Function_list.class, "Function_list", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunction_list_Partial_function_pure_exp_list(), this.getPure_exp_list(), null, "partial_function_pure_exp_list", null, 0, 1, Function_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_list_Function_param(), this.getFunction_param(), null, "function_param", null, 0, -1, Function_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(function_paramEClass, Function_param.class, "Function_param", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFunction_param_Function_param(), this.getFunction_name_param_decl(), null, "function_param", null, 0, 1, Function_param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunction_param_Anon_param(), this.getAnon_function_decl(), null, "anon_param", null, 0, 1, Function_param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(function_name_param_declEClass, Function_name_param_decl.class, "Function_name_param_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFunction_name_param_decl_Value(), ecorePackage.getEString(), "value", null, 0, 1, Function_name_param_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5560,7 +4921,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
 
     initEClass(function_declEClass, Function_decl.class, "Function_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFunction_decl_Type_use(), this.getType_use(), null, "type_use", null, 0, 1, Function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFunction_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFunction_decl_Lt(), ecorePackage.getEString(), "lt", null, 0, 1, Function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFunction_decl_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, -1, Function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFunction_decl_Gt(), ecorePackage.getEString(), "gt", null, 0, 1, Function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5568,15 +4928,12 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getFunction_decl_Pure_exp(), this.getPure_exp(), null, "pure_exp", null, 0, 1, Function_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typesyn_declEClass, Typesyn_decl.class, "Typesyn_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypesyn_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Typesyn_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypesyn_decl_Type_use(), this.getType_use(), null, "type_use", null, 0, 1, Typesyn_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exception_declEClass, Exception_decl.class, "Exception_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getException_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Exception_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getException_decl_Type(), this.getData_constructor_arg(), null, "type", null, 0, -1, Exception_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(interface_declEClass, Interface_decl.class, "Interface_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInterface_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Interface_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_decl_Interface_name(), this.getInterface_decl(), null, "interface_name", null, 0, -1, Interface_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_decl_Methodsig(), this.getMethodsig(), null, "methodsig", null, 0, -1, Interface_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -5589,7 +4946,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getMethodsig_Paramlist(), this.getParam_list(), null, "paramlist", null, 0, 1, Methodsig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(class_declEClass, Class_decl.class, "Class_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getClass_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Class_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_decl_Paramlist(), this.getParam_list(), null, "paramlist", null, 0, 1, Class_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_decl_Interface_name(), this.getInterface_decl(), null, "interface_name", null, 0, -1, Class_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_decl_Field_decl(), this.getField_decl(), null, "field_decl", null, 0, -1, Class_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5627,14 +4983,12 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getStmt_C(), this.getPure_exp(), null, "c", null, 0, 1, Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expEClass, Exp.class, "Exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExp_Eff_expr(), this.getEff_expr(), null, "eff_expr", null, 0, 1, Exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExp_Pure_exp_list(), this.getPure_exp_list(), null, "pure_exp_list", null, 0, 1, Exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExp_Pure_exp(), this.getPure_exp(), null, "pure_exp", null, 0, 1, Exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eff_exprEClass, Eff_expr.class, "Eff_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEff_expr_Pure_exp(), this.getPure_exp(), null, "pure_exp", null, 0, 1, Eff_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEff_expr_L(), ecorePackage.getEString(), "l", null, 0, 1, Eff_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEff_expr_C(), ecorePackage.getEString(), "c", null, 0, 1, Eff_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEff_expr_Pure_exp_list(), this.getPure_exp_list(), null, "pure_exp_list", null, 0, 1, Eff_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEff_expr_A(), ecorePackage.getEString(), "a", null, 0, 1, Eff_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEff_expr_O(), this.getPure_exp(), null, "o", null, 0, 1, Eff_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEff_expr_M(), ecorePackage.getEString(), "m", null, 0, 1, Eff_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5645,13 +4999,15 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getGuard_Min(), this.getPure_exp(), null, "min", null, 0, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGuard_Max(), this.getPure_exp(), null, "max", null, 0, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGuard_E(), this.getPure_exp(), null, "e", null, 0, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGuard_Update_preamble_declaration(), this.getUpdate_preamble_declaration(), null, "update_preamble_declaration", null, 0, -1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGuard_Pre(), this.getObject_update_assign_stmt(), null, "pre", null, 0, -1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGuard_Post(), this.getObject_update_assign_stmt(), null, "post", null, 0, -1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(casestmtbranchEClass, Casestmtbranch.class, "Casestmtbranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCasestmtbranch_Pattern(), this.getPattern(), null, "pattern", null, 0, 1, Casestmtbranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCasestmtbranch_Stmt(), this.getStmt(), null, "stmt", null, 0, 1, Casestmtbranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(trait_usageEClass, Trait_usage.class, "Trait_usage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTrait_usage_Trait_expr(), this.getTrait_expr(), null, "trait_expr", null, 0, 1, Trait_usage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(trait_exprEClass, Trait_expr.class, "Trait_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTrait_expr_Method(), this.getMethod(), null, "method", null, 0, -1, Trait_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5673,11 +5029,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getMethod_Stmt(), this.getStmt(), null, "stmt", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(trait_declEClass, Trait_decl.class, "Trait_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTrait_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Trait_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTrait_decl_Trait_expr(), this.getTrait_expr(), null, "trait_expr", null, 0, 1, Trait_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(main_blockEClass, Main_block.class, "Main_block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMain_block_Annotations(), this.getAnnotations(), null, "annotations", null, 0, 1, Main_block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMain_block_Stmt(), this.getStmt(), null, "stmt", null, 0, -1, Main_block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(delta_declEClass, Delta_decl.class, "Delta_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5687,8 +5041,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getDelta_decl_Module_modifier(), this.getModule_modifier(), null, "module_modifier", null, 0, -1, Delta_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(delta_paramEClass, Delta_param.class, "Delta_param", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDelta_param_Param_decl(), this.getParam_decl(), null, "param_decl", null, 0, 1, Delta_param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDelta_param_Has_condition(), this.getHas_condition(), null, "has_condition", null, 0, 1, Delta_param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(has_conditionEClass, Has_condition.class, "Has_condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getHas_condition_F(), this.getField_decl(), null, "f", null, 0, 1, Has_condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5701,11 +5053,6 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEClass(module_modifierEClass, Module_modifier.class, "Module_modifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(functional_modifierEClass, Functional_modifier.class, "Functional_modifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFunctional_modifier_Function_decl(), this.getFunction_decl(), null, "function_decl", null, 0, 1, Functional_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunctional_modifier_Datatype_decl(), this.getDataType_decl(), null, "datatype_decl", null, 0, 1, Functional_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunctional_modifier_Typesyn_decl(), this.getTypesyn_decl(), null, "typesyn_decl", null, 0, 1, Functional_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunctional_modifier_Modifiedtypesyn_decl(), this.getTypesyn_decl(), null, "modifiedtypesyn_decl", null, 0, 1, Functional_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunctional_modifier_ModifiedDatatype_decl(), this.getDataType_decl(), null, "modifiedDatatype_decl", null, 0, 1, Functional_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(oO_modifierEClass, OO_modifier.class, "OO_modifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOO_modifier_Class_decl(), this.getClass_decl(), null, "class_decl", null, 0, 1, OO_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5716,34 +5063,23 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getOO_modifier_Interface_modifier_fragment(), this.getInterface_modifier_fragment(), null, "interface_modifier_fragment", null, 0, -1, OO_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(class_modifier_fragmentEClass, Class_modifier_fragment.class, "Class_modifier_fragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getClass_modifier_fragment_Field_decl(), this.getField_decl(), null, "field_decl", null, 0, 1, Class_modifier_fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_modifier_fragment_F(), this.getField_decl(), null, "f", null, 0, 1, Class_modifier_fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_modifier_fragment_Trait_oper(), this.getTrait_oper(), null, "trait_oper", null, 0, 1, Class_modifier_fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(interface_modifier_fragmentEClass, Interface_modifier_fragment.class, "Interface_modifier_fragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInterface_modifier_fragment_AddMethodsig(), this.getMethodsig(), null, "addMethodsig", null, 0, 1, Interface_modifier_fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_modifier_fragment_RemovedMethod(), this.getMethodsig(), null, "removedMethod", null, 0, 1, Interface_modifier_fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(namespace_modifierEClass, Namespace_modifier.class, "Namespace_modifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNamespace_modifier_Module_import(), this.getModule_import(), null, "module_import", null, 0, 1, Namespace_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getNamespace_modifier_Module_export(), this.getModule_export(), null, "module_export", null, 0, 1, Namespace_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNamespace_modifier_Star(), ecorePackage.getEString(), "star", null, 0, 1, Namespace_modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(update_declEClass, Update_decl.class, "Update_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUpdate_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Update_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUpdate_decl_Object_update(), this.getObject_update(), null, "object_update", null, 0, -1, Update_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(object_updateEClass, Object_update.class, "Object_update", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getObject_update_Guard(), this.getGuard(), null, "guard", null, 0, 1, Object_update.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getObject_update_Update_preamble_declaration(), this.getUpdate_preamble_declaration(), null, "update_preamble_declaration", null, 0, -1, Object_update.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getObject_update_Pre(), this.getObject_update_assign_stmt(), null, "pre", null, 0, -1, Object_update.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getObject_update_Post(), this.getObject_update_assign_stmt(), null, "post", null, 0, -1, Object_update.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(update_preamble_declarationEClass, Update_preamble_declaration.class, "Update_preamble_declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUpdate_preamble_declaration_Type_exp(), this.getType_exp(), null, "type_exp", null, 0, 1, Update_preamble_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(object_update_assign_stmtEClass, Object_update_assign_stmt.class, "Object_update_assign_stmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getObject_update_assign_stmt_Var_or_field_ref(), this.getVar_or_field_ref(), null, "var_or_field_ref", null, 0, 1, Object_update_assign_stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getObject_update_assign_stmt_Exp(), this.getExp(), null, "exp", null, 0, 1, Object_update_assign_stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(productline_declEClass, Productline_decl.class, "Productline_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProductline_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Productline_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5753,12 +5089,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_P(), ecorePackage.getEString(), "p", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeature_Attr_assignment(), this.getAttr_assignment(), null, "attr_assignment", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(attr_assignmentEClass, Attr_assignment.class, "Attr_assignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAttr_assignment_I(), ecorePackage.getEInt(), "i", null, 0, 1, Attr_assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttr_assignment_B(), ecorePackage.getEString(), "b", null, 0, 1, Attr_assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttr_assignment_S(), ecorePackage.getEString(), "s", null, 0, 1, Attr_assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFeature_Attr_assignment(), ecorePackage.getEString(), "attr_assignment", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(delta_clauseEClass, Delta_clause.class, "Delta_clause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDelta_clause_Deltaspec(), this.getDelta_decl(), null, "deltaspec", null, 0, 1, Delta_clause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5804,28 +5135,14 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getFeature_decl_Feature_decl_constraint(), this.getFeature_decl_constraint(), null, "feature_decl_constraint", null, 0, -1, Feature_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(feature_decl_groupEClass, Feature_decl_group.class, "Feature_decl_group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFeature_decl_group_O(), ecorePackage.getEString(), "o", null, 0, 1, Feature_decl_group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeature_decl_group_A(), ecorePackage.getEString(), "a", null, 0, 1, Feature_decl_group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeature_decl_group_L(), ecorePackage.getEInt(), "l", null, 0, 1, Feature_decl_group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeature_decl_group_U(), ecorePackage.getEInt(), "u", null, 0, 1, Feature_decl_group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeature_decl_group_S(), ecorePackage.getEString(), "s", null, 0, 1, Feature_decl_group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeature_decl_group_Fnode(), this.getFnode(), null, "fnode", null, 0, -1, Feature_decl_group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fnodeEClass, Fnode.class, "Fnode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFnode_O(), ecorePackage.getEString(), "o", null, 0, 1, Fnode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFnode_Feature_decl(), this.getFeature_decl(), null, "feature_decl", null, 0, 1, Fnode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(feature_decl_attributeEClass, Feature_decl_attribute.class, "Feature_decl_attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFeature_decl_attribute_Boundary_val(), this.getBoundary_val(), null, "boundary_val", null, 0, -1, Feature_decl_attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeature_decl_attribute_LBoundary_int(), this.getBoundary_int(), null, "lBoundary_int", null, 0, 1, Feature_decl_attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeature_decl_attribute_UBoundary_int(), this.getBoundary_int(), null, "uBoundary_int", null, 0, 1, Feature_decl_attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(boundary_valEClass, Boundary_val.class, "Boundary_val", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBoundary_val_M(), ecorePackage.getEString(), "m", null, 0, 1, Boundary_val.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBoundary_val_I(), ecorePackage.getEInt(), "i", null, 0, 1, Boundary_val.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(boundary_intEClass, Boundary_int.class, "Boundary_int", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBoundary_int_Star(), ecorePackage.getEString(), "star", null, 0, 1, Boundary_int.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFeature_decl_attribute_Boundary_val(), ecorePackage.getEString(), "boundary_val", null, 0, -1, Feature_decl_attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFeature_decl_attribute_LBoundary_int(), ecorePackage.getEString(), "lBoundary_int", null, 0, 1, Feature_decl_attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFeature_decl_attribute_UBoundary_int(), ecorePackage.getEString(), "uBoundary_int", null, 0, 1, Feature_decl_attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(feature_decl_constraintEClass, Feature_decl_constraint.class, "Feature_decl_constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFeature_decl_constraint_Mexp(), this.getMexp(), null, "mexp", null, 0, 1, Feature_decl_constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5839,20 +5156,32 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getFextension_Feature_decl_constraint(), this.getFeature_decl_constraint(), null, "feature_decl_constraint", null, 0, -1, Fextension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(or_exprEClass, Or_expr.class, "Or_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOr_expr_Left(), this.getPure_exp(), null, "left", null, 0, 1, Or_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOr_expr_Right(), this.getPure_exp(), null, "right", null, 0, 1, Or_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(and_exprEClass, And_expr.class, "And_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAnd_expr_Left(), this.getPure_exp(), null, "left", null, 0, 1, And_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAnd_expr_Right(), this.getPure_exp(), null, "right", null, 0, 1, And_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(equality_exprEClass, Equality_expr.class, "Equality_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEquality_expr_Left(), this.getPure_exp(), null, "left", null, 0, 1, Equality_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEquality_expr_Op(), ecorePackage.getEString(), "op", null, 0, 1, Equality_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEquality_expr_Right(), this.getPure_exp(), null, "right", null, 0, 1, Equality_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(comparison_exprEClass, Comparison_expr.class, "Comparison_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComparison_expr_Left(), this.getPure_exp(), null, "left", null, 0, 1, Comparison_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComparison_expr_Op(), ecorePackage.getEString(), "op", null, 0, 1, Comparison_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComparison_expr_Right(), this.getPure_exp(), null, "right", null, 0, 1, Comparison_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(plusOrMinus_exprEClass, PlusOrMinus_expr.class, "PlusOrMinus_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPlusOrMinus_expr_Left(), this.getPure_exp(), null, "left", null, 0, 1, PlusOrMinus_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPlusOrMinus_expr_Op(), ecorePackage.getEString(), "op", null, 0, 1, PlusOrMinus_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlusOrMinus_expr_Right(), this.getPure_exp(), null, "right", null, 0, 1, PlusOrMinus_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mulDivOrMod_exprEClass, MulDivOrMod_expr.class, "MulDivOrMod_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMulDivOrMod_expr_Left(), this.getPure_exp(), null, "left", null, 0, 1, MulDivOrMod_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMulDivOrMod_expr_Op(), ecorePackage.getEString(), "op", null, 0, 1, MulDivOrMod_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMulDivOrMod_expr_Right(), this.getPure_exp(), null, "right", null, 0, 1, MulDivOrMod_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(andGuardEClass, AndGuard.class, "AndGuard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAndGuard_Left(), this.getGuard(), null, "left", null, 0, 1, AndGuard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

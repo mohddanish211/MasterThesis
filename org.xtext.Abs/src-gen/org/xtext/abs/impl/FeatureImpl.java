@@ -6,21 +6,17 @@ package org.xtext.abs.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Attr_assignment;
 import org.xtext.abs.Feature;
 
 /**
@@ -81,14 +77,14 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   protected String p = P_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAttr_assignment() <em>Attr assignment</em>}' containment reference list.
+   * The cached value of the '{@link #getAttr_assignment() <em>Attr assignment</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAttr_assignment()
    * @generated
    * @ordered
    */
-  protected EList<Attr_assignment> attr_assignment;
+  protected EList<String> attr_assignment;
 
   /**
    * <!-- begin-user-doc -->
@@ -162,29 +158,13 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Attr_assignment> getAttr_assignment()
+  public EList<String> getAttr_assignment()
   {
     if (attr_assignment == null)
     {
-      attr_assignment = new EObjectContainmentEList<Attr_assignment>(Attr_assignment.class, this, AbsPackage.FEATURE__ATTR_ASSIGNMENT);
+      attr_assignment = new EDataTypeEList<String>(String.class, this, AbsPackage.FEATURE__ATTR_ASSIGNMENT);
     }
     return attr_assignment;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FEATURE__ATTR_ASSIGNMENT:
-        return ((InternalEList<?>)getAttr_assignment()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -226,7 +206,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
         return;
       case AbsPackage.FEATURE__ATTR_ASSIGNMENT:
         getAttr_assignment().clear();
-        getAttr_assignment().addAll((Collection<? extends Attr_assignment>)newValue);
+        getAttr_assignment().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -290,6 +270,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     result.append(name);
     result.append(", p: ");
     result.append(p);
+    result.append(", attr_assignment: ");
+    result.append(attr_assignment);
     result.append(')');
     return result.toString();
   }

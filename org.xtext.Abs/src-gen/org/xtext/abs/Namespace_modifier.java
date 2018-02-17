@@ -12,8 +12,7 @@ package org.xtext.abs;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Namespace_modifier#getModule_import <em>Module import</em>}</li>
- *   <li>{@link org.xtext.abs.Namespace_modifier#getModule_export <em>Module export</em>}</li>
+ *   <li>{@link org.xtext.abs.Namespace_modifier#getStar <em>Star</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,55 +23,29 @@ package org.xtext.abs;
 public interface Namespace_modifier extends Module_modifier
 {
   /**
-   * Returns the value of the '<em><b>Module import</b></em>' containment reference.
+   * Returns the value of the '<em><b>Star</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Module import</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Star</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Module import</em>' containment reference.
-   * @see #setModule_import(Module_import)
-   * @see org.xtext.abs.AbsPackage#getNamespace_modifier_Module_import()
-   * @model containment="true"
+   * @return the value of the '<em>Star</em>' attribute.
+   * @see #setStar(String)
+   * @see org.xtext.abs.AbsPackage#getNamespace_modifier_Star()
+   * @model
    * @generated
    */
-  Module_import getModule_import();
+  String getStar();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Namespace_modifier#getModule_import <em>Module import</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Namespace_modifier#getStar <em>Star</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Module import</em>' containment reference.
-   * @see #getModule_import()
+   * @param value the new value of the '<em>Star</em>' attribute.
+   * @see #getStar()
    * @generated
    */
-  void setModule_import(Module_import value);
-
-  /**
-   * Returns the value of the '<em><b>Module export</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Module export</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Module export</em>' containment reference.
-   * @see #setModule_export(Module_export)
-   * @see org.xtext.abs.AbsPackage#getNamespace_modifier_Module_export()
-   * @model containment="true"
-   * @generated
-   */
-  Module_export getModule_export();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Namespace_modifier#getModule_export <em>Module export</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Module export</em>' containment reference.
-   * @see #getModule_export()
-   * @generated
-   */
-  void setModule_export(Module_export value);
+  void setStar(String value);
 
 } // Namespace_modifier

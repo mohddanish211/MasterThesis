@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
@@ -40,7 +39,7 @@ import org.xtext.abs.Trait_oper;
  *
  * @generated
  */
-public class Trait_exprImpl extends MinimalEObjectImpl.Container implements Trait_expr
+public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
 {
   /**
    * The cached value of the '{@link #getMethod() <em>Method</em>}' reference list.

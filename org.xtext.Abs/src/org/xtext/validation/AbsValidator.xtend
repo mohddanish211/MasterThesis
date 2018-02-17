@@ -3,6 +3,10 @@
  */
 package org.xtext.validation
 
+import org.xtext.abs.Module_decl
+import org.eclipse.xtext.validation.Check
+import org.xtext.abs.AbsPackage
+import org.xtext.abs.Productline_decl
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +15,32 @@ package org.xtext.validation
  */
 class AbsValidator extends AbstractAbsValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					AbsPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	public static val INVALID_NAME = 'invalidName'
+
+	@Check
+	def checkGreetingStartsWithCapital(Module_decl module) {
+		if (!Character.isUpperCase(module.name.charAt(0))) {
+			warning('Name should start with a capital', 
+					AbsPackage.Literals.MODULE_DECL__NAME,
+					INVALID_NAME)
+		}
+	}
 	
+	@Check
+	def void checkNameStartsWithCapital(Productline_decl entity) {
+    if (!Character.isUpperCase(entity.name.charAt(0))) {
+        warning("Name should start with a capital", 
+           AbsPackage.Literals.PRODUCTLINE_DECL__NAME,"invalid name");
+    }
 }
+
+/* 			@Check
+   			 def void checkNameStartsWithCapital(Module_decl module) {
+       			 if (!Character.isUpperCase(module.name.charAt(0))) {
+           			 error("Module Name should start with a capital", 
+                	AbsPackage.Literals.MODULE_DECL__NAME);
+        }
+    }*/
+}
+	
+

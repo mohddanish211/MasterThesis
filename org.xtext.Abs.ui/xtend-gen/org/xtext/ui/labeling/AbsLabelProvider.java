@@ -5,10 +5,24 @@ package org.xtext.ui.labeling;
 
 import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.xtext.abs.Class_decl;
+import org.xtext.abs.DataType_decl;
+import org.xtext.abs.Data_constructor;
+import org.xtext.abs.Decl;
 import org.xtext.abs.Delta_decl;
 import org.xtext.abs.Feature_decl;
+import org.xtext.abs.Field_decl;
+import org.xtext.abs.Function_decl;
+import org.xtext.abs.Interface_decl;
+import org.xtext.abs.Method;
+import org.xtext.abs.Module_decl;
+import org.xtext.abs.Module_export;
+import org.xtext.abs.Module_import;
+import org.xtext.abs.Product_decl;
 import org.xtext.abs.Productline_decl;
 import org.xtext.generator.AbsGenerator;
 
@@ -27,18 +41,82 @@ public class AbsLabelProvider extends DefaultEObjectLabelProvider implements Del
     super(delegate);
   }
   
-  public String text(final Productline_decl ele) {
-    String _name = ele.getName();
-    String _plus = ("A greeting to " + _name);
-    StringBuffer _compile = this.generator.compile(ele);
-    return (_plus + _compile);
-  }
-  
   public String text(final Delta_decl ele) {
     return this.generator.compile(ele);
   }
   
-  public String text(final Feature_decl ele) {
-    return "gjhghg";
+  public Image image(final Interface_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_interface.gif")).createImage();
+  }
+  
+  public Image image(final Delta_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_delta.gif")).createImage();
+  }
+  
+  public Image image(final Module_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_module.gif")).createImage();
+  }
+  
+  public Image image(final Module_export ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_export.gif")).createImage();
+  }
+  
+  public Image image(final Module_import ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_import.gif")).createImage();
+  }
+  
+  public Image image(final Decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_module.gif")).createImage();
+  }
+  
+  public Image image(final Function_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_function.gif")).createImage();
+  }
+  
+  public Image image(final DataType_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_datatype.gif")).createImage();
+  }
+  
+  public Image image(final Data_constructor ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_constructor.gif")).createImage();
+  }
+  
+  public Image image(final Method ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_method.gif")).createImage();
+  }
+  
+  public Image image(final Class_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_class.gif")).createImage();
+  }
+  
+  public Image image(final Field_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_field.gif")).createImage();
+  }
+  
+  public Image image(final Productline_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_productline.gif")).createImage();
+  }
+  
+  public Image image(final Product_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_product.gif")).createImage();
+  }
+  
+  public Image image(final Feature_decl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/maude_hats.gif")).createImage();
   }
 }

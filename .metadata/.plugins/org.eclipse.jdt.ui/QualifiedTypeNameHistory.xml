@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.xtext.generator.AbsGenerator"/>
+<fullyQualifiedTypeName name="org.xtext.ui.labeling.AbsLabelProvider"/>
+<fullyQualifiedTypeName name="org.xtext.abs.Compilation_Unit"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.generator.IFileSystemAccess2"/>
+<fullyQualifiedTypeName name="javax.annotation.Resource"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.generator.IGeneratorContext"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.generator.AbstractGenerator"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.EcoreUtil2"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.resource.IFragmentProvider"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.naming.IQualifiedNameProvider"/>
+<fullyQualifiedTypeName name="com.ibm.icu.util.BytesTrie.Iterator"/>
+<fullyQualifiedTypeName name="org.eclipse.emf.ecore.EObject"/>
+<fullyQualifiedTypeName name="com.google.inject.Inject"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.findReferences.IReferenceFinder"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.findReferences.TargetURIs"/>
+</qualifiedTypeNameHistroy>

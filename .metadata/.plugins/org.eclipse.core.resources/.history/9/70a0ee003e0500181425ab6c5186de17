@@ -1,5 +1,0 @@
-package org.eclipse.xtext.ui.tests.findrefs;
-
-public class DelegatingReferenceFinderTest {
-
-}

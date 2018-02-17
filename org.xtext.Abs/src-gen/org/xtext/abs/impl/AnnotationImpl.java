@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Annotation;
 import org.xtext.abs.Pure_exp;
-import org.xtext.abs.Type_use;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +23,6 @@ import org.xtext.abs.Type_use;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.AnnotationImpl#getType_use <em>Type use</em>}</li>
  *   <li>{@link org.xtext.abs.impl.AnnotationImpl#getPure_exp <em>Pure exp</em>}</li>
  * </ul>
  * </p>
@@ -33,16 +31,6 @@ import org.xtext.abs.Type_use;
  */
 public class AnnotationImpl extends MinimalEObjectImpl.Container implements Annotation
 {
-  /**
-   * The cached value of the '{@link #getType_use() <em>Type use</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType_use()
-   * @generated
-   * @ordered
-   */
-  protected Type_use type_use;
-
   /**
    * The cached value of the '{@link #getPure_exp() <em>Pure exp</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -72,54 +60,6 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.ANNOTATION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Type_use getType_use()
-  {
-    return type_use;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetType_use(Type_use newType_use, NotificationChain msgs)
-  {
-    Type_use oldType_use = type_use;
-    type_use = newType_use;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.ANNOTATION__TYPE_USE, oldType_use, newType_use);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType_use(Type_use newType_use)
-  {
-    if (newType_use != type_use)
-    {
-      NotificationChain msgs = null;
-      if (type_use != null)
-        msgs = ((InternalEObject)type_use).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.ANNOTATION__TYPE_USE, null, msgs);
-      if (newType_use != null)
-        msgs = ((InternalEObject)newType_use).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.ANNOTATION__TYPE_USE, null, msgs);
-      msgs = basicSetType_use(newType_use, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.ANNOTATION__TYPE_USE, newType_use, newType_use));
   }
 
   /**
@@ -180,8 +120,6 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
   {
     switch (featureID)
     {
-      case AbsPackage.ANNOTATION__TYPE_USE:
-        return basicSetType_use(null, msgs);
       case AbsPackage.ANNOTATION__PURE_EXP:
         return basicSetPure_exp(null, msgs);
     }
@@ -198,8 +136,6 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
   {
     switch (featureID)
     {
-      case AbsPackage.ANNOTATION__TYPE_USE:
-        return getType_use();
       case AbsPackage.ANNOTATION__PURE_EXP:
         return getPure_exp();
     }
@@ -216,9 +152,6 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
   {
     switch (featureID)
     {
-      case AbsPackage.ANNOTATION__TYPE_USE:
-        setType_use((Type_use)newValue);
-        return;
       case AbsPackage.ANNOTATION__PURE_EXP:
         setPure_exp((Pure_exp)newValue);
         return;
@@ -236,9 +169,6 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
   {
     switch (featureID)
     {
-      case AbsPackage.ANNOTATION__TYPE_USE:
-        setType_use((Type_use)null);
-        return;
       case AbsPackage.ANNOTATION__PURE_EXP:
         setPure_exp((Pure_exp)null);
         return;
@@ -256,8 +186,6 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
   {
     switch (featureID)
     {
-      case AbsPackage.ANNOTATION__TYPE_USE:
-        return type_use != null;
       case AbsPackage.ANNOTATION__PURE_EXP:
         return pure_exp != null;
     }

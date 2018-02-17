@@ -1,9 +1,0 @@
-package mypack.DeltaToFeature;
-
-import org.eclipse.emf.ecore.EObject;
-
-class DeltaToFeature implements IResourceSetProvider {
-
-	
-
-}

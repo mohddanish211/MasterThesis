@@ -3,6 +3,10 @@
  */
 package org.xtext.validation;
 
+import org.eclipse.xtext.validation.Check;
+import org.xtext.abs.AbsPackage;
+import org.xtext.abs.Module_decl;
+import org.xtext.abs.Productline_decl;
 import org.xtext.validation.AbstractAbsValidator;
 
 /**
@@ -12,4 +16,26 @@ import org.xtext.validation.AbstractAbsValidator;
  */
 @SuppressWarnings("all")
 public class AbsValidator extends AbstractAbsValidator {
+  public final static String INVALID_NAME = "invalidName";
+  
+  @Check
+  public void checkGreetingStartsWithCapital(final Module_decl module) {
+    boolean _isUpperCase = Character.isUpperCase(module.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.warning("Name should start with a capital", 
+        AbsPackage.Literals.MODULE_DECL__NAME, 
+        AbsValidator.INVALID_NAME);
+    }
+  }
+  
+  @Check
+  public void checkNameStartsWithCapital(final Productline_decl entity) {
+    boolean _isUpperCase = Character.isUpperCase(entity.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.warning("Name should start with a capital", 
+        AbsPackage.Literals.PRODUCTLINE_DECL__NAME, "invalid name");
+    }
+  }
 }

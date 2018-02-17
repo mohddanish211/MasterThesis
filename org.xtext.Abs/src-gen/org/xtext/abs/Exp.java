@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Exp#getEff_expr <em>Eff expr</em>}</li>
+ *   <li>{@link org.xtext.abs.Exp#getPure_exp_list <em>Pure exp list</em>}</li>
  *   <li>{@link org.xtext.abs.Exp#getPure_exp <em>Pure exp</em>}</li>
  * </ul>
  * </p>
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Exp extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Eff expr</b></em>' containment reference.
+   * Returns the value of the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Eff expr</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Pure exp list</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Eff expr</em>' containment reference.
-   * @see #setEff_expr(Eff_expr)
-   * @see org.xtext.abs.AbsPackage#getExp_Eff_expr()
+   * @return the value of the '<em>Pure exp list</em>' containment reference.
+   * @see #setPure_exp_list(Pure_exp_list)
+   * @see org.xtext.abs.AbsPackage#getExp_Pure_exp_list()
    * @model containment="true"
    * @generated
    */
-  Eff_expr getEff_expr();
+  Pure_exp_list getPure_exp_list();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Exp#getEff_expr <em>Eff expr</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Exp#getPure_exp_list <em>Pure exp list</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Eff expr</em>' containment reference.
-   * @see #getEff_expr()
+   * @param value the new value of the '<em>Pure exp list</em>' containment reference.
+   * @see #getPure_exp_list()
    * @generated
    */
-  void setEff_expr(Eff_expr value);
+  void setPure_exp_list(Pure_exp_list value);
 
   /**
    * Returns the value of the '<em><b>Pure exp</b></em>' containment reference.

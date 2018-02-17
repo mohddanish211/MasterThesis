@@ -5,7 +5,6 @@ package org.xtext.abs.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,14 +12,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Annotations;
 import org.xtext.abs.Main_block;
 import org.xtext.abs.Stmt;
 
@@ -31,7 +28,6 @@ import org.xtext.abs.Stmt;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Main_blockImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Main_blockImpl#getStmt <em>Stmt</em>}</li>
  * </ul>
  * </p>
@@ -40,16 +36,6 @@ import org.xtext.abs.Stmt;
  */
 public class Main_blockImpl extends MinimalEObjectImpl.Container implements Main_block
 {
-  /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotations()
-   * @generated
-   * @ordered
-   */
-  protected Annotations annotations;
-
   /**
    * The cached value of the '{@link #getStmt() <em>Stmt</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -86,54 +72,6 @@ public class Main_blockImpl extends MinimalEObjectImpl.Container implements Main
    * <!-- end-user-doc -->
    * @generated
    */
-  public Annotations getAnnotations()
-  {
-    return annotations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
-  {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.MAIN_BLOCK__ANNOTATIONS, oldAnnotations, newAnnotations);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotations(Annotations newAnnotations)
-  {
-    if (newAnnotations != annotations)
-    {
-      NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.MAIN_BLOCK__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.MAIN_BLOCK__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.MAIN_BLOCK__ANNOTATIONS, newAnnotations, newAnnotations));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Stmt> getStmt()
   {
     if (stmt == null)
@@ -153,8 +91,6 @@ public class Main_blockImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
-      case AbsPackage.MAIN_BLOCK__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
       case AbsPackage.MAIN_BLOCK__STMT:
         return ((InternalEList<?>)getStmt()).basicRemove(otherEnd, msgs);
     }
@@ -171,8 +107,6 @@ public class Main_blockImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
-      case AbsPackage.MAIN_BLOCK__ANNOTATIONS:
-        return getAnnotations();
       case AbsPackage.MAIN_BLOCK__STMT:
         return getStmt();
     }
@@ -190,9 +124,6 @@ public class Main_blockImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
-      case AbsPackage.MAIN_BLOCK__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
-        return;
       case AbsPackage.MAIN_BLOCK__STMT:
         getStmt().clear();
         getStmt().addAll((Collection<? extends Stmt>)newValue);
@@ -211,9 +142,6 @@ public class Main_blockImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
-      case AbsPackage.MAIN_BLOCK__ANNOTATIONS:
-        setAnnotations((Annotations)null);
-        return;
       case AbsPackage.MAIN_BLOCK__STMT:
         getStmt().clear();
         return;
@@ -231,8 +159,6 @@ public class Main_blockImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
-      case AbsPackage.MAIN_BLOCK__ANNOTATIONS:
-        return annotations != null;
       case AbsPackage.MAIN_BLOCK__STMT:
         return stmt != null && !stmt.isEmpty();
     }

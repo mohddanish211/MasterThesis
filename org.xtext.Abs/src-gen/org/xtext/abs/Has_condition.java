@@ -3,7 +3,6 @@
  */
 package org.xtext.abs;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Has_condition extends EObject
+public interface Has_condition extends Delta_param
 {
   /**
    * Returns the value of the '<em><b>F</b></em>' reference.

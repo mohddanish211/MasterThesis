@@ -3,17 +3,11 @@
  */
 package org.xtext.abs.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Feature_decl;
 import org.xtext.abs.Fnode;
 
 /**
@@ -21,47 +15,12 @@ import org.xtext.abs.Fnode;
  * An implementation of the model object '<em><b>Fnode</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are implemented:
- * <ul>
- *   <li>{@link org.xtext.abs.impl.FnodeImpl#getO <em>O</em>}</li>
- *   <li>{@link org.xtext.abs.impl.FnodeImpl#getFeature_decl <em>Feature decl</em>}</li>
- * </ul>
  * </p>
  *
  * @generated
  */
 public class FnodeImpl extends MinimalEObjectImpl.Container implements Fnode
 {
-  /**
-   * The default value of the '{@link #getO() <em>O</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getO()
-   * @generated
-   * @ordered
-   */
-  protected static final String O_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getO() <em>O</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getO()
-   * @generated
-   * @ordered
-   */
-  protected String o = O_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getFeature_decl() <em>Feature decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFeature_decl()
-   * @generated
-   * @ordered
-   */
-  protected Feature_decl feature_decl;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -81,186 +40,6 @@ public class FnodeImpl extends MinimalEObjectImpl.Container implements Fnode
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.FNODE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getO()
-  {
-    return o;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setO(String newO)
-  {
-    String oldO = o;
-    o = newO;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FNODE__O, oldO, o));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Feature_decl getFeature_decl()
-  {
-    return feature_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFeature_decl(Feature_decl newFeature_decl, NotificationChain msgs)
-  {
-    Feature_decl oldFeature_decl = feature_decl;
-    feature_decl = newFeature_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.FNODE__FEATURE_DECL, oldFeature_decl, newFeature_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFeature_decl(Feature_decl newFeature_decl)
-  {
-    if (newFeature_decl != feature_decl)
-    {
-      NotificationChain msgs = null;
-      if (feature_decl != null)
-        msgs = ((InternalEObject)feature_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FNODE__FEATURE_DECL, null, msgs);
-      if (newFeature_decl != null)
-        msgs = ((InternalEObject)newFeature_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FNODE__FEATURE_DECL, null, msgs);
-      msgs = basicSetFeature_decl(newFeature_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FNODE__FEATURE_DECL, newFeature_decl, newFeature_decl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FNODE__FEATURE_DECL:
-        return basicSetFeature_decl(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FNODE__O:
-        return getO();
-      case AbsPackage.FNODE__FEATURE_DECL:
-        return getFeature_decl();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FNODE__O:
-        setO((String)newValue);
-        return;
-      case AbsPackage.FNODE__FEATURE_DECL:
-        setFeature_decl((Feature_decl)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FNODE__O:
-        setO(O_EDEFAULT);
-        return;
-      case AbsPackage.FNODE__FEATURE_DECL:
-        setFeature_decl((Feature_decl)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FNODE__O:
-        return O_EDEFAULT == null ? o != null : !O_EDEFAULT.equals(o);
-      case AbsPackage.FNODE__FEATURE_DECL:
-        return feature_decl != null;
-    }
-    return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (o: ");
-    result.append(o);
-    result.append(')');
-    return result.toString();
   }
 
 } //FnodeImpl

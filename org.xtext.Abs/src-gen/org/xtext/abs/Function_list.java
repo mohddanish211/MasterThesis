@@ -5,8 +5,6 @@ package org.xtext.abs;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Function list</b></em>'.
@@ -15,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.xtext.abs.Function_list#getPartial_function_pure_exp_list <em>Partial function pure exp list</em>}</li>
  *   <li>{@link org.xtext.abs.Function_list#getFunction_param <em>Function param</em>}</li>
  * </ul>
  * </p>
@@ -23,8 +22,34 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Function_list extends EObject
+public interface Function_list extends Pure_exp
 {
+  /**
+   * Returns the value of the '<em><b>Partial function pure exp list</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Partial function pure exp list</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Partial function pure exp list</em>' containment reference.
+   * @see #setPartial_function_pure_exp_list(Pure_exp_list)
+   * @see org.xtext.abs.AbsPackage#getFunction_list_Partial_function_pure_exp_list()
+   * @model containment="true"
+   * @generated
+   */
+  Pure_exp_list getPartial_function_pure_exp_list();
+
+  /**
+   * Sets the value of the '{@link org.xtext.abs.Function_list#getPartial_function_pure_exp_list <em>Partial function pure exp list</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Partial function pure exp list</em>' containment reference.
+   * @see #getPartial_function_pure_exp_list()
+   * @generated
+   */
+  void setPartial_function_pure_exp_list(Pure_exp_list value);
+
   /**
    * Returns the value of the '<em><b>Function param</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.abs.Function_param}.

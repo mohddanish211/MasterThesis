@@ -5,16 +5,12 @@ package org.xtext.abs.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -31,7 +27,6 @@ import org.xtext.abs.Methodsig;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Interface_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Interface_declImpl#getInterface_name <em>Interface name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Interface_declImpl#getMethodsig <em>Methodsig</em>}</li>
  * </ul>
@@ -39,28 +34,8 @@ import org.xtext.abs.Methodsig;
  *
  * @generated
  */
-public class Interface_declImpl extends MinimalEObjectImpl.Container implements Interface_decl
+public class Interface_declImpl extends DeclImpl implements Interface_decl
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getInterface_name() <em>Interface name</em>}' reference list.
    * <!-- begin-user-doc -->
@@ -100,29 +75,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.INTERFACE_DECL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.INTERFACE_DECL__NAME, oldName, name));
   }
 
   /**
@@ -179,8 +131,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.INTERFACE_DECL__NAME:
-        return getName();
       case AbsPackage.INTERFACE_DECL__INTERFACE_NAME:
         return getInterface_name();
       case AbsPackage.INTERFACE_DECL__METHODSIG:
@@ -200,9 +150,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.INTERFACE_DECL__NAME:
-        setName((String)newValue);
-        return;
       case AbsPackage.INTERFACE_DECL__INTERFACE_NAME:
         getInterface_name().clear();
         getInterface_name().addAll((Collection<? extends Interface_decl>)newValue);
@@ -225,9 +172,6 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.INTERFACE_DECL__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case AbsPackage.INTERFACE_DECL__INTERFACE_NAME:
         getInterface_name().clear();
         return;
@@ -248,31 +192,12 @@ public class Interface_declImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case AbsPackage.INTERFACE_DECL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.INTERFACE_DECL__INTERFACE_NAME:
         return interface_name != null && !interface_name.isEmpty();
       case AbsPackage.INTERFACE_DECL__METHODSIG:
         return methodsig != null && !methodsig.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //Interface_declImpl

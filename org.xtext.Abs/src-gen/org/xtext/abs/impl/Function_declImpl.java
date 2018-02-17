@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
@@ -32,7 +31,6 @@ import org.xtext.abs.Type_use;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getType_use <em>Type use</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Function_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getLt <em>Lt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getGt <em>Gt</em>}</li>
@@ -43,7 +41,7 @@ import org.xtext.abs.Type_use;
  *
  * @generated
  */
-public class Function_declImpl extends MinimalEObjectImpl.Container implements Function_decl
+public class Function_declImpl extends DeclImpl implements Function_decl
 {
   /**
    * The cached value of the '{@link #getType_use() <em>Type use</em>}' containment reference.
@@ -54,26 +52,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
    * @ordered
    */
   protected Type_use type_use;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getLt() <em>Lt</em>}' attribute.
@@ -212,29 +190,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_DECL__TYPE_USE, newType_use, newType_use));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_DECL__NAME, oldName, name));
   }
 
   /**
@@ -425,8 +380,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
     {
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         return getType_use();
-      case AbsPackage.FUNCTION_DECL__NAME:
-        return getName();
       case AbsPackage.FUNCTION_DECL__LT:
         return getLt();
       case AbsPackage.FUNCTION_DECL__IMPORTED_NAMESPACE:
@@ -454,9 +407,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
     {
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)newValue);
-        return;
-      case AbsPackage.FUNCTION_DECL__NAME:
-        setName((String)newValue);
         return;
       case AbsPackage.FUNCTION_DECL__LT:
         setLt((String)newValue);
@@ -491,9 +441,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)null);
         return;
-      case AbsPackage.FUNCTION_DECL__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case AbsPackage.FUNCTION_DECL__LT:
         setLt(LT_EDEFAULT);
         return;
@@ -525,8 +472,6 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
     {
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         return type_use != null;
-      case AbsPackage.FUNCTION_DECL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.FUNCTION_DECL__LT:
         return LT_EDEFAULT == null ? lt != null : !LT_EDEFAULT.equals(lt);
       case AbsPackage.FUNCTION_DECL__IMPORTED_NAMESPACE:
@@ -552,9 +497,7 @@ public class Function_declImpl extends MinimalEObjectImpl.Container implements F
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", lt: ");
+    result.append(" (lt: ");
     result.append(lt);
     result.append(", importedNamespace: ");
     result.append(importedNamespace);

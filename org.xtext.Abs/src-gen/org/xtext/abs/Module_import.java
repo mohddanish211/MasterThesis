@@ -5,8 +5,6 @@ package org.xtext.abs;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Module import</b></em>'.
@@ -15,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Module_import#getStar <em>Star</em>}</li>
  *   <li>{@link org.xtext.abs.Module_import#getImportedNamespace <em>Imported Namespace</em>}</li>
  *   <li>{@link org.xtext.abs.Module_import#getName <em>Name</em>}</li>
  * </ul>
@@ -25,34 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Module_import extends EObject
+public interface Module_import extends Namespace_modifier
 {
-  /**
-   * Returns the value of the '<em><b>Star</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Star</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Star</em>' attribute.
-   * @see #setStar(String)
-   * @see org.xtext.abs.AbsPackage#getModule_import_Star()
-   * @model
-   * @generated
-   */
-  String getStar();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Module_import#getStar <em>Star</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Star</em>' attribute.
-   * @see #getStar()
-   * @generated
-   */
-  void setStar(String value);
-
   /**
    * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute.
    * <!-- begin-user-doc -->

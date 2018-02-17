@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Field_decl;
@@ -32,7 +31,7 @@ import org.xtext.abs.Type_use;
  *
  * @generated
  */
-public class Field_declImpl extends MinimalEObjectImpl.Container implements Field_decl
+public class Field_declImpl extends Class_modifier_fragmentImpl implements Field_decl
 {
   /**
    * The cached value of the '{@link #getType_use() <em>Type use</em>}' containment reference.

@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Param_decl;
@@ -30,7 +29,7 @@ import org.xtext.abs.Type_exp;
  *
  * @generated
  */
-public class Param_declImpl extends MinimalEObjectImpl.Container implements Param_decl
+public class Param_declImpl extends Delta_paramImpl implements Param_decl
 {
   /**
    * The cached value of the '{@link #getType_exp() <em>Type exp</em>}' containment reference.

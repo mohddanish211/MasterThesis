@@ -6,22 +6,17 @@ package org.xtext.abs.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Boundary_int;
-import org.xtext.abs.Boundary_val;
 import org.xtext.abs.Feature_decl_attribute;
 
 /**
@@ -42,34 +37,54 @@ import org.xtext.abs.Feature_decl_attribute;
 public class Feature_decl_attributeImpl extends MinimalEObjectImpl.Container implements Feature_decl_attribute
 {
   /**
-   * The cached value of the '{@link #getBoundary_val() <em>Boundary val</em>}' containment reference list.
+   * The cached value of the '{@link #getBoundary_val() <em>Boundary val</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBoundary_val()
    * @generated
    * @ordered
    */
-  protected EList<Boundary_val> boundary_val;
+  protected EList<String> boundary_val;
 
   /**
-   * The cached value of the '{@link #getLBoundary_int() <em>LBoundary int</em>}' containment reference.
+   * The default value of the '{@link #getLBoundary_int() <em>LBoundary int</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLBoundary_int()
    * @generated
    * @ordered
    */
-  protected Boundary_int lBoundary_int;
+  protected static final String LBOUNDARY_INT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUBoundary_int() <em>UBoundary int</em>}' containment reference.
+   * The cached value of the '{@link #getLBoundary_int() <em>LBoundary int</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLBoundary_int()
+   * @generated
+   * @ordered
+   */
+  protected String lBoundary_int = LBOUNDARY_INT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getUBoundary_int() <em>UBoundary int</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getUBoundary_int()
    * @generated
    * @ordered
    */
-  protected Boundary_int uBoundary_int;
+  protected static final String UBOUNDARY_INT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUBoundary_int() <em>UBoundary int</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUBoundary_int()
+   * @generated
+   * @ordered
+   */
+  protected String uBoundary_int = UBOUNDARY_INT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -97,11 +112,11 @@ public class Feature_decl_attributeImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Boundary_val> getBoundary_val()
+  public EList<String> getBoundary_val()
   {
     if (boundary_val == null)
     {
-      boundary_val = new EObjectContainmentEList<Boundary_val>(Boundary_val.class, this, AbsPackage.FEATURE_DECL_ATTRIBUTE__BOUNDARY_VAL);
+      boundary_val = new EDataTypeEList<String>(String.class, this, AbsPackage.FEATURE_DECL_ATTRIBUTE__BOUNDARY_VAL);
     }
     return boundary_val;
   }
@@ -111,7 +126,7 @@ public class Feature_decl_attributeImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Boundary_int getLBoundary_int()
+  public String getLBoundary_int()
   {
     return lBoundary_int;
   }
@@ -121,16 +136,12 @@ public class Feature_decl_attributeImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLBoundary_int(Boundary_int newLBoundary_int, NotificationChain msgs)
+  public void setLBoundary_int(String newLBoundary_int)
   {
-    Boundary_int oldLBoundary_int = lBoundary_int;
+    String oldLBoundary_int = lBoundary_int;
     lBoundary_int = newLBoundary_int;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT, oldLBoundary_int, newLBoundary_int);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT, oldLBoundary_int, lBoundary_int));
   }
 
   /**
@@ -138,28 +149,7 @@ public class Feature_decl_attributeImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLBoundary_int(Boundary_int newLBoundary_int)
-  {
-    if (newLBoundary_int != lBoundary_int)
-    {
-      NotificationChain msgs = null;
-      if (lBoundary_int != null)
-        msgs = ((InternalEObject)lBoundary_int).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT, null, msgs);
-      if (newLBoundary_int != null)
-        msgs = ((InternalEObject)newLBoundary_int).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT, null, msgs);
-      msgs = basicSetLBoundary_int(newLBoundary_int, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT, newLBoundary_int, newLBoundary_int));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Boundary_int getUBoundary_int()
+  public String getUBoundary_int()
   {
     return uBoundary_int;
   }
@@ -169,57 +159,12 @@ public class Feature_decl_attributeImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetUBoundary_int(Boundary_int newUBoundary_int, NotificationChain msgs)
+  public void setUBoundary_int(String newUBoundary_int)
   {
-    Boundary_int oldUBoundary_int = uBoundary_int;
+    String oldUBoundary_int = uBoundary_int;
     uBoundary_int = newUBoundary_int;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT, oldUBoundary_int, newUBoundary_int);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setUBoundary_int(Boundary_int newUBoundary_int)
-  {
-    if (newUBoundary_int != uBoundary_int)
-    {
-      NotificationChain msgs = null;
-      if (uBoundary_int != null)
-        msgs = ((InternalEObject)uBoundary_int).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT, null, msgs);
-      if (newUBoundary_int != null)
-        msgs = ((InternalEObject)newUBoundary_int).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT, null, msgs);
-      msgs = basicSetUBoundary_int(newUBoundary_int, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT, newUBoundary_int, newUBoundary_int));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.FEATURE_DECL_ATTRIBUTE__BOUNDARY_VAL:
-        return ((InternalEList<?>)getBoundary_val()).basicRemove(otherEnd, msgs);
-      case AbsPackage.FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT:
-        return basicSetLBoundary_int(null, msgs);
-      case AbsPackage.FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT:
-        return basicSetUBoundary_int(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT, oldUBoundary_int, uBoundary_int));
   }
 
   /**
@@ -255,13 +200,13 @@ public class Feature_decl_attributeImpl extends MinimalEObjectImpl.Container imp
     {
       case AbsPackage.FEATURE_DECL_ATTRIBUTE__BOUNDARY_VAL:
         getBoundary_val().clear();
-        getBoundary_val().addAll((Collection<? extends Boundary_val>)newValue);
+        getBoundary_val().addAll((Collection<? extends String>)newValue);
         return;
       case AbsPackage.FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT:
-        setLBoundary_int((Boundary_int)newValue);
+        setLBoundary_int((String)newValue);
         return;
       case AbsPackage.FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT:
-        setUBoundary_int((Boundary_int)newValue);
+        setUBoundary_int((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -281,10 +226,10 @@ public class Feature_decl_attributeImpl extends MinimalEObjectImpl.Container imp
         getBoundary_val().clear();
         return;
       case AbsPackage.FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT:
-        setLBoundary_int((Boundary_int)null);
+        setLBoundary_int(LBOUNDARY_INT_EDEFAULT);
         return;
       case AbsPackage.FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT:
-        setUBoundary_int((Boundary_int)null);
+        setUBoundary_int(UBOUNDARY_INT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -303,11 +248,32 @@ public class Feature_decl_attributeImpl extends MinimalEObjectImpl.Container imp
       case AbsPackage.FEATURE_DECL_ATTRIBUTE__BOUNDARY_VAL:
         return boundary_val != null && !boundary_val.isEmpty();
       case AbsPackage.FEATURE_DECL_ATTRIBUTE__LBOUNDARY_INT:
-        return lBoundary_int != null;
+        return LBOUNDARY_INT_EDEFAULT == null ? lBoundary_int != null : !LBOUNDARY_INT_EDEFAULT.equals(lBoundary_int);
       case AbsPackage.FEATURE_DECL_ATTRIBUTE__UBOUNDARY_INT:
-        return uBoundary_int != null;
+        return UBOUNDARY_INT_EDEFAULT == null ? uBoundary_int != null : !UBOUNDARY_INT_EDEFAULT.equals(uBoundary_int);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (boundary_val: ");
+    result.append(boundary_val);
+    result.append(", lBoundary_int: ");
+    result.append(lBoundary_int);
+    result.append(", uBoundary_int: ");
+    result.append(uBoundary_int);
+    result.append(')');
+    return result.toString();
   }
 
 } //Feature_decl_attributeImpl

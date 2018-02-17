@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Anon_function_decl;
@@ -31,7 +30,7 @@ import org.xtext.abs.Pure_exp;
  *
  * @generated
  */
-public class Anon_function_declImpl extends MinimalEObjectImpl.Container implements Anon_function_decl
+public class Anon_function_declImpl extends Function_paramImpl implements Anon_function_decl
 {
   /**
    * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference.

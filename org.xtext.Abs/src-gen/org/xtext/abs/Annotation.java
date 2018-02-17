@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Annotation#getType_use <em>Type use</em>}</li>
  *   <li>{@link org.xtext.abs.Annotation#getPure_exp <em>Pure exp</em>}</li>
  * </ul>
  * </p>
@@ -24,32 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Annotation extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Type use</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Type use</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Type use</em>' containment reference.
-   * @see #setType_use(Type_use)
-   * @see org.xtext.abs.AbsPackage#getAnnotation_Type_use()
-   * @model containment="true"
-   * @generated
-   */
-  Type_use getType_use();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Annotation#getType_use <em>Type use</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type use</em>' containment reference.
-   * @see #getType_use()
-   * @generated
-   */
-  void setType_use(Type_use value);
-
   /**
    * Returns the value of the '<em><b>Pure exp</b></em>' containment reference.
    * <!-- begin-user-doc -->

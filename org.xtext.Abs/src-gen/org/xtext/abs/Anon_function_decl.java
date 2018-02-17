@@ -3,7 +3,6 @@
  */
 package org.xtext.abs;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Anon_function_decl extends EObject
+public interface Anon_function_decl extends Function_param
 {
   /**
    * Returns the value of the '<em><b>Params</b></em>' containment reference.

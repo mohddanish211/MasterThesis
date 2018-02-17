@@ -19,6 +19,7 @@ import org.xtext.abs.Application_condition;
 import org.xtext.abs.Delta_clause;
 import org.xtext.abs.Delta_decl;
 import org.xtext.abs.Feature;
+import org.xtext.abs.Feature_decl;
 import org.xtext.abs.Productline_decl;
 
 /**
@@ -62,10 +63,6 @@ public class AbsGenerator extends AbstractGenerator {
           if (_tripleNotEquals) {
             this.resolveApplicationCondition(f.getWhen_condition().getApplication_condition(), featureNames);
           }
-          String _name = f.getDeltaspec().getName();
-          String _plus = (_name + "----->");
-          String _plus_1 = (_plus + featureNames);
-          InputOutput.<String>print(_plus_1);
         } catch (final Throwable _t) {
           if (_t instanceof Exception) {
             final Exception err = (Exception)_t;
@@ -85,7 +82,7 @@ public class AbsGenerator extends AbstractGenerator {
     Iterable<Productline_decl> _filter = Iterables.<Productline_decl>filter(IteratorExtensions.<EObject>toIterable(e.eContainer().eAllContents()), Productline_decl.class);
     for (final EObject o : _filter) {
       {
-        InputOutput.<String>println("------xxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----");
+        InputOutput.<String>println("------xx Delta TO Feature xx-----");
         Iterable<Delta_clause> _filter_1 = Iterables.<Delta_clause>filter(IteratorExtensions.<EObject>toIterable(o.eAllContents()), Delta_clause.class);
         for (final Delta_clause delta_clause : _filter_1) {
           {
@@ -101,8 +98,47 @@ public class AbsGenerator extends AbstractGenerator {
                 String _name = delta_clause.getDeltaspec().getName();
                 String _plus = (_name + "----->");
                 String _plus_1 = (_plus + featureNames);
-                InputOutput.<String>print(_plus_1);
+                InputOutput.<String>println(_plus_1);
                 return featureNames.toString();
+              }
+            } catch (final Throwable _t) {
+              if (_t instanceof Exception) {
+                final Exception err = (Exception)_t;
+                InputOutput.<String>println(err.toString());
+              } else {
+                throw Exceptions.sneakyThrow(_t);
+              }
+            }
+          }
+        }
+      }
+    }
+    return "error";
+  }
+  
+  public String compile(final Feature_decl e) {
+    StringBuffer featureNames = new StringBuffer();
+    Iterable<Productline_decl> _filter = Iterables.<Productline_decl>filter(IteratorExtensions.<EObject>toIterable(e.eContainer().eAllContents()), Productline_decl.class);
+    for (final EObject o : _filter) {
+      {
+        InputOutput.<String>println("------xx  Feature TO Delta  xx-----");
+        Iterable<Delta_clause> _filter_1 = Iterables.<Delta_clause>filter(IteratorExtensions.<EObject>toIterable(o.eAllContents()), Delta_clause.class);
+        for (final Delta_clause delta_clause : _filter_1) {
+          {
+            featureNames.setLength(0);
+            try {
+              boolean _equals = delta_clause.getDeltaspec().getName().equals(e.getName());
+              if (_equals) {
+                Application_condition _application_condition = delta_clause.getWhen_condition().getApplication_condition();
+                boolean _tripleNotEquals = (_application_condition != null);
+                if (_tripleNotEquals) {
+                  this.resolveApplicationCondition(delta_clause.getWhen_condition().getApplication_condition(), featureNames);
+                }
+                String _plus = (featureNames + "----->");
+                String _name = delta_clause.getDeltaspec().getName();
+                String _plus_1 = (_plus + _name);
+                InputOutput.<String>print(_plus_1);
+                return delta_clause.getDeltaspec().getName().toString();
               }
             } catch (final Throwable _t) {
               if (_t instanceof Exception) {

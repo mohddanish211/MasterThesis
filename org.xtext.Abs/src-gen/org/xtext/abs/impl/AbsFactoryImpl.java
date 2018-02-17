@@ -127,7 +127,6 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
       case AbsPackage.OBJECT_UPDATE_ASSIGN_STMT: return createObject_update_assign_stmt();
       case AbsPackage.PRODUCTLINE_DECL: return createProductline_decl();
       case AbsPackage.FEATURE: return createFeature();
-      case AbsPackage.ATTR_ASSIGNMENT: return createAttr_assignment();
       case AbsPackage.DELTA_CLAUSE: return createDelta_clause();
       case AbsPackage.DELTASPEC: return createDeltaspec();
       case AbsPackage.AFTER_CONDITION: return createAfter_condition();
@@ -141,8 +140,6 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
       case AbsPackage.FEATURE_DECL_GROUP: return createFeature_decl_group();
       case AbsPackage.FNODE: return createFnode();
       case AbsPackage.FEATURE_DECL_ATTRIBUTE: return createFeature_decl_attribute();
-      case AbsPackage.BOUNDARY_VAL: return createBoundary_val();
-      case AbsPackage.BOUNDARY_INT: return createBoundary_int();
       case AbsPackage.FEATURE_DECL_CONSTRAINT: return createFeature_decl_constraint();
       case AbsPackage.MEXP: return createMexp();
       case AbsPackage.FEXTENSION: return createFextension();
@@ -858,17 +855,6 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Attr_assignment createAttr_assignment()
-  {
-    Attr_assignmentImpl attr_assignment = new Attr_assignmentImpl();
-    return attr_assignment;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Delta_clause createDelta_clause()
   {
     Delta_clauseImpl delta_clause = new Delta_clauseImpl();
@@ -1005,28 +991,6 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
   {
     Feature_decl_attributeImpl feature_decl_attribute = new Feature_decl_attributeImpl();
     return feature_decl_attribute;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Boundary_val createBoundary_val()
-  {
-    Boundary_valImpl boundary_val = new Boundary_valImpl();
-    return boundary_val;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Boundary_int createBoundary_int()
-  {
-    Boundary_intImpl boundary_int = new Boundary_intImpl();
-    return boundary_int;
   }
 
   /**

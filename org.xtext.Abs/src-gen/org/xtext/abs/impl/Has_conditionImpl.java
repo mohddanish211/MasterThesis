@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Field_decl;
@@ -32,7 +31,7 @@ import org.xtext.abs.Methodsig;
  *
  * @generated
  */
-public class Has_conditionImpl extends MinimalEObjectImpl.Container implements Has_condition
+public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
 {
   /**
    * The cached value of the '{@link #getF() <em>F</em>}' reference.

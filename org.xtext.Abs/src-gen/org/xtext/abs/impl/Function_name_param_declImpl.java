@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Function_name_param_decl;
@@ -26,7 +25,7 @@ import org.xtext.abs.Function_name_param_decl;
  *
  * @generated
  */
-public class Function_name_param_declImpl extends MinimalEObjectImpl.Container implements Function_name_param_decl
+public class Function_name_param_declImpl extends Function_paramImpl implements Function_name_param_decl
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

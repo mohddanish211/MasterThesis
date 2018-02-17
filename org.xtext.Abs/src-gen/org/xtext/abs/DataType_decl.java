@@ -5,8 +5,6 @@ package org.xtext.abs;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Data Type decl</b></em>'.
@@ -15,8 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.DataType_decl#getAnnotations <em>Annotations</em>}</li>
- *   <li>{@link org.xtext.abs.DataType_decl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.DataType_decl#getLt <em>Lt</em>}</li>
  *   <li>{@link org.xtext.abs.DataType_decl#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.abs.DataType_decl#getGt <em>Gt</em>}</li>
@@ -28,60 +24,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DataType_decl extends EObject
+public interface DataType_decl extends Decl, Functional_modifier
 {
-  /**
-   * Returns the value of the '<em><b>Annotations</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Annotations</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Annotations</em>' containment reference.
-   * @see #setAnnotations(Annotations)
-   * @see org.xtext.abs.AbsPackage#getDataType_decl_Annotations()
-   * @model containment="true"
-   * @generated
-   */
-  Annotations getAnnotations();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.DataType_decl#getAnnotations <em>Annotations</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Annotations</em>' containment reference.
-   * @see #getAnnotations()
-   * @generated
-   */
-  void setAnnotations(Annotations value);
-
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.abs.AbsPackage#getDataType_decl_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.DataType_decl#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Lt</b></em>' attribute.
    * <!-- begin-user-doc -->

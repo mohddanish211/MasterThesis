@@ -582,15 +582,6 @@ public interface AbsFactory extends EFactory
   Feature createFeature();
 
   /**
-   * Returns a new object of class '<em>Attr assignment</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attr assignment</em>'.
-   * @generated
-   */
-  Attr_assignment createAttr_assignment();
-
-  /**
    * Returns a new object of class '<em>Delta clause</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -706,24 +697,6 @@ public interface AbsFactory extends EFactory
    * @generated
    */
   Feature_decl_attribute createFeature_decl_attribute();
-
-  /**
-   * Returns a new object of class '<em>Boundary val</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boundary val</em>'.
-   * @generated
-   */
-  Boundary_val createBoundary_val();
-
-  /**
-   * Returns a new object of class '<em>Boundary int</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boundary int</em>'.
-   * @generated
-   */
-  Boundary_int createBoundary_int();
 
   /**
    * Returns a new object of class '<em>Feature decl constraint</em>'.

@@ -3,7 +3,6 @@
  */
 package org.xtext.abs;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Param_decl extends EObject
+public interface Param_decl extends Delta_param
 {
   /**
    * Returns the value of the '<em><b>Type exp</b></em>' containment reference.

@@ -3,7 +3,7 @@
  */
 package org.xtext.abs;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.abs.Guard#getMin <em>Min</em>}</li>
  *   <li>{@link org.xtext.abs.Guard#getMax <em>Max</em>}</li>
  *   <li>{@link org.xtext.abs.Guard#getE <em>E</em>}</li>
+ *   <li>{@link org.xtext.abs.Guard#getUpdate_preamble_declaration <em>Update preamble declaration</em>}</li>
+ *   <li>{@link org.xtext.abs.Guard#getPre <em>Pre</em>}</li>
+ *   <li>{@link org.xtext.abs.Guard#getPost <em>Post</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Guard extends EObject
+public interface Guard extends Object_update
 {
   /**
    * Returns the value of the '<em><b>Var or field ref</b></em>' reference.
@@ -129,5 +132,53 @@ public interface Guard extends EObject
    * @generated
    */
   void setE(Pure_exp value);
+
+  /**
+   * Returns the value of the '<em><b>Update preamble declaration</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.abs.Update_preamble_declaration}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Update preamble declaration</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Update preamble declaration</em>' containment reference list.
+   * @see org.xtext.abs.AbsPackage#getGuard_Update_preamble_declaration()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Update_preamble_declaration> getUpdate_preamble_declaration();
+
+  /**
+   * Returns the value of the '<em><b>Pre</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.abs.Object_update_assign_stmt}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pre</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pre</em>' containment reference list.
+   * @see org.xtext.abs.AbsPackage#getGuard_Pre()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Object_update_assign_stmt> getPre();
+
+  /**
+   * Returns the value of the '<em><b>Post</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.abs.Object_update_assign_stmt}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Post</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Post</em>' containment reference list.
+   * @see org.xtext.abs.AbsPackage#getGuard_Post()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Object_update_assign_stmt> getPost();
 
 } // Guard
