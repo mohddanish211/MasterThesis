@@ -25,7 +25,6 @@ import org.xtext.abs.Productline_decl
 import org.xtext.abs.Product_decl
 import org.xtext.abs.Feature_decl
 
-
 /**
  * Provides labels for EObjects.
  * 
@@ -42,8 +41,13 @@ class AbsLabelProvider extends DefaultEObjectLabelProvider implements IStyledLab
 	
 
 	def text(Delta_decl ele) {
-		return generator.compile(ele);
-		}		
+		return ele.name;
+	}
+	
+	def text(Feature_decl ele) {
+		return ele.name
+		//return generator.compile(ele);
+	}		
 	
 	//
 	def image(Interface_decl ele) {
@@ -135,6 +139,8 @@ class AbsLabelProvider extends DefaultEObjectLabelProvider implements IStyledLab
 	ImageDescriptor.createFromURL( 
 		getClass().getResource("/icons/maude_hats.gif")).createImage();
 	}
+	
+	
 
 }
 

@@ -1,5 +1,0 @@
-package org.xtext.Abs.ui
-
-class Test123 extends AbsGenerator {
-	
-}

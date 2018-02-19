@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Delta_decl" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="add"/>
+			<item value="DEtect"/>
+			<item value="labelProvider"/>
+			<item value="bindHyperLink"/>
+			<item value="bindHyper"/>
+			<item value="bindHyperlinkHelper"/>
+			<item value="bind"/>
+			<item value="createHYperLInksTo"/>
+			<item value="create"/>
+			<item value="createIma"/>
+			<item value="cre"/>
+			<item value="Productline"/>
 			<item value="delta_decl"/>
 			<item value="image"/>
 			<item value="icons"/>
-			<item value="extension"/>
-			<item value="target"/>
-			<item value="Var_or_field_ref"/>
-			<item value="Var_field"/>
-			<item value="Var_field_"/>
-			<item value="Var_field_or_ref"/>
-			<item value="method"/>
-			<item value="Feature"/>
-			<item value="DEltaDEcl"/>
-			<item value="get"/>
-			<item value="&quot;"/>
-			<item value="&quot;&quot;"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -31,7 +31,7 @@
 		<item value="346" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="430" key="DIALOG_HEIGHT"/>
-		<item value="955" key="DIALOG_X_ORIGIN"/>
-		<item value="314" key="DIALOG_Y_ORIGIN"/>
+		<item value="941" key="DIALOG_X_ORIGIN"/>
+		<item value="183" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

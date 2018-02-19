@@ -4,10 +4,21 @@
 package org.xtext.ui
 
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
+import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper
+import org.eclipse.xtext.ui.editor.hyperlinking.DefaultHyperlinkDetector
+import org.eclipse.xtext.ide.editor.hierarchy.ICallHierarchyBuilder
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor
 class AbsUiModule extends AbstractAbsUiModule {
+	def Class<? extends IHyperlinkHelper> bindIHyperlinkHelper() {
+	return MyHyperLinkHelper;
+	}
+	
+	def Class<? extends DefaultHyperlinkDetector> bindDefaultHyperlinkDetector() {
+	return MyLinkService;
+	}
+
 }

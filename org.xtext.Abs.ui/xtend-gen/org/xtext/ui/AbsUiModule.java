@@ -5,7 +5,11 @@ package org.xtext.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
+import org.eclipse.xtext.ui.editor.hyperlinking.DefaultHyperlinkDetector;
+import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.xtext.ui.AbstractAbsUiModule;
+import org.xtext.ui.MyHyperLinkHelper;
+import org.xtext.ui.MyLinkService;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -13,6 +17,14 @@ import org.xtext.ui.AbstractAbsUiModule;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class AbsUiModule extends AbstractAbsUiModule {
+  public Class<? extends IHyperlinkHelper> bindIHyperlinkHelper() {
+    return MyHyperLinkHelper.class;
+  }
+  
+  public Class<? extends DefaultHyperlinkDetector> bindDefaultHyperlinkDetector() {
+    return MyLinkService.class;
+  }
+  
   public AbsUiModule(final AbstractUIPlugin plugin) {
     super(plugin);
   }

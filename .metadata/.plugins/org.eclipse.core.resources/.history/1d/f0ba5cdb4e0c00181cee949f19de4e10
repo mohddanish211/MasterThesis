@@ -1,6 +1,0 @@
-package org.xtext.generator;
-
-public class Test {
-
-	private String label;
-}

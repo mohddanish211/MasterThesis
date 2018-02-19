@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject
 //import org.xtext.abs.Product_decl
 import org.xtext.abs.Feature_decl
 import org.xtext.abs.Feature
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -33,7 +34,7 @@ class AbsGenerator extends AbstractGenerator {
 //				.map[name]
 //				.join(', '))
 
-	for (EObject content : resource.getContents()) {
+/* 	for (EObject content : resource.getContents()) {
 			println("content.eCrossReferences");
 			
 			for(EObject e1 : content.eContents){
@@ -46,7 +47,7 @@ class AbsGenerator extends AbstractGenerator {
 			e.compile();
 		}
 	
-
+*/
 
 	}
 	
@@ -94,6 +95,28 @@ class AbsGenerator extends AbstractGenerator {
 		}
 		return "error"
 	}
+	
+// Console view
+def compile2(Delta_decl e) {
+		var ArrayList<Feature_decl> featureDeclList = new ArrayList<Feature_decl>();
+		for(EObject o: e.eContainer.eAllContents.toIterable.filter(Productline_decl)){
+			println("------xx Delta TO Feature xx-----");
+			for(Delta_clause delta_clause: o.eAllContents.toIterable.filter(Delta_clause)){
+			try{
+				if((delta_clause.deltaspec.name).equals(e.name)){
+					if((delta_clause.when_condition.application_condition)!==null){
+					resolveApplicationCondition2(delta_clause.when_condition.application_condition,featureDeclList);
+						}
+					println(delta_clause.deltaspec.name+"----->"+featureDeclList);
+					return featureDeclList;
+					}
+				}catch(Exception err){
+				println(err.toString);
+				}
+			}
+		}
+		return null
+	}	
 	
 //Feature to Delta Visualization
 
@@ -149,5 +172,35 @@ class AbsGenerator extends AbstractGenerator {
 		}
 	}
 
+
+// test 2
+
+def resolveApplicationCondition2(Application_condition app_cond,ArrayList featureDecl){
+	try{
+			
+		
+			if(app_cond instanceof AppOr_exp){
+				resolveApplicationCondition2(app_cond.left,featureDecl);
+				resolveApplicationCondition2(app_cond.right,featureDecl);
+			}else if(app_cond instanceof AppAnd_exp){
+				resolveApplicationCondition2(app_cond.left,featureDecl);
+				resolveApplicationCondition2(app_cond.right,featureDecl);
+			}else{
+				if(app_cond.feature!== null){
+					if(featureDecl.size==0){
+						featureDecl.add(app_cond.feature);
+						}else{
+						featureDecl.add(app_cond.feature);
+						}
+					
+				}else{
+					resolveApplicationCondition2(app_cond.app_cond,featureDecl);
+				}
+				
+			}
+		}catch(Exception e){
+			println(e.toString());
+		}
+	}
 	
 }

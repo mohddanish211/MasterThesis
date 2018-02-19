@@ -572,7 +572,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (TYPE_IDENTIFIER '.' IDENTIFIER) | TYPE_IDENTIFIER | IDENTIFIER
+	 *     (TYPE_IDENTIFIER '.' IDENTIFIER) | IDENTIFIER | TYPE_IDENTIFIER
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)

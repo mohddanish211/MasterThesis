@@ -4,6 +4,7 @@
 package org.xtext.generator;
 
 import com.google.common.collect.Iterables;
+import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -31,23 +32,6 @@ import org.xtext.abs.Productline_decl;
 public class AbsGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    EList<EObject> _contents = resource.getContents();
-    for (final EObject content : _contents) {
-      {
-        InputOutput.<String>println("content.eCrossReferences");
-        EList<EObject> _eContents = content.eContents();
-        for (final EObject e1 : _eContents) {
-          {
-            InputOutput.<String>println("content eCrossReferences");
-            InputOutput.<EObject>println(e1);
-          }
-        }
-      }
-    }
-    Iterable<Productline_decl> _filter = Iterables.<Productline_decl>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Productline_decl.class);
-    for (final Productline_decl e : _filter) {
-      this.compile(e);
-    }
   }
   
   public StringBuffer compile(final Productline_decl e) {
@@ -114,6 +98,42 @@ public class AbsGenerator extends AbstractGenerator {
       }
     }
     return "error";
+  }
+  
+  public ArrayList<Feature_decl> compile2(final Delta_decl e) {
+    ArrayList<Feature_decl> featureDeclList = new ArrayList<Feature_decl>();
+    Iterable<Productline_decl> _filter = Iterables.<Productline_decl>filter(IteratorExtensions.<EObject>toIterable(e.eContainer().eAllContents()), Productline_decl.class);
+    for (final EObject o : _filter) {
+      {
+        InputOutput.<String>println("------xx Delta TO Feature xx-----");
+        Iterable<Delta_clause> _filter_1 = Iterables.<Delta_clause>filter(IteratorExtensions.<EObject>toIterable(o.eAllContents()), Delta_clause.class);
+        for (final Delta_clause delta_clause : _filter_1) {
+          try {
+            boolean _equals = delta_clause.getDeltaspec().getName().equals(e.getName());
+            if (_equals) {
+              Application_condition _application_condition = delta_clause.getWhen_condition().getApplication_condition();
+              boolean _tripleNotEquals = (_application_condition != null);
+              if (_tripleNotEquals) {
+                this.resolveApplicationCondition2(delta_clause.getWhen_condition().getApplication_condition(), featureDeclList);
+              }
+              String _name = delta_clause.getDeltaspec().getName();
+              String _plus = (_name + "----->");
+              String _plus_1 = (_plus + featureDeclList);
+              InputOutput.<String>println(_plus_1);
+              return featureDeclList;
+            }
+          } catch (final Throwable _t) {
+            if (_t instanceof Exception) {
+              final Exception err = (Exception)_t;
+              InputOutput.<String>println(err.toString());
+            } else {
+              throw Exceptions.sneakyThrow(_t);
+            }
+          }
+        }
+      }
+    }
+    return null;
   }
   
   public String compile(final Feature_decl e) {
@@ -193,6 +213,59 @@ public class AbsGenerator extends AbstractGenerator {
             _xifexpression_2 = _xifexpression_3;
           } else {
             _xifexpression_2 = this.resolveApplicationCondition(app_cond.getApp_cond(), featureName);
+          }
+          _xifexpression_1 = _xifexpression_2;
+        }
+        _xifexpression = _xifexpression_1;
+      }
+      _xtrycatchfinallyexpression = _xifexpression;
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception e = (Exception)_t;
+        _xtrycatchfinallyexpression = InputOutput.<String>println(e.toString());
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    return _xtrycatchfinallyexpression;
+  }
+  
+  public Object resolveApplicationCondition2(final Application_condition app_cond, final ArrayList featureDecl) {
+    Object _xtrycatchfinallyexpression = null;
+    try {
+      Object _xifexpression = null;
+      if ((app_cond instanceof AppOr_exp)) {
+        Object _xblockexpression = null;
+        {
+          this.resolveApplicationCondition2(((AppOr_exp)app_cond).getLeft(), featureDecl);
+          _xblockexpression = this.resolveApplicationCondition2(((AppOr_exp)app_cond).getRight(), featureDecl);
+        }
+        _xifexpression = _xblockexpression;
+      } else {
+        Object _xifexpression_1 = null;
+        if ((app_cond instanceof AppAnd_exp)) {
+          Object _xblockexpression_1 = null;
+          {
+            this.resolveApplicationCondition2(((AppAnd_exp)app_cond).getLeft(), featureDecl);
+            _xblockexpression_1 = this.resolveApplicationCondition2(((AppAnd_exp)app_cond).getRight(), featureDecl);
+          }
+          _xifexpression_1 = _xblockexpression_1;
+        } else {
+          Object _xifexpression_2 = null;
+          Feature _feature = app_cond.getFeature();
+          boolean _tripleNotEquals = (_feature != null);
+          if (_tripleNotEquals) {
+            boolean _xifexpression_3 = false;
+            int _size = featureDecl.size();
+            boolean _equals = (_size == 0);
+            if (_equals) {
+              _xifexpression_3 = featureDecl.add(app_cond.getFeature());
+            } else {
+              _xifexpression_3 = featureDecl.add(app_cond.getFeature());
+            }
+            _xifexpression_2 = Boolean.valueOf(_xifexpression_3);
+          } else {
+            _xifexpression_2 = this.resolveApplicationCondition2(app_cond.getApp_cond(), featureDecl);
           }
           _xifexpression_1 = _xifexpression_2;
         }

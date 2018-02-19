@@ -42,7 +42,11 @@ public class AbsLabelProvider extends DefaultEObjectLabelProvider implements Del
   }
   
   public String text(final Delta_decl ele) {
-    return this.generator.compile(ele);
+    return ele.getName();
+  }
+  
+  public String text(final Feature_decl ele) {
+    return ele.getName();
   }
   
   public Image image(final Interface_decl ele) {
