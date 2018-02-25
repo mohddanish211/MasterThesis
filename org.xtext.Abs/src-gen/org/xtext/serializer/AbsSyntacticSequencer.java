@@ -585,8 +585,8 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Ambiguous syntax:
 	 *     (
 	  *         ('removes' 'interface' QUALIFIED_TYPE_IDENTIFIER ';') | 
-	  *         ('modifies' 'interface' QUALIFIED_TYPE_IDENTIFIER '{' '}') | 
-	  *         ('modifies' 'class' QUALIFIED_TYPE_IDENTIFIER '{' '}')
+	  *         ('modifies' 'class' QUALIFIED_TYPE_IDENTIFIER '{' '}') | 
+	  *         ('modifies' 'interface' QUALIFIED_TYPE_IDENTIFIER '{' '}')
 	  *     )
 	 *
 	 * This ambiguous syntax occurs at:

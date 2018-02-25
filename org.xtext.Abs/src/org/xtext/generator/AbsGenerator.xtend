@@ -98,7 +98,7 @@ class AbsGenerator extends AbstractGenerator {
 	
 // Console view
 def compile2(Delta_decl e) {
-		var ArrayList<Feature_decl> featureDeclList = new ArrayList<Feature_decl>();
+		var ArrayList<Feature> featureDeclList = new ArrayList<Feature>();
 		for(EObject o: e.eContainer.eAllContents.toIterable.filter(Productline_decl)){
 			println("------xx Delta TO Feature xx-----");
 			for(Delta_clause delta_clause: o.eAllContents.toIterable.filter(Delta_clause)){
@@ -175,7 +175,7 @@ def compile2(Delta_decl e) {
 
 // test 2
 
-def resolveApplicationCondition2(Application_condition app_cond,ArrayList featureDecl){
+def resolveApplicationCondition2(Application_condition app_cond,ArrayList<Feature> featureDecl){
 	try{
 			
 		
@@ -187,11 +187,9 @@ def resolveApplicationCondition2(Application_condition app_cond,ArrayList featur
 				resolveApplicationCondition2(app_cond.right,featureDecl);
 			}else{
 				if(app_cond.feature!== null){
-					if(featureDecl.size==0){
 						featureDecl.add(app_cond.feature);
-						}else{
-						featureDecl.add(app_cond.feature);
-						}
+						println("Resource is");
+						println(app_cond.feature.eContainer.eResource);
 					
 				}else{
 					resolveApplicationCondition2(app_cond.app_cond,featureDecl);

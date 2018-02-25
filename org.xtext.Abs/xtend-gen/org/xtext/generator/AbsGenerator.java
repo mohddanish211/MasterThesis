@@ -100,8 +100,8 @@ public class AbsGenerator extends AbstractGenerator {
     return "error";
   }
   
-  public ArrayList<Feature_decl> compile2(final Delta_decl e) {
-    ArrayList<Feature_decl> featureDeclList = new ArrayList<Feature_decl>();
+  public ArrayList<Feature> compile2(final Delta_decl e) {
+    ArrayList<Feature> featureDeclList = new ArrayList<Feature>();
     Iterable<Productline_decl> _filter = Iterables.<Productline_decl>filter(IteratorExtensions.<EObject>toIterable(e.eContainer().eAllContents()), Productline_decl.class);
     for (final EObject o : _filter) {
       {
@@ -230,7 +230,7 @@ public class AbsGenerator extends AbstractGenerator {
     return _xtrycatchfinallyexpression;
   }
   
-  public Object resolveApplicationCondition2(final Application_condition app_cond, final ArrayList featureDecl) {
+  public Object resolveApplicationCondition2(final Application_condition app_cond, final ArrayList<Feature> featureDecl) {
     Object _xtrycatchfinallyexpression = null;
     try {
       Object _xifexpression = null;
@@ -255,15 +255,13 @@ public class AbsGenerator extends AbstractGenerator {
           Feature _feature = app_cond.getFeature();
           boolean _tripleNotEquals = (_feature != null);
           if (_tripleNotEquals) {
-            boolean _xifexpression_3 = false;
-            int _size = featureDecl.size();
-            boolean _equals = (_size == 0);
-            if (_equals) {
-              _xifexpression_3 = featureDecl.add(app_cond.getFeature());
-            } else {
-              _xifexpression_3 = featureDecl.add(app_cond.getFeature());
+            Resource _xblockexpression_2 = null;
+            {
+              featureDecl.add(app_cond.getFeature());
+              InputOutput.<String>println("Resource is");
+              _xblockexpression_2 = InputOutput.<Resource>println(app_cond.getFeature().eContainer().eResource());
             }
-            _xifexpression_2 = Boolean.valueOf(_xifexpression_3);
+            _xifexpression_2 = _xblockexpression_2;
           } else {
             _xifexpression_2 = this.resolveApplicationCondition2(app_cond.getApp_cond(), featureDecl);
           }

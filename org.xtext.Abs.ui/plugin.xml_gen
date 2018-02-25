@@ -416,38 +416,4 @@
 			type="text">
 		</fileTypes>
 	</extension>
- <extension
-       point="org.eclipse.ui.views">
-    <category
-          id="org.xtext.Abs.ui"
-          name="Sample Category">
-    </category>
-    <view
-          allowMultiple="true"
-          category="org.xtext.Abs.ui"
-          class="org.xtext.abs.ui.views.FeatureDeltaView"
-          icon="icons/sample.png"
-          id="org.xtext.abs.ui.views.FeatureDeltaView"
-          inject="true"
-          name="FeatureToDelta View">
-    </view>
- </extension>
- <extension
-       point="org.eclipse.ui.perspectiveExtensions">
-    <perspectiveExtension
-          targetID="org.eclipse.jdt.ui.JavaPerspective">
-       <view
-             id="org.xtext.abs.ui.views.FeatureDeltaView"
-             ratio="0.5"
-             relationship="right"
-             relative="org.eclipse.ui.views.ProblemView">
-       </view>
-    </perspectiveExtension>
- </extension>
- <extension
-       point="org.eclipse.help.contexts">
-    <contexts
-          file="contexts.xml">
-    </contexts>
- </extension>
 </plugin>
