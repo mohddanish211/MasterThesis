@@ -6,7 +6,6 @@ package org.xtext.ui.labeling
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import org.xtext.generator.AbsGenerator
 import org.xtext.abs.Delta_decl
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider
 import org.xtext.abs.Interface_decl
@@ -24,6 +23,8 @@ import org.xtext.abs.Method
 import org.xtext.abs.Productline_decl
 import org.xtext.abs.Product_decl
 import org.xtext.abs.Feature_decl
+import org.xtext.abs.impl.Delta_clauseImpl
+import org.xtext.abs.impl.Application_conditionImpl
 
 /**
  * Provides labels for EObjects.
@@ -31,7 +32,7 @@ import org.xtext.abs.Feature_decl
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
 class AbsLabelProvider extends DefaultEObjectLabelProvider implements IStyledLabelProvider{
-	@Inject AbsGenerator generator;
+	
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
@@ -139,6 +140,17 @@ class AbsLabelProvider extends DefaultEObjectLabelProvider implements IStyledLab
 	ImageDescriptor.createFromURL( 
 		getClass().getResource("/icons/maude_hats.gif")).createImage();
 	}
+	
+	def text(Delta_clauseImpl ele) {
+		ele.deltaspec.name;
+	}
+
+   def text(Application_conditionImpl ele) {
+		for(Feature_decl f : ele.feature){
+			return f.name
+		}
+	}
+	
 	
 	
 

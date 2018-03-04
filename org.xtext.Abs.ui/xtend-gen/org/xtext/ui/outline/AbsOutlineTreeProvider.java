@@ -3,8 +3,21 @@
  */
 package org.xtext.ui.outline;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
-import org.xtext.abs.Delta_decl;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.abs.Delta_clause;
+import org.xtext.abs.Feature_decl;
+import org.xtext.abs.Productline_decl;
+import org.xtext.abs.impl.After_conditionImpl;
+import org.xtext.abs.impl.AppAnd_expImpl;
+import org.xtext.abs.impl.AppOr_expImpl;
+import org.xtext.abs.impl.Application_conditionImpl;
+import org.xtext.abs.impl.Feature_decl_groupImpl;
+import org.xtext.abs.impl.NotExpressionImpl;
+import org.xtext.abs.impl.When_conditionImpl;
 
 /**
  * Customization of the default outline structure.
@@ -13,7 +26,42 @@ import org.xtext.abs.Delta_decl;
  */
 @SuppressWarnings("all")
 public class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
-  public Object _text(final Delta_decl element) {
-    return element.getName();
+  protected void _createChildren(final IOutlineNode parentNode, final Feature_decl featureDecl) {
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(featureDecl.eAllContents());
+    for (final EObject eObject : _iterable) {
+      if ((eObject instanceof Feature_decl_groupImpl)) {
+      } else {
+        this.createNode(parentNode, eObject);
+      }
+    }
+  }
+  
+  protected void _createChildren(final IOutlineNode parentNode, final Productline_decl productlineDecl) {
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(productlineDecl.eAllContents());
+    for (final EObject eObject : _iterable) {
+      if (((((((eObject instanceof Application_conditionImpl) || (eObject instanceof NotExpressionImpl)) || (eObject instanceof AppOr_expImpl)) || (eObject instanceof AppAnd_expImpl)) || (eObject instanceof When_conditionImpl)) || (eObject instanceof After_conditionImpl))) {
+      } else {
+        this.createNode(parentNode, eObject);
+      }
+    }
+  }
+  
+  protected String _createChildren(final IOutlineNode parentNode, final Delta_clause deltaClause) {
+    String _xblockexpression = null;
+    {
+      InputOutput.<String>println("t555555555555555555555555555");
+      Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(deltaClause.eAllContents());
+      for (final EObject eObject : _iterable) {
+        {
+          InputOutput.<EObject>println(eObject);
+          if ((((((eObject instanceof NotExpressionImpl) || (eObject instanceof AppOr_expImpl)) || (eObject instanceof AppAnd_expImpl)) || (eObject instanceof When_conditionImpl)) || (eObject instanceof After_conditionImpl))) {
+          } else {
+            this.createNode(parentNode, eObject);
+          }
+        }
+      }
+      _xblockexpression = InputOutput.<String>println("555555555555555555555555555555555555555555");
+    }
+    return _xblockexpression;
   }
 }

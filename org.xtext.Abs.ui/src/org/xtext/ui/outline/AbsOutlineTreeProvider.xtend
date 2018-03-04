@@ -4,7 +4,19 @@
 package org.xtext.ui.outline
 
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
-import org.xtext.abs.Delta_decl
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
+import org.eclipse.emf.ecore.EObject
+import org.xtext.abs.Feature_decl
+import org.xtext.abs.impl.Feature_decl_groupImpl
+import org.xtext.abs.Productline_decl
+import org.xtext.abs.impl.After_conditionImpl
+import org.xtext.abs.impl.When_conditionImpl
+import org.xtext.abs.impl.AppOr_expImpl
+import org.xtext.abs.impl.AppAnd_expImpl
+import org.xtext.abs.Delta_clause
+import org.xtext.abs.impl.NotExpressionImpl
+import org.xtext.abs.impl.Application_conditionImpl
+
 
 /**
  * Customization of the default outline structure.
@@ -12,10 +24,41 @@ import org.xtext.abs.Delta_decl
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#outline
  */
 class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
-	
-	def Object _text(Delta_decl element){
-		return element.name;
-	}
+	def protected _createChildren(IOutlineNode parentNode, Feature_decl featureDecl) {
+        for(EObject eObject: featureDecl.eAllContents.toIterable){
+        	if(eObject instanceof Feature_decl_groupImpl){
+        		
+        	}else{
+        		createNode(parentNode,eObject);
+        	}
+        	
+        }
+    }
+    
+    
+    def protected _createChildren(IOutlineNode parentNode, Productline_decl productlineDecl) {
+        for(EObject eObject: productlineDecl.eAllContents.toIterable){
+        	if((eObject instanceof Application_conditionImpl)||(eObject instanceof NotExpressionImpl)||(eObject instanceof AppOr_expImpl)||(eObject instanceof AppAnd_expImpl)|| (eObject instanceof When_conditionImpl)||(eObject instanceof After_conditionImpl)){
+        		
+        	}else{
+        		createNode(parentNode,eObject);
+        	}
+        }
+    }
+    
+    def protected _createChildren(IOutlineNode parentNode, Delta_clause deltaClause) {
+    	println("t555555555555555555555555555");
+        for(EObject eObject: deltaClause.eAllContents.toIterable){
+        	println(eObject);
+        	if((eObject instanceof NotExpressionImpl)||(eObject instanceof AppOr_expImpl)||(eObject instanceof AppAnd_expImpl)|| (eObject instanceof When_conditionImpl)||(eObject instanceof After_conditionImpl)){
+        		
+        	}else{
+        		createNode(parentNode,eObject);
+        	}
+        }
+        println("555555555555555555555555555555555555555555");
+    }
+
 	
 
 }

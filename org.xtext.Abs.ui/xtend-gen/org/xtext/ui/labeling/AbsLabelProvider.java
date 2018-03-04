@@ -4,6 +4,7 @@
 package org.xtext.ui.labeling;
 
 import com.google.inject.Inject;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider;
@@ -24,7 +25,8 @@ import org.xtext.abs.Module_export;
 import org.xtext.abs.Module_import;
 import org.xtext.abs.Product_decl;
 import org.xtext.abs.Productline_decl;
-import org.xtext.generator.AbsGenerator;
+import org.xtext.abs.impl.Application_conditionImpl;
+import org.xtext.abs.impl.Delta_clauseImpl;
 
 /**
  * Provides labels for EObjects.
@@ -33,9 +35,6 @@ import org.xtext.generator.AbsGenerator;
  */
 @SuppressWarnings("all")
 public class AbsLabelProvider extends DefaultEObjectLabelProvider implements DelegatingStyledCellLabelProvider.IStyledLabelProvider {
-  @Inject
-  private AbsGenerator generator;
-  
   @Inject
   public AbsLabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
@@ -122,5 +121,17 @@ public class AbsLabelProvider extends DefaultEObjectLabelProvider implements Del
   public Image image(final Feature_decl ele) {
     return ImageDescriptor.createFromURL(
       this.getClass().getResource("/icons/maude_hats.gif")).createImage();
+  }
+  
+  public String text(final Delta_clauseImpl ele) {
+    return ele.getDeltaspec().getName();
+  }
+  
+  public String text(final Application_conditionImpl ele) {
+    EList<Feature_decl> _feature = ele.getFeature();
+    for (final Feature_decl f : _feature) {
+      return f.getName();
+    }
+    return null;
   }
 }
