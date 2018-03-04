@@ -65,8 +65,9 @@ public class AbsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttr_assignmentAccess().getAlternatives_2(), "rule__Attr_assignment__Alternatives_2");
 					put(grammarAccess.getDeltaspec_paramAccess().getAlternatives(), "rule__Deltaspec_param__Alternatives");
 					put(grammarAccess.getWhen_conditionAccess().getAlternatives_0(), "rule__When_condition__Alternatives_0");
+					put(grammarAccess.getAppUnary_expAccess().getAlternatives(), "rule__AppUnary_exp__Alternatives");
+					put(grammarAccess.getAppUnary_expAccess().getAlternatives_1_1(), "rule__AppUnary_exp__Alternatives_1_1");
 					put(grammarAccess.getAppPrimary_expAccess().getAlternatives(), "rule__AppPrimary_exp__Alternatives");
-					put(grammarAccess.getAppPrimary_expAccess().getAlternatives_1_0(), "rule__AppPrimary_exp__Alternatives_1_0");
 					put(grammarAccess.getProduct_declAccess().getAlternatives_3(), "rule__Product_decl__Alternatives_3");
 					put(grammarAccess.getProduct_declAccess().getAlternatives_3_0_3(), "rule__Product_decl__Alternatives_3_0_3");
 					put(grammarAccess.getProduct_exprAccess().getAlternatives(), "rule__Product_expr__Alternatives");
@@ -289,8 +290,8 @@ public class AbsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAppOr_expAccess().getGroup_1(), "rule__AppOr_exp__Group_1__0");
 					put(grammarAccess.getAppAnd_expAccess().getGroup(), "rule__AppAnd_exp__Group__0");
 					put(grammarAccess.getAppAnd_expAccess().getGroup_1(), "rule__AppAnd_exp__Group_1__0");
+					put(grammarAccess.getAppUnary_expAccess().getGroup_1(), "rule__AppUnary_exp__Group_1__0");
 					put(grammarAccess.getAppPrimary_expAccess().getGroup_0(), "rule__AppPrimary_exp__Group_0__0");
-					put(grammarAccess.getAppPrimary_expAccess().getGroup_1(), "rule__AppPrimary_exp__Group_1__0");
 					put(grammarAccess.getProduct_declAccess().getGroup(), "rule__Product_decl__Group__0");
 					put(grammarAccess.getProduct_declAccess().getGroup_3_0(), "rule__Product_decl__Group_3_0__0");
 					put(grammarAccess.getProduct_declAccess().getGroup_3_0_1(), "rule__Product_decl__Group_3_0_1__0");
@@ -591,8 +592,9 @@ public class AbsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getWhen_conditionAccess().getApplication_conditionAssignment_1(), "rule__When_condition__Application_conditionAssignment_1");
 					put(grammarAccess.getAppOr_expAccess().getRightAssignment_1_2(), "rule__AppOr_exp__RightAssignment_1_2");
 					put(grammarAccess.getAppAnd_expAccess().getRightAssignment_1_2(), "rule__AppAnd_exp__RightAssignment_1_2");
-					put(grammarAccess.getAppPrimary_expAccess().getApp_condAssignment_1_1(), "rule__AppPrimary_exp__App_condAssignment_1_1");
+					put(grammarAccess.getAppUnary_expAccess().getOperandAssignment_1_2(), "rule__AppUnary_exp__OperandAssignment_1_2");
 					put(grammarAccess.getAppCond_atomic_exprAccess().getFeatureAssignment(), "rule__AppCond_atomic_expr__FeatureAssignment");
+					put(grammarAccess.getProduct_declAccess().getNameAssignment_2(), "rule__Product_decl__NameAssignment_2");
 					put(grammarAccess.getProduct_declAccess().getFeatureAssignment_3_0_1_0(), "rule__Product_decl__FeatureAssignment_3_0_1_0");
 					put(grammarAccess.getProduct_declAccess().getFeatureAssignment_3_0_1_1_1(), "rule__Product_decl__FeatureAssignment_3_0_1_1_1");
 					put(grammarAccess.getProduct_declAccess().getProduct_reconfigurationAssignment_3_0_3_0_1(), "rule__Product_decl__Product_reconfigurationAssignment_3_0_3_0_1");

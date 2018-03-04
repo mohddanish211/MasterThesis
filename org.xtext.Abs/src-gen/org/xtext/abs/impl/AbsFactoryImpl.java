@@ -152,6 +152,7 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
       case AbsPackage.AND_GUARD: return createAndGuard();
       case AbsPackage.APP_OR_EXP: return createAppOr_exp();
       case AbsPackage.APP_AND_EXP: return createAppAnd_exp();
+      case AbsPackage.NOT_EXPRESSION: return createNotExpression();
       case AbsPackage.PRODUCT_OR_EXPR: return createProductOr_expr();
       case AbsPackage.PRODUCT_AND_EXP: return createProductAnd_exp();
       case AbsPackage.PRODUCT_PRIMARY_EXP: return createProductPrimary_exp();
@@ -1123,6 +1124,17 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
   {
     AppAnd_expImpl appAnd_exp = new AppAnd_expImpl();
     return appAnd_exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotExpression createNotExpression()
+  {
+    NotExpressionImpl notExpression = new NotExpressionImpl();
+    return notExpression;
   }
 
   /**

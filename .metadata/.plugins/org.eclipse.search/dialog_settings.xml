@@ -119,7 +119,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="*RuntimeModule" key="textPattern"/>
+			<item value="HyperLInkHelper" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -143,7 +143,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="3" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="Hello from Generic console sample action" key="textPattern"/>
+			<item value="*RuntimeModule" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -153,9 +153,9 @@
 		</section>
 		<section name="HISTORY1">
 			<item value="true" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="3" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="HyperLInkHelper" key="textPattern"/>
+			<item value="Hello from Generic console sample action" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>

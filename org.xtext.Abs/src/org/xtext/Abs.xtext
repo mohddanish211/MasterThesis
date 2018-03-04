@@ -10,7 +10,7 @@ DomainModel: Compilation_Unit;
 //Compilation Unit
 Compilation_Unit:{Compilation_Unit} (module+=Module_decl)* (deltaDecl+=Delta_decl)*
 	(update_decl+=Update_decl)* (productline_decl=Productline_decl)?
-	(product_decl+=Product_decl)* ('root' feature_decl+=Feature_decl|'extension' fextension+=Fextension)*
+	(product_decl+=Product_decl)* ('root' feature_decl+=Feature_decl |'extension' fextension+=Fextension)*
 ;
 
 //Module_Decl
@@ -449,7 +449,7 @@ Object_update_assign_stmt:Var_or_field_ref '=' exp=Exp ';'
  */
 
 Productline_decl:'productline' name=TYPE_IDENTIFIER ';' 
-	'features' feature+=Feature(',' feature+=Feature)* ';'
+	'features' feature+=[Feature_decl|TYPE_IDENTIFIER](',' feature+=[Feature_decl|TYPE_IDENTIFIER])* ';'
 	(delta_clause+=Delta_clause)*
 	
 ;
@@ -496,15 +496,20 @@ AppOr_exp returns Application_condition:
 ;
 
 AppAnd_exp returns Application_condition:
-	AppPrimary_exp({AppAnd_exp.left=current} ANDAND right=AppPrimary_exp)*
+	AppUnary_exp({AppAnd_exp.left=current} ANDAND right=AppUnary_exp)*
+;
+
+AppUnary_exp returns Application_condition:
+	 AppPrimary_exp | {NotExpression}  
+       (NEGATION|NEGATION_CREOL) operand=AppUnary_exp
 ;
 
 AppPrimary_exp returns Application_condition:
-	'(' Application_condition ')'|(NEGATION|NEGATION_CREOL)app_cond= AppPrimary_exp| AppCond_atomic_expr
+	'(' AppOr_exp ')'| AppCond_atomic_expr
 ;
 
 AppCond_atomic_expr returns Application_condition:
-	feature=[Feature|TYPE_IDENTIFIER]
+	feature+=[Feature_decl|TYPE_IDENTIFIER]
 ;
 
 /*
@@ -512,7 +517,7 @@ AppCond_atomic_expr returns Application_condition:
  * 
  */
 
-Product_decl:{Product_decl}'product' TYPE_IDENTIFIER
+Product_decl:{Product_decl}'product' name=TYPE_IDENTIFIER
 	('(' (feature+=Feature(',' feature+=Feature)*)? ')' 
 		('{' product_reconfiguration+=Product_reconfiguration* '}' | ';') 
 		| '=' product_expr=Product_expr ';'
@@ -542,7 +547,6 @@ ProductPrimary_exp returns Product_expr:
 //Product reconfiguration
 Product_reconfiguration: name=TYPE_IDENTIFIER 'delta' delta_id+=Delta_id(',' delta_id+=Delta_id)*
 	'stateupdate' update=TYPE_IDENTIFIER ';'
-	
 ;
 
 /*
@@ -565,7 +569,7 @@ Feature_decl_group:'group'('oneof' | 'allof' | '[' INTLITERAL '..' (INTLITERAL |
 ;
 
 //Feature Node
-Fnode:'opt'? Feature_decl;
+Fnode:('opt')? Feature_decl;
 
 
 //Feature declaration attribute

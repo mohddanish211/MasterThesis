@@ -741,6 +741,14 @@ public class AbsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AbsPackage.NOT_EXPRESSION:
+      {
+        NotExpression notExpression = (NotExpression)theEObject;
+        T result = caseNotExpression(notExpression);
+        if (result == null) result = caseApplication_condition(notExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AbsPackage.PRODUCT_OR_EXPR:
       {
         ProductOr_expr productOr_expr = (ProductOr_expr)theEObject;
@@ -2221,6 +2229,22 @@ public class AbsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAppAnd_exp(AppAnd_exp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Not Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Not Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNotExpression(NotExpression object)
   {
     return null;
   }

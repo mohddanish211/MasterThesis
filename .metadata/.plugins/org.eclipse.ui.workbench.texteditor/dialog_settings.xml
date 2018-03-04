@@ -8,6 +8,13 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="::"/>
+			<item value="Application_condition"/>
+			<item value="features"/>
+			<item value="productline"/>
+			<item value="feature_decl"/>
+			<item value="feature"/>
+			<item value="bindISyntaxErrorMessageProvider"/>
 			<item value="call"/>
 			<item value="add"/>
 			<item value="DEtect"/>
@@ -16,13 +23,6 @@
 			<item value="bindHyper"/>
 			<item value="bindHyperlinkHelper"/>
 			<item value="bind"/>
-			<item value="createHYperLInksTo"/>
-			<item value="create"/>
-			<item value="createIma"/>
-			<item value="cre"/>
-			<item value="Productline"/>
-			<item value="delta_decl"/>
-			<item value="image"/>
 		</list>
 		<list key="replacehistory">
 		</list>

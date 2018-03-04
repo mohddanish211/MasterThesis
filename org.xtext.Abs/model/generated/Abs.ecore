@@ -381,8 +381,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Object_update_assign_stmt"/>
   <eClassifiers xsi:type="ecore:EClass" name="Productline_decl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" upperBound="-1"
-        eType="#//Feature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" unique="false"
+        upperBound="-1" eType="#//Feature_decl"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="delta_clause" upperBound="-1"
         eType="#//Delta_clause" containment="true"/>
   </eClassifiers>
@@ -418,15 +418,11 @@
         eType="#//Application_condition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Application_condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="app_cond" eType="#//Application_condition"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="#//Feature"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Application_condition"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Application_condition"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" unique="false"
+        upperBound="-1" eType="#//Feature_decl"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Product_decl">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" upperBound="-1"
         eType="#//Feature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="product_reconfiguration"
@@ -525,8 +521,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Guard"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AppOr_exp" eSuperTypes="#//Application_condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AppAnd_exp" eSuperTypes="#//Application_condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AppOr_exp" eSuperTypes="#//Application_condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Application_condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Application_condition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppAnd_exp" eSuperTypes="#//Application_condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Application_condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Application_condition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NotExpression" eSuperTypes="#//Application_condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" eType="#//Application_condition"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProductOr_expr" eSuperTypes="#//Product_expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Product_expr"
         containment="true"/>

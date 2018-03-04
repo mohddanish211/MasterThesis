@@ -429,7 +429,7 @@
           icon="icons/sample.png"
           id="org.xtext.abs.ui.views.FeatureDeltaView"
           inject="true"
-          name="FeatureToDelta View">
+          name="Feature and Delta Visualization">
     </view>
  </extension>
  <extension

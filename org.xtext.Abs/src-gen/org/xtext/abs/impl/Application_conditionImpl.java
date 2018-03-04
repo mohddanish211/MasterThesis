@@ -3,18 +3,19 @@
  */
 package org.xtext.abs.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Application_condition;
-import org.xtext.abs.Feature;
+import org.xtext.abs.Feature_decl;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,10 +24,7 @@ import org.xtext.abs.Feature;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Application_conditionImpl#getApp_cond <em>App cond</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Application_conditionImpl#getFeature <em>Feature</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Application_conditionImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Application_conditionImpl#getRight <em>Right</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,44 +33,14 @@ import org.xtext.abs.Feature;
 public class Application_conditionImpl extends MinimalEObjectImpl.Container implements Application_condition
 {
   /**
-   * The cached value of the '{@link #getApp_cond() <em>App cond</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getApp_cond()
-   * @generated
-   * @ordered
-   */
-  protected Application_condition app_cond;
-
-  /**
-   * The cached value of the '{@link #getFeature() <em>Feature</em>}' reference.
+   * The cached value of the '{@link #getFeature() <em>Feature</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFeature()
    * @generated
    * @ordered
    */
-  protected Feature feature;
-
-  /**
-   * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLeft()
-   * @generated
-   * @ordered
-   */
-  protected Application_condition left;
-
-  /**
-   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRight()
-   * @generated
-   * @ordered
-   */
-  protected Application_condition right;
+  protected EList<Feature_decl> feature;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,206 +68,13 @@ public class Application_conditionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Application_condition getApp_cond()
+  public EList<Feature_decl> getFeature()
   {
-    return app_cond;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetApp_cond(Application_condition newApp_cond, NotificationChain msgs)
-  {
-    Application_condition oldApp_cond = app_cond;
-    app_cond = newApp_cond;
-    if (eNotificationRequired())
+    if (feature == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.APPLICATION_CONDITION__APP_COND, oldApp_cond, newApp_cond);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setApp_cond(Application_condition newApp_cond)
-  {
-    if (newApp_cond != app_cond)
-    {
-      NotificationChain msgs = null;
-      if (app_cond != null)
-        msgs = ((InternalEObject)app_cond).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.APPLICATION_CONDITION__APP_COND, null, msgs);
-      if (newApp_cond != null)
-        msgs = ((InternalEObject)newApp_cond).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.APPLICATION_CONDITION__APP_COND, null, msgs);
-      msgs = basicSetApp_cond(newApp_cond, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.APPLICATION_CONDITION__APP_COND, newApp_cond, newApp_cond));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Feature getFeature()
-  {
-    if (feature != null && feature.eIsProxy())
-    {
-      InternalEObject oldFeature = (InternalEObject)feature;
-      feature = (Feature)eResolveProxy(oldFeature);
-      if (feature != oldFeature)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.APPLICATION_CONDITION__FEATURE, oldFeature, feature));
-      }
+      feature = new EObjectResolvingEList<Feature_decl>(Feature_decl.class, this, AbsPackage.APPLICATION_CONDITION__FEATURE);
     }
     return feature;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Feature basicGetFeature()
-  {
-    return feature;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFeature(Feature newFeature)
-  {
-    Feature oldFeature = feature;
-    feature = newFeature;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.APPLICATION_CONDITION__FEATURE, oldFeature, feature));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Application_condition getLeft()
-  {
-    return left;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetLeft(Application_condition newLeft, NotificationChain msgs)
-  {
-    Application_condition oldLeft = left;
-    left = newLeft;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.APPLICATION_CONDITION__LEFT, oldLeft, newLeft);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLeft(Application_condition newLeft)
-  {
-    if (newLeft != left)
-    {
-      NotificationChain msgs = null;
-      if (left != null)
-        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.APPLICATION_CONDITION__LEFT, null, msgs);
-      if (newLeft != null)
-        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.APPLICATION_CONDITION__LEFT, null, msgs);
-      msgs = basicSetLeft(newLeft, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.APPLICATION_CONDITION__LEFT, newLeft, newLeft));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Application_condition getRight()
-  {
-    return right;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRight(Application_condition newRight, NotificationChain msgs)
-  {
-    Application_condition oldRight = right;
-    right = newRight;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.APPLICATION_CONDITION__RIGHT, oldRight, newRight);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRight(Application_condition newRight)
-  {
-    if (newRight != right)
-    {
-      NotificationChain msgs = null;
-      if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.APPLICATION_CONDITION__RIGHT, null, msgs);
-      if (newRight != null)
-        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.APPLICATION_CONDITION__RIGHT, null, msgs);
-      msgs = basicSetRight(newRight, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.APPLICATION_CONDITION__RIGHT, newRight, newRight));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AbsPackage.APPLICATION_CONDITION__APP_COND:
-        return basicSetApp_cond(null, msgs);
-      case AbsPackage.APPLICATION_CONDITION__LEFT:
-        return basicSetLeft(null, msgs);
-      case AbsPackage.APPLICATION_CONDITION__RIGHT:
-        return basicSetRight(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -312,15 +87,8 @@ public class Application_conditionImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case AbsPackage.APPLICATION_CONDITION__APP_COND:
-        return getApp_cond();
       case AbsPackage.APPLICATION_CONDITION__FEATURE:
-        if (resolve) return getFeature();
-        return basicGetFeature();
-      case AbsPackage.APPLICATION_CONDITION__LEFT:
-        return getLeft();
-      case AbsPackage.APPLICATION_CONDITION__RIGHT:
-        return getRight();
+        return getFeature();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -330,22 +98,15 @@ public class Application_conditionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case AbsPackage.APPLICATION_CONDITION__APP_COND:
-        setApp_cond((Application_condition)newValue);
-        return;
       case AbsPackage.APPLICATION_CONDITION__FEATURE:
-        setFeature((Feature)newValue);
-        return;
-      case AbsPackage.APPLICATION_CONDITION__LEFT:
-        setLeft((Application_condition)newValue);
-        return;
-      case AbsPackage.APPLICATION_CONDITION__RIGHT:
-        setRight((Application_condition)newValue);
+        getFeature().clear();
+        getFeature().addAll((Collection<? extends Feature_decl>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -361,17 +122,8 @@ public class Application_conditionImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case AbsPackage.APPLICATION_CONDITION__APP_COND:
-        setApp_cond((Application_condition)null);
-        return;
       case AbsPackage.APPLICATION_CONDITION__FEATURE:
-        setFeature((Feature)null);
-        return;
-      case AbsPackage.APPLICATION_CONDITION__LEFT:
-        setLeft((Application_condition)null);
-        return;
-      case AbsPackage.APPLICATION_CONDITION__RIGHT:
-        setRight((Application_condition)null);
+        getFeature().clear();
         return;
     }
     super.eUnset(featureID);
@@ -387,14 +139,8 @@ public class Application_conditionImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case AbsPackage.APPLICATION_CONDITION__APP_COND:
-        return app_cond != null;
       case AbsPackage.APPLICATION_CONDITION__FEATURE:
-        return feature != null;
-      case AbsPackage.APPLICATION_CONDITION__LEFT:
-        return left != null;
-      case AbsPackage.APPLICATION_CONDITION__RIGHT:
-        return right != null;
+        return feature != null && !feature.isEmpty();
     }
     return super.eIsSet(featureID);
   }

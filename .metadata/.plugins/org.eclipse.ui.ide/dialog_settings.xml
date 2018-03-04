@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/workspace_march/MasterThesis"/>
+	</list>
 	<section name="ExternalProjectImportWizard">
 	</section>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">

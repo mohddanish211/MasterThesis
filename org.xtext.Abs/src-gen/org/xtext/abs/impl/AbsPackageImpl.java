@@ -80,6 +80,7 @@ import org.xtext.abs.Module_import;
 import org.xtext.abs.Module_modifier;
 import org.xtext.abs.MulDivOrMod_expr;
 import org.xtext.abs.Namespace_modifier;
+import org.xtext.abs.NotExpression;
 import org.xtext.abs.OO_modifier;
 import org.xtext.abs.Object_update;
 import org.xtext.abs.Object_update_assign_stmt;
@@ -727,6 +728,13 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * @generated
    */
   private EClass appAnd_expEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass notExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -3283,39 +3291,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getApplication_condition_App_cond()
-  {
-    return (EReference)application_conditionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getApplication_condition_Feature()
   {
-    return (EReference)application_conditionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getApplication_condition_Left()
-  {
-    return (EReference)application_conditionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getApplication_condition_Right()
-  {
-    return (EReference)application_conditionEClass.getEStructuralFeatures().get(3);
+    return (EReference)application_conditionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3333,9 +3311,9 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProduct_decl_Feature()
+  public EAttribute getProduct_decl_Name()
   {
-    return (EReference)product_declEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)product_declEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3343,7 +3321,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProduct_decl_Product_reconfiguration()
+  public EReference getProduct_decl_Feature()
   {
     return (EReference)product_declEClass.getEStructuralFeatures().get(1);
   }
@@ -3353,9 +3331,19 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProduct_decl_Product_expr()
+  public EReference getProduct_decl_Product_reconfiguration()
   {
     return (EReference)product_declEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProduct_decl_Product_expr()
+  {
+    return (EReference)product_declEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3893,9 +3881,69 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getAppOr_exp_Left()
+  {
+    return (EReference)appOr_expEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAppOr_exp_Right()
+  {
+    return (EReference)appOr_expEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAppAnd_exp()
   {
     return appAnd_expEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAppAnd_exp_Left()
+  {
+    return (EReference)appAnd_expEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAppAnd_exp_Right()
+  {
+    return (EReference)appAnd_expEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNotExpression()
+  {
+    return notExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNotExpression_Operand()
+  {
+    return (EReference)notExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4586,12 +4634,10 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(when_conditionEClass, WHEN_CONDITION__APPLICATION_CONDITION);
 
     application_conditionEClass = createEClass(APPLICATION_CONDITION);
-    createEReference(application_conditionEClass, APPLICATION_CONDITION__APP_COND);
     createEReference(application_conditionEClass, APPLICATION_CONDITION__FEATURE);
-    createEReference(application_conditionEClass, APPLICATION_CONDITION__LEFT);
-    createEReference(application_conditionEClass, APPLICATION_CONDITION__RIGHT);
 
     product_declEClass = createEClass(PRODUCT_DECL);
+    createEAttribute(product_declEClass, PRODUCT_DECL__NAME);
     createEReference(product_declEClass, PRODUCT_DECL__FEATURE);
     createEReference(product_declEClass, PRODUCT_DECL__PRODUCT_RECONFIGURATION);
     createEReference(product_declEClass, PRODUCT_DECL__PRODUCT_EXPR);
@@ -4665,8 +4711,15 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     createEReference(andGuardEClass, AND_GUARD__RIGHT);
 
     appOr_expEClass = createEClass(APP_OR_EXP);
+    createEReference(appOr_expEClass, APP_OR_EXP__LEFT);
+    createEReference(appOr_expEClass, APP_OR_EXP__RIGHT);
 
     appAnd_expEClass = createEClass(APP_AND_EXP);
+    createEReference(appAnd_expEClass, APP_AND_EXP__LEFT);
+    createEReference(appAnd_expEClass, APP_AND_EXP__RIGHT);
+
+    notExpressionEClass = createEClass(NOT_EXPRESSION);
+    createEReference(notExpressionEClass, NOT_EXPRESSION__OPERAND);
 
     productOr_exprEClass = createEClass(PRODUCT_OR_EXPR);
     createEReference(productOr_exprEClass, PRODUCT_OR_EXPR__LEFT);
@@ -4789,6 +4842,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     andGuardEClass.getESuperTypes().add(this.getGuard());
     appOr_expEClass.getESuperTypes().add(this.getApplication_condition());
     appAnd_expEClass.getESuperTypes().add(this.getApplication_condition());
+    notExpressionEClass.getESuperTypes().add(this.getApplication_condition());
     productOr_exprEClass.getESuperTypes().add(this.getProduct_expr());
     productAnd_expEClass.getESuperTypes().add(this.getProduct_expr());
     productPrimary_expEClass.getESuperTypes().add(this.getProduct_expr());
@@ -5083,7 +5137,7 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
 
     initEClass(productline_declEClass, Productline_decl.class, "Productline_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProductline_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Productline_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProductline_decl_Feature(), this.getFeature(), null, "feature", null, 0, -1, Productline_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProductline_decl_Feature(), this.getFeature_decl(), null, "feature", null, 0, -1, Productline_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProductline_decl_Delta_clause(), this.getDelta_clause(), null, "delta_clause", null, 0, -1, Productline_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5110,12 +5164,10 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getWhen_condition_Application_condition(), this.getApplication_condition(), null, "application_condition", null, 0, 1, When_condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(application_conditionEClass, Application_condition.class, "Application_condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getApplication_condition_App_cond(), this.getApplication_condition(), null, "app_cond", null, 0, 1, Application_condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplication_condition_Feature(), this.getFeature(), null, "feature", null, 0, 1, Application_condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplication_condition_Left(), this.getApplication_condition(), null, "left", null, 0, 1, Application_condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplication_condition_Right(), this.getApplication_condition(), null, "right", null, 0, 1, Application_condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplication_condition_Feature(), this.getFeature_decl(), null, "feature", null, 0, -1, Application_condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(product_declEClass, Product_decl.class, "Product_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProduct_decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Product_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProduct_decl_Feature(), this.getFeature(), null, "feature", null, 0, -1, Product_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProduct_decl_Product_reconfiguration(), this.getProduct_reconfiguration(), null, "product_reconfiguration", null, 0, -1, Product_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProduct_decl_Product_expr(), this.getProduct_expr(), null, "product_expr", null, 0, 1, Product_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5189,8 +5241,15 @@ public class AbsPackageImpl extends EPackageImpl implements AbsPackage
     initEReference(getAndGuard_Right(), this.getGuard(), null, "right", null, 0, 1, AndGuard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(appOr_expEClass, AppOr_exp.class, "AppOr_exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAppOr_exp_Left(), this.getApplication_condition(), null, "left", null, 0, 1, AppOr_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppOr_exp_Right(), this.getApplication_condition(), null, "right", null, 0, 1, AppOr_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(appAnd_expEClass, AppAnd_exp.class, "AppAnd_exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAppAnd_exp_Left(), this.getApplication_condition(), null, "left", null, 0, 1, AppAnd_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppAnd_exp_Right(), this.getApplication_condition(), null, "right", null, 0, 1, AppAnd_exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(notExpressionEClass, NotExpression.class, "NotExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNotExpression_Operand(), this.getApplication_condition(), null, "operand", null, 0, 1, NotExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(productOr_exprEClass, ProductOr_expr.class, "ProductOr_expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProductOr_expr_Left(), this.getProduct_expr(), null, "left", null, 0, 1, ProductOr_expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

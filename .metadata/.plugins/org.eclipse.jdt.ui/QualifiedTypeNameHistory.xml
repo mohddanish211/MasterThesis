@@ -1,22 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.xtext.abs.Feature_decl"/>
-<fullyQualifiedTypeName name="org.eclipse.xtext.nodemodel.util.NodeModelUtils"/>
-<fullyQualifiedTypeName name="org.eclipse.xtext.nodemodel.impl.CompositeNode"/>
-<fullyQualifiedTypeName name="org.eclipse.swt.graphics.Region"/>
-<fullyQualifiedTypeName name="org.eclipse.jface.text.Region"/>
-<fullyQualifiedTypeName name="org.eclipse.emf.ecore.resource.URIConverter"/>
-<fullyQualifiedTypeName name="org.eclipse.xtext.ui.editor.hyperlinking.XtextHyperlink"/>
-<fullyQualifiedTypeName name="java.net.URI"/>
-<fullyQualifiedTypeName name="org.eclipse.jface.viewers.ITreeContentProvider"/>
-<fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
-<fullyQualifiedTypeName name="org.eclipse.jface.viewers.TreeViewer"/>
-<fullyQualifiedTypeName name="org.eclipse.jface.viewers.TreeViewerColumn"/>
-<fullyQualifiedTypeName name="org.eclipse.jface.viewers.ColumnLabelProvider"/>
-<fullyQualifiedTypeName name="org.eclipse.jface.layout.GridLayoutFactory"/>
-<fullyQualifiedTypeName name="org.eclipse.xtext.ui.editor.outline.quickoutline.IQuickOutlineContribution.Composite"/>
-<fullyQualifiedTypeName name="java.awt.Composite"/>
-<fullyQualifiedTypeName name="org.eclipse.swt.widgets.Composite"/>
 <fullyQualifiedTypeName name="org.eclipse.ui.console.MessageConsoleStream"/>
 <fullyQualifiedTypeName name="org.eclipse.ui.console.MessageConsole"/>
 <fullyQualifiedTypeName name="org.eclipse.ui.console.ConsolePlugin"/>
@@ -60,4 +43,21 @@
 <fullyQualifiedTypeName name="org.eclipse.ui.dialogs.ListDialog"/>
 <fullyQualifiedTypeName name="org.eclipse.jface.viewers.ArrayContentProvider"/>
 <fullyQualifiedTypeName name="org.eclipse.jface.viewers.LabelProvider"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider.IParserErrorContext"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.nodemodel.SyntaxErrorMessage"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.xbase.validation.IssueCodes"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.parser.antlr.SyntaxErrorMessageProvider"/>
+<fullyQualifiedTypeName name="org.antlr.runtime.MismatchedTokenException"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.naming.QualifiedName"/>
+<fullyQualifiedTypeName name="org.xtext.abs.impl.Feature_declImpl"/>
+<fullyQualifiedTypeName name="org.eclipse.emf.ecore.util.EObjectResolvingEList"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.impl.RuleCallImpl"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.nodemodel.INode"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.resource.XtextResource"/>
+<fullyQualifiedTypeName name="org.xtext.abs.Feature_decl"/>
 </qualifiedTypeNameHistroy>

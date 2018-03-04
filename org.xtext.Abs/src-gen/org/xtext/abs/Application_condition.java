@@ -3,6 +3,8 @@
  */
 package org.xtext.abs;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,10 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Application_condition#getApp_cond <em>App cond</em>}</li>
  *   <li>{@link org.xtext.abs.Application_condition#getFeature <em>Feature</em>}</li>
- *   <li>{@link org.xtext.abs.Application_condition#getLeft <em>Left</em>}</li>
- *   <li>{@link org.xtext.abs.Application_condition#getRight <em>Right</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,107 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface Application_condition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>App cond</b></em>' containment reference.
+   * Returns the value of the '<em><b>Feature</b></em>' reference list.
+   * The list contents are of type {@link org.xtext.abs.Feature_decl}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>App cond</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Feature</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>App cond</em>' containment reference.
-   * @see #setApp_cond(Application_condition)
-   * @see org.xtext.abs.AbsPackage#getApplication_condition_App_cond()
-   * @model containment="true"
-   * @generated
-   */
-  Application_condition getApp_cond();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Application_condition#getApp_cond <em>App cond</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>App cond</em>' containment reference.
-   * @see #getApp_cond()
-   * @generated
-   */
-  void setApp_cond(Application_condition value);
-
-  /**
-   * Returns the value of the '<em><b>Feature</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Feature</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature</em>' reference.
-   * @see #setFeature(Feature)
+   * @return the value of the '<em>Feature</em>' reference list.
    * @see org.xtext.abs.AbsPackage#getApplication_condition_Feature()
    * @model
    * @generated
    */
-  Feature getFeature();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Application_condition#getFeature <em>Feature</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Feature</em>' reference.
-   * @see #getFeature()
-   * @generated
-   */
-  void setFeature(Feature value);
-
-  /**
-   * Returns the value of the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Left</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(Application_condition)
-   * @see org.xtext.abs.AbsPackage#getApplication_condition_Left()
-   * @model containment="true"
-   * @generated
-   */
-  Application_condition getLeft();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Application_condition#getLeft <em>Left</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Left</em>' containment reference.
-   * @see #getLeft()
-   * @generated
-   */
-  void setLeft(Application_condition value);
-
-  /**
-   * Returns the value of the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Right</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(Application_condition)
-   * @see org.xtext.abs.AbsPackage#getApplication_condition_Right()
-   * @model containment="true"
-   * @generated
-   */
-  Application_condition getRight();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Application_condition#getRight <em>Right</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Right</em>' containment reference.
-   * @see #getRight()
-   * @generated
-   */
-  void setRight(Application_condition value);
+  EList<Feature_decl> getFeature();
 
 } // Application_condition

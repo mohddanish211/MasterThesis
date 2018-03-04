@@ -3,9 +3,19 @@
  */
 package org.xtext
 
+import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class AbsRuntimeModule extends AbstractAbsRuntimeModule {
 	
+		def Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
+		return AbsSyntaxErrorMessageProvider;
+		}
+		
+		override public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
+		return MyQualifiedNameProvider;
 	}
+}

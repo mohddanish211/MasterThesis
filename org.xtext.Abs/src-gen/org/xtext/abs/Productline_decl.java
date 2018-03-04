@@ -54,20 +54,20 @@ public interface Productline_decl extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Feature</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.abs.Feature}.
+   * Returns the value of the '<em><b>Feature</b></em>' reference list.
+   * The list contents are of type {@link org.xtext.abs.Feature_decl}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Feature</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Feature</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature</em>' containment reference list.
+   * @return the value of the '<em>Feature</em>' reference list.
    * @see org.xtext.abs.AbsPackage#getProductline_decl_Feature()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  EList<Feature> getFeature();
+  EList<Feature_decl> getFeature();
 
   /**
    * Returns the value of the '<em><b>Delta clause</b></em>' containment reference list.

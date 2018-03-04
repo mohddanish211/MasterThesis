@@ -511,6 +511,11 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
         return createAppAnd_expAdapter();
       }
       @Override
+      public Adapter caseNotExpression(NotExpression object)
+      {
+        return createNotExpressionAdapter();
+      }
+      @Override
       public Adapter caseProductOr_expr(ProductOr_expr object)
       {
         return createProductOr_exprAdapter();
@@ -1888,6 +1893,21 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAppAnd_expAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.abs.NotExpression <em>Not Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.abs.NotExpression
+   * @generated
+   */
+  public Adapter createNotExpressionAdapter()
   {
     return null;
   }

@@ -3,35 +3,17 @@ package org.xtext.abs.ui.views;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.*;
-import org.eclipse.ui.texteditor.IDocumentProvider;
+
 import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.xtext.nodemodel.INode;
-import org.eclipse.xtext.resource.EObjectAtOffsetHelper;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkAcceptor;
-import org.eclipse.xtext.ui.editor.hyperlinking.XtextHyperlink;
-import org.eclipse.xtext.util.ITextRegion;
-import org.xtext.generator.AbsGenerator;
-
-import com.google.inject.Provider;
-
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.URIConverter;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.action.*;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.text.BadLocationException;
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.text.Region;
-import org.eclipse.jface.text.hyperlink.IHyperlink;
 import org.eclipse.ui.*;
-import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -64,8 +46,6 @@ public class FeatureDeltaView extends ViewPart {
 	//	@Inject EObjectAtOffsetHelper eObjectOffSetHelper;
 
 	private TableViewer viewer;
-	private Action action1;
-	private Action action2;
 	private Action doubleClickAction;
 
 		class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
@@ -83,7 +63,15 @@ public class FeatureDeltaView extends ViewPart {
 		}
 		@Override
 		public String getText(Object element) {
-			return element == null ? "" : ((INode) element).getText();//$NON-NLS-1$
+			Map<INode,XtextResource> nodeElementMap=  (Map<INode, XtextResource>) element;
+			INode nodeElement = null;
+			XtextResource xtextResource=null;
+			for ( INode key : nodeElementMap.keySet() ) {
+				nodeElement= key;
+			}
+			xtextResource = nodeElementMap.get(nodeElement);
+			System.out.println(xtextResource.toString());
+			return element == null ? "" : nodeElement.getText()+"  [:"+xtextResource.getURI()+"]";//+"["+nodeElement.getOffset()+"]";//$NON-NLS-1$
 		}
 	}
 
@@ -104,7 +92,7 @@ public class FeatureDeltaView extends ViewPart {
 		//contributeToActionBars();
 	}
 
-	private void hookContextMenu() {
+	/*private void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
 		menuMgr.addMenuListener(new IMenuListener() {
@@ -139,16 +127,21 @@ public class FeatureDeltaView extends ViewPart {
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(action1);
 		manager.add(action2);
-	}
+	}*/
 
 	private void makeActions() {
 		doubleClickAction = new Action() {
 			public void run() {
 				IStructuredSelection selection = viewer.getStructuredSelection();
 				//`ArrayList<Object> objList = (ArrayList<Object>) selection.getFirstElement();
-				INode node = (INode)selection.getFirstElement();
+				Map<INode,XtextResource> nodeResourceMap = (Map<INode,XtextResource>)selection.getFirstElement();
+				INode nodeElement = null;
+				for ( INode key : nodeResourceMap.keySet() ) {
+					nodeElement= key;
+				}
 				//showMessage("Double-click detected on "+node.getText());
-				
+				System.out.println("$$$$$$$$$$$$$$$$$$$");
+				System.out.println(nodeElement);
 				/*IHyperlinkAcceptor  acceptor= (IHyperlinkAcceptor)objList.get(2);
 				XtextHyperlink result = hyperlinkProvider.get();
 				ITextRegion textRegion = node.getTextRegion();
@@ -163,14 +156,14 @@ public class FeatureDeltaView extends ViewPart {
 				ITextEditor editor = (ITextEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 				//IEditorPart  editor=PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 				//editor.getSite().getPage();
-				IDocumentProvider provider= editor.getDocumentProvider();
-				IDocument document= provider.getDocument(editor.getEditorInput());
-				int line=node.getStartLine();
-				int start= node.getOffset();
-				int length = node.getLength();
+			//	IDocumentProvider provider= editor.getDocumentProvider();
+				//IDocument document= provider.getDocument(editor.getEditorInput());
+				//int line=nodeElement.getStartLine();
+				int start= nodeElement.getOffset();
+				int length = nodeElement.getLength();
 				editor.selectAndReveal(start, length);
-				IWorkbenchPage page= editor.getSite().getPage();
-				page.activate(editor);
+				//IWorkbenchPage page= editor.getSite().getPage();
+				//page.activate(editor);
 			}
 		};
 	}
@@ -183,20 +176,20 @@ public class FeatureDeltaView extends ViewPart {
 		});
 	}
 
-	public void updateContent(INode element) {
-		viewer.add(element);
+	public void updateContent(Map<INode,XtextResource> node) {
+		viewer.add(node);
 	}
 
 	public void removeOldContent() {
 		viewer.refresh();
 	}
 
-	private void showMessage(String message) {
+	/*private void showMessage(String message) {
 		MessageDialog.openInformation(
 				viewer.getControl().getShell(),
 				"FeatureDelta View",
 				message);
-	}
+	}*/
 
 	@Override
 	public void setFocus() {

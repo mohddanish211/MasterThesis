@@ -32,6 +32,7 @@ import org.xtext.abs.Product_reconfiguration;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.xtext.abs.impl.Product_declImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Product_declImpl#getFeature <em>Feature</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Product_declImpl#getProduct_reconfiguration <em>Product reconfiguration</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Product_declImpl#getProduct_expr <em>Product expr</em>}</li>
@@ -42,6 +43,26 @@ import org.xtext.abs.Product_reconfiguration;
  */
 public class Product_declImpl extends MinimalEObjectImpl.Container implements Product_decl
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getFeature() <em>Feature</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -91,6 +112,29 @@ public class Product_declImpl extends MinimalEObjectImpl.Container implements Pr
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.PRODUCT_DECL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PRODUCT_DECL__NAME, oldName, name));
   }
 
   /**
@@ -199,6 +243,8 @@ public class Product_declImpl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case AbsPackage.PRODUCT_DECL__NAME:
+        return getName();
       case AbsPackage.PRODUCT_DECL__FEATURE:
         return getFeature();
       case AbsPackage.PRODUCT_DECL__PRODUCT_RECONFIGURATION:
@@ -220,6 +266,9 @@ public class Product_declImpl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case AbsPackage.PRODUCT_DECL__NAME:
+        setName((String)newValue);
+        return;
       case AbsPackage.PRODUCT_DECL__FEATURE:
         getFeature().clear();
         getFeature().addAll((Collection<? extends Feature>)newValue);
@@ -245,6 +294,9 @@ public class Product_declImpl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case AbsPackage.PRODUCT_DECL__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case AbsPackage.PRODUCT_DECL__FEATURE:
         getFeature().clear();
         return;
@@ -268,6 +320,8 @@ public class Product_declImpl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case AbsPackage.PRODUCT_DECL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.PRODUCT_DECL__FEATURE:
         return feature != null && !feature.isEmpty();
       case AbsPackage.PRODUCT_DECL__PRODUCT_RECONFIGURATION:
@@ -276,6 +330,23 @@ public class Product_declImpl extends MinimalEObjectImpl.Container implements Pr
         return product_expr != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //Product_declImpl

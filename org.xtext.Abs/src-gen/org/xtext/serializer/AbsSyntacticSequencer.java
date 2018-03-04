@@ -24,7 +24,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbsGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_AppPrimary_exp_LeftParenthesisKeyword_0_0_a;
 	protected AbstractElementAlias match_AppPrimary_exp_LeftParenthesisKeyword_0_0_p;
-	protected AbstractElementAlias match_AppPrimary_exp_NEGATIONTerminalRuleCall_1_0_0_or_NEGATION_CREOLTerminalRuleCall_1_0_1;
+	protected AbstractElementAlias match_AppUnary_exp_NEGATIONTerminalRuleCall_1_1_0_or_NEGATION_CREOLTerminalRuleCall_1_1_1;
 	protected AbstractElementAlias match_Atomic_expr_INTLITERALTerminalRuleCall_0_1_or_NullKeyword_4_1_or_STRINGLITERALTerminalRuleCall_1_1_or_ThisKeyword_3_1;
 	protected AbstractElementAlias match_Atomic_expr_Primary_expr_Pure_exp___LeftParenthesisKeyword_0_0_a_QUALIFIED_TYPE_IDENTIFIERParserRuleCall_2_1_RightParenthesisKeyword_0_2___or___LeftParenthesisKeyword_0_0_a___INTLITERALTerminalRuleCall_0_1_or_NullKeyword_4_1_or_STRINGLITERALTerminalRuleCall_1_1_or_ThisKeyword_3_1____;
 	protected AbstractElementAlias match_Atomic_expr_Pure_exp_INTLITERALTerminalRuleCall_0_1_or_NullKeyword_4_1_or_QUALIFIED_TYPE_IDENTIFIERParserRuleCall_2_1_or_STRINGLITERALTerminalRuleCall_1_1_or_ThisKeyword_3_1;
@@ -59,7 +59,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (AbsGrammarAccess) access;
 		match_AppPrimary_exp_LeftParenthesisKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getAppPrimary_expAccess().getLeftParenthesisKeyword_0_0());
 		match_AppPrimary_exp_LeftParenthesisKeyword_0_0_p = new TokenAlias(true, false, grammarAccess.getAppPrimary_expAccess().getLeftParenthesisKeyword_0_0());
-		match_AppPrimary_exp_NEGATIONTerminalRuleCall_1_0_0_or_NEGATION_CREOLTerminalRuleCall_1_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAppPrimary_expAccess().getNEGATIONTerminalRuleCall_1_0_0()), new TokenAlias(false, false, grammarAccess.getAppPrimary_expAccess().getNEGATION_CREOLTerminalRuleCall_1_0_1()));
+		match_AppUnary_exp_NEGATIONTerminalRuleCall_1_1_0_or_NEGATION_CREOLTerminalRuleCall_1_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAppUnary_expAccess().getNEGATIONTerminalRuleCall_1_1_0()), new TokenAlias(false, false, grammarAccess.getAppUnary_expAccess().getNEGATION_CREOLTerminalRuleCall_1_1_1()));
 		match_Atomic_expr_INTLITERALTerminalRuleCall_0_1_or_NullKeyword_4_1_or_STRINGLITERALTerminalRuleCall_1_1_or_ThisKeyword_3_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getINTLITERALTerminalRuleCall_0_1()), new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getNullKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getSTRINGLITERALTerminalRuleCall_1_1()), new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getThisKeyword_3_1()));
 		match_Atomic_expr_Primary_expr_Pure_exp___LeftParenthesisKeyword_0_0_a_QUALIFIED_TYPE_IDENTIFIERParserRuleCall_2_1_RightParenthesisKeyword_0_2___or___LeftParenthesisKeyword_0_0_a___INTLITERALTerminalRuleCall_0_1_or_NullKeyword_4_1_or_STRINGLITERALTerminalRuleCall_1_1_or_ThisKeyword_3_1____ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(true, true, grammarAccess.getPrimary_exprAccess().getLeftParenthesisKeyword_0_0()), new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getINTLITERALTerminalRuleCall_0_1()), new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getNullKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getSTRINGLITERALTerminalRuleCall_1_1()), new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getThisKeyword_3_1()))), new GroupAlias(false, false, new TokenAlias(true, true, grammarAccess.getPrimary_exprAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getPure_expAccess().getQUALIFIED_TYPE_IDENTIFIERParserRuleCall_2_1()), new TokenAlias(false, false, grammarAccess.getPrimary_exprAccess().getRightParenthesisKeyword_0_2())));
 		match_Atomic_expr_Pure_exp_INTLITERALTerminalRuleCall_0_1_or_NullKeyword_4_1_or_QUALIFIED_TYPE_IDENTIFIERParserRuleCall_2_1_or_STRINGLITERALTerminalRuleCall_1_1_or_ThisKeyword_3_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getINTLITERALTerminalRuleCall_0_1()), new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getNullKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getSTRINGLITERALTerminalRuleCall_1_1()), new TokenAlias(false, false, grammarAccess.getAtomic_exprAccess().getThisKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getPure_expAccess().getQUALIFIED_TYPE_IDENTIFIERParserRuleCall_2_1()));
@@ -287,8 +287,8 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_AppPrimary_exp_LeftParenthesisKeyword_0_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_AppPrimary_exp_LeftParenthesisKeyword_0_0_p.equals(syntax))
 				emit_AppPrimary_exp_LeftParenthesisKeyword_0_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_AppPrimary_exp_NEGATIONTerminalRuleCall_1_0_0_or_NEGATION_CREOLTerminalRuleCall_1_0_1.equals(syntax))
-				emit_AppPrimary_exp_NEGATIONTerminalRuleCall_1_0_0_or_NEGATION_CREOLTerminalRuleCall_1_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_AppUnary_exp_NEGATIONTerminalRuleCall_1_1_0_or_NEGATION_CREOLTerminalRuleCall_1_1_1.equals(syntax))
+				emit_AppUnary_exp_NEGATIONTerminalRuleCall_1_1_0_or_NEGATION_CREOLTerminalRuleCall_1_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Atomic_expr_INTLITERALTerminalRuleCall_0_1_or_NullKeyword_4_1_or_STRINGLITERALTerminalRuleCall_1_1_or_ThisKeyword_3_1.equals(syntax))
 				emit_Atomic_expr_INTLITERALTerminalRuleCall_0_1_or_NullKeyword_4_1_or_STRINGLITERALTerminalRuleCall_1_1_or_ThisKeyword_3_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Atomic_expr_Primary_expr_Pure_exp___LeftParenthesisKeyword_0_0_a_QUALIFIED_TYPE_IDENTIFIERParserRuleCall_2_1_RightParenthesisKeyword_0_2___or___LeftParenthesisKeyword_0_0_a___INTLITERALTerminalRuleCall_0_1_or_NullKeyword_4_1_or_STRINGLITERALTerminalRuleCall_1_1_or_ThisKeyword_3_1____.equals(syntax))
@@ -354,8 +354,8 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (NEGATION_CREOL | NEGATION) app_cond=AppPrimary_exp
-	 *     (rule start) (ambiguity) feature=[Feature|TYPE_IDENTIFIER]
+	 *     (rule start) (ambiguity) (NEGATION | NEGATION_CREOL) operand=AppUnary_exp
+	 *     (rule start) (ambiguity) feature+=[Feature_decl|TYPE_IDENTIFIER]
 	 *     (rule start) (ambiguity) {AppAnd_exp.left=}
 	 *     (rule start) (ambiguity) {AppOr_exp.left=}
 	 */
@@ -368,6 +368,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (NEGATION | NEGATION_CREOL) operand=AppUnary_exp
 	 *     (rule start) (ambiguity) {AppAnd_exp.left=}
 	 *     (rule start) (ambiguity) {AppOr_exp.left=}
 	 */
@@ -377,18 +378,19 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     NEGATION_CREOL | NEGATION
+	 *     NEGATION | NEGATION_CREOL
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '('* (ambiguity) app_cond=AppPrimary_exp
+	 *     (rule start) '('* (ambiguity) operand=AppUnary_exp
+	 *     (rule start) '('+ (ambiguity) operand=AppUnary_exp
 	 */
-	protected void emit_AppPrimary_exp_NEGATIONTerminalRuleCall_1_0_0_or_NEGATION_CREOLTerminalRuleCall_1_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_AppUnary_exp_NEGATIONTerminalRuleCall_1_1_0_or_NEGATION_CREOLTerminalRuleCall_1_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'this' | 'null' | INTLITERAL | STRINGLITERAL
+	 *     STRINGLITERAL | 'this' | INTLITERAL | 'null'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
@@ -399,7 +401,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('('* QUALIFIED_TYPE_IDENTIFIER ')') | ('('* ('this' | 'null' | INTLITERAL | STRINGLITERAL))
+	 *     ('('* QUALIFIED_TYPE_IDENTIFIER ')') | ('('* (STRINGLITERAL | 'this' | INTLITERAL | 'null'))
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
@@ -410,7 +412,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'this' | 'null' | QUALIFIED_TYPE_IDENTIFIER | INTLITERAL | STRINGLITERAL
+	 *     STRINGLITERAL | 'this' | INTLITERAL | QUALIFIED_TYPE_IDENTIFIER | 'null'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) '('* (ambiguity) (rule start)
@@ -561,7 +563,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     NEGATION | MINUS
+	 *     MINUS | NEGATION
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
@@ -572,7 +574,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (TYPE_IDENTIFIER '.' IDENTIFIER) | IDENTIFIER | TYPE_IDENTIFIER
+	 *     (TYPE_IDENTIFIER '.' IDENTIFIER) | TYPE_IDENTIFIER | IDENTIFIER
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
@@ -585,8 +587,8 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Ambiguous syntax:
 	 *     (
 	  *         ('removes' 'interface' QUALIFIED_TYPE_IDENTIFIER ';') | 
-	  *         ('modifies' 'class' QUALIFIED_TYPE_IDENTIFIER '{' '}') | 
-	  *         ('modifies' 'interface' QUALIFIED_TYPE_IDENTIFIER '{' '}')
+	  *         ('modifies' 'interface' QUALIFIED_TYPE_IDENTIFIER '{' '}') | 
+	  *         ('modifies' 'class' QUALIFIED_TYPE_IDENTIFIER '{' '}')
 	  *     )
 	 *
 	 * This ambiguous syntax occurs at:
@@ -598,7 +600,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (QUALIFIED_TYPE_IDENTIFIER '(' ')') | IDENTIFIER | STRINGLITERAL | '_' | INTLITERAL
+	 *     (QUALIFIED_TYPE_IDENTIFIER '(' ')') | IDENTIFIER | '_' | INTLITERAL | STRINGLITERAL
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '=>' pure_exp=Pure_exp
@@ -649,8 +651,8 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'if' c=Pure_exp
 	 *     (rule start) (ambiguity) 'let' '(' type_use=Type_use
 	 *     (rule start) (ambiguity) ('this' '.')? name=IDENTIFIER
-	 *     (rule start) (ambiguity) ('this' | 'null' | QUALIFIED_TYPE_IDENTIFIER | INTLITERAL | STRINGLITERAL) (rule start)
-	 *     (rule start) (ambiguity) (MINUS | NEGATION_CREOL | NEGATION) pure_exp=Primary_expr
+	 *     (rule start) (ambiguity) (NEGATION_CREOL | NEGATION | MINUS) pure_exp=Primary_expr
+	 *     (rule start) (ambiguity) (STRINGLITERAL | 'this' | INTLITERAL | QUALIFIED_TYPE_IDENTIFIER | 'null') (rule start)
 	 *     (rule start) (ambiguity) QUALIFIED_IDENTIFIER '(' ')' '(' partial_function_pure_exp_list=Pure_exp_list
 	 *     (rule start) (ambiguity) QUALIFIED_IDENTIFIER '(' function_param+=Function_param
 	 *     (rule start) (ambiguity) QUALIFIED_IDENTIFIER '(' pure_exp_list=Pure_exp_list
@@ -693,7 +695,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     MINUS | NEGATION_CREOL | NEGATION
+	 *     NEGATION_CREOL | NEGATION | MINUS
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) '('* (ambiguity) pure_exp=Primary_expr
@@ -736,8 +738,8 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('{' '}') | ';'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'product' TYPE_IDENTIFIER '(' ')' (ambiguity) (rule start)
 	 *     feature+=Feature ')' (ambiguity) (rule end)
+	 *     name=TYPE_IDENTIFIER '(' ')' (ambiguity) (rule end)
 	 */
 	protected void emit_Product_decl_SemicolonKeyword_3_0_3_1_or___LeftCurlyBracketKeyword_3_0_3_0_0_RightCurlyBracketKeyword_3_0_3_0_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
