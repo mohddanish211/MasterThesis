@@ -68,6 +68,7 @@ import org.eclipse.xtext.ui.refactoring.ui.IRenameSupport;
 import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
+import org.eclipse.xtext.ui.wizard.IProjectCreator;
 import org.xtext.ide.contentassist.antlr.AbsParser;
 import org.xtext.ide.contentassist.antlr.PartialAbsContentAssistParser;
 import org.xtext.ide.contentassist.antlr.internal.InternalAbsLexer;
@@ -76,6 +77,7 @@ import org.xtext.ui.labeling.AbsDescriptionLabelProvider;
 import org.xtext.ui.labeling.AbsLabelProvider;
 import org.xtext.ui.outline.AbsOutlineTreeProvider;
 import org.xtext.ui.quickfix.AbsQuickfixProvider;
+import org.xtext.ui.wizard.AbsProjectCreator;
 
 /**
  * Manual modifications go to {@link AbsUiModule}.
@@ -281,6 +283,11 @@ public abstract class AbstractAbsUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.ui.compare.CompareFragment2
 	public void configureCompareViewerTitle(Binder binder) {
 		binder.bind(String.class).annotatedWith(Names.named(UIBindings.COMPARE_VIEWER_TITLE)).toInstance("Abs Compare");
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.ui.projectWizard.SimpleProjectWizardFragment2
+	public Class<? extends IProjectCreator> bindIProjectCreator() {
+		return AbsProjectCreator.class;
 	}
 	
 }

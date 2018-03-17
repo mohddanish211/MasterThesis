@@ -450,4 +450,45 @@
           file="contexts.xml">
     </contexts>
  </extension>
+ <extension
+		point="org.eclipse.ui.newWizards">
+		<wizard
+			category="org.eclipse.xtext.projectwiz"
+			class="org.xtext.ui.AbsExecutableExtensionFactory:org.xtext.ui.wizard.AbsNewProjectWizard"
+			icon="icons/abs_project_logo.gif"
+			id="org.xtext.ui.wizard.AbsNewProjectWizard"
+			name="Abs Project"
+				project="true">
+		</wizard>
+		<wizard
+             category="org.eclipse.xtext.projectwiz"
+             class="org.xtext.ui.AbsExecutableExtensionFactory:org.xtext.ui.wizard.AbsModuleWizard"
+             icon="icons/absicon.gif"
+             id="org.xtext.ui.wizard.AbsModuleWizard"
+             name="ABS Module (new File)"
+             project="true">
+       </wizard>
+       <wizard
+             canFinishEarly="false"
+             category="org.eclipse.xtext.projectwiz"
+             class="org.xtext.ui.AbsExecutableExtensionFactory:org.xtext.ui.wizard.NewClassWizard"
+             descriptionImage="icons/abs_class.gif"
+             hasPages="true"
+             icon="icons/abs_class.gif"
+             id="org.xtext.ui.wizard.NewClass"
+             name="ABS Class"
+             project="false">
+       </wizard>
+       <wizard
+             canFinishEarly="false"
+             category="org.eclipse.xtext.projectwiz"
+             class="org.xtext.ui.AbsExecutableExtensionFactory:org.xtext.ui.wizard.NewInterfaceWizard"
+             descriptionImage="icons/abs_interface.gif"
+             hasPages="true"
+             icon="icons/abs_interface.gif"
+             id="org.xtext.ui.wizard.NewInterface"
+             name="ABS Interface"
+             project="false">
+       </wizard>
+	</extension>
 </plugin>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.xtext.Abs.feature_1.0.0.201803121125.jar" id="org.xtext.Abs.feature" version="1.0.0.201803121125"/>
+</site>

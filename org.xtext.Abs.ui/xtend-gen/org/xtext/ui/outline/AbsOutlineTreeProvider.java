@@ -6,17 +6,35 @@ package org.xtext.ui.outline;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.abs.Class_decl;
+import org.xtext.abs.DataType_decl;
 import org.xtext.abs.Delta_clause;
+import org.xtext.abs.Delta_decl;
 import org.xtext.abs.Feature_decl;
+import org.xtext.abs.Interface_decl;
+import org.xtext.abs.Methodsig;
 import org.xtext.abs.Productline_decl;
 import org.xtext.abs.impl.After_conditionImpl;
 import org.xtext.abs.impl.AppAnd_expImpl;
 import org.xtext.abs.impl.AppOr_expImpl;
 import org.xtext.abs.impl.Application_conditionImpl;
+import org.xtext.abs.impl.Eff_exprImpl;
+import org.xtext.abs.impl.Feature_decl_attributeImpl;
 import org.xtext.abs.impl.Feature_decl_groupImpl;
+import org.xtext.abs.impl.Field_declImpl;
+import org.xtext.abs.impl.GuardImpl;
+import org.xtext.abs.impl.MethodImpl;
 import org.xtext.abs.impl.NotExpressionImpl;
+import org.xtext.abs.impl.OO_modifierImpl;
+import org.xtext.abs.impl.Param_declImpl;
+import org.xtext.abs.impl.Param_listImpl;
+import org.xtext.abs.impl.Pure_expImpl;
+import org.xtext.abs.impl.Pure_exp_listImpl;
+import org.xtext.abs.impl.StmtImpl;
+import org.xtext.abs.impl.Type_expImpl;
+import org.xtext.abs.impl.Type_useImpl;
+import org.xtext.abs.impl.Var_or_field_refImpl;
 import org.xtext.abs.impl.When_conditionImpl;
 
 /**
@@ -29,7 +47,7 @@ public class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
   protected void _createChildren(final IOutlineNode parentNode, final Feature_decl featureDecl) {
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(featureDecl.eAllContents());
     for (final EObject eObject : _iterable) {
-      if ((eObject instanceof Feature_decl_groupImpl)) {
+      if (((eObject instanceof Feature_decl_groupImpl) || (eObject instanceof Feature_decl_attributeImpl))) {
       } else {
         this.createNode(parentNode, eObject);
       }
@@ -46,22 +64,63 @@ public class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
     }
   }
   
-  protected String _createChildren(final IOutlineNode parentNode, final Delta_clause deltaClause) {
-    String _xblockexpression = null;
-    {
-      InputOutput.<String>println("t555555555555555555555555555");
-      Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(deltaClause.eAllContents());
-      for (final EObject eObject : _iterable) {
-        {
-          InputOutput.<EObject>println(eObject);
-          if ((((((eObject instanceof NotExpressionImpl) || (eObject instanceof AppOr_expImpl)) || (eObject instanceof AppAnd_expImpl)) || (eObject instanceof When_conditionImpl)) || (eObject instanceof After_conditionImpl))) {
-          } else {
-            this.createNode(parentNode, eObject);
-          }
-        }
+  protected void _createChildren(final IOutlineNode parentNode, final Delta_clause deltaClause) {
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(deltaClause.eAllContents());
+    for (final EObject eObject : _iterable) {
+      if ((((((eObject instanceof NotExpressionImpl) || (eObject instanceof AppOr_expImpl)) || (eObject instanceof AppAnd_expImpl)) || (eObject instanceof When_conditionImpl)) || (eObject instanceof After_conditionImpl))) {
+      } else {
+        this.createNode(parentNode, eObject);
       }
-      _xblockexpression = InputOutput.<String>println("555555555555555555555555555555555555555555");
     }
-    return _xblockexpression;
+  }
+  
+  protected void _createChildren(final IOutlineNode parentNode, final Delta_decl deltaClause) {
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(deltaClause.eAllContents());
+    for (final EObject eObject : _iterable) {
+      if ((((eObject instanceof OO_modifierImpl) || (eObject instanceof Type_useImpl)) || (eObject instanceof Field_declImpl))) {
+      } else {
+        this.createNode(parentNode, eObject);
+      }
+    }
+  }
+  
+  protected void _createChildren(final IOutlineNode parentNode, final DataType_decl dataTypeDecl) {
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(dataTypeDecl.eAllContents());
+    for (final EObject eObject : _iterable) {
+      if ((eObject instanceof Type_useImpl)) {
+      } else {
+        this.createNode(parentNode, eObject);
+      }
+    }
+  }
+  
+  protected void _createChildren(final IOutlineNode parentNode, final Interface_decl interfaceDecl) {
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(interfaceDecl.eAllContents());
+    for (final EObject eObject : _iterable) {
+      if (((((eObject instanceof Type_expImpl) || (eObject instanceof Param_declImpl)) || (eObject instanceof Param_listImpl)) || (eObject instanceof Type_useImpl))) {
+      } else {
+        this.createNode(parentNode, eObject);
+      }
+    }
+  }
+  
+  protected void _createChildren(final IOutlineNode parentNode, final Methodsig methodSig) {
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(methodSig.eAllContents());
+    for (final EObject eObject : _iterable) {
+      if (((((eObject instanceof Type_expImpl) || (eObject instanceof Param_declImpl)) || (eObject instanceof Param_listImpl)) || (eObject instanceof Type_useImpl))) {
+      } else {
+        this.createNode(parentNode, eObject);
+      }
+    }
+  }
+  
+  protected void _createChildren(final IOutlineNode parentNode, final Class_decl classDecl) {
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(classDecl.eAllContents());
+    for (final EObject eObject : _iterable) {
+      if ((((((((((((eObject instanceof Var_or_field_refImpl) || (eObject instanceof Param_listImpl)) || (eObject instanceof Type_expImpl)) || (eObject instanceof Type_useImpl)) || (eObject instanceof Pure_expImpl)) || (eObject instanceof StmtImpl)) || (eObject instanceof Eff_exprImpl)) || (eObject instanceof Param_declImpl)) || (eObject instanceof Pure_exp_listImpl)) || (eObject instanceof GuardImpl)) || (eObject instanceof MethodImpl))) {
+      } else {
+        this.createNode(parentNode, eObject);
+      }
+    }
   }
 }

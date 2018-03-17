@@ -12,15 +12,27 @@ import org.xtext.abs.Delta_clause
 import org.xtext.abs.Application_condition
 import org.xtext.abs.AppOr_exp
 import org.xtext.abs.AppAnd_exp
-//import com.google.inject.Inject;
 import org.xtext.abs.Delta_decl
 import org.eclipse.emf.ecore.EObject
-//import org.xtext.abs.Product_decl
 import org.xtext.abs.Feature_decl
-import org.xtext.abs.Feature
 import java.util.ArrayList
 import org.eclipse.emf.ecore.util.EcoreUtil
-import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.xtext.EcoreUtil2
+import java.util.Collection
+import org.xtext.abs.impl.Compilation_UnitImpl
+import org.xtext.abs.impl.DomainModelImpl
+import org.eclipse.xtext.findReferences.IReferenceFinder
+import com.google.inject.Inject
+import myPack.CustomReferenceFinder
+import org.eclipse.xtext.resource.IReferenceDescription
+import org.eclipse.xtext.resource.XtextResource
+import org.eclipse.emf.ecore.impl.EReferenceImpl
+import org.xtext.abs.Feature
+import org.eclipse.emf.ecore.impl.EClassImpl
+import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.emf.mwe.internal.core.ast.util.Injector
+import org.xtext.abs.impl.Delta_clauseImpl
+import org.xtext.abs.impl.Productline_declImpl
 
 /**
 * Generates code from your model files on save.
@@ -28,6 +40,11 @@ import org.eclipse.emf.ecore.EStructuralFeature
 * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
 */
 class AbsGenerator extends AbstractGenerator {
+	@Inject
+	private IReferenceFinder referenceFinder;
+	@Inject
+	private CustomReferenceFinder customReferenceFinder;
+	
 override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 //
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
@@ -101,44 +118,59 @@ return "error"
 // Delta to Feature Visualization
 def computeDeltaToFeature(Delta_decl deltaDecl) {
 var ArrayList<Object> featureDeclList = new ArrayList<Object>();
-for(EObject productDeclEObject: deltaDecl.eContainer.eAllContents.toIterable.filter(Productline_decl)){
-    println("------xx Delta TO Feature xx-----");
-    for(Delta_clause delta_clause: productDeclEObject.eAllContents.toIterable.filter(Delta_clause)){
-    try{
-        if((delta_clause.deltaspec.name).equals(deltaDecl.name)){
-            if((delta_clause.when_condition.application_condition)!==null){
-            resolveApplicationConditionForD2F(delta_clause.when_condition.application_condition,featureDeclList);
+println("_____________________________________________");
+//println(deltaDecl.eContainer);
+for(IReferenceDescription r: customReferenceFinder.findReferencesTo(deltaDecl)){
+	val sourcePlatformUri = r.sourceEObjectUri; 
+	val productlineDecl=customReferenceFinder.customResourceFinder(sourcePlatformUri,deltaDecl);
+	println("Productline decl..........")
+	println(productlineDecl.eContents)	
+	for(EObject delta_clause: productlineDecl.eContents.filter(Delta_clauseImpl)){
+		val clause=delta_clause as Delta_clauseImpl;
+		println(clause.when_condition);
+		try{
+        if((clause.deltaspec.name).equals(deltaDecl.name)){
+            if((clause.when_condition.application_condition)!==null){
+            resolveApplicationConditionForD2F(clause.when_condition.application_condition,featureDeclList);
                 }
-            println(delta_clause.deltaspec.name+"----->"+featureDeclList);
+            println(clause.deltaspec.name+"----->"+featureDeclList);
             return featureDeclList;
             }
         }catch(Exception err){
         println(err.toString);
         }
-    }
+		
+	}
 }
-return null
+println("_____________________________________________");
+
+return featureDeclList
 }	
 
 
 //Feature to Delta Visualization
 def computeFeatureToDelta(Feature_decl feature_decl) {
-	var ArrayList<Object> deltaDeclList = new ArrayList<Object>();
-	for(EObject productDeclEObject: EcoreUtil.getRootContainer(feature_decl).eAllContents.toIterable.filter(Productline_decl)) {
-		for(Delta_clause delta_clause: productDeclEObject.eAllContents.toIterable.filter(Delta_clause)){
-		    try{
-		    	  if((delta_clause.when_condition.application_condition)!==null){
-		           resolveApplicationConditionForF2D(delta_clause.when_condition.application_condition,feature_decl,deltaDeclList,delta_clause);
-		            }
-		        }catch(Exception err){
-		        println(err.toString);
-		        }
-		     }
+	
+val ArrayList<Object> deltaDeclList = new ArrayList<Object>();
+for(IReferenceDescription r: customReferenceFinder.findReferencesTo(feature_decl)){
+	val sourcePlatformUri = r.sourceEObjectUri; 
+	val compilationUnit =customReferenceFinder.customResourceFinder(sourcePlatformUri,feature_decl) as Compilation_UnitImpl;	
+	println("------++++++++++++++++++++++++++++++++++++++++_------------")
+	println()
+	println()
+	for(Delta_clause clause: compilationUnit.productline_decl.delta_clause){
+		try{
+		 	if((clause.when_condition.application_condition)!==null){
+		      	resolveApplicationConditionForF2D(clause.when_condition.application_condition,feature_decl,deltaDeclList,clause);
+		      	}	
+			}catch(Exception err){
+		    	println(err.toString);
+		}		
 	}
-	println(deltaDeclList);
-return deltaDeclList;
+	return deltaDeclList;
 }
 	
+}	
 
 
 

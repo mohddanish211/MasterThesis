@@ -9,12 +9,23 @@ import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.jface.action.*;
+import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.*;
+import org.eclipse.ui.ide.IDE;
 import org.eclipse.swt.SWT;
 
+import java.io.File;
 import java.util.Map;
-
 import javax.inject.Inject;
 
 
@@ -139,31 +150,45 @@ public class FeatureDeltaView extends ViewPart {
 				for ( INode key : nodeResourceMap.keySet() ) {
 					nodeElement= key;
 				}
-				//showMessage("Double-click detected on "+node.getText());
-				System.out.println("$$$$$$$$$$$$$$$$$$$");
-				System.out.println(nodeElement);
-				/*IHyperlinkAcceptor  acceptor= (IHyperlinkAcceptor)objList.get(2);
-				XtextHyperlink result = hyperlinkProvider.get();
-				ITextRegion textRegion = node.getTextRegion();
-				Region region = new Region(textRegion.getOffset(), textRegion.getLength());
-				result.setHyperlinkRegion(region);
-				result.setURI(resource.getURI());
-				result.setHyperlinkText(node.getText());
-				acceptor.accept(result);*/
-
-				System.out.println("Clicked selection");
-				System.out.println(selection);
+				XtextResource xtextResource = nodeResourceMap.get(nodeElement);
+				URI resolvedFile = CommonPlugin.resolve(xtextResource.getURI());
+				IPath path= new Path(resolvedFile.toFileString());
+				//IFile myFile=ResourcesPlugin.getWorkspace().getRoot().getFile(path);//getFile(new Path(resolvedFile.toFileString()));
+				//System.out.println(myFile);
+				IFileStore fileStore = EFS.getLocalFileSystem().getStore(path);
+				
+				IWorkbenchPage page=PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+				try {
+					IDE.openEditorOnFileStore( page, fileStore );
+				} catch (PartInitException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				//IWorkbenchPage workBenchPage =PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 				ITextEditor editor = (ITextEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+				//ResourcesPlugin.getWorkspace().getRoot().getFile(path);
+				//editor.getDocumentProvider().getDocument(myFile);
+				//IDocument document=editor.getDocumentProvider().getDocument(resolvedFile);
+				//System.out.println("_________---------------------------");
+				//System.out.println(document.get());
+				//try {
+					//	IDE.openEditor(editor.getSite().getPage(), myFile, true);
+					//} catch (PartInitException e) {
+					// TODO Auto-generated catch block
+					//e.pri0ntStackTrace();
+			//	}
+				
 				//IEditorPart  editor=PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 				//editor.getSite().getPage();
 			//	IDocumentProvider provider= editor.getDocumentProvider();
 				//IDocument document= provider.getDocument(editor.getEditorInput());
 				//int line=nodeElement.getStartLine();
+				//editor id :: org.xtext.Abs
 				int start= nodeElement.getOffset();
 				int length = nodeElement.getLength();
 				editor.selectAndReveal(start, length);
-				//IWorkbenchPage page= editor.getSite().getPage();
-				//page.activate(editor);
+				
 			}
 		};
 	}

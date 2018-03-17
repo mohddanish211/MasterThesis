@@ -28,6 +28,8 @@ javax.servlet,3.1.0.v201410161800,file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e
 javax.servlet,3.0.0.v201112011016,file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/plugins/javax.servlet_3.0.0.v201112011016.jar,4,false
 javax.servlet.jsp,2.2.0.v201112011158,file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/plugins/javax.servlet.jsp_2.2.0.v201112011158.jar,4,false
 javax.xml,1.3.4.v201005080400,file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/plugins/javax.xml_1.3.4.v201005080400.jar,4,false
+org.Abs.frontend,1.0.0,file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/workspace_march/MasterThesis/org.Abs.frontend/,4,false
+org.abs-models.abs.compiler,1.5.2.201803112333-ee4400c,file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/plugins/org.abs-models.abs.compiler_1.5.2.201803112333-ee4400c/,4,false
 org.antlr.runtime,3.2.0.v201101311130,file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/plugins/org.antlr.runtime_3.2.0.v201101311130.jar,4,false
 org.apache.ant,1.10.1.v20170504-0840,file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/plugins/org.apache.ant_1.10.1.v20170504-0840/,4,false
 org.apache.batik.css,1.8.0.v20170214-1941,file:/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/plugins/org.apache.batik.css_1.8.0.v20170214-1941.jar,4,false

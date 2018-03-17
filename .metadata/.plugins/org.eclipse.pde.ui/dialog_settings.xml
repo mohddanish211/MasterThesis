@@ -6,6 +6,8 @@
 	<item value="false" key="rcpPlugin"/>
 	<item value="false" key="osgiProject"/>
 	<item value="true" key="generatePluginActivator"/>
+	<section name="dependenciesView">
+	</section>
 	<section name="PDEFormActionManager">
 	</section>
 	<section name="pde_compiler_errorwarnings_block">
@@ -19,8 +21,8 @@
 		<item value="406" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="388" key="DIALOG_HEIGHT"/>
-		<item value="479" key="DIALOG_X_ORIGIN"/>
-		<item value="205" key="DIALOG_Y_ORIGIN"/>
+		<item value="0" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="pde-form-editor">
 		<item value="overview" key="org.eclipse.pde.ui.manifestEditor"/>
@@ -39,7 +41,42 @@
 	<section name="OptionalMessageDialog.hide.">
 		<item value="false" key="configure_problem_severity_dialog_id_compiler"/>
 	</section>
+	<section name="PluginExportWizard">
+		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/XtextPlugin" key="destination0"/>
+		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/XtextPlugin" key="destination1"/>
+		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse" key="destination2"/>
+		<item value="Generate source bundles" key="exportSourceFormat"/>
+		<item value="false" key="signJAR"/>
+		<item value="true" key="exportUpdate"/>
+		<item value="false" key="saveAsAnt"/>
+		<item value="false" key="exportSource"/>
+		<item value="true" key="allowBinaryCycles"/>
+		<item value="201803061611" key="qualifierName"/>
+		<item value="false" key="useWorkspaceCompiledClasses"/>
+		<item value="1" key="exportType"/>
+		<item value="false" key="qualifier"/>
+	</section>
 	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="FeatureExportWizard">
+		<item value="/home/danish/Desktop/Ritika" key="destination0"/>
+		<item value="/home/danish/Desktop/Ritika" key="destination1"/>
+		<item value="" key="siteURL"/>
+		<item value="true" key="create_categories"/>
+		<item value="Generate source bundles" key="exportSourceFormat"/>
+		<item value="false" key="signJAR"/>
+		<item value="true" key="exportUpdate"/>
+		<item value="false" key="saveAsAnt"/>
+		<item value="false" key="exportSource"/>
+		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/workspace_march/MasterThesis/org.xtext.Abs.repository/category.xml" key="category_file"/>
+		<item value="true" key="allowBinaryCycles"/>
+		<item value="201803111939" key="qualifierName"/>
+		<item value="false" key="useWorkspaceCompiledClasses"/>
+		<item value="1" key="exportType"/>
+		<item value="false" key="qualifier"/>
+		<item value="false" key="jnlp"/>
+		<item value="" key="jre"/>
+		<item value="true" key="p2metadata"/>
 	</section>
 	<section name="targetStateView">
 	</section>

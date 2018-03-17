@@ -3,3 +3,5 @@
 /.DeltaToFeature.java._trace
 /.AbsLabelProvider.xtendbin
 /AbsLabelProvider.java
+/.AbsDescriptionLabelProvider.xtendbin
+/AbsDescriptionLabelProvider.java

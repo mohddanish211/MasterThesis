@@ -3,12 +3,35 @@
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
 		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/workspace_march/MasterThesis"/>
 	</list>
+	<section name="CleanDialogSettings">
+		<item value="569" key="DIALOG_WIDTH"/>
+		<item value="true" key="TOGGLE_SELECTED"/>
+		<item value="413" key="DIALOG_HEIGHT"/>
+		<item value="434" key="DIALOG_X_ORIGIN"/>
+		<item value="135" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="ExternalProjectImportWizard">
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.pde.ui.NewLibraryPluginProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.pde.PDE"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="307" key="DIALOG_X_ORIGIN"/>
+		<item value="174" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
 	</section>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item value="false" key="FilterByLocation"/>
 		<item value="true" key="ShowStatusLine"/>
-		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/org.xtext.Abs.ui/src/org/xtext/ui/labeling/AbsLabelProvider.xtend&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/org.xtext.Abs.ui/src/org/xtext/ui/MyHyperLinkHelper.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/org.xtext.Abs.ui/src/org/xtext/ui/labeling/AbsLabelProvider.xtend&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/org.Abs.frontend/abs/frontend/parser/Main.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/org.xtext.Abs.ui/src/org/xtext/abs/ui/views/FeatureDeltaView.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/org.xtext.Abs/src/org/xtext/Abs.xtext&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/org.xtext.Abs.ui/src/org/xtext/ui/MyHyperLinkHelper.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/org.xtext.Abs.repository/category.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
 		<item value="false" key="ShowDerived"/>
 		<section name="DialogBoundsSettings">

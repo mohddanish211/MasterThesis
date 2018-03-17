@@ -390,7 +390,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     STRINGLITERAL | 'this' | INTLITERAL | 'null'
+	 *     INTLITERAL | STRINGLITERAL | 'null' | 'this'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
@@ -401,7 +401,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('('* QUALIFIED_TYPE_IDENTIFIER ')') | ('('* (STRINGLITERAL | 'this' | INTLITERAL | 'null'))
+	 *     ('('* QUALIFIED_TYPE_IDENTIFIER ')') | ('('* (INTLITERAL | STRINGLITERAL | 'null' | 'this'))
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
@@ -412,7 +412,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     STRINGLITERAL | 'this' | INTLITERAL | QUALIFIED_TYPE_IDENTIFIER | 'null'
+	 *     INTLITERAL | STRINGLITERAL | 'null' | 'this' | QUALIFIED_TYPE_IDENTIFIER
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) '('* (ambiguity) (rule start)
@@ -541,7 +541,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'adds' | 'modifies'
+	 *     'modifies' | 'adds'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) 'data' name=TYPE_IDENTIFIER
@@ -563,7 +563,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     MINUS | NEGATION
+	 *     NEGATION | MINUS
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
@@ -574,7 +574,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (TYPE_IDENTIFIER '.' IDENTIFIER) | IDENTIFIER | TYPE_IDENTIFIER
+	 *     (TYPE_IDENTIFIER '.' IDENTIFIER) | TYPE_IDENTIFIER | IDENTIFIER
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
@@ -587,8 +587,8 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Ambiguous syntax:
 	 *     (
 	  *         ('removes' 'interface' QUALIFIED_TYPE_IDENTIFIER ';') | 
-	  *         ('modifies' 'interface' QUALIFIED_TYPE_IDENTIFIER '{' '}') | 
-	  *         ('modifies' 'class' QUALIFIED_TYPE_IDENTIFIER '{' '}')
+	  *         ('modifies' 'class' QUALIFIED_TYPE_IDENTIFIER '{' '}') | 
+	  *         ('modifies' 'interface' QUALIFIED_TYPE_IDENTIFIER '{' '}')
 	  *     )
 	 *
 	 * This ambiguous syntax occurs at:
@@ -600,7 +600,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (QUALIFIED_TYPE_IDENTIFIER '(' ')') | IDENTIFIER | '_' | INTLITERAL | STRINGLITERAL
+	 *     (QUALIFIED_TYPE_IDENTIFIER '(' ')') | '_' | STRINGLITERAL | INTLITERAL | IDENTIFIER
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '=>' pure_exp=Pure_exp
@@ -651,8 +651,8 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'if' c=Pure_exp
 	 *     (rule start) (ambiguity) 'let' '(' type_use=Type_use
 	 *     (rule start) (ambiguity) ('this' '.')? name=IDENTIFIER
-	 *     (rule start) (ambiguity) (NEGATION_CREOL | NEGATION | MINUS) pure_exp=Primary_expr
-	 *     (rule start) (ambiguity) (STRINGLITERAL | 'this' | INTLITERAL | QUALIFIED_TYPE_IDENTIFIER | 'null') (rule start)
+	 *     (rule start) (ambiguity) (INTLITERAL | STRINGLITERAL | 'null' | 'this' | QUALIFIED_TYPE_IDENTIFIER) (rule start)
+	 *     (rule start) (ambiguity) (NEGATION | NEGATION_CREOL | MINUS) pure_exp=Primary_expr
 	 *     (rule start) (ambiguity) QUALIFIED_IDENTIFIER '(' ')' '(' partial_function_pure_exp_list=Pure_exp_list
 	 *     (rule start) (ambiguity) QUALIFIED_IDENTIFIER '(' function_param+=Function_param
 	 *     (rule start) (ambiguity) QUALIFIED_IDENTIFIER '(' pure_exp_list=Pure_exp_list
@@ -695,7 +695,7 @@ public class AbsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     NEGATION_CREOL | NEGATION | MINUS
+	 *     NEGATION | NEGATION_CREOL | MINUS
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) '('* (ambiguity) pure_exp=Primary_expr

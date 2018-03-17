@@ -118,13 +118,20 @@ public class AbsLabelProvider extends DefaultEObjectLabelProvider implements Del
       this.getClass().getResource("/icons/abs_product.gif")).createImage();
   }
   
-  public Image image(final Feature_decl ele) {
-    return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/maude_hats.gif")).createImage();
-  }
-  
+  /**
+   * def image(Feature_decl ele) {
+   * 
+   * ImageDescriptor.createFromURL(
+   * getClass().getResource("/icons/maude_hats.gif")).createImage();
+   * }
+   */
   public String text(final Delta_clauseImpl ele) {
     return ele.getDeltaspec().getName();
+  }
+  
+  public Image image(final Delta_clauseImpl ele) {
+    return ImageDescriptor.createFromURL(
+      this.getClass().getResource("/icons/abs_delta.gif")).createImage();
   }
   
   public String text(final Application_conditionImpl ele) {

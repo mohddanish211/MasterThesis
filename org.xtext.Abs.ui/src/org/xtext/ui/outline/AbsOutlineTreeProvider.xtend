@@ -16,7 +16,29 @@ import org.xtext.abs.impl.AppAnd_expImpl
 import org.xtext.abs.Delta_clause
 import org.xtext.abs.impl.NotExpressionImpl
 import org.xtext.abs.impl.Application_conditionImpl
-
+import org.xtext.abs.Delta_decl
+import org.xtext.abs.impl.OO_modifierImpl
+import org.xtext.abs.impl.Type_useImpl
+import org.xtext.abs.impl.Field_declImpl
+import org.xtext.abs.impl.Feature_decl_attributeImpl
+import org.xtext.abs.DataType_decl
+import org.xtext.abs.Interface_decl
+import org.xtext.abs.impl.Type_expImpl
+import org.xtext.abs.impl.Param_listImpl
+import org.xtext.abs.impl.Param_declImpl
+import org.xtext.abs.Methodsig
+import org.xtext.abs.Class_decl
+import org.xtext.abs.impl.Pure_expImpl
+import org.xtext.abs.impl.StmtImpl
+import org.xtext.abs.impl.Eff_exprImpl
+import org.xtext.abs.impl.Var_or_field_refImpl
+import org.xtext.abs.impl.Pure_exp_listImpl
+import org.xtext.abs.impl.GuardImpl
+import org.xtext.abs.impl.MethodImpl
+import org.xtext.abs.Stmt
+import org.xtext.abs.Main_block
+import org.xtext.abs.Module_decl
+import org.xtext.abs.impl.Main_blockImpl
 
 /**
  * Customization of the default outline structure.
@@ -25,8 +47,10 @@ import org.xtext.abs.impl.Application_conditionImpl
  */
 class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	def protected _createChildren(IOutlineNode parentNode, Feature_decl featureDecl) {
+		//println("Outline tree is working without unnamed");
         for(EObject eObject: featureDecl.eAllContents.toIterable){
-        	if(eObject instanceof Feature_decl_groupImpl){
+        	//println(eObject);
+        	if((eObject instanceof Feature_decl_groupImpl)||(eObject instanceof Feature_decl_attributeImpl)){
         		
         	}else{
         		createNode(parentNode,eObject);
@@ -38,7 +62,10 @@ class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
     
     def protected _createChildren(IOutlineNode parentNode, Productline_decl productlineDecl) {
         for(EObject eObject: productlineDecl.eAllContents.toIterable){
-        	if((eObject instanceof Application_conditionImpl)||(eObject instanceof NotExpressionImpl)||(eObject instanceof AppOr_expImpl)||(eObject instanceof AppAnd_expImpl)|| (eObject instanceof When_conditionImpl)||(eObject instanceof After_conditionImpl)){
+        	if((eObject instanceof Application_conditionImpl)||(eObject instanceof NotExpressionImpl)||
+        	(eObject instanceof AppOr_expImpl)||
+        	(eObject instanceof AppAnd_expImpl)|| 
+        	(eObject instanceof When_conditionImpl)||(eObject instanceof After_conditionImpl)){
         		
         	}else{
         		createNode(parentNode,eObject);
@@ -47,18 +74,98 @@ class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
     }
     
     def protected _createChildren(IOutlineNode parentNode, Delta_clause deltaClause) {
-    	println("t555555555555555555555555555");
         for(EObject eObject: deltaClause.eAllContents.toIterable){
-        	println(eObject);
-        	if((eObject instanceof NotExpressionImpl)||(eObject instanceof AppOr_expImpl)||(eObject instanceof AppAnd_expImpl)|| (eObject instanceof When_conditionImpl)||(eObject instanceof After_conditionImpl)){
+        	if((eObject instanceof NotExpressionImpl)||(eObject instanceof AppOr_expImpl)||
+        		(eObject instanceof AppAnd_expImpl)|| 
+        		(eObject instanceof When_conditionImpl)||(eObject instanceof After_conditionImpl)){
         		
         	}else{
         		createNode(parentNode,eObject);
         	}
         }
-        println("555555555555555555555555555555555555555555");
     }
-
+    
+     def protected _createChildren(IOutlineNode parentNode, Delta_decl deltaClause) {
+        for(EObject eObject: deltaClause.eAllContents.toIterable){
+        	//println(eObject);
+        	if((eObject instanceof OO_modifierImpl)||(eObject instanceof Type_useImpl )
+        	||(eObject instanceof Field_declImpl )){
+        		
+        	}else{
+        		createNode(parentNode,eObject);
+        	}
+        }
+        	
+    	//println("Outline tree is working without unnamed");
+    }
 	
+	
+	def protected _createChildren(IOutlineNode parentNode, DataType_decl dataTypeDecl) {
+		//println("Outline tree is working without unnamed");
+        for(EObject eObject: dataTypeDecl.eAllContents.toIterable){
+        	//println(eObject);
+        	if(eObject instanceof Type_useImpl){//||(eObject instanceof Data_constructorImpl)){
+        		
+        	}else{
+        		createNode(parentNode, eObject);
+        	}
+        }
+        	
+    	//println("Outline tree is working without unnamed");
+    }
+	
+	
+	def protected _createChildren(IOutlineNode parentNode, Interface_decl interfaceDecl) {
+		//println("Outline tree is working without unnamed");
+        for(EObject eObject: interfaceDecl.eAllContents.toIterable){
+        	//println(eObject);
+        	if((eObject instanceof Type_expImpl)||(eObject instanceof Param_declImpl)||
+        		(eObject instanceof Param_listImpl)||(eObject instanceof Type_useImpl)
+        	){
+        		
+        	}else{
+        		createNode(parentNode, eObject);
+        	}
+        	
+        }
+        	
+    	//println("Outline tree is working without unnamed");
+    }
+    
+    def protected _createChildren(IOutlineNode parentNode, Methodsig methodSig) {
+		//println("Outline tree is working without unnamed");
+        for(EObject eObject: methodSig.eAllContents.toIterable){
+        	//println(eObject);
+        	if((eObject instanceof Type_expImpl)||(eObject instanceof Param_declImpl)||
+        		(eObject instanceof Param_listImpl)||(eObject instanceof Type_useImpl)
+        	){
+        		
+        	}else{
+        		createNode(parentNode, eObject);
+        	}
+        	
+        }
+        	
+    	//println("Outline tree is working without unnamed");
+    }
+    
+    def protected _createChildren(IOutlineNode parentNode, Class_decl classDecl) {
+		//println("Outline tree is working without unnamed");
+        for(EObject eObject: classDecl.eAllContents.toIterable){
+        	//println(eObject);
+        	if((eObject instanceof Var_or_field_refImpl)||(eObject instanceof Param_listImpl)||
+        		(eObject instanceof Type_expImpl)||(eObject instanceof Type_useImpl)||
+        		(eObject instanceof Pure_expImpl)||(eObject instanceof StmtImpl)||
+        		(eObject instanceof Eff_exprImpl)||(eObject instanceof Param_declImpl)||
+        		(eObject instanceof Pure_exp_listImpl)||(eObject instanceof GuardImpl)||
+        		(eObject instanceof MethodImpl)){
+        		
+        	}else{
+        		createNode(parentNode, eObject);
+        	}
+        	
+        	}
+        }
+    
 
 }

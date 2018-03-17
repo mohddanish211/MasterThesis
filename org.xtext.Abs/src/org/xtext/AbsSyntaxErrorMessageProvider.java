@@ -14,7 +14,7 @@ public class AbsSyntaxErrorMessageProvider extends SyntaxErrorMessageProvider{
 			System.out.println("Running syntax eroor");
 	        MismatchedTokenException exception = (MismatchedTokenException) context.getRecognitionException();
 	        String value = exception.token.getText();
-	        return new SyntaxErrorMessage("The type of " + value + " is wrong.", AbsIssueCodes.FALSE_PARAMETER_TYPE);
+	        return new SyntaxErrorMessage("Declaration of " + value + " starts with capital letter.", AbsIssueCodes.FALSE_PARAMETER_TYPE);
 	    }
 	    return null;
 	}

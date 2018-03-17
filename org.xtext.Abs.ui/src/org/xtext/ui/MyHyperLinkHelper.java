@@ -94,31 +94,33 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 		}
 
 		if(eObject instanceof Feature_decl) {
-			
+
 			try {
 				FeatureDeltaView viewer = (FeatureDeltaView)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.xtext.abs.ui.views.FeatureDeltaView");
 				ArrayList<Object> elements= generator.computeFeatureToDelta((Feature_decl)eObject);
 				viewer.removeOldContent();
-				for( Object deltaDecl: elements) {
-					Delta_declImpl delta_declImpl =((Delta_declImpl)deltaDecl);
-					
-					String deltaName = delta_declImpl.getName().replaceAll(" ","").replaceAll("\n","");
-					if (resource == null)
-						return;
-					XtextResource featureResource = ((XtextResource)delta_declImpl.eResource());
-					INode root = featureResource.getParseResult().getRootNode();
-					BidiTreeIterator<INode> it = root.getAsTreeIterable().iterator();
-					Map<INode,XtextResource> nodeAndResourceMap = new HashMap<>();
-					while(it.hasNext())
-					{
-						INode node = it.next();
-						String nodeName= node.getText();
-						if (((nodeName).equals(deltaName)) && (node.getGrammarElement() instanceof RuleCallImpl)) {
-							nodeAndResourceMap.put(node, featureResource);
-							viewer.updateContent(nodeAndResourceMap);	
-						}
-					}
+				if(elements != null) {
+					for( Object deltaDecl: elements) {
+						Delta_declImpl delta_declImpl =((Delta_declImpl)deltaDecl);
 
+						String deltaName = delta_declImpl.getName().replaceAll(" ","").replaceAll("\n","");
+						if (resource == null)
+							return;
+						XtextResource featureResource = ((XtextResource)delta_declImpl.eResource());
+						INode root = featureResource.getParseResult().getRootNode();
+						BidiTreeIterator<INode> it = root.getAsTreeIterable().iterator();
+						Map<INode,XtextResource> nodeAndResourceMap = new HashMap<>();
+						while(it.hasNext())
+						{
+							INode node = it.next();
+							String nodeName= node.getText();
+							if (((nodeName).equals(deltaName)) && (node.getGrammarElement() instanceof RuleCallImpl)) {
+								nodeAndResourceMap.put(node, featureResource);
+								viewer.updateContent(nodeAndResourceMap);	
+							}
+						}
+
+					}
 				}
 
 			} catch (PartInitException e) {

@@ -15,15 +15,37 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtend.lib;bundle-version="2.13.0",
  org.antlr.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: org.xtext.generator,
- org.xtext.validation,
- org.xtext.abs.util,
- org.xtext.serializer,
- org.xtext.services,
+Export-Package: org.xtext,
+ org.xtext.abs;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
+ org.xtext.abs.impl;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.ecore.impl,
+   org.eclipse.emf.common.util,
+   org.eclipse.emf.common.notify,
+   org.xtext.abs",
+ org.xtext.abs.util;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.common.notify,
+   org.eclipse.emf.common.notify.impl,
+   org.eclipse.emf.ecore.util,
+   org.xtext.abs",
+ org.xtext.generator;uses:="org.eclipse.xtext.generator,org.eclipse.emf.ecore.resource,org.xtext.abs",
+ org.xtext.parser.antlr;uses:="org.xtext.parser.antlr.internal,org.eclipse.xtext.parser.antlr,org.xtext.services",
+ org.xtext.parser.antlr.internal;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.xtext.parser.antlr,
+   org.xtext.services,
+   org.antlr.runtime",
  org.xtext.scoping,
- org.xtext.abs,
- org.xtext.abs.impl,
- org.xtext,
- org.xtext.parser.antlr.internal,
- org.xtext.parser.antlr
+ org.xtext.serializer;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.xtext.nodemodel,
+   org.eclipse.xtext.serializer.analysis,
+   org.xtext.services,
+   org.eclipse.xtext.serializer.sequencer,
+   org.xtext.abs,
+   org.eclipse.xtext,
+   org.eclipse.xtext.serializer",
+ org.xtext.services;uses:="org.eclipse.xtext.service,org.eclipse.xtext",
+ org.xtext.validation;uses:="org.xtext.abs"
 Import-Package: org.apache.log4j

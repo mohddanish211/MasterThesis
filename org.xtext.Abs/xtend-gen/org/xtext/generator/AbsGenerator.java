@@ -4,24 +4,30 @@
 package org.xtext.generator;
 
 import com.google.common.collect.Iterables;
+import com.google.inject.Inject;
 import java.util.ArrayList;
+import java.util.List;
+import myPack.CustomReferenceFinder;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.findReferences.IReferenceFinder;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.resource.IReferenceDescription;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.abs.AppAnd_exp;
 import org.xtext.abs.AppOr_exp;
 import org.xtext.abs.Application_condition;
 import org.xtext.abs.Delta_clause;
 import org.xtext.abs.Delta_decl;
 import org.xtext.abs.Feature_decl;
-import org.xtext.abs.Productline_decl;
+import org.xtext.abs.When_condition;
+import org.xtext.abs.impl.Compilation_UnitImpl;
+import org.xtext.abs.impl.Delta_clauseImpl;
 
 /**
  * Generates code from your model files on save.
@@ -30,6 +36,12 @@ import org.xtext.abs.Productline_decl;
  */
 @SuppressWarnings("all")
 public class AbsGenerator extends AbstractGenerator {
+  @Inject
+  private IReferenceFinder referenceFinder;
+  
+  @Inject
+  private CustomReferenceFinder customReferenceFinder;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
   }
@@ -59,25 +71,67 @@ public class AbsGenerator extends AbstractGenerator {
    */
   public ArrayList<Object> computeDeltaToFeature(final Delta_decl deltaDecl) {
     ArrayList<Object> featureDeclList = new ArrayList<Object>();
-    Iterable<Productline_decl> _filter = Iterables.<Productline_decl>filter(IteratorExtensions.<EObject>toIterable(deltaDecl.eContainer().eAllContents()), Productline_decl.class);
-    for (final EObject productDeclEObject : _filter) {
+    InputOutput.<String>println("_____________________________________________");
+    List<IReferenceDescription> _findReferencesTo = this.customReferenceFinder.findReferencesTo(deltaDecl);
+    for (final IReferenceDescription r : _findReferencesTo) {
       {
-        InputOutput.<String>println("------xx Delta TO Feature xx-----");
-        Iterable<Delta_clause> _filter_1 = Iterables.<Delta_clause>filter(IteratorExtensions.<EObject>toIterable(productDeclEObject.eAllContents()), Delta_clause.class);
-        for (final Delta_clause delta_clause : _filter_1) {
-          try {
-            boolean _equals = delta_clause.getDeltaspec().getName().equals(deltaDecl.getName());
-            if (_equals) {
-              Application_condition _application_condition = delta_clause.getWhen_condition().getApplication_condition();
-              boolean _tripleNotEquals = (_application_condition != null);
-              if (_tripleNotEquals) {
-                this.resolveApplicationConditionForD2F(delta_clause.getWhen_condition().getApplication_condition(), featureDeclList);
+        final URI sourcePlatformUri = r.getSourceEObjectUri();
+        final EObject productlineDecl = this.customReferenceFinder.customResourceFinder(sourcePlatformUri, deltaDecl);
+        InputOutput.<String>println("Productline decl..........");
+        InputOutput.<EList<EObject>>println(productlineDecl.eContents());
+        Iterable<Delta_clauseImpl> _filter = Iterables.<Delta_clauseImpl>filter(productlineDecl.eContents(), Delta_clauseImpl.class);
+        for (final EObject delta_clause : _filter) {
+          {
+            final Delta_clauseImpl clause = ((Delta_clauseImpl) delta_clause);
+            InputOutput.<When_condition>println(clause.getWhen_condition());
+            try {
+              boolean _equals = clause.getDeltaspec().getName().equals(deltaDecl.getName());
+              if (_equals) {
+                Application_condition _application_condition = clause.getWhen_condition().getApplication_condition();
+                boolean _tripleNotEquals = (_application_condition != null);
+                if (_tripleNotEquals) {
+                  this.resolveApplicationConditionForD2F(clause.getWhen_condition().getApplication_condition(), featureDeclList);
+                }
+                String _name = clause.getDeltaspec().getName();
+                String _plus = (_name + "----->");
+                String _plus_1 = (_plus + featureDeclList);
+                InputOutput.<String>println(_plus_1);
+                return featureDeclList;
               }
-              String _name = delta_clause.getDeltaspec().getName();
-              String _plus = (_name + "----->");
-              String _plus_1 = (_plus + featureDeclList);
-              InputOutput.<String>println(_plus_1);
-              return featureDeclList;
+            } catch (final Throwable _t) {
+              if (_t instanceof Exception) {
+                final Exception err = (Exception)_t;
+                InputOutput.<String>println(err.toString());
+              } else {
+                throw Exceptions.sneakyThrow(_t);
+              }
+            }
+          }
+        }
+      }
+    }
+    InputOutput.<String>println("_____________________________________________");
+    return featureDeclList;
+  }
+  
+  public ArrayList<Object> computeFeatureToDelta(final Feature_decl feature_decl) {
+    final ArrayList<Object> deltaDeclList = new ArrayList<Object>();
+    List<IReferenceDescription> _findReferencesTo = this.customReferenceFinder.findReferencesTo(feature_decl);
+    for (final IReferenceDescription r : _findReferencesTo) {
+      {
+        final URI sourcePlatformUri = r.getSourceEObjectUri();
+        EObject _customResourceFinder = this.customReferenceFinder.customResourceFinder(sourcePlatformUri, feature_decl);
+        final Compilation_UnitImpl compilationUnit = ((Compilation_UnitImpl) _customResourceFinder);
+        InputOutput.<String>println("------++++++++++++++++++++++++++++++++++++++++_------------");
+        InputOutput.println();
+        InputOutput.println();
+        EList<Delta_clause> _delta_clause = compilationUnit.getProductline_decl().getDelta_clause();
+        for (final Delta_clause clause : _delta_clause) {
+          try {
+            Application_condition _application_condition = clause.getWhen_condition().getApplication_condition();
+            boolean _tripleNotEquals = (_application_condition != null);
+            if (_tripleNotEquals) {
+              this.resolveApplicationConditionForF2D(clause.getWhen_condition().getApplication_condition(), feature_decl, deltaDeclList, clause);
             }
           } catch (final Throwable _t) {
             if (_t instanceof Exception) {
@@ -88,35 +142,10 @@ public class AbsGenerator extends AbstractGenerator {
             }
           }
         }
+        return deltaDeclList;
       }
     }
     return null;
-  }
-  
-  public ArrayList<Object> computeFeatureToDelta(final Feature_decl feature_decl) {
-    ArrayList<Object> deltaDeclList = new ArrayList<Object>();
-    Iterable<Productline_decl> _filter = Iterables.<Productline_decl>filter(IteratorExtensions.<EObject>toIterable(EcoreUtil.getRootContainer(feature_decl).eAllContents()), Productline_decl.class);
-    for (final EObject productDeclEObject : _filter) {
-      Iterable<Delta_clause> _filter_1 = Iterables.<Delta_clause>filter(IteratorExtensions.<EObject>toIterable(productDeclEObject.eAllContents()), Delta_clause.class);
-      for (final Delta_clause delta_clause : _filter_1) {
-        try {
-          Application_condition _application_condition = delta_clause.getWhen_condition().getApplication_condition();
-          boolean _tripleNotEquals = (_application_condition != null);
-          if (_tripleNotEquals) {
-            this.resolveApplicationConditionForF2D(delta_clause.getWhen_condition().getApplication_condition(), feature_decl, deltaDeclList, delta_clause);
-          }
-        } catch (final Throwable _t) {
-          if (_t instanceof Exception) {
-            final Exception err = (Exception)_t;
-            InputOutput.<String>println(err.toString());
-          } else {
-            throw Exceptions.sneakyThrow(_t);
-          }
-        }
-      }
-    }
-    InputOutput.<ArrayList<Object>>println(deltaDeclList);
-    return deltaDeclList;
   }
   
   public Object resolveApplicationConditionForF2D(final Application_condition app_cond, final Feature_decl featureDecl, final ArrayList<Object> deltaDeclList, final Delta_clause deltaClause) {

@@ -135,22 +135,27 @@ class AbsLabelProvider extends DefaultEObjectLabelProvider implements IStyledLab
 		getClass().getResource("/icons/abs_product.gif")).createImage();
 	}
 	
-	def image(Feature_decl ele) {
+	/*def image(Feature_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
 		getClass().getResource("/icons/maude_hats.gif")).createImage();
-	}
+	}*/
 	
 	def text(Delta_clauseImpl ele) {
 		ele.deltaspec.name;
 	}
 
+	def image(Delta_clauseImpl ele) {
+		
+	ImageDescriptor.createFromURL( 
+		getClass().getResource("/icons/abs_delta.gif")).createImage();
+	}
+	
    def text(Application_conditionImpl ele) {
 		for(Feature_decl f : ele.feature){
 			return f.name
 		}
 	}
-	
 	
 	
 
