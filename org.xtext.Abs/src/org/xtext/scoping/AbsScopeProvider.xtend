@@ -3,7 +3,9 @@
  */
 package org.xtext.scoping
 
-
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
 
 /**
  * This class contains custom scoping description.

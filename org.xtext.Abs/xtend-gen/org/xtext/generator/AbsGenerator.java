@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtext.findReferences.IReferenceFinder;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
@@ -37,13 +36,13 @@ import org.xtext.abs.impl.Delta_clauseImpl;
 @SuppressWarnings("all")
 public class AbsGenerator extends AbstractGenerator {
   @Inject
-  private IReferenceFinder referenceFinder;
-  
-  @Inject
   private CustomReferenceFinder customReferenceFinder;
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+  }
+  
+  public void compile() {
   }
   
   /**
@@ -87,6 +86,7 @@ public class AbsGenerator extends AbstractGenerator {
             try {
               boolean _equals = clause.getDeltaspec().getName().equals(deltaDecl.getName());
               if (_equals) {
+                featureDeclList.clear();
                 Application_condition _application_condition = clause.getWhen_condition().getApplication_condition();
                 boolean _tripleNotEquals = (_application_condition != null);
                 if (_tripleNotEquals) {
@@ -94,7 +94,8 @@ public class AbsGenerator extends AbstractGenerator {
                 }
                 String _name = clause.getDeltaspec().getName();
                 String _plus = (_name + "----->");
-                String _plus_1 = (_plus + featureDeclList);
+                int _size = featureDeclList.size();
+                String _plus_1 = (_plus + Integer.valueOf(_size));
                 InputOutput.<String>println(_plus_1);
                 return featureDeclList;
               }

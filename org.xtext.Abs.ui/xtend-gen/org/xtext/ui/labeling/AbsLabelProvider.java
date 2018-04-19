@@ -50,79 +50,79 @@ public class AbsLabelProvider extends DefaultEObjectLabelProvider implements Del
   
   public Image image(final Interface_decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_interface.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_interface.gif")).createImage();
   }
   
   public Image image(final Delta_decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_delta.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_delta.gif")).createImage();
   }
   
   public Image image(final Module_decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_module.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_module.gif")).createImage();
   }
   
   public Image image(final Module_export ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_export.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_export.gif")).createImage();
   }
   
   public Image image(final Module_import ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_import.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_import.gif")).createImage();
   }
   
   public Image image(final Decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_module.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_module.gif")).createImage();
   }
   
   public Image image(final Function_decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_function.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_function.gif")).createImage();
   }
   
   public Image image(final DataType_decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_datatype.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_datatype.gif")).createImage();
   }
   
   public Image image(final Data_constructor ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_constructor.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_constructor.gif")).createImage();
   }
   
   public Image image(final Method ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_method.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_method.gif")).createImage();
   }
   
   public Image image(final Class_decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_class.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_class.gif")).createImage();
   }
   
   public Image image(final Field_decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_field.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_field.gif")).createImage();
   }
   
   public Image image(final Productline_decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_productline.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_productline.gif")).createImage();
   }
   
   public Image image(final Product_decl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_product.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_product.gif")).createImage();
   }
   
   /**
    * def image(Feature_decl ele) {
    * 
    * ImageDescriptor.createFromURL(
-   * getClass().getResource("/icons/maude_hats.gif")).createImage();
+   * getClass().getResource("/resources/icons/maude_hats.gif")).createImage();
    * }
    */
   public String text(final Delta_clauseImpl ele) {
@@ -131,7 +131,7 @@ public class AbsLabelProvider extends DefaultEObjectLabelProvider implements Del
   
   public Image image(final Delta_clauseImpl ele) {
     return ImageDescriptor.createFromURL(
-      this.getClass().getResource("/icons/abs_delta.gif")).createImage();
+      this.getClass().getResource("/resources/icons/abs_delta.gif")).createImage();
   }
   
   public String text(final Application_conditionImpl ele) {

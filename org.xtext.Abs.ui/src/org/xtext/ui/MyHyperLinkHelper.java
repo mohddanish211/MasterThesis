@@ -53,13 +53,13 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 
 		EObjectAtOffsetHelper eObjectAtOffsetHelper = new EObjectAtOffsetHelper();
 		EObject eObject = eObjectAtOffsetHelper.resolveElementAt(resource, offset);
-		MessageConsole myConsole = findConsole("myConsole");
-		MessageConsoleStream out = myConsole.newMessageStream();
-
+		
 		if(eObject instanceof Delta_decl) {
 			try {
+				
+				//PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.xtext.abs.plugin.console.MsgConsole");
 				FeatureDeltaView viewer = (FeatureDeltaView)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.xtext.abs.ui.views.FeatureDeltaView");
-				out.print(viewer.getTitle());
+				//out.print(viewer.getTitle());
 				ArrayList<Object> elements= generator.computeDeltaToFeature((Delta_decl)eObject);
 				viewer.removeOldContent();
 				for( Object feature: elements) {
@@ -78,8 +78,11 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 						INode node = it.next();
 						String nodeName= node.getText();
 						if (((nodeName).equals(featureName)) && (node.getGrammarElement() instanceof RuleCallImpl)) {
-							nodeAndResourceMap.put(node, featureResource);
-							viewer.updateContent(nodeAndResourceMap);	
+							if(nodeAndResourceMap.get(node)==null) {
+								nodeAndResourceMap.put(node, featureResource);
+								viewer.updateContent(nodeAndResourceMap);	
+							}
+							
 						}
 					}
 
@@ -88,7 +91,7 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 			} catch (PartInitException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				out.print("Error no view found");
+				//out.print("Error no view found");
 			}
 
 		}
@@ -126,7 +129,7 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 			} catch (PartInitException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				out.print("Error no view found");
+				//out.print("Error no view found");
 			}
 
 
@@ -134,21 +137,6 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 
 
 	}
-
-
-	public MessageConsole findConsole(String name) {
-		ConsolePlugin plugin = ConsolePlugin.getDefault();
-		IConsoleManager conMan = plugin.getConsoleManager();
-		IConsole[] existing = conMan.getConsoles();
-		for (int i = 0; i < existing.length; i++)
-			if (name.equals(existing[i].getName()))
-				return (MessageConsole) existing[i];
-		//no console found, so create a new one
-		MessageConsole myConsole = new MessageConsole(name, null);
-		conMan.addConsoles(new IConsole[]{myConsole});
-		return myConsole;
-	}
-
 
 
 }

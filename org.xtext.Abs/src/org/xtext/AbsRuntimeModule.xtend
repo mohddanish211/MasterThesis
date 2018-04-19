@@ -3,19 +3,31 @@
  */
 package org.xtext
 
-import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import com.google.inject.Binder
+import org.eclipse.xtext.scoping.IScopeProvider
+import com.google.inject.name.Names
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import org.eclipse.xtext.scoping.impl.DefaultGlobalScopeProvider
+import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
+import myPack.CustomNamespace
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class AbsRuntimeModule extends AbstractAbsRuntimeModule {
 	
-		def Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
-		return AbsSyntaxErrorMessageProvider;
-		}
-		
 		override public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
 		return MyQualifiedNameProvider;
-	}
+		}
+		
+		override bindIGlobalScopeProvider() { 
+		DefaultGlobalScopeProvider
+	   }
+	
+
+	   override configureIScopeProviderDelegate(Binder binder) {
+       binder.bind(IScopeProvider).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(CustomNamespace);
+       }
+	
 }

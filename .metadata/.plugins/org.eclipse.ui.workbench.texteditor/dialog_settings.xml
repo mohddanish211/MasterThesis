@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Productline" key="selection"/>
+		<item value="org.xtext.Abs.ui.frontendActionSet" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="productline"/>
-			<item value="Param_list"/>
-			<item value="Param_listImpl"/>
-			<item value="data"/>
-			<item value="delta_clause"/>
-			<item value="::"/>
-			<item value="Application_condition"/>
-			<item value="features"/>
-			<item value="feature_decl"/>
-			<item value="feature"/>
-			<item value="bindISyntaxErrorMessageProvider"/>
-			<item value="call"/>
-			<item value="add"/>
-			<item value="DEtect"/>
-			<item value="labelProvider"/>
+			<item value="org.xtext.Abs.ui.frontendActionSet"/>
+			<item value="actionset"/>
+			<item value="MsgConsole"/>
+			<item value="newConsole"/>
+			<item value="VIEW_VISIBLE"/>
+			<item value="viewVisible"/>
+			<item value="perspective"/>
+			<item value="org.eclipse.ui.bindings"/>
+			<item value="org.eclipse.ui.console.ConsoleView"/>
+			<item value="project"/>
+			<item value="I am from perspective!!!!!"/>
+			<item value="I am Running!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"/>
+			<item value="action"/>
+			<item value="perspectiveextension"/>
+			<item value="extension"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -31,7 +31,7 @@
 		<item value="346" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="430" key="DIALOG_HEIGHT"/>
-		<item value="955" key="DIALOG_X_ORIGIN"/>
-		<item value="284" key="DIALOG_Y_ORIGIN"/>
+		<item value="48" key="DIALOG_X_ORIGIN"/>
+		<item value="189" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

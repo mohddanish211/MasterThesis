@@ -47,98 +47,97 @@ class AbsLabelProvider extends DefaultEObjectLabelProvider implements IStyledLab
 	
 	def text(Feature_decl ele) {
 		return ele.name
-		//return generator.compile(ele);
 	}		
 	
 	//
 	def image(Interface_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_interface.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_interface.gif")).createImage();
 	}
 	
 	def image(Delta_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_delta.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_delta.gif")).createImage();
 	}
 	
 	def image(Module_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_module.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_module.gif")).createImage();
 	}
 	
 	def image(Module_export ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_export.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_export.gif")).createImage();
 	}
 	
 	def image(Module_import ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_import.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_import.gif")).createImage();
 	}
 	
 	def image(Decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_module.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_module.gif")).createImage();
 	}
 	
 	def image(Function_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_function.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_function.gif")).createImage();
 	}
 	
 	def image(DataType_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_datatype.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_datatype.gif")).createImage();
 	}
 	
 	def image(Data_constructor ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_constructor.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_constructor.gif")).createImage();
 	}
 	
 	def image(Method ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_method.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_method.gif")).createImage();
 	}
 	
 	def image(Class_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_class.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_class.gif")).createImage();
 	}
 	
 	def image(Field_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_field.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_field.gif")).createImage();
 	}
 	
 	def image(Productline_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_productline.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_productline.gif")).createImage();
 	}
 	
 	def image(Product_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_product.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_product.gif")).createImage();
 	}
 	
 	/*def image(Feature_decl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/maude_hats.gif")).createImage();
+		getClass().getResource("/resources/icons/maude_hats.gif")).createImage();
 	}*/
 	
 	def text(Delta_clauseImpl ele) {
@@ -148,7 +147,7 @@ class AbsLabelProvider extends DefaultEObjectLabelProvider implements IStyledLab
 	def image(Delta_clauseImpl ele) {
 		
 	ImageDescriptor.createFromURL( 
-		getClass().getResource("/icons/abs_delta.gif")).createImage();
+		getClass().getResource("/resources/icons/abs_delta.gif")).createImage();
 	}
 	
    def text(Application_conditionImpl ele) {

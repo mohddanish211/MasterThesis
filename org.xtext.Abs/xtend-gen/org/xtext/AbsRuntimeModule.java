@@ -3,9 +3,14 @@
  */
 package org.xtext;
 
+import com.google.inject.Binder;
+import com.google.inject.name.Names;
+import myPack.CustomNamespace;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
-import org.xtext.AbsSyntaxErrorMessageProvider;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.IScopeProvider;
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 import org.xtext.AbstractAbsRuntimeModule;
 import org.xtext.MyQualifiedNameProvider;
 
@@ -14,12 +19,18 @@ import org.xtext.MyQualifiedNameProvider;
  */
 @SuppressWarnings("all")
 public class AbsRuntimeModule extends AbstractAbsRuntimeModule {
-  public Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
-    return AbsSyntaxErrorMessageProvider.class;
-  }
-  
   @Override
   public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
     return MyQualifiedNameProvider.class;
+  }
+  
+  @Override
+  public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+    return ImportUriGlobalScopeProvider.class;
+  }
+  
+  @Override
+  public void configureIScopeProviderDelegate(final Binder binder) {
+    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(CustomNamespace.class);
   }
 }

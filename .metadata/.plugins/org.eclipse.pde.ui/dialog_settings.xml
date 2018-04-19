@@ -24,29 +24,41 @@
 		<item value="0" key="DIALOG_X_ORIGIN"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
-	<section name="pde-form-editor">
-		<item value="overview" key="org.eclipse.pde.ui.manifestEditor"/>
+	<section name="JavaAttributeWizard">
+		<section name="NewClassWizardPage">
+			<item value="false" key="create_constructor"/>
+			<item value="true" key="create_unimplemented"/>
+		</section>
 	</section>
 	<section name="org.eclipse.pde.ui.dialogs.PluginSelectionDialog">
 		<item value="true" key="ShowStatusLine"/>
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History/&gt;" key="History"/>
 		<section name="DialogBoundsSettings">
-			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="1301" key="DIALOG_WIDTH"/>
 			<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-			<item value="500" key="DIALOG_HEIGHT"/>
-			<item value="353" key="DIALOG_X_ORIGIN"/>
-			<item value="53" key="DIALOG_Y_ORIGIN"/>
+			<item value="744" key="DIALOG_HEIGHT"/>
+			<item value="0" key="DIALOG_X_ORIGIN"/>
+			<item value="0" key="DIALOG_Y_ORIGIN"/>
 		</section>
 	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="false" key="configure_problem_severity_dialog_id_compiler"/>
 	</section>
+	<section name="targetStateView">
+	</section>
+	<section name="pluginsView">
+	</section>
+	<section name="pde-form-editor">
+		<item value="plugin-context" key="org.eclipse.pde.ui.manifestEditor"/>
+	</section>
 	<section name="PluginExportWizard">
-		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/XtextPlugin" key="destination0"/>
-		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/XtextPlugin" key="destination1"/>
-		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse" key="destination2"/>
+		<item value="/home/danish/Desktop/ABSTestPlugin/Plugin_1" key="destination0"/>
+		<item value="/home/danish/Desktop/ABSTestPlugin/Plugin_1" key="destination1"/>
+		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse" key="destination4"/>
+		<item value="/home/danish/Desktop/ABSTestPlugin" key="destination2"/>
 		<item value="Generate source bundles" key="exportSourceFormat"/>
 		<item value="false" key="signJAR"/>
+		<item value="/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/XtextPlugin" key="destination3"/>
 		<item value="true" key="exportUpdate"/>
 		<item value="false" key="saveAsAnt"/>
 		<item value="false" key="exportSource"/>
@@ -77,9 +89,5 @@
 		<item value="false" key="jnlp"/>
 		<item value="" key="jre"/>
 		<item value="true" key="p2metadata"/>
-	</section>
-	<section name="targetStateView">
-	</section>
-	<section name="pluginsView">
 	</section>
 </section>

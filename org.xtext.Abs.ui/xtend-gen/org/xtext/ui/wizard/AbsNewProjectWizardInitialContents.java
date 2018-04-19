@@ -15,7 +15,7 @@ public class AbsNewProjectWizardInitialContents {
   
   public void generateInitialContents(final IFileSystemAccess2 fsa) {
     String _primaryFileExtension = this.fileExtensionProvider.getPrimaryFileExtension();
-    String _plus = ("src/model/Model." + _primaryFileExtension);
+    String _plus = ("src/myPack/Module." + _primaryFileExtension);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("/*");
     _builder.newLine();
@@ -25,7 +25,7 @@ public class AbsNewProjectWizardInitialContents {
     _builder.append(" ");
     _builder.append("*/");
     _builder.newLine();
-    _builder.append("Hello Xtext!");
+    _builder.append("module Test;");
     _builder.newLine();
     fsa.generateFile(_plus, _builder);
   }

@@ -7,8 +7,7 @@ import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 public class MyAbsUIModule extends AbstractAbsUiModule{
 
 	public MyAbsUIModule(AbstractUIPlugin plugin) {
-		super(plugin);
-		// TODO Auto-generated constructor stub
+		super(plugin);		// TODO Auto-generated constructor stub
 	}
 	
 	public Class<? extends DefaultHyperlinkDetector> bindDefaultHyperlinkDetector() {
@@ -18,5 +17,8 @@ public class MyAbsUIModule extends AbstractAbsUiModule{
 	public Class<? extends IHyperlinkHelper> bindIHyperlinkHelper() {
 		return MyHyperLinkHelper.class;
 	}
-
+	
+	/*public Class<? extends IXtextEditorCallback> bindIXtextEditorCallback() {
+	    return ABSnature.class;
+	}*/
 }

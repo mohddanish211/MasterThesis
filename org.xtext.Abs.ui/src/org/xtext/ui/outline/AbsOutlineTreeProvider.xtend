@@ -35,10 +35,7 @@ import org.xtext.abs.impl.Var_or_field_refImpl
 import org.xtext.abs.impl.Pure_exp_listImpl
 import org.xtext.abs.impl.GuardImpl
 import org.xtext.abs.impl.MethodImpl
-import org.xtext.abs.Stmt
-import org.xtext.abs.Main_block
-import org.xtext.abs.Module_decl
-import org.xtext.abs.impl.Main_blockImpl
+
 
 /**
  * Customization of the default outline structure.

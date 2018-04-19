@@ -11,6 +11,11 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+			<name>org.xtext.abs.ui.builderTest.SampleABSBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
@@ -28,6 +33,7 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
+		<nature>org.xtext.Abs.ui.sampleABSNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 	</natures>

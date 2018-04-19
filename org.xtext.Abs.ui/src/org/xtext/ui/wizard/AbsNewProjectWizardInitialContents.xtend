@@ -14,12 +14,12 @@ class AbsNewProjectWizardInitialContents {
 
 	def generateInitialContents(IFileSystemAccess2 fsa) {
 		fsa.generateFile(
-			"src/model/Model." + fileExtensionProvider.primaryFileExtension,
+			"src/myPack/Module." + fileExtensionProvider.primaryFileExtension,
 			'''
 			/*
 			 * This is an example model
 			 */
-			Hello Xtext!
+			module Test;
 			'''
 			)
 	}

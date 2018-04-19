@@ -7,4 +7,4 @@
 			class = "org.xtext.abs.AbsPackage"
 			genModel = "model/generated/Abs.genmodel" />
 	</extension>
-</plugin>
+ </plugin>

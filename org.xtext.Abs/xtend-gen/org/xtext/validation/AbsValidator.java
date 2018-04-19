@@ -5,8 +5,16 @@ package org.xtext.validation;
 
 import org.eclipse.xtext.validation.Check;
 import org.xtext.abs.AbsPackage;
+import org.xtext.abs.Class_decl;
+import org.xtext.abs.Delta_decl;
+import org.xtext.abs.Feature_decl;
+import org.xtext.abs.Function_decl;
+import org.xtext.abs.Interface_decl;
 import org.xtext.abs.Module_decl;
+import org.xtext.abs.Product_decl;
+import org.xtext.abs.Product_reconfiguration;
 import org.xtext.abs.Productline_decl;
+import org.xtext.abs.Trait_decl;
 import org.xtext.validation.AbstractAbsValidator;
 
 /**
@@ -19,23 +27,102 @@ public class AbsValidator extends AbstractAbsValidator {
   public final static String INVALID_NAME = "invalidName";
   
   @Check
-  public void checkGreetingStartsWithCapital(final Module_decl module) {
+  public void checkNameStartsWithCapital(final Module_decl module) {
     boolean _isUpperCase = Character.isUpperCase(module.getName().charAt(0));
     boolean _not = (!_isUpperCase);
     if (_not) {
-      this.warning("Name should start with a capital", 
-        AbsPackage.Literals.MODULE_DECL__NAME, 
-        AbsValidator.INVALID_NAME);
+      this.error("Module name should start with a capital letter", 
+        AbsPackage.Literals.MODULE_DECL__NAME);
     }
   }
   
   @Check
-  public void checkNameStartsWithCapital(final Productline_decl entity) {
-    boolean _isUpperCase = Character.isUpperCase(entity.getName().charAt(0));
+  public void checkNameStartsWithCapital(final Interface_decl interface_decl) {
+    boolean _isUpperCase = Character.isUpperCase(interface_decl.getName().charAt(0));
     boolean _not = (!_isUpperCase);
     if (_not) {
-      this.warning("Name should start with a capital", 
-        AbsPackage.Literals.PRODUCTLINE_DECL__NAME, "invalid name");
+      this.error("Interface name should start with a capital letter", 
+        AbsPackage.Literals.INTERFACE_DECL__INTERFACE_NAME);
+    }
+  }
+  
+  @Check
+  public void checkNameStartsWithCapital(final Class_decl class_decl) {
+    boolean _isUpperCase = Character.isUpperCase(class_decl.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.error("Class name should start with a capital letter", 
+        null);
+    }
+  }
+  
+  @Check
+  public void checkNameStartsWithCapital(final Trait_decl trait_decl) {
+    boolean _isUpperCase = Character.isUpperCase(trait_decl.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.error("Trait name should start with a capital letter", 
+        AbsPackage.Literals.TRAIT_EXPR__NAME);
+    }
+  }
+  
+  @Check
+  public void checkNameStartsWithCapital(final Delta_decl delta_decl) {
+    boolean _isUpperCase = Character.isUpperCase(delta_decl.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.error("Delta name should start with a capital letter", 
+        AbsPackage.Literals.DELTA_DECL__NAME);
+    }
+  }
+  
+  @Check
+  public void checkNameStartsWithCapital(final Productline_decl productline_decl) {
+    boolean _isUpperCase = Character.isUpperCase(productline_decl.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.error("Productline name should start with a capital letter", 
+        AbsPackage.Literals.PRODUCTLINE_DECL__NAME);
+    }
+  }
+  
+  @Check
+  public void checkNameStartsWithCapital(final Feature_decl feature_decl) {
+    boolean _isUpperCase = Character.isUpperCase(feature_decl.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.error("Feature name should start with a capital letter", 
+        AbsPackage.Literals.FEATURE_DECL__NAME);
+    }
+  }
+  
+  @Check
+  public void checkNameStartsWithCapital(final Product_decl product_decl) {
+    boolean _isUpperCase = Character.isUpperCase(product_decl.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.error("Product name should start with a capital letter", 
+        AbsPackage.Literals.PRODUCT_DECL__NAME);
+    }
+  }
+  
+  @Check
+  public void checkNameStartsWithCapital(final Product_reconfiguration product_reconfiguration) {
+    boolean _isUpperCase = Character.isUpperCase(product_reconfiguration.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.error("Product Reconfiguration name should start with a capital letter", 
+        AbsPackage.Literals.PRODUCT_RECONFIGURATION__NAME);
+    }
+  }
+  
+  @Check
+  public void checkNameStartsWithCapital(final Function_decl function_decl) {
+    boolean _isUpperCase = Character.isUpperCase(function_decl.getName().charAt(0));
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.error("Function name should start with a capital letter", 
+        AbsPackage.Literals.FUNCTION_NAME_DECL__NAME);
     }
   }
 }

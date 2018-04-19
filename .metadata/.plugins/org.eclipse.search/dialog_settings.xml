@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="SearchDialog.ScopePart">
-		<item value="3" key="scope"/>
+		<item value="0" key="scope"/>
 	</section>
 	<section name="">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
@@ -20,7 +20,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="AbsUiModule.java" key="textPattern"/>
+			<item value=".................." key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -32,7 +32,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="&lt;\?" key="textPattern"/>
+			<item value="Sample" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -44,7 +44,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="HyperLInkHelper" key="textPattern"/>
+			<item value="Inside  sample abs builder" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -56,7 +56,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="HyperLinkHelper" key="textPattern"/>
+			<item value="org.eclipse.jdt.ui.JavaPerspective" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -68,7 +68,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value=".class;" key="textPattern"/>
+			<item value="Custom configure sampleABSNature" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -83,7 +83,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="Validator" key="textPattern"/>
+			<item value="IPerspectiveFactory" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -93,9 +93,9 @@
 		</section>
 		<section name="HISTORY8">
 			<item value="true" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="3" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="&lt;?" key="textPattern"/>
+			<item value="Sample Category" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -107,7 +107,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="bindIHyperlinkHelper" key="textPattern"/>
+			<item value="activator" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -117,9 +117,9 @@
 		</section>
 		<section name="HISTORY2">
 			<item value="true" key="ignoreCase"/>
-			<item value="3" key="scope"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="*RuntimeModule" key="textPattern"/>
+			<item value="Inside Workspace Execute Operation" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -129,9 +129,9 @@
 		</section>
 		<section name="HISTORY3">
 			<item value="true" key="ignoreCase"/>
-			<item value="3" key="scope"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="Hello from Generic console sample action" key="textPattern"/>
+			<item value="Nature Id for filetestpresp" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -143,7 +143,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="Outline tree is working without deeeunnamed" key="textPattern"/>
+			<item value="WorkbenchAdvisor" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -155,7 +155,7 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="Main.java" key="textPattern"/>
+			<item value="New Console View" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>

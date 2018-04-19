@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
+<extension
+       point="org.eclipse.ui.perspectives">
+    <perspective
+          class="org.xtext.abs.ui.AbsPerspectiveFactory"
+          id="org.xtext.Abs.ui.AbsPerspective"
+          name="ABS Perspective">
+    </perspective>
+ </extension>
+ <extension
+       point="org.eclipse.ui.perspectiveExtensions">
+    <perspectiveExtension
+          targetID="org.xtext.Abs.ui.AbsPerspective"> 
+       <view
+             id="org.xtext.abs.ui.views.FeatureDeltaView"
+             ratio="0.5"
+             relationship="right"
+             relative="org.eclipse.ui.views.ProblemView">
+       </view>
+       <actionSet
+                id="org.xtext.Abs.ui.frontendActionSet">
+        </actionSet>
+        <!--<actionSet
+                id="org.eclipse.debug.ui.launchActionSet">
+          </actionSet>-->
+    </perspectiveExtension>
+ </extension>
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
@@ -10,6 +36,9 @@
 			extensions="abs"
 			id="org.xtext.Abs"
 			name="Abs Editor">
+			<contentTypeBinding
+                contentTypeId="org.xtext.Abs.contenttype">
+          </contentTypeBinding>
 		</editor>
 	</extension>
 	<extension
@@ -108,6 +137,7 @@
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
+			<filter name="projectNature" value="org.xtext.Abs.ui.sampleABSNature"/>
 			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
 		</page>
 	</extension>
@@ -137,6 +167,16 @@
 			description="Copy the qualified name for the selected element"
 			name="Copy Qualified Name">
 	</command>
+ <category
+       id="org.xtext.Abs.ui.sampleABSNature.category"
+       name="ABS Project Nature commands">
+ </category>
+ <command
+       categoryId="org.xtext.Abs.ui.sampleABSNature.category"
+       defaultHandler="org.xtext.abs.ui.builderTest.AddRemoveSampleABSNatureHandler"
+       id="org.xtext.Abs.ui.addRemoveSampleABSNature"
+       name="Add/Remove ABS Project Nature">
+ </command>
 	</extension>
 	<extension point="org.eclipse.ui.menus">
 		<menuContribution
@@ -182,6 +222,57 @@
 				</visibleWhen>
 			</command>
 		</menuContribution>
+  <menuContribution
+        locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
+     <command
+           commandId="org.xtext.Abs.ui.addRemoveSampleABSNature"
+           label="Disable ABS builder"
+           style="push">
+        <visibleWhen
+              checkEnabled="false">
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate>
+                 <adapt
+                       type="org.eclipse.core.resources.IProject">
+                    <test
+                          property="org.eclipse.core.resources.projectNature"
+                          value="org.xtext.Abs.ui.sampleABSNature">
+                    </test>
+                 </adapt>
+              </iterate>
+           </with>
+        </visibleWhen>
+     </command>
+     <command
+           commandId="org.xtext.Abs.ui.addRemoveSampleABSNature"
+           label="Enable ABS builder"
+           style="push">
+        <visibleWhen
+              checkEnabled="false">
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate>
+                 <adapt
+                       type="org.eclipse.core.resources.IProject">
+                    <not>
+                       <test
+                             property="org.eclipse.core.resources.projectNature"
+                             value="org.xtext.Abs.ui.sampleABSNature">
+                       </test>
+                    </not>
+                 </adapt>
+              </iterate>
+           </with>
+        </visibleWhen>
+     </command>
+  </menuContribution>
 	</extension>
 	<extension point="org.eclipse.ui.menus">
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
@@ -249,7 +340,7 @@
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
 		<persistent value="true"/>
 	</extension>
-	<extension point="org.eclipse.xtext.builder.participant">
+	 <extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="org.xtext.ui.AbsExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
 			fileExtensions="abs"/>
@@ -274,6 +365,7 @@
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
 			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+			<filter name="projectNature" value="org.xtext.Abs.ui.sampleABSNature"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.ui.menus">
@@ -420,75 +512,386 @@
        point="org.eclipse.ui.views">
     <category
           id="org.xtext.Abs.ui"
-          name="Sample Category">
+          name="ABS Feature Delta Visualization">
     </category>
     <view
           allowMultiple="true"
           category="org.xtext.Abs.ui"
           class="org.xtext.abs.ui.views.FeatureDeltaView"
-          icon="icons/sample.png"
+          icon="resources/icons/sample.png"
           id="org.xtext.abs.ui.views.FeatureDeltaView"
           inject="true"
           name="Feature and Delta Visualization">
     </view>
  </extension>
- <extension
-       point="org.eclipse.ui.perspectiveExtensions">
-    <perspectiveExtension
-          targetID="org.eclipse.jdt.ui.JavaPerspective">
-       <view
-             id="org.xtext.abs.ui.views.FeatureDeltaView"
-             ratio="0.5"
-             relationship="right"
-             relative="org.eclipse.ui.views.ProblemView">
-       </view>
-    </perspectiveExtension>
- </extension>
+ 
+ 
  <extension
        point="org.eclipse.help.contexts">
     <contexts
           file="contexts.xml">
     </contexts>
  </extension>
+ <extension 
+   	id="sampleABSNature" 
+   	name="Sample ABS Project Nature" 
+   	point="org.eclipse.core.resources.natures"> 
+      <runtime>
+         <run
+               class="org.xtext.abs.ui.builderTest.SampleABSNature">
+         </run>
+      </runtime>
+      <builder
+            id="org.xtext.Abs.ui.sampleABSBuilder">
+      </builder> 
+      <!--<runtime> 
+         <run class="org.xtext.abs.plugin.ABSnature"/> 
+      </runtime> 
+      <builder id="org.xtext.Abs.ui.absbuilder"/>-->
+   </extension> 
+   <extension 
+   	id="sampleABSBuilder" 
+   	name="Sample ABS Project Builder" 
+   	point="org.eclipse.core.resources.builders"> 
+      <builder
+            hasNature="true">
+         <run
+               class="org.xtext.abs.ui.builderTest.SampleABSBuilder">
+         </run>
+      </builder> 
+      
+   </extension> 
+ 
  <extension
 		point="org.eclipse.ui.newWizards">
 		<wizard
-			category="org.eclipse.xtext.projectwiz"
-			class="org.xtext.ui.AbsExecutableExtensionFactory:org.xtext.ui.wizard.AbsNewProjectWizard"
-			icon="icons/abs_project_logo.gif"
+			category="org.xtext.Abs.ui.ABSWizards"
+			class="org.xtext.abs.wizards.NewABSProjectWizard"
+			icon="resources/icons/abs_project_logo.gif"
 			id="org.xtext.ui.wizard.AbsNewProjectWizard"
 			name="Abs Project"
-				project="true">
+			finalPerspective="org.xtext.Abs.ui.AbsPerspective"
+			project="true">
 		</wizard>
 		<wizard
-             category="org.eclipse.xtext.projectwiz"
-             class="org.xtext.ui.AbsExecutableExtensionFactory:org.xtext.ui.wizard.AbsModuleWizard"
-             icon="icons/absicon.gif"
-             id="org.xtext.ui.wizard.AbsModuleWizard"
-             name="ABS Module (new File)"
-             project="true">
+        category="org.xtext.Abs.ui.ABSWizards"
+        class="org.xtext.abs.wizards.NewABSFileWizard"
+        finalPerspective="org.xtext.Abs.ui.AbsPerspective"
+        icon="resources/icons/absicon.gif"
+        id="org.xtext.Abs.ui.wizard.AbsNewModuleWizardPage"
+        name="ABS Module (new File)"
+        project="false">
        </wizard>
        <wizard
              canFinishEarly="false"
-             category="org.eclipse.xtext.projectwiz"
-             class="org.xtext.ui.AbsExecutableExtensionFactory:org.xtext.ui.wizard.NewClassWizard"
-             descriptionImage="icons/abs_class.gif"
+             category="org.xtext.Abs.ui.ABSWizards"
+             class="org.xtext.abs.wizards.NewClassWizard"
+             descriptionImage="resources/icons/abs_class.gif"
+             finalPerspective="org.xtext.Abs.ui.AbsPerspective"
              hasPages="true"
-             icon="icons/abs_class.gif"
-             id="org.xtext.ui.wizard.NewClass"
+             icon="resources/icons/abs_class.gif"
+             id="org.xtext.Abs.ui.wizard.NewClass"
              name="ABS Class"
              project="false">
+             <selection
+                class="org.xtext.abs.navigator.ModulePath">
+          </selection>
+          <selection
+                class="abs.frontend.ast.ModuleDecl">
+          </selection>
        </wizard>
        <wizard
              canFinishEarly="false"
-             category="org.eclipse.xtext.projectwiz"
-             class="org.xtext.ui.AbsExecutableExtensionFactory:org.xtext.ui.wizard.NewInterfaceWizard"
-             descriptionImage="icons/abs_interface.gif"
+             category="org.xtext.Abs.ui.ABSWizards"
+             class="org.xtext.abs.wizards.NewInterfaceWizard"
+             descriptionImage="resources/icons/abs_interface.gif"
+             finalPerspective="org.xtext.Abs.ui.AbsPerspective"
              hasPages="true"
-             icon="icons/abs_interface.gif"
-             id="org.xtext.ui.wizard.NewInterface"
+             icon="resources/icons/abs_interface.gif"
+             id="org.xtext.Abs.ui.wizard.NewInterface"
              name="ABS Interface"
              project="false">
+             <selection
+                class="org.xtext.abs.navigator.ModulePath">
+          </selection>
+          <selection
+                class="abs.frontend.ast.ModuleDecl">
+          </selection>
        </wizard>
+       <wizard
+             canFinishEarly="false"
+             category="org.xtext.Abs.ui.ABSWizards"
+             class="org.xtext.abs.wizards.NewModuleWizard"
+             hasPages="true"
+             icon="resources/icons/absicon.gif"
+             id="org.xtext.Abs.ui.wizard.newmodule"
+             name="ABS Module (existing file)"
+             project="false">
+          <selection
+                class="org.xtext.abs.navigator.ModulePath">
+          </selection>
+          <selection
+                class="abs.frontend.ast.ModuleDecl">
+          </selection>
+          <selection
+                class="org.eclipse.core.resources.IFile">
+          </selection>
+       </wizard>
+       <category
+             id="org.xtext.Abs.ui.ABSWizards"
+             name="ABS">
+       </category>
 	</extension>
+ <extension
+       id="xmlProblem"
+       name="XML Problem"
+       point="org.eclipse.core.resources.markers">
+    <super
+          type="org.eclipse.core.resources.problemmarker">
+    </super>
+    <persistent
+          value="true">
+    </persistent>
+ </extension>
+ <extension
+       point="org.eclipse.ui.actionSets">
+    <actionSet
+          id="org.xtext.Abs.ui.frontendActionSet"
+          label="frontendActionSet">
+          <action
+                class="org.xtext.abs.actions.PerspectiveAction"
+                id="org.abs-models.abs.plugin.perspectiveAction"
+                label="Frontend Edit">
+          </action>
+    </actionSet>
+ </extension>
+ 
+ 
+ <!--  New Addition  -->
+ <extension
+          id="locationtypeinferenceinfo"
+          name="ABS Location Type Inference Info"
+          point="org.eclipse.core.resources.markers">
+       <super
+             type="org.eclipse.core.resources.textmarker">
+       </super>
+       <persistent
+             value="true">
+       </persistent>
+       <attribute
+             name="org.xtext.Abs.ui.startline">
+       </attribute>
+       <attribute
+             name="org.xtext.Abs.ui.endline">
+       </attribute>
+       <attribute
+             name="org.xtext.Abs.ui.startcol">
+       </attribute>
+       <attribute
+             name="org.xtext.Abs.ui.endcol">
+       </attribute>
+    </extension>
+    
+    
+    <extension
+          id="currentIP"
+          name="Current Instruction Pointer"
+          point="org.eclipse.core.resources.markers">
+       <persistent
+             value="false">
+       </persistent>
+       <super
+             type="org.eclipse.core.resources.textmarker">
+       </super>
+    </extension>
+    
+     <extension
+          id="absproblem"
+          name="ABSProblem"
+          point="org.eclipse.core.resources.markers">
+       <persistent
+             value="true">
+       </persistent>
+       <super
+             type="org.eclipse.core.resources.problemmarker">
+       </super>
+       <attribute
+             name="org.xtext.Abs.ui.startline">
+       </attribute>
+       <attribute
+             name="org.xtext.Abs.ui.endline">
+       </attribute>
+       <attribute
+             name="org.xtext.Abs.ui.startcol">
+       </attribute>
+       <attribute
+             name="org.xtext.Abs.ui.endcol">
+       </attribute>
+    </extension>
+    
+    <extension
+          id="absparseproblem"
+          name="ABSParseProblem"
+          point="org.eclipse.core.resources.markers">
+       <super
+             type="org.abs-models.abs.plugin.absproblem">
+       </super>
+       <persistent
+             value="true">
+       </persistent>
+    </extension>
+    <extension
+          id="abstypecheckproblem"
+          name="ABSTypecheckProblem"
+          point="org.eclipse.core.resources.markers">
+       <super
+             type="org.xtext.Abs.ui.absproblem">
+       </super>
+       <persistent
+             value="true">
+       </persistent>
+    </extension>
+    <extension
+          id="locationtypeinferenceinfo"
+          name="ABS Location Type Inference Info"
+          point="org.eclipse.core.resources.markers">
+       <super
+             type="org.eclipse.core.resources.textmarker">
+       </super>
+       <persistent
+             value="true">
+       </persistent>
+       <attribute
+             name="org.xtext.Abs.ui.startline">
+       </attribute>
+       <attribute
+             name="org.xtext.Abs.ui.endline">
+       </attribute>
+       <attribute
+             name="org.xtext.Abs.ui.startcol">
+       </attribute>
+       <attribute
+             name="org.xtext.Abs.ui.endcol">
+       </attribute>
+    </extension>
+    
+     <extension
+          id="currentIP"
+          name="Current Instruction Pointer"
+          point="org.eclipse.core.resources.markers">
+       <persistent
+             value="false">
+       </persistent>
+       <super
+             type="org.eclipse.core.resources.textmarker">
+       </super>
+    </extension>
+    
+    <extension
+          point="org.eclipse.ui.editors.annotationTypes">
+       <type
+             markerSeverity="0"
+             markerType="org.xtext.Abs.ui.locationtypeinferenceinfo"
+             name="org.xtext.Abs.ui.locationtypeinferenceannotation.near"
+             >
+       </type>
+       <type
+             markerSeverity="1"
+             markerType="org.xtext.Abs.ui.locationtypeinferenceinfo"
+             name="org.xtext.Abs.ui.locationtypeinferenceannotation.somewhere"
+             >
+       </type>
+       <type
+             markerSeverity="2"
+             markerType="org.xtext.Abs.ui.locationtypeinferenceinfo"
+             name="org.xtext.Abs.ui.locationtypeinferenceannotation.far">
+       </type>
+       <type
+             markerSeverity="2"
+             markerType="org.xtext.Abs.ui.absparseproblem"
+             name="org.xtext.Abs.ui.parseannotation"
+             super="org.eclipse.ui.workbench.texteditor.error">
+       </type>
+       <type
+             markerSeverity="2"
+             markerType="org.xtext.Abs.ui.abstypecheckproblem"
+             name="org.xtext.Abs.ui.typecheckannotation"
+             super="org.eclipse.ui.workbench.texteditor.error">
+       </type>
+       <type
+             markerSeverity="0"
+             markerType="org.xtext.Abs.ui.currentIP"
+             name="org.xtext.Abs.ui.currentipannotation">
+       </type>
+    </extension>
+    <extension
+          point="org.eclipse.ui.editors.markerAnnotationSpecification">
+       <specification
+             annotationType="org.xtext.Abs.ui.locationtypeinferenceannotation.near"
+             colorPreferenceKey="locationtype.near.color"
+             colorPreferenceValue="0,128,0"
+             includeOnPreferencePage="true"
+             label="Location Type Inference Is Near"
+             overviewRulerPreferenceKey="locationtype.near.overviewRuler"
+             overviewRulerPreferenceValue="false"
+             textPreferenceKey="locationtype.text"
+             textPreferenceValue="true"
+             textStylePreferenceKey="locationtype.near.textStyle"
+             textStylePreferenceValue="UNDERLINE">
+       </specification>
+       <specification
+             annotationType="org.xtext.Abs.ui.locationtypeinferenceannotation.far"
+             colorPreferenceKey="locationtype.far.color"
+             colorPreferenceValue="150,0,0"
+             includeOnPreferencePage="true"
+             label="Location Type Inference Is Far/Somewhere"
+             overviewRulerPreferenceKey="locationtype.far.overviewRuler"
+             overviewRulerPreferenceValue="false"
+             textPreferenceKey="locationtype.text"
+             textPreferenceValue="true"
+             textStylePreferenceKey="locationtype.far.textStyle"
+             textStylePreferenceValue="UNDERLINE">
+       </specification>
+       <specification
+             annotationType="org.xtext.Abs.ui.locationtypeinferenceannotation.somewhere"
+             colorPreferenceKey="locationtype.somewhere.color"
+             colorPreferenceValue="128,0,128"
+             includeOnPreferencePage="true"
+             label="Location Type Inference Is Somewhere"
+             overviewRulerPreferenceKey="locationtype.somewhere.overviewRuler"
+             overviewRulerPreferenceValue="false"
+             textPreferenceKey="locationtype.text"
+             textPreferenceValue="true"
+             textStylePreferenceKey="locationtype.somewhere.textStyle"
+             textStylePreferenceValue="UNDERLINE">
+       </specification>
+       <specification
+             annotationType="org.xtext.Abs.ui.parseannotation"
+             label="Parser Problem">
+       </specification>
+       <specification
+             annotationType="org.xtext.Abs.ui.typecheckannotation"
+             label="Typecheck Problem">
+       </specification>
+       <specification
+             annotationType="org.xtext.Abs.ui.currentipannotation"
+             colorPreferenceKey="currentip.color"
+             colorPreferenceValue="198,219,175"
+             highlightPreferenceKey="currentip.highlight"
+             highlightPreferenceValue="true"
+             icon="icons/debug/resume.gif"
+             label="Current Intruction Pointer"
+             overviewRulerPreferenceKey="currentip.overviewRuler"
+             overviewRulerPreferenceValue="true"
+             presentationLayer="6"
+             symbolicIcon="info"
+             textPreferenceKey="currentip.text"
+             textPreferenceValue="false"
+             textStylePreferenceKey="currentip.textstyle"
+             textStylePreferenceValue="NONE"
+             verticalRulerPreferenceKey="currentip.verticalRuler"
+             verticalRulerPreferenceValue="true">
+       </specification>
+    </extension>
+    
 </plugin>
