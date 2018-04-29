@@ -3,7 +3,6 @@
  */
 package org.xtext.abs;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Delta_id extends EObject
+public interface Delta_id extends Eff_expr
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

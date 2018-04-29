@@ -12,9 +12,9 @@ package org.xtext.abs;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Has_condition#getF <em>F</em>}</li>
- *   <li>{@link org.xtext.abs.Has_condition#getM <em>M</em>}</li>
- *   <li>{@link org.xtext.abs.Has_condition#getI <em>I</em>}</li>
+ *   <li>{@link org.xtext.abs.Has_condition#getField <em>Field</em>}</li>
+ *   <li>{@link org.xtext.abs.Has_condition#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.xtext.abs.Has_condition#getInterface <em>Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,81 +25,81 @@ package org.xtext.abs;
 public interface Has_condition extends Delta_param
 {
   /**
-   * Returns the value of the '<em><b>F</b></em>' reference.
+   * Returns the value of the '<em><b>Field</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>F</em>' reference isn't clear,
+   * If the meaning of the '<em>Field</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>F</em>' reference.
-   * @see #setF(Field_decl)
-   * @see org.xtext.abs.AbsPackage#getHas_condition_F()
+   * @return the value of the '<em>Field</em>' reference.
+   * @see #setField(Field_decl)
+   * @see org.xtext.abs.AbsPackage#getHas_condition_Field()
    * @model
    * @generated
    */
-  Field_decl getF();
+  Field_decl getField();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Has_condition#getF <em>F</em>}' reference.
+   * Sets the value of the '{@link org.xtext.abs.Has_condition#getField <em>Field</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>F</em>' reference.
-   * @see #getF()
+   * @param value the new value of the '<em>Field</em>' reference.
+   * @see #getField()
    * @generated
    */
-  void setF(Field_decl value);
+  void setField(Field_decl value);
 
   /**
-   * Returns the value of the '<em><b>M</b></em>' reference.
+   * Returns the value of the '<em><b>Method</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>M</em>' reference isn't clear,
+   * If the meaning of the '<em>Method</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>M</em>' reference.
-   * @see #setM(Methodsig)
-   * @see org.xtext.abs.AbsPackage#getHas_condition_M()
+   * @return the value of the '<em>Method</em>' reference.
+   * @see #setMethod(Methodsig)
+   * @see org.xtext.abs.AbsPackage#getHas_condition_Method()
    * @model
    * @generated
    */
-  Methodsig getM();
+  Methodsig getMethod();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Has_condition#getM <em>M</em>}' reference.
+   * Sets the value of the '{@link org.xtext.abs.Has_condition#getMethod <em>Method</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>M</em>' reference.
-   * @see #getM()
+   * @param value the new value of the '<em>Method</em>' reference.
+   * @see #getMethod()
    * @generated
    */
-  void setM(Methodsig value);
+  void setMethod(Methodsig value);
 
   /**
-   * Returns the value of the '<em><b>I</b></em>' reference.
+   * Returns the value of the '<em><b>Interface</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>I</em>' reference isn't clear,
+   * If the meaning of the '<em>Interface</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>I</em>' reference.
-   * @see #setI(Interface_decl)
-   * @see org.xtext.abs.AbsPackage#getHas_condition_I()
+   * @return the value of the '<em>Interface</em>' reference.
+   * @see #setInterface(Interface_decl)
+   * @see org.xtext.abs.AbsPackage#getHas_condition_Interface()
    * @model
    * @generated
    */
-  Interface_decl getI();
+  Interface_decl getInterface();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Has_condition#getI <em>I</em>}' reference.
+   * Sets the value of the '{@link org.xtext.abs.Has_condition#getInterface <em>Interface</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>I</em>' reference.
-   * @see #getI()
+   * @param value the new value of the '<em>Interface</em>' reference.
+   * @see #getInterface()
    * @generated
    */
-  void setI(Interface_decl value);
+  void setInterface(Interface_decl value);
 
 } // Has_condition

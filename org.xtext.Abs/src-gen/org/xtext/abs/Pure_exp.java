@@ -15,17 +15,20 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.xtext.abs.Pure_exp#getFunction_list <em>Function list</em>}</li>
  *   <li>{@link org.xtext.abs.Pure_exp#getPartial_function_pure_exp_list <em>Partial function pure exp list</em>}</li>
- *   <li>{@link org.xtext.abs.Pure_exp#getFunction_expr <em>Function expr</em>}</li>
  *   <li>{@link org.xtext.abs.Pure_exp#getVariadic_exp_list <em>Variadic exp list</em>}</li>
- *   <li>{@link org.xtext.abs.Pure_exp#getC <em>C</em>}</li>
- *   <li>{@link org.xtext.abs.Pure_exp#getL <em>L</em>}</li>
+ *   <li>{@link org.xtext.abs.Pure_exp#getIf <em>If</em>}</li>
+ *   <li>{@link org.xtext.abs.Pure_exp#getThen <em>Then</em>}</li>
  *   <li>{@link org.xtext.abs.Pure_exp#getElse <em>Else</em>}</li>
+ *   <li>{@link org.xtext.abs.Pure_exp#getCase <em>Case</em>}</li>
  *   <li>{@link org.xtext.abs.Pure_exp#getCasebranch <em>Casebranch</em>}</li>
  *   <li>{@link org.xtext.abs.Pure_exp#getType_use <em>Type use</em>}</li>
  *   <li>{@link org.xtext.abs.Pure_exp#getValue <em>Value</em>}</li>
  *   <li>{@link org.xtext.abs.Pure_exp#getI <em>I</em>}</li>
  *   <li>{@link org.xtext.abs.Pure_exp#getB <em>B</em>}</li>
- *   <li>{@link org.xtext.abs.Pure_exp#getVar_or_field_ref <em>Var or field ref</em>}</li>
+ *   <li>{@link org.xtext.abs.Pure_exp#getOp <em>Op</em>}</li>
+ *   <li>{@link org.xtext.abs.Pure_exp#getPure_exp <em>Pure exp</em>}</li>
+ *   <li>{@link org.xtext.abs.Pure_exp#getAwait <em>Await</em>}</li>
+ *   <li>{@link org.xtext.abs.Pure_exp#getVal <em>Val</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,7 +36,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Pure_exp extends Exp
+public interface Pure_exp extends Exp, Eff_expr
 {
   /**
    * Returns the value of the '<em><b>Function list</b></em>' containment reference list.
@@ -78,32 +81,6 @@ public interface Pure_exp extends Exp
   void setPartial_function_pure_exp_list(Pure_exp_list value);
 
   /**
-   * Returns the value of the '<em><b>Function expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Function expr</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Function expr</em>' containment reference.
-   * @see #setFunction_expr(Pure_exp_list)
-   * @see org.xtext.abs.AbsPackage#getPure_exp_Function_expr()
-   * @model containment="true"
-   * @generated
-   */
-  Pure_exp_list getFunction_expr();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getFunction_expr <em>Function expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Function expr</em>' containment reference.
-   * @see #getFunction_expr()
-   * @generated
-   */
-  void setFunction_expr(Pure_exp_list value);
-
-  /**
    * Returns the value of the '<em><b>Variadic exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -130,56 +107,56 @@ public interface Pure_exp extends Exp
   void setVariadic_exp_list(Pure_exp_list value);
 
   /**
-   * Returns the value of the '<em><b>C</b></em>' containment reference.
+   * Returns the value of the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>C</em>' containment reference isn't clear,
+   * If the meaning of the '<em>If</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>C</em>' containment reference.
-   * @see #setC(Pure_exp)
-   * @see org.xtext.abs.AbsPackage#getPure_exp_C()
+   * @return the value of the '<em>If</em>' containment reference.
+   * @see #setIf(Pure_exp)
+   * @see org.xtext.abs.AbsPackage#getPure_exp_If()
    * @model containment="true"
    * @generated
    */
-  Pure_exp getC();
+  Pure_exp getIf();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getC <em>C</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getIf <em>If</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>C</em>' containment reference.
-   * @see #getC()
+   * @param value the new value of the '<em>If</em>' containment reference.
+   * @see #getIf()
    * @generated
    */
-  void setC(Pure_exp value);
+  void setIf(Pure_exp value);
 
   /**
-   * Returns the value of the '<em><b>L</b></em>' containment reference.
+   * Returns the value of the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>L</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Then</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>L</em>' containment reference.
-   * @see #setL(Pure_exp)
-   * @see org.xtext.abs.AbsPackage#getPure_exp_L()
+   * @return the value of the '<em>Then</em>' containment reference.
+   * @see #setThen(Pure_exp)
+   * @see org.xtext.abs.AbsPackage#getPure_exp_Then()
    * @model containment="true"
    * @generated
    */
-  Pure_exp getL();
+  Pure_exp getThen();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getL <em>L</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getThen <em>Then</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>L</em>' containment reference.
-   * @see #getL()
+   * @param value the new value of the '<em>Then</em>' containment reference.
+   * @see #getThen()
    * @generated
    */
-  void setL(Pure_exp value);
+  void setThen(Pure_exp value);
 
   /**
    * Returns the value of the '<em><b>Else</b></em>' containment reference.
@@ -206,6 +183,32 @@ public interface Pure_exp extends Exp
    * @generated
    */
   void setElse(Pure_exp value);
+
+  /**
+   * Returns the value of the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Case</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Case</em>' containment reference.
+   * @see #setCase(Pure_exp)
+   * @see org.xtext.abs.AbsPackage#getPure_exp_Case()
+   * @model containment="true"
+   * @generated
+   */
+  Pure_exp getCase();
+
+  /**
+   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getCase <em>Case</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Case</em>' containment reference.
+   * @see #getCase()
+   * @generated
+   */
+  void setCase(Pure_exp value);
 
   /**
    * Returns the value of the '<em><b>Casebranch</b></em>' containment reference list.
@@ -328,29 +331,107 @@ public interface Pure_exp extends Exp
   void setB(Pure_exp value);
 
   /**
-   * Returns the value of the '<em><b>Var or field ref</b></em>' reference.
+   * Returns the value of the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Var or field ref</em>' reference isn't clear,
+   * If the meaning of the '<em>Op</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var or field ref</em>' reference.
-   * @see #setVar_or_field_ref(Var_or_field_ref)
-   * @see org.xtext.abs.AbsPackage#getPure_exp_Var_or_field_ref()
+   * @return the value of the '<em>Op</em>' attribute.
+   * @see #setOp(String)
+   * @see org.xtext.abs.AbsPackage#getPure_exp_Op()
    * @model
    * @generated
    */
-  Var_or_field_ref getVar_or_field_ref();
+  String getOp();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getVar_or_field_ref <em>Var or field ref</em>}' reference.
+   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getOp <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var or field ref</em>' reference.
-   * @see #getVar_or_field_ref()
+   * @param value the new value of the '<em>Op</em>' attribute.
+   * @see #getOp()
    * @generated
    */
-  void setVar_or_field_ref(Var_or_field_ref value);
+  void setOp(String value);
+
+  /**
+   * Returns the value of the '<em><b>Pure exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pure exp</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pure exp</em>' containment reference.
+   * @see #setPure_exp(Pure_exp)
+   * @see org.xtext.abs.AbsPackage#getPure_exp_Pure_exp()
+   * @model containment="true"
+   * @generated
+   */
+  Pure_exp getPure_exp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getPure_exp <em>Pure exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pure exp</em>' containment reference.
+   * @see #getPure_exp()
+   * @generated
+   */
+  void setPure_exp(Pure_exp value);
+
+  /**
+   * Returns the value of the '<em><b>Await</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Await</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Await</em>' attribute.
+   * @see #setAwait(String)
+   * @see org.xtext.abs.AbsPackage#getPure_exp_Await()
+   * @model
+   * @generated
+   */
+  String getAwait();
+
+  /**
+   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getAwait <em>Await</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Await</em>' attribute.
+   * @see #getAwait()
+   * @generated
+   */
+  void setAwait(String value);
+
+  /**
+   * Returns the value of the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Val</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Val</em>' attribute.
+   * @see #setVal(String)
+   * @see org.xtext.abs.AbsPackage#getPure_exp_Val()
+   * @model
+   * @generated
+   */
+  String getVal();
+
+  /**
+   * Sets the value of the '{@link org.xtext.abs.Pure_exp#getVal <em>Val</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Val</em>' attribute.
+   * @see #getVal()
+   * @generated
+   */
+  void setVal(String value);
 
 } // Pure_exp

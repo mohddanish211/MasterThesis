@@ -31,9 +31,7 @@ import org.xtext.abs.Type_use;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getType_use <em>Type use</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Function_declImpl#getLt <em>Lt</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Function_declImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Function_declImpl#getGt <em>Gt</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Function_declImpl#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getParamlist <em>Paramlist</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Function_declImpl#getPure_exp <em>Pure exp</em>}</li>
  * </ul>
@@ -54,54 +52,14 @@ public class Function_declImpl extends DeclImpl implements Function_decl
   protected Type_use type_use;
 
   /**
-   * The default value of the '{@link #getLt() <em>Lt</em>}' attribute.
+   * The cached value of the '{@link #getP() <em>P</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLt()
+   * @see #getP()
    * @generated
    * @ordered
    */
-  protected static final String LT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getLt() <em>Lt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLt()
-   * @generated
-   * @ordered
-   */
-  protected String lt = LT_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImportedNamespace()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> importedNamespace;
-
-  /**
-   * The default value of the '{@link #getGt() <em>Gt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGt()
-   * @generated
-   * @ordered
-   */
-  protected static final String GT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getGt() <em>Gt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGt()
-   * @generated
-   * @ordered
-   */
-  protected String gt = GT_EDEFAULT;
+  protected EList<String> p;
 
   /**
    * The cached value of the '{@link #getParamlist() <em>Paramlist</em>}' containment reference.
@@ -197,59 +155,13 @@ public class Function_declImpl extends DeclImpl implements Function_decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getLt()
+  public EList<String> getP()
   {
-    return lt;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLt(String newLt)
-  {
-    String oldLt = lt;
-    lt = newLt;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_DECL__LT, oldLt, lt));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<String> getImportedNamespace()
-  {
-    if (importedNamespace == null)
+    if (p == null)
     {
-      importedNamespace = new EDataTypeEList<String>(String.class, this, AbsPackage.FUNCTION_DECL__IMPORTED_NAMESPACE);
+      p = new EDataTypeEList<String>(String.class, this, AbsPackage.FUNCTION_DECL__P);
     }
-    return importedNamespace;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getGt()
-  {
-    return gt;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setGt(String newGt)
-  {
-    String oldGt = gt;
-    gt = newGt;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FUNCTION_DECL__GT, oldGt, gt));
+    return p;
   }
 
   /**
@@ -380,12 +292,8 @@ public class Function_declImpl extends DeclImpl implements Function_decl
     {
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         return getType_use();
-      case AbsPackage.FUNCTION_DECL__LT:
-        return getLt();
-      case AbsPackage.FUNCTION_DECL__IMPORTED_NAMESPACE:
-        return getImportedNamespace();
-      case AbsPackage.FUNCTION_DECL__GT:
-        return getGt();
+      case AbsPackage.FUNCTION_DECL__P:
+        return getP();
       case AbsPackage.FUNCTION_DECL__PARAMLIST:
         return getParamlist();
       case AbsPackage.FUNCTION_DECL__PURE_EXP:
@@ -408,15 +316,9 @@ public class Function_declImpl extends DeclImpl implements Function_decl
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)newValue);
         return;
-      case AbsPackage.FUNCTION_DECL__LT:
-        setLt((String)newValue);
-        return;
-      case AbsPackage.FUNCTION_DECL__IMPORTED_NAMESPACE:
-        getImportedNamespace().clear();
-        getImportedNamespace().addAll((Collection<? extends String>)newValue);
-        return;
-      case AbsPackage.FUNCTION_DECL__GT:
-        setGt((String)newValue);
+      case AbsPackage.FUNCTION_DECL__P:
+        getP().clear();
+        getP().addAll((Collection<? extends String>)newValue);
         return;
       case AbsPackage.FUNCTION_DECL__PARAMLIST:
         setParamlist((Param_list)newValue);
@@ -441,14 +343,8 @@ public class Function_declImpl extends DeclImpl implements Function_decl
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)null);
         return;
-      case AbsPackage.FUNCTION_DECL__LT:
-        setLt(LT_EDEFAULT);
-        return;
-      case AbsPackage.FUNCTION_DECL__IMPORTED_NAMESPACE:
-        getImportedNamespace().clear();
-        return;
-      case AbsPackage.FUNCTION_DECL__GT:
-        setGt(GT_EDEFAULT);
+      case AbsPackage.FUNCTION_DECL__P:
+        getP().clear();
         return;
       case AbsPackage.FUNCTION_DECL__PARAMLIST:
         setParamlist((Param_list)null);
@@ -472,12 +368,8 @@ public class Function_declImpl extends DeclImpl implements Function_decl
     {
       case AbsPackage.FUNCTION_DECL__TYPE_USE:
         return type_use != null;
-      case AbsPackage.FUNCTION_DECL__LT:
-        return LT_EDEFAULT == null ? lt != null : !LT_EDEFAULT.equals(lt);
-      case AbsPackage.FUNCTION_DECL__IMPORTED_NAMESPACE:
-        return importedNamespace != null && !importedNamespace.isEmpty();
-      case AbsPackage.FUNCTION_DECL__GT:
-        return GT_EDEFAULT == null ? gt != null : !GT_EDEFAULT.equals(gt);
+      case AbsPackage.FUNCTION_DECL__P:
+        return p != null && !p.isEmpty();
       case AbsPackage.FUNCTION_DECL__PARAMLIST:
         return paramlist != null;
       case AbsPackage.FUNCTION_DECL__PURE_EXP:
@@ -497,12 +389,8 @@ public class Function_declImpl extends DeclImpl implements Function_decl
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (lt: ");
-    result.append(lt);
-    result.append(", importedNamespace: ");
-    result.append(importedNamespace);
-    result.append(", gt: ");
-    result.append(gt);
+    result.append(" (p: ");
+    result.append(p);
     result.append(')');
     return result.toString();
   }

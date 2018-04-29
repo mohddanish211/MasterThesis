@@ -32,9 +32,7 @@ import org.xtext.abs.Type_use;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getType_use <em>Type use</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getLt <em>Lt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getP <em>P</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getGt <em>Gt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getParams <em>Params</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Par_function_declImpl#getE <em>E</em>}</li>
@@ -56,26 +54,6 @@ public class Par_function_declImpl extends DeclImpl implements Par_function_decl
   protected Type_use type_use;
 
   /**
-   * The default value of the '{@link #getLt() <em>Lt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLt()
-   * @generated
-   * @ordered
-   */
-  protected static final String LT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getLt() <em>Lt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLt()
-   * @generated
-   * @ordered
-   */
-  protected String lt = LT_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getP() <em>P</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -84,26 +62,6 @@ public class Par_function_declImpl extends DeclImpl implements Par_function_decl
    * @ordered
    */
   protected EList<String> p;
-
-  /**
-   * The default value of the '{@link #getGt() <em>Gt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGt()
-   * @generated
-   * @ordered
-   */
-  protected static final String GT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getGt() <em>Gt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGt()
-   * @generated
-   * @ordered
-   */
-  protected String gt = GT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference.
@@ -209,29 +167,6 @@ public class Par_function_declImpl extends DeclImpl implements Par_function_decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getLt()
-  {
-    return lt;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLt(String newLt)
-  {
-    String oldLt = lt;
-    lt = newLt;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PAR_FUNCTION_DECL__LT, oldLt, lt));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<String> getP()
   {
     if (p == null)
@@ -239,29 +174,6 @@ public class Par_function_declImpl extends DeclImpl implements Par_function_decl
       p = new EDataTypeEList<String>(String.class, this, AbsPackage.PAR_FUNCTION_DECL__P);
     }
     return p;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getGt()
-  {
-    return gt;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setGt(String newGt)
-  {
-    String oldGt = gt;
-    gt = newGt;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PAR_FUNCTION_DECL__GT, oldGt, gt));
   }
 
   /**
@@ -442,12 +354,8 @@ public class Par_function_declImpl extends DeclImpl implements Par_function_decl
     {
       case AbsPackage.PAR_FUNCTION_DECL__TYPE_USE:
         return getType_use();
-      case AbsPackage.PAR_FUNCTION_DECL__LT:
-        return getLt();
       case AbsPackage.PAR_FUNCTION_DECL__P:
         return getP();
-      case AbsPackage.PAR_FUNCTION_DECL__GT:
-        return getGt();
       case AbsPackage.PAR_FUNCTION_DECL__FUNCTIONS:
         return getFunctions();
       case AbsPackage.PAR_FUNCTION_DECL__PARAMS:
@@ -472,15 +380,9 @@ public class Par_function_declImpl extends DeclImpl implements Par_function_decl
       case AbsPackage.PAR_FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)newValue);
         return;
-      case AbsPackage.PAR_FUNCTION_DECL__LT:
-        setLt((String)newValue);
-        return;
       case AbsPackage.PAR_FUNCTION_DECL__P:
         getP().clear();
         getP().addAll((Collection<? extends String>)newValue);
-        return;
-      case AbsPackage.PAR_FUNCTION_DECL__GT:
-        setGt((String)newValue);
         return;
       case AbsPackage.PAR_FUNCTION_DECL__FUNCTIONS:
         setFunctions((Function_name_list)newValue);
@@ -508,14 +410,8 @@ public class Par_function_declImpl extends DeclImpl implements Par_function_decl
       case AbsPackage.PAR_FUNCTION_DECL__TYPE_USE:
         setType_use((Type_use)null);
         return;
-      case AbsPackage.PAR_FUNCTION_DECL__LT:
-        setLt(LT_EDEFAULT);
-        return;
       case AbsPackage.PAR_FUNCTION_DECL__P:
         getP().clear();
-        return;
-      case AbsPackage.PAR_FUNCTION_DECL__GT:
-        setGt(GT_EDEFAULT);
         return;
       case AbsPackage.PAR_FUNCTION_DECL__FUNCTIONS:
         setFunctions((Function_name_list)null);
@@ -542,12 +438,8 @@ public class Par_function_declImpl extends DeclImpl implements Par_function_decl
     {
       case AbsPackage.PAR_FUNCTION_DECL__TYPE_USE:
         return type_use != null;
-      case AbsPackage.PAR_FUNCTION_DECL__LT:
-        return LT_EDEFAULT == null ? lt != null : !LT_EDEFAULT.equals(lt);
       case AbsPackage.PAR_FUNCTION_DECL__P:
         return p != null && !p.isEmpty();
-      case AbsPackage.PAR_FUNCTION_DECL__GT:
-        return GT_EDEFAULT == null ? gt != null : !GT_EDEFAULT.equals(gt);
       case AbsPackage.PAR_FUNCTION_DECL__FUNCTIONS:
         return functions != null;
       case AbsPackage.PAR_FUNCTION_DECL__PARAMS:
@@ -569,12 +461,8 @@ public class Par_function_declImpl extends DeclImpl implements Par_function_decl
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (lt: ");
-    result.append(lt);
-    result.append(", p: ");
+    result.append(" (p: ");
     result.append(p);
-    result.append(", gt: ");
-    result.append(gt);
     result.append(')');
     return result.toString();
   }

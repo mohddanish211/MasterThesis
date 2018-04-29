@@ -3,19 +3,18 @@
  */
 package org.xtext.abs.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Application_condition;
-import org.xtext.abs.Feature_decl;
+import org.xtext.abs.Feature;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,14 +32,14 @@ import org.xtext.abs.Feature_decl;
 public class Application_conditionImpl extends MinimalEObjectImpl.Container implements Application_condition
 {
   /**
-   * The cached value of the '{@link #getFeature() <em>Feature</em>}' reference list.
+   * The cached value of the '{@link #getFeature() <em>Feature</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFeature()
    * @generated
    * @ordered
    */
-  protected EList<Feature_decl> feature;
+  protected Feature feature;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,13 +67,63 @@ public class Application_conditionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Feature_decl> getFeature()
+  public Feature getFeature()
   {
-    if (feature == null)
-    {
-      feature = new EObjectResolvingEList<Feature_decl>(Feature_decl.class, this, AbsPackage.APPLICATION_CONDITION__FEATURE);
-    }
     return feature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFeature(Feature newFeature, NotificationChain msgs)
+  {
+    Feature oldFeature = feature;
+    feature = newFeature;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.APPLICATION_CONDITION__FEATURE, oldFeature, newFeature);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFeature(Feature newFeature)
+  {
+    if (newFeature != feature)
+    {
+      NotificationChain msgs = null;
+      if (feature != null)
+        msgs = ((InternalEObject)feature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.APPLICATION_CONDITION__FEATURE, null, msgs);
+      if (newFeature != null)
+        msgs = ((InternalEObject)newFeature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.APPLICATION_CONDITION__FEATURE, null, msgs);
+      msgs = basicSetFeature(newFeature, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.APPLICATION_CONDITION__FEATURE, newFeature, newFeature));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case AbsPackage.APPLICATION_CONDITION__FEATURE:
+        return basicSetFeature(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -98,15 +147,13 @@ public class Application_conditionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case AbsPackage.APPLICATION_CONDITION__FEATURE:
-        getFeature().clear();
-        getFeature().addAll((Collection<? extends Feature_decl>)newValue);
+        setFeature((Feature)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -123,7 +170,7 @@ public class Application_conditionImpl extends MinimalEObjectImpl.Container impl
     switch (featureID)
     {
       case AbsPackage.APPLICATION_CONDITION__FEATURE:
-        getFeature().clear();
+        setFeature((Feature)null);
         return;
     }
     super.eUnset(featureID);
@@ -140,7 +187,7 @@ public class Application_conditionImpl extends MinimalEObjectImpl.Container impl
     switch (featureID)
     {
       case AbsPackage.APPLICATION_CONDITION__FEATURE:
-        return feature != null && !feature.isEmpty();
+        return feature != null;
     }
     return super.eIsSet(featureID);
   }

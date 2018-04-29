@@ -22,19 +22,19 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.abs.Stmt#getStmt <em>Stmt</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getPure_exp <em>Pure exp</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getIfstmt <em>Ifstmt</em>}</li>
- *   <li>{@link org.xtext.abs.Stmt#getR <em>R</em>}</li>
+ *   <li>{@link org.xtext.abs.Stmt#getElsestmt <em>Elsestmt</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getWhilestmt <em>Whilestmt</em>}</li>
- *   <li>{@link org.xtext.abs.Stmt#getI <em>I</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getL <em>L</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getForeachstmt <em>Foreachstmt</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getTrystmt <em>Trystmt</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getCasestmtbranch <em>Casestmtbranch</em>}</li>
- *   <li>{@link org.xtext.abs.Stmt#getGuard <em>Guard</em>}</li>
+ *   <li>{@link org.xtext.abs.Stmt#getRef <em>Ref</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getF <em>F</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getT <em>T</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getThrowPureExp <em>Throw Pure Exp</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getDiePureExp <em>Die Pure Exp</em>}</li>
+ *   <li>{@link org.xtext.abs.Stmt#getMoveCogTo <em>Move Cog To</em>}</li>
  *   <li>{@link org.xtext.abs.Stmt#getC <em>C</em>}</li>
  * </ul>
  * </p>
@@ -124,26 +124,26 @@ public interface Stmt extends EObject
   void setExp(Exp value);
 
   /**
-   * Returns the value of the '<em><b>Var or field ref</b></em>' reference.
+   * Returns the value of the '<em><b>Var or field ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Var or field ref</em>' reference isn't clear,
+   * If the meaning of the '<em>Var or field ref</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var or field ref</em>' reference.
+   * @return the value of the '<em>Var or field ref</em>' containment reference.
    * @see #setVar_or_field_ref(Var_or_field_ref)
    * @see org.xtext.abs.AbsPackage#getStmt_Var_or_field_ref()
-   * @model
+   * @model containment="true"
    * @generated
    */
   Var_or_field_ref getVar_or_field_ref();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Stmt#getVar_or_field_ref <em>Var or field ref</em>}' reference.
+   * Sets the value of the '{@link org.xtext.abs.Stmt#getVar_or_field_ref <em>Var or field ref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var or field ref</em>' reference.
+   * @param value the new value of the '<em>Var or field ref</em>' containment reference.
    * @see #getVar_or_field_ref()
    * @generated
    */
@@ -218,30 +218,30 @@ public interface Stmt extends EObject
   void setIfstmt(Stmt value);
 
   /**
-   * Returns the value of the '<em><b>R</b></em>' containment reference.
+   * Returns the value of the '<em><b>Elsestmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>R</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Elsestmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>R</em>' containment reference.
-   * @see #setR(Stmt)
-   * @see org.xtext.abs.AbsPackage#getStmt_R()
+   * @return the value of the '<em>Elsestmt</em>' containment reference.
+   * @see #setElsestmt(Stmt)
+   * @see org.xtext.abs.AbsPackage#getStmt_Elsestmt()
    * @model containment="true"
    * @generated
    */
-  Stmt getR();
+  Stmt getElsestmt();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Stmt#getR <em>R</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Stmt#getElsestmt <em>Elsestmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>R</em>' containment reference.
-   * @see #getR()
+   * @param value the new value of the '<em>Elsestmt</em>' containment reference.
+   * @see #getElsestmt()
    * @generated
    */
-  void setR(Stmt value);
+  void setElsestmt(Stmt value);
 
   /**
    * Returns the value of the '<em><b>Condition</b></em>' containment reference.
@@ -294,32 +294,6 @@ public interface Stmt extends EObject
    * @generated
    */
   void setWhilestmt(Stmt value);
-
-  /**
-   * Returns the value of the '<em><b>I</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>I</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>I</em>' attribute.
-   * @see #setI(String)
-   * @see org.xtext.abs.AbsPackage#getStmt_I()
-   * @model
-   * @generated
-   */
-  String getI();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Stmt#getI <em>I</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>I</em>' attribute.
-   * @see #getI()
-   * @generated
-   */
-  void setI(String value);
 
   /**
    * Returns the value of the '<em><b>L</b></em>' containment reference.
@@ -416,30 +390,30 @@ public interface Stmt extends EObject
   EList<Casestmtbranch> getCasestmtbranch();
 
   /**
-   * Returns the value of the '<em><b>Guard</b></em>' reference.
+   * Returns the value of the '<em><b>Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Guard</em>' reference isn't clear,
+   * If the meaning of the '<em>Ref</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Guard</em>' reference.
-   * @see #setGuard(Guard)
-   * @see org.xtext.abs.AbsPackage#getStmt_Guard()
-   * @model
+   * @return the value of the '<em>Ref</em>' containment reference.
+   * @see #setRef(Guard)
+   * @see org.xtext.abs.AbsPackage#getStmt_Ref()
+   * @model containment="true"
    * @generated
    */
-  Guard getGuard();
+  Guard getRef();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Stmt#getGuard <em>Guard</em>}' reference.
+   * Sets the value of the '{@link org.xtext.abs.Stmt#getRef <em>Ref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Guard</em>' reference.
-   * @see #getGuard()
+   * @param value the new value of the '<em>Ref</em>' containment reference.
+   * @see #getRef()
    * @generated
    */
-  void setGuard(Guard value);
+  void setRef(Guard value);
 
   /**
    * Returns the value of the '<em><b>F</b></em>' containment reference.
@@ -544,6 +518,32 @@ public interface Stmt extends EObject
    * @generated
    */
   void setDiePureExp(Pure_exp value);
+
+  /**
+   * Returns the value of the '<em><b>Move Cog To</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Move Cog To</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Move Cog To</em>' containment reference.
+   * @see #setMoveCogTo(Pure_exp)
+   * @see org.xtext.abs.AbsPackage#getStmt_MoveCogTo()
+   * @model containment="true"
+   * @generated
+   */
+  Pure_exp getMoveCogTo();
+
+  /**
+   * Sets the value of the '{@link org.xtext.abs.Stmt#getMoveCogTo <em>Move Cog To</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Move Cog To</em>' containment reference.
+   * @see #getMoveCogTo()
+   * @generated
+   */
+  void setMoveCogTo(Pure_exp value);
 
   /**
    * Returns the value of the '<em><b>C</b></em>' containment reference.

@@ -24,6 +24,7 @@ import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.emf.common.util.URI
 import org.eclipse.core.runtime.IPath
 import org.eclipse.core.runtime.Path
+import org.xtext.abs.Feature
 
 /**
 * Generates code from your model files on save.
@@ -121,11 +122,13 @@ for(IReferenceDescription r: customReferenceFinder.findReferencesTo(feature_decl
 	val sourcePlatformUri = r.sourceEObjectUri; 
 	val compilationUnit =customReferenceFinder.customResourceFinder(sourcePlatformUri,feature_decl) as Compilation_UnitImpl;	
 	println("------++++++++++++++++++++++++++++++++++++++++_------------")
-	println()
-	println()
+	println(compilationUnit);
+	println(compilationUnit.productline_decl)
+	println(compilationUnit.productline_decl.delta_clause)
 	for(Delta_clause clause: compilationUnit.productline_decl.delta_clause){
 		try{
 		 	if((clause.when_condition.application_condition)!==null){
+		 		println(clause.when_condition.application_condition);
 		      	resolveApplicationConditionForF2D(clause.when_condition.application_condition,feature_decl,deltaDeclList,clause);
 		      	}	
 			}catch(Exception err){
@@ -153,13 +156,13 @@ try{
         resolveApplicationConditionForF2D(app_cond.right,featureDecl,deltaDeclList,deltaClause);
     }else{
         if(app_cond.feature!== null){
-        	for(EObject featureObj: app_cond.feature){
+        	    val featureObj=  app_cond.feature.feature_decl as EObject;
         		if((featureObj.eGet(featureObj.eClass.getEStructuralFeature("name"))).equals(featureDecl.name)){
         			println("Adding to Delta List")
         			println(deltaClause.deltaspec)
         			deltaDeclList.add(deltaClause.deltaspec);
         		}
-        	}
+        	
           }
      }
         

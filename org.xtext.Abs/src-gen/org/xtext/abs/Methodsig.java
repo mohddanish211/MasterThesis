@@ -22,7 +22,7 @@ package org.xtext.abs;
  * @model
  * @generated
  */
-public interface Methodsig extends Interface_modifier_fragment
+public interface Methodsig extends Class_modifier_fragment, Interface_modifier_fragment
 {
   /**
    * Returns the value of the '<em><b>Type use</b></em>' containment reference.

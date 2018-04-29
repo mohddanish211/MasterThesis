@@ -23,11 +23,14 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.hyperlinking.HyperlinkHelper;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkAcceptor;
 import org.xtext.abs.Delta_decl;
+import org.xtext.abs.Feature;
 import org.xtext.abs.Feature_decl;
 import org.xtext.abs.impl.Delta_declImpl;
+import org.xtext.abs.impl.FeatureImpl;
 import org.xtext.abs.impl.Feature_declImpl;
 import org.xtext.abs.ui.views.FeatureDeltaView;
 import org.xtext.generator.AbsGenerator;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 
 import com.google.inject.Inject;
 
@@ -53,17 +56,19 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 
 		EObjectAtOffsetHelper eObjectAtOffsetHelper = new EObjectAtOffsetHelper();
 		EObject eObject = eObjectAtOffsetHelper.resolveElementAt(resource, offset);
-		
+
 		if(eObject instanceof Delta_decl) {
 			try {
-				
+
 				//PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.xtext.abs.plugin.console.MsgConsole");
 				FeatureDeltaView viewer = (FeatureDeltaView)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.xtext.abs.ui.views.FeatureDeltaView");
 				//out.print(viewer.getTitle());
 				ArrayList<Object> elements= generator.computeDeltaToFeature((Delta_decl)eObject);
 				viewer.removeOldContent();
 				for( Object feature: elements) {
-					Feature_declImpl feature_declImpl =((EObjectResolvingEList<Feature_declImpl>)feature).get(0);
+					//	FeatureImpl feature_declImpl =((EObjectContainmentEList<FeatureImpl>)feature).get(0);
+					Feature_declImpl feature_declImpl = (Feature_declImpl) ((FeatureImpl)feature).getFeature_decl();
+					System.out.println(feature_declImpl.getName());
 					System.out.println("-------------------------------------x-------");
 
 					String featureName = feature_declImpl.getName().replaceAll(" ","").replaceAll("\n","");
@@ -77,12 +82,16 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 					{
 						INode node = it.next();
 						String nodeName= node.getText();
-						if (((nodeName).equals(featureName)) && (node.getGrammarElement() instanceof RuleCallImpl)) {
+
+						if (((nodeName).equals(featureName)) ) {//&& (node.getGrammarElement() instanceof RuleCallImpl)) {
+							System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
+							System.out.println(node);
 							if(nodeAndResourceMap.get(node)==null) {
 								nodeAndResourceMap.put(node, featureResource);
 								viewer.updateContent(nodeAndResourceMap);	
+								//break;
 							}
-							
+
 						}
 					}
 
@@ -97,12 +106,13 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 		}
 
 		if(eObject instanceof Feature_decl) {
-
+			System.out.println("Yes I am ");
 			try {
 				FeatureDeltaView viewer = (FeatureDeltaView)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.xtext.abs.ui.views.FeatureDeltaView");
 				ArrayList<Object> elements= generator.computeFeatureToDelta((Feature_decl)eObject);
 				viewer.removeOldContent();
 				if(elements != null) {
+					System.out.println("Elements not null");
 					for( Object deltaDecl: elements) {
 						Delta_declImpl delta_declImpl =((Delta_declImpl)deltaDecl);
 
@@ -120,6 +130,7 @@ public class MyHyperLinkHelper extends HyperlinkHelper {
 							if (((nodeName).equals(deltaName)) && (node.getGrammarElement() instanceof RuleCallImpl)) {
 								nodeAndResourceMap.put(node, featureResource);
 								viewer.updateContent(nodeAndResourceMap);	
+								break;
 							}
 						}
 

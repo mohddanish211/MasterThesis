@@ -3,6 +3,8 @@
  */
 package org.xtext.abs;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Class_modifier_fragment#getF <em>F</em>}</li>
+ *   <li>{@link org.xtext.abs.Class_modifier_fragment#getMethodsig <em>Methodsig</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,29 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface Class_modifier_fragment extends EObject
 {
   /**
-   * Returns the value of the '<em><b>F</b></em>' reference.
+   * Returns the value of the '<em><b>Methodsig</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.abs.Methodsig}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>F</em>' reference isn't clear,
+   * If the meaning of the '<em>Methodsig</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>F</em>' reference.
-   * @see #setF(Field_decl)
-   * @see org.xtext.abs.AbsPackage#getClass_modifier_fragment_F()
-   * @model
+   * @return the value of the '<em>Methodsig</em>' containment reference list.
+   * @see org.xtext.abs.AbsPackage#getClass_modifier_fragment_Methodsig()
+   * @model containment="true"
    * @generated
    */
-  Field_decl getF();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Class_modifier_fragment#getF <em>F</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>F</em>' reference.
-   * @see #getF()
-   * @generated
-   */
-  void setF(Field_decl value);
+  EList<Methodsig> getMethodsig();
 
 } // Class_modifier_fragment

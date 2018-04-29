@@ -14,9 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.abs.Function_decl#getType_use <em>Type use</em>}</li>
- *   <li>{@link org.xtext.abs.Function_decl#getLt <em>Lt</em>}</li>
- *   <li>{@link org.xtext.abs.Function_decl#getImportedNamespace <em>Imported Namespace</em>}</li>
- *   <li>{@link org.xtext.abs.Function_decl#getGt <em>Gt</em>}</li>
+ *   <li>{@link org.xtext.abs.Function_decl#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.abs.Function_decl#getParamlist <em>Paramlist</em>}</li>
  *   <li>{@link org.xtext.abs.Function_decl#getPure_exp <em>Pure exp</em>}</li>
  * </ul>
@@ -55,72 +53,20 @@ public interface Function_decl extends Decl, Functional_modifier
   void setType_use(Type_use value);
 
   /**
-   * Returns the value of the '<em><b>Lt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Lt</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Lt</em>' attribute.
-   * @see #setLt(String)
-   * @see org.xtext.abs.AbsPackage#getFunction_decl_Lt()
-   * @model
-   * @generated
-   */
-  String getLt();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Function_decl#getLt <em>Lt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lt</em>' attribute.
-   * @see #getLt()
-   * @generated
-   */
-  void setLt(String value);
-
-  /**
-   * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute list.
+   * Returns the value of the '<em><b>P</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Imported Namespace</em>' attribute list isn't clear,
+   * If the meaning of the '<em>P</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Imported Namespace</em>' attribute list.
-   * @see org.xtext.abs.AbsPackage#getFunction_decl_ImportedNamespace()
+   * @return the value of the '<em>P</em>' attribute list.
+   * @see org.xtext.abs.AbsPackage#getFunction_decl_P()
    * @model unique="false"
    * @generated
    */
-  EList<String> getImportedNamespace();
-
-  /**
-   * Returns the value of the '<em><b>Gt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Gt</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Gt</em>' attribute.
-   * @see #setGt(String)
-   * @see org.xtext.abs.AbsPackage#getFunction_decl_Gt()
-   * @model
-   * @generated
-   */
-  String getGt();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.Function_decl#getGt <em>Gt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Gt</em>' attribute.
-   * @see #getGt()
-   * @generated
-   */
-  void setGt(String value);
+  EList<String> getP();
 
   /**
    * Returns the value of the '<em><b>Paramlist</b></em>' containment reference.

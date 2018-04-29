@@ -62,7 +62,7 @@ public class AbsValidator extends AbstractAbsValidator {
     boolean _not = (!_isUpperCase);
     if (_not) {
       this.error("Trait name should start with a capital letter", 
-        AbsPackage.Literals.TRAIT_EXPR__NAME);
+        null);
     }
   }
   

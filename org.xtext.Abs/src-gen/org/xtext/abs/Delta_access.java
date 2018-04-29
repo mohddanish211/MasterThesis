@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Delta_access#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.Delta_access#getModule_ref <em>Module ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Delta_access extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Module ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Module ref</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.abs.AbsPackage#getDelta_access_Name()
+   * @return the value of the '<em>Module ref</em>' reference.
+   * @see #setModule_ref(Module_decl)
+   * @see org.xtext.abs.AbsPackage#getDelta_access_Module_ref()
    * @model
    * @generated
    */
-  String getName();
+  Module_decl getModule_ref();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Delta_access#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.abs.Delta_access#getModule_ref <em>Module ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Module ref</em>' reference.
+   * @see #getModule_ref()
    * @generated
    */
-  void setName(String value);
+  void setModule_ref(Module_decl value);
 
 } // Delta_access

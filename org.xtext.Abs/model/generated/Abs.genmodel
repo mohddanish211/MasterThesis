@@ -36,9 +36,7 @@
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Par_function_decl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Par_function_decl/type_use"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Par_function_decl/lt"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Par_function_decl/p"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Par_function_decl/gt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Par_function_decl/functions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Par_function_decl/params"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Par_function_decl/e"/>
@@ -50,9 +48,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Function_name_decl/name"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//DataType_decl">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//DataType_decl/lt"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//DataType_decl/p"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//DataType_decl/gt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//DataType_decl/data_constructor"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Data_constructor">
@@ -73,20 +69,24 @@
     <genClasses ecoreClass="Abs.ecore#//Pure_exp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/function_list"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/partial_function_pure_exp_list"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/function_expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/variadic_exp_list"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/c"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/l"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/if"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/then"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/else"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/case"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/casebranch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/type_use"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Pure_exp/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/i"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/b"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/var_or_field_ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Pure_exp/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Pure_exp/pure_exp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Pure_exp/await"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Pure_exp/val"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Var_or_field_ref">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Var_or_field_ref/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Var_or_field_ref/ref"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Case_branch"/>
     <genClasses ecoreClass="Abs.ecore#//Pattern">
@@ -116,15 +116,11 @@
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Type_exp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Type_exp/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Type_exp/lt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Type_exp/p"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Type_exp/gt"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Function_decl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Function_decl/type_use"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Function_decl/lt"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Function_decl/importedNamespace"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Function_decl/gt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Function_decl/p"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Function_decl/paramlist"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Function_decl/pure_exp"/>
     </genClasses>
@@ -157,70 +153,66 @@
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Field_decl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Field_decl/type_use"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Field_decl/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Field_decl/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Field_decl/pure_exp"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Stmt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/type_exp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Stmt/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/exp"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/var_or_field_ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/var_or_field_ref"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/stmt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/pure_exp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/ifstmt"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/r"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/elsestmt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/whilestmt"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Stmt/i"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/l"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/foreachstmt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/trystmt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/casestmtbranch"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/guard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/ref"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/f"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/t"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/throwPureExp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/diePureExp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/moveCogTo"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Stmt/c"/>
     </genClasses>
-    <genClasses ecoreClass="Abs.ecore#//Exp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Exp/pure_exp_list"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Exp/pure_exp"/>
-    </genClasses>
+    <genClasses ecoreClass="Abs.ecore#//Exp"/>
     <genClasses ecoreClass="Abs.ecore#//Eff_expr">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Eff_expr/l"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Eff_expr/c"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Eff_expr/a"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Eff_expr/o"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Eff_expr/m"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Eff_expr/d"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Eff_expr/pure_exp_list"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Eff_expr/list"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Delta_id">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Delta_id/name"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Guard">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Guard/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Guard/ref"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Guard/min"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Guard/max"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Guard/e"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Guard/guard"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Casestmtbranch">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Casestmtbranch/pattern"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Casestmtbranch/stmt"/>
     </genClasses>
-    <genClasses ecoreClass="Abs.ecore#//Trait_usage"/>
+    <genClasses ecoreClass="Abs.ecore#//Trait_usage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_usage/traitUsage"/>
+    </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Trait_expr">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_expr/method"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_expr/traitMethod"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Trait_expr/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_expr/trait_expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_expr/trait_oper"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_expr/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_expr/traitMethod"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_expr/traitName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_expr/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_expr/trait_expr"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Trait_oper">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_oper/method"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_oper/methodsig"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_oper/method"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_oper/methodsig"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_oper/trait_expr"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_oper/trait_exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_oper/trait_exp"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Method">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Method/type_use"/>
@@ -229,7 +221,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Method/stmt"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Trait_decl">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_decl/trait_expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Trait_decl/traitExpr"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Main_block">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Main_block/stmt"/>
@@ -242,30 +234,30 @@
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Delta_param"/>
     <genClasses ecoreClass="Abs.ecore#//Has_condition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Has_condition/f"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Has_condition/m"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Has_condition/i"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Has_condition/field"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Has_condition/method"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Has_condition/interface"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Delta_access">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Delta_access/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Delta_access/module_ref"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Module_modifier"/>
     <genClasses ecoreClass="Abs.ecore#//Functional_modifier"/>
     <genClasses ecoreClass="Abs.ecore#//OO_modifier">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/class_decl"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/class"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/i"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/class_modifier_fragment"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/interface_decl"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/class"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/inteface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/interfaceName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/removedInterface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/class_modifier_fragment"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/interface"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//OO_modifier/interface_modifier_fragment"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Class_modifier_fragment">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Class_modifier_fragment/f"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Class_modifier_fragment/methodsig"/>
     </genClasses>
-    <genClasses ecoreClass="Abs.ecore#//Interface_modifier_fragment">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Interface_modifier_fragment/removedMethod"/>
-    </genClasses>
+    <genClasses ecoreClass="Abs.ecore#//Interface_modifier_fragment"/>
     <genClasses ecoreClass="Abs.ecore#//Namespace_modifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Namespace_modifier/star"/>
     </genClasses>
@@ -286,11 +278,11 @@
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Productline_decl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Productline_decl/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Productline_decl/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Productline_decl/feature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Productline_decl/delta_clause"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Feature">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Feature/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Feature/feature_decl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Feature/p"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Feature/attr_assignment"/>
     </genClasses>
@@ -314,7 +306,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//When_condition/application_condition"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Application_condition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Application_condition/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Application_condition/feature"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Product_decl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Product_decl/name"/>
@@ -323,7 +315,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Product_decl/product_expr"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Product_expr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Product_expr/feature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Product_expr/feature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Abs.ecore#//Product_expr/productDecl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Product_expr/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Product_expr/right"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Product_reconfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Product_reconfiguration/name"/>
@@ -367,22 +362,18 @@
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Equality_expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Equality_expr/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Equality_expr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Equality_expr/right"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Comparison_expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Comparison_expr/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Comparison_expr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Comparison_expr/right"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//PlusOrMinus_expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//PlusOrMinus_expr/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//PlusOrMinus_expr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//PlusOrMinus_expr/right"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//MulDivOrMod_expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//MulDivOrMod_expr/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//MulDivOrMod_expr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//MulDivOrMod_expr/right"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//AndGuard">
@@ -401,15 +392,9 @@
     <genClasses ecoreClass="Abs.ecore#//NotExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//NotExpression/operand"/>
     </genClasses>
-    <genClasses ecoreClass="Abs.ecore#//ProductOr_expr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//ProductOr_expr/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//ProductOr_expr/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Abs.ecore#//ProductAnd_exp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//ProductAnd_exp/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//ProductAnd_exp/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Abs.ecore#//ProductPrimary_exp"/>
+    <genClasses ecoreClass="Abs.ecore#//ProductOr_expr"/>
+    <genClasses ecoreClass="Abs.ecore#//ProductAnd_exp"/>
+    <genClasses ecoreClass="Abs.ecore#//ProductMinus_exp"/>
     <genClasses ecoreClass="Abs.ecore#//MexpOr_exp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//MexpOr_exp/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//MexpOr_exp/right"/>

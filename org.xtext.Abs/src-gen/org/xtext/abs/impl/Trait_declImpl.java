@@ -22,7 +22,7 @@ import org.xtext.abs.Trait_expr;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Trait_declImpl#getTrait_expr <em>Trait expr</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Trait_declImpl#getTraitExpr <em>Trait Expr</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,14 +31,14 @@ import org.xtext.abs.Trait_expr;
 public class Trait_declImpl extends DeclImpl implements Trait_decl
 {
   /**
-   * The cached value of the '{@link #getTrait_expr() <em>Trait expr</em>}' containment reference.
+   * The cached value of the '{@link #getTraitExpr() <em>Trait Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTrait_expr()
+   * @see #getTraitExpr()
    * @generated
    * @ordered
    */
-  protected Trait_expr trait_expr;
+  protected Trait_expr traitExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,9 +66,9 @@ public class Trait_declImpl extends DeclImpl implements Trait_decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Trait_expr getTrait_expr()
+  public Trait_expr getTraitExpr()
   {
-    return trait_expr;
+    return traitExpr;
   }
 
   /**
@@ -76,13 +76,13 @@ public class Trait_declImpl extends DeclImpl implements Trait_decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTrait_expr(Trait_expr newTrait_expr, NotificationChain msgs)
+  public NotificationChain basicSetTraitExpr(Trait_expr newTraitExpr, NotificationChain msgs)
   {
-    Trait_expr oldTrait_expr = trait_expr;
-    trait_expr = newTrait_expr;
+    Trait_expr oldTraitExpr = traitExpr;
+    traitExpr = newTraitExpr;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_DECL__TRAIT_EXPR, oldTrait_expr, newTrait_expr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_DECL__TRAIT_EXPR, oldTraitExpr, newTraitExpr);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -93,20 +93,20 @@ public class Trait_declImpl extends DeclImpl implements Trait_decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTrait_expr(Trait_expr newTrait_expr)
+  public void setTraitExpr(Trait_expr newTraitExpr)
   {
-    if (newTrait_expr != trait_expr)
+    if (newTraitExpr != traitExpr)
     {
       NotificationChain msgs = null;
-      if (trait_expr != null)
-        msgs = ((InternalEObject)trait_expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_DECL__TRAIT_EXPR, null, msgs);
-      if (newTrait_expr != null)
-        msgs = ((InternalEObject)newTrait_expr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_DECL__TRAIT_EXPR, null, msgs);
-      msgs = basicSetTrait_expr(newTrait_expr, msgs);
+      if (traitExpr != null)
+        msgs = ((InternalEObject)traitExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_DECL__TRAIT_EXPR, null, msgs);
+      if (newTraitExpr != null)
+        msgs = ((InternalEObject)newTraitExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_DECL__TRAIT_EXPR, null, msgs);
+      msgs = basicSetTraitExpr(newTraitExpr, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_DECL__TRAIT_EXPR, newTrait_expr, newTrait_expr));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_DECL__TRAIT_EXPR, newTraitExpr, newTraitExpr));
   }
 
   /**
@@ -120,7 +120,7 @@ public class Trait_declImpl extends DeclImpl implements Trait_decl
     switch (featureID)
     {
       case AbsPackage.TRAIT_DECL__TRAIT_EXPR:
-        return basicSetTrait_expr(null, msgs);
+        return basicSetTraitExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,7 +136,7 @@ public class Trait_declImpl extends DeclImpl implements Trait_decl
     switch (featureID)
     {
       case AbsPackage.TRAIT_DECL__TRAIT_EXPR:
-        return getTrait_expr();
+        return getTraitExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,7 +152,7 @@ public class Trait_declImpl extends DeclImpl implements Trait_decl
     switch (featureID)
     {
       case AbsPackage.TRAIT_DECL__TRAIT_EXPR:
-        setTrait_expr((Trait_expr)newValue);
+        setTraitExpr((Trait_expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +169,7 @@ public class Trait_declImpl extends DeclImpl implements Trait_decl
     switch (featureID)
     {
       case AbsPackage.TRAIT_DECL__TRAIT_EXPR:
-        setTrait_expr((Trait_expr)null);
+        setTraitExpr((Trait_expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,7 +186,7 @@ public class Trait_declImpl extends DeclImpl implements Trait_decl
     switch (featureID)
     {
       case AbsPackage.TRAIT_DECL__TRAIT_EXPR:
-        return trait_expr != null;
+        return traitExpr != null;
     }
     return super.eIsSet(featureID);
   }

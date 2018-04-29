@@ -5,15 +5,12 @@ package org.xtext.abs.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -30,9 +27,7 @@ import org.xtext.abs.Data_constructor;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.DataType_declImpl#getLt <em>Lt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.DataType_declImpl#getP <em>P</em>}</li>
- *   <li>{@link org.xtext.abs.impl.DataType_declImpl#getGt <em>Gt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.DataType_declImpl#getData_constructor <em>Data constructor</em>}</li>
  * </ul>
  * </p>
@@ -42,26 +37,6 @@ import org.xtext.abs.Data_constructor;
 public class DataType_declImpl extends DeclImpl implements DataType_decl
 {
   /**
-   * The default value of the '{@link #getLt() <em>Lt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLt()
-   * @generated
-   * @ordered
-   */
-  protected static final String LT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getLt() <em>Lt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLt()
-   * @generated
-   * @ordered
-   */
-  protected String lt = LT_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getP() <em>P</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -70,26 +45,6 @@ public class DataType_declImpl extends DeclImpl implements DataType_decl
    * @ordered
    */
   protected EList<String> p;
-
-  /**
-   * The default value of the '{@link #getGt() <em>Gt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGt()
-   * @generated
-   * @ordered
-   */
-  protected static final String GT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getGt() <em>Gt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGt()
-   * @generated
-   * @ordered
-   */
-  protected String gt = GT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getData_constructor() <em>Data constructor</em>}' containment reference list.
@@ -127,29 +82,6 @@ public class DataType_declImpl extends DeclImpl implements DataType_decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getLt()
-  {
-    return lt;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLt(String newLt)
-  {
-    String oldLt = lt;
-    lt = newLt;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DATA_TYPE_DECL__LT, oldLt, lt));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<String> getP()
   {
     if (p == null)
@@ -157,29 +89,6 @@ public class DataType_declImpl extends DeclImpl implements DataType_decl
       p = new EDataTypeEList<String>(String.class, this, AbsPackage.DATA_TYPE_DECL__P);
     }
     return p;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getGt()
-  {
-    return gt;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setGt(String newGt)
-  {
-    String oldGt = gt;
-    gt = newGt;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DATA_TYPE_DECL__GT, oldGt, gt));
   }
 
   /**
@@ -222,12 +131,8 @@ public class DataType_declImpl extends DeclImpl implements DataType_decl
   {
     switch (featureID)
     {
-      case AbsPackage.DATA_TYPE_DECL__LT:
-        return getLt();
       case AbsPackage.DATA_TYPE_DECL__P:
         return getP();
-      case AbsPackage.DATA_TYPE_DECL__GT:
-        return getGt();
       case AbsPackage.DATA_TYPE_DECL__DATA_CONSTRUCTOR:
         return getData_constructor();
     }
@@ -245,15 +150,9 @@ public class DataType_declImpl extends DeclImpl implements DataType_decl
   {
     switch (featureID)
     {
-      case AbsPackage.DATA_TYPE_DECL__LT:
-        setLt((String)newValue);
-        return;
       case AbsPackage.DATA_TYPE_DECL__P:
         getP().clear();
         getP().addAll((Collection<? extends String>)newValue);
-        return;
-      case AbsPackage.DATA_TYPE_DECL__GT:
-        setGt((String)newValue);
         return;
       case AbsPackage.DATA_TYPE_DECL__DATA_CONSTRUCTOR:
         getData_constructor().clear();
@@ -273,14 +172,8 @@ public class DataType_declImpl extends DeclImpl implements DataType_decl
   {
     switch (featureID)
     {
-      case AbsPackage.DATA_TYPE_DECL__LT:
-        setLt(LT_EDEFAULT);
-        return;
       case AbsPackage.DATA_TYPE_DECL__P:
         getP().clear();
-        return;
-      case AbsPackage.DATA_TYPE_DECL__GT:
-        setGt(GT_EDEFAULT);
         return;
       case AbsPackage.DATA_TYPE_DECL__DATA_CONSTRUCTOR:
         getData_constructor().clear();
@@ -299,12 +192,8 @@ public class DataType_declImpl extends DeclImpl implements DataType_decl
   {
     switch (featureID)
     {
-      case AbsPackage.DATA_TYPE_DECL__LT:
-        return LT_EDEFAULT == null ? lt != null : !LT_EDEFAULT.equals(lt);
       case AbsPackage.DATA_TYPE_DECL__P:
         return p != null && !p.isEmpty();
-      case AbsPackage.DATA_TYPE_DECL__GT:
-        return GT_EDEFAULT == null ? gt != null : !GT_EDEFAULT.equals(gt);
       case AbsPackage.DATA_TYPE_DECL__DATA_CONSTRUCTOR:
         return data_constructor != null && !data_constructor.isEmpty();
     }
@@ -322,12 +211,8 @@ public class DataType_declImpl extends DeclImpl implements DataType_decl
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (lt: ");
-    result.append(lt);
-    result.append(", p: ");
+    result.append(" (p: ");
     result.append(p);
-    result.append(", gt: ");
-    result.append(gt);
     result.append(')');
     return result.toString();
   }

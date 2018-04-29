@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Case_branch;
+import org.xtext.abs.Eff_expr;
 import org.xtext.abs.Function_list;
 import org.xtext.abs.Pure_exp;
 import org.xtext.abs.Pure_exp_list;
 import org.xtext.abs.Type_use;
-import org.xtext.abs.Var_or_field_ref;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,19 +33,25 @@ import org.xtext.abs.Var_or_field_ref;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getL <em>L</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getPure_exp_list <em>Pure exp list</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getList <em>List</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getFunction_list <em>Function list</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getPartial_function_pure_exp_list <em>Partial function pure exp list</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getFunction_expr <em>Function expr</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getVariadic_exp_list <em>Variadic exp list</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getC <em>C</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getL <em>L</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getIf <em>If</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getThen <em>Then</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getElse <em>Else</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getCase <em>Case</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getCasebranch <em>Casebranch</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getType_use <em>Type use</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getI <em>I</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getB <em>B</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getVar_or_field_ref <em>Var or field ref</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getPure_exp <em>Pure exp</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getAwait <em>Await</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Pure_expImpl#getVal <em>Val</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +59,46 @@ import org.xtext.abs.Var_or_field_ref;
  */
 public class Pure_expImpl extends ExpImpl implements Pure_exp
 {
+  /**
+   * The default value of the '{@link #getL() <em>L</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getL()
+   * @generated
+   * @ordered
+   */
+  protected static final String L_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getL() <em>L</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getL()
+   * @generated
+   * @ordered
+   */
+  protected String l = L_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getPure_exp_list() <em>Pure exp list</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPure_exp_list()
+   * @generated
+   * @ordered
+   */
+  protected Pure_exp_list pure_exp_list;
+
+  /**
+   * The cached value of the '{@link #getList() <em>List</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getList()
+   * @generated
+   * @ordered
+   */
+  protected EList<Pure_exp_list> list;
+
   /**
    * The cached value of the '{@link #getFunction_list() <em>Function list</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -74,16 +120,6 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
   protected Pure_exp_list partial_function_pure_exp_list;
 
   /**
-   * The cached value of the '{@link #getFunction_expr() <em>Function expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFunction_expr()
-   * @generated
-   * @ordered
-   */
-  protected Pure_exp_list function_expr;
-
-  /**
    * The cached value of the '{@link #getVariadic_exp_list() <em>Variadic exp list</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,24 +130,24 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
   protected Pure_exp_list variadic_exp_list;
 
   /**
-   * The cached value of the '{@link #getC() <em>C</em>}' containment reference.
+   * The cached value of the '{@link #getIf() <em>If</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getC()
+   * @see #getIf()
    * @generated
    * @ordered
    */
-  protected Pure_exp c;
+  protected Pure_exp if_;
 
   /**
-   * The cached value of the '{@link #getL() <em>L</em>}' containment reference.
+   * The cached value of the '{@link #getThen() <em>Then</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getL()
+   * @see #getThen()
    * @generated
    * @ordered
    */
-  protected Pure_exp l;
+  protected Pure_exp then;
 
   /**
    * The cached value of the '{@link #getElse() <em>Else</em>}' containment reference.
@@ -122,6 +158,16 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * @ordered
    */
   protected Pure_exp else_;
+
+  /**
+   * The cached value of the '{@link #getCase() <em>Case</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCase()
+   * @generated
+   * @ordered
+   */
+  protected Pure_exp case_;
 
   /**
    * The cached value of the '{@link #getCasebranch() <em>Casebranch</em>}' containment reference list.
@@ -184,14 +230,74 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
   protected Pure_exp b;
 
   /**
-   * The cached value of the '{@link #getVar_or_field_ref() <em>Var or field ref</em>}' reference.
+   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVar_or_field_ref()
+   * @see #getOp()
    * @generated
    * @ordered
    */
-  protected Var_or_field_ref var_or_field_ref;
+  protected static final String OP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected String op = OP_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getPure_exp() <em>Pure exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPure_exp()
+   * @generated
+   * @ordered
+   */
+  protected Pure_exp pure_exp;
+
+  /**
+   * The default value of the '{@link #getAwait() <em>Await</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAwait()
+   * @generated
+   * @ordered
+   */
+  protected static final String AWAIT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAwait() <em>Await</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAwait()
+   * @generated
+   * @ordered
+   */
+  protected String await = AWAIT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVal() <em>Val</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVal()
+   * @generated
+   * @ordered
+   */
+  protected static final String VAL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVal() <em>Val</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVal()
+   * @generated
+   * @ordered
+   */
+  protected String val = VAL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -212,6 +318,91 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
   protected EClass eStaticClass()
   {
     return AbsPackage.Literals.PURE_EXP;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getL()
+  {
+    return l;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setL(String newL)
+  {
+    String oldL = l;
+    l = newL;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__L, oldL, l));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Pure_exp_list getPure_exp_list()
+  {
+    return pure_exp_list;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPure_exp_list(Pure_exp_list newPure_exp_list, NotificationChain msgs)
+  {
+    Pure_exp_list oldPure_exp_list = pure_exp_list;
+    pure_exp_list = newPure_exp_list;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PURE_EXP_LIST, oldPure_exp_list, newPure_exp_list);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPure_exp_list(Pure_exp_list newPure_exp_list)
+  {
+    if (newPure_exp_list != pure_exp_list)
+    {
+      NotificationChain msgs = null;
+      if (pure_exp_list != null)
+        msgs = ((InternalEObject)pure_exp_list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PURE_EXP_LIST, null, msgs);
+      if (newPure_exp_list != null)
+        msgs = ((InternalEObject)newPure_exp_list).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PURE_EXP_LIST, null, msgs);
+      msgs = basicSetPure_exp_list(newPure_exp_list, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PURE_EXP_LIST, newPure_exp_list, newPure_exp_list));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Pure_exp_list> getList()
+  {
+    if (list == null)
+    {
+      list = new EObjectContainmentEList<Pure_exp_list>(Pure_exp_list.class, this, AbsPackage.PURE_EXP__LIST);
+    }
+    return list;
   }
 
   /**
@@ -281,54 +472,6 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Pure_exp_list getFunction_expr()
-  {
-    return function_expr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFunction_expr(Pure_exp_list newFunction_expr, NotificationChain msgs)
-  {
-    Pure_exp_list oldFunction_expr = function_expr;
-    function_expr = newFunction_expr;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__FUNCTION_EXPR, oldFunction_expr, newFunction_expr);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFunction_expr(Pure_exp_list newFunction_expr)
-  {
-    if (newFunction_expr != function_expr)
-    {
-      NotificationChain msgs = null;
-      if (function_expr != null)
-        msgs = ((InternalEObject)function_expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__FUNCTION_EXPR, null, msgs);
-      if (newFunction_expr != null)
-        msgs = ((InternalEObject)newFunction_expr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__FUNCTION_EXPR, null, msgs);
-      msgs = basicSetFunction_expr(newFunction_expr, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__FUNCTION_EXPR, newFunction_expr, newFunction_expr));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Pure_exp_list getVariadic_exp_list()
   {
     return variadic_exp_list;
@@ -377,9 +520,9 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Pure_exp getC()
+  public Pure_exp getIf()
   {
-    return c;
+    return if_;
   }
 
   /**
@@ -387,13 +530,13 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetC(Pure_exp newC, NotificationChain msgs)
+  public NotificationChain basicSetIf(Pure_exp newIf, NotificationChain msgs)
   {
-    Pure_exp oldC = c;
-    c = newC;
+    Pure_exp oldIf = if_;
+    if_ = newIf;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__C, oldC, newC);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__IF, oldIf, newIf);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -404,20 +547,20 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setC(Pure_exp newC)
+  public void setIf(Pure_exp newIf)
   {
-    if (newC != c)
+    if (newIf != if_)
     {
       NotificationChain msgs = null;
-      if (c != null)
-        msgs = ((InternalEObject)c).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__C, null, msgs);
-      if (newC != null)
-        msgs = ((InternalEObject)newC).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__C, null, msgs);
-      msgs = basicSetC(newC, msgs);
+      if (if_ != null)
+        msgs = ((InternalEObject)if_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__IF, null, msgs);
+      if (newIf != null)
+        msgs = ((InternalEObject)newIf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__IF, null, msgs);
+      msgs = basicSetIf(newIf, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__C, newC, newC));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__IF, newIf, newIf));
   }
 
   /**
@@ -425,9 +568,9 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Pure_exp getL()
+  public Pure_exp getThen()
   {
-    return l;
+    return then;
   }
 
   /**
@@ -435,13 +578,13 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetL(Pure_exp newL, NotificationChain msgs)
+  public NotificationChain basicSetThen(Pure_exp newThen, NotificationChain msgs)
   {
-    Pure_exp oldL = l;
-    l = newL;
+    Pure_exp oldThen = then;
+    then = newThen;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__L, oldL, newL);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__THEN, oldThen, newThen);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -452,20 +595,20 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setL(Pure_exp newL)
+  public void setThen(Pure_exp newThen)
   {
-    if (newL != l)
+    if (newThen != then)
     {
       NotificationChain msgs = null;
-      if (l != null)
-        msgs = ((InternalEObject)l).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__L, null, msgs);
-      if (newL != null)
-        msgs = ((InternalEObject)newL).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__L, null, msgs);
-      msgs = basicSetL(newL, msgs);
+      if (then != null)
+        msgs = ((InternalEObject)then).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__THEN, null, msgs);
+      if (newThen != null)
+        msgs = ((InternalEObject)newThen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__THEN, null, msgs);
+      msgs = basicSetThen(newThen, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__L, newL, newL));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__THEN, newThen, newThen));
   }
 
   /**
@@ -514,6 +657,54 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__ELSE, newElse, newElse));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Pure_exp getCase()
+  {
+    return case_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCase(Pure_exp newCase, NotificationChain msgs)
+  {
+    Pure_exp oldCase = case_;
+    case_ = newCase;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__CASE, oldCase, newCase);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCase(Pure_exp newCase)
+  {
+    if (newCase != case_)
+    {
+      NotificationChain msgs = null;
+      if (case_ != null)
+        msgs = ((InternalEObject)case_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__CASE, null, msgs);
+      if (newCase != null)
+        msgs = ((InternalEObject)newCase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__CASE, null, msgs);
+      msgs = basicSetCase(newCase, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__CASE, newCase, newCase));
   }
 
   /**
@@ -702,19 +893,9 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Var_or_field_ref getVar_or_field_ref()
+  public String getOp()
   {
-    if (var_or_field_ref != null && var_or_field_ref.eIsProxy())
-    {
-      InternalEObject oldVar_or_field_ref = (InternalEObject)var_or_field_ref;
-      var_or_field_ref = (Var_or_field_ref)eResolveProxy(oldVar_or_field_ref);
-      if (var_or_field_ref != oldVar_or_field_ref)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.PURE_EXP__VAR_OR_FIELD_REF, oldVar_or_field_ref, var_or_field_ref));
-      }
-    }
-    return var_or_field_ref;
+    return op;
   }
 
   /**
@@ -722,22 +903,106 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Var_or_field_ref basicGetVar_or_field_ref()
+  public void setOp(String newOp)
   {
-    return var_or_field_ref;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVar_or_field_ref(Var_or_field_ref newVar_or_field_ref)
-  {
-    Var_or_field_ref oldVar_or_field_ref = var_or_field_ref;
-    var_or_field_ref = newVar_or_field_ref;
+    String oldOp = op;
+    op = newOp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__VAR_OR_FIELD_REF, oldVar_or_field_ref, var_or_field_ref));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__OP, oldOp, op));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Pure_exp getPure_exp()
+  {
+    return pure_exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPure_exp(Pure_exp newPure_exp, NotificationChain msgs)
+  {
+    Pure_exp oldPure_exp = pure_exp;
+    pure_exp = newPure_exp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PURE_EXP, oldPure_exp, newPure_exp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPure_exp(Pure_exp newPure_exp)
+  {
+    if (newPure_exp != pure_exp)
+    {
+      NotificationChain msgs = null;
+      if (pure_exp != null)
+        msgs = ((InternalEObject)pure_exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PURE_EXP, null, msgs);
+      if (newPure_exp != null)
+        msgs = ((InternalEObject)newPure_exp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.PURE_EXP__PURE_EXP, null, msgs);
+      msgs = basicSetPure_exp(newPure_exp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__PURE_EXP, newPure_exp, newPure_exp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAwait()
+  {
+    return await;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAwait(String newAwait)
+  {
+    String oldAwait = await;
+    await = newAwait;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__AWAIT, oldAwait, await));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getVal()
+  {
+    return val;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVal(String newVal)
+  {
+    String oldVal = val;
+    val = newVal;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.PURE_EXP__VAL, oldVal, val));
   }
 
   /**
@@ -750,20 +1015,24 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
   {
     switch (featureID)
     {
+      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
+        return basicSetPure_exp_list(null, msgs);
+      case AbsPackage.PURE_EXP__LIST:
+        return ((InternalEList<?>)getList()).basicRemove(otherEnd, msgs);
       case AbsPackage.PURE_EXP__FUNCTION_LIST:
         return ((InternalEList<?>)getFunction_list()).basicRemove(otherEnd, msgs);
       case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
         return basicSetPartial_function_pure_exp_list(null, msgs);
-      case AbsPackage.PURE_EXP__FUNCTION_EXPR:
-        return basicSetFunction_expr(null, msgs);
       case AbsPackage.PURE_EXP__VARIADIC_EXP_LIST:
         return basicSetVariadic_exp_list(null, msgs);
-      case AbsPackage.PURE_EXP__C:
-        return basicSetC(null, msgs);
-      case AbsPackage.PURE_EXP__L:
-        return basicSetL(null, msgs);
+      case AbsPackage.PURE_EXP__IF:
+        return basicSetIf(null, msgs);
+      case AbsPackage.PURE_EXP__THEN:
+        return basicSetThen(null, msgs);
       case AbsPackage.PURE_EXP__ELSE:
         return basicSetElse(null, msgs);
+      case AbsPackage.PURE_EXP__CASE:
+        return basicSetCase(null, msgs);
       case AbsPackage.PURE_EXP__CASEBRANCH:
         return ((InternalEList<?>)getCasebranch()).basicRemove(otherEnd, msgs);
       case AbsPackage.PURE_EXP__TYPE_USE:
@@ -772,6 +1041,8 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
         return basicSetI(null, msgs);
       case AbsPackage.PURE_EXP__B:
         return basicSetB(null, msgs);
+      case AbsPackage.PURE_EXP__PURE_EXP:
+        return basicSetPure_exp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -786,20 +1057,26 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
   {
     switch (featureID)
     {
+      case AbsPackage.PURE_EXP__L:
+        return getL();
+      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
+        return getPure_exp_list();
+      case AbsPackage.PURE_EXP__LIST:
+        return getList();
       case AbsPackage.PURE_EXP__FUNCTION_LIST:
         return getFunction_list();
       case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
         return getPartial_function_pure_exp_list();
-      case AbsPackage.PURE_EXP__FUNCTION_EXPR:
-        return getFunction_expr();
       case AbsPackage.PURE_EXP__VARIADIC_EXP_LIST:
         return getVariadic_exp_list();
-      case AbsPackage.PURE_EXP__C:
-        return getC();
-      case AbsPackage.PURE_EXP__L:
-        return getL();
+      case AbsPackage.PURE_EXP__IF:
+        return getIf();
+      case AbsPackage.PURE_EXP__THEN:
+        return getThen();
       case AbsPackage.PURE_EXP__ELSE:
         return getElse();
+      case AbsPackage.PURE_EXP__CASE:
+        return getCase();
       case AbsPackage.PURE_EXP__CASEBRANCH:
         return getCasebranch();
       case AbsPackage.PURE_EXP__TYPE_USE:
@@ -810,9 +1087,14 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
         return getI();
       case AbsPackage.PURE_EXP__B:
         return getB();
-      case AbsPackage.PURE_EXP__VAR_OR_FIELD_REF:
-        if (resolve) return getVar_or_field_ref();
-        return basicGetVar_or_field_ref();
+      case AbsPackage.PURE_EXP__OP:
+        return getOp();
+      case AbsPackage.PURE_EXP__PURE_EXP:
+        return getPure_exp();
+      case AbsPackage.PURE_EXP__AWAIT:
+        return getAwait();
+      case AbsPackage.PURE_EXP__VAL:
+        return getVal();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -828,6 +1110,16 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
   {
     switch (featureID)
     {
+      case AbsPackage.PURE_EXP__L:
+        setL((String)newValue);
+        return;
+      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
+        setPure_exp_list((Pure_exp_list)newValue);
+        return;
+      case AbsPackage.PURE_EXP__LIST:
+        getList().clear();
+        getList().addAll((Collection<? extends Pure_exp_list>)newValue);
+        return;
       case AbsPackage.PURE_EXP__FUNCTION_LIST:
         getFunction_list().clear();
         getFunction_list().addAll((Collection<? extends Function_list>)newValue);
@@ -835,20 +1127,20 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
       case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
         setPartial_function_pure_exp_list((Pure_exp_list)newValue);
         return;
-      case AbsPackage.PURE_EXP__FUNCTION_EXPR:
-        setFunction_expr((Pure_exp_list)newValue);
-        return;
       case AbsPackage.PURE_EXP__VARIADIC_EXP_LIST:
         setVariadic_exp_list((Pure_exp_list)newValue);
         return;
-      case AbsPackage.PURE_EXP__C:
-        setC((Pure_exp)newValue);
+      case AbsPackage.PURE_EXP__IF:
+        setIf((Pure_exp)newValue);
         return;
-      case AbsPackage.PURE_EXP__L:
-        setL((Pure_exp)newValue);
+      case AbsPackage.PURE_EXP__THEN:
+        setThen((Pure_exp)newValue);
         return;
       case AbsPackage.PURE_EXP__ELSE:
         setElse((Pure_exp)newValue);
+        return;
+      case AbsPackage.PURE_EXP__CASE:
+        setCase((Pure_exp)newValue);
         return;
       case AbsPackage.PURE_EXP__CASEBRANCH:
         getCasebranch().clear();
@@ -866,8 +1158,17 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
       case AbsPackage.PURE_EXP__B:
         setB((Pure_exp)newValue);
         return;
-      case AbsPackage.PURE_EXP__VAR_OR_FIELD_REF:
-        setVar_or_field_ref((Var_or_field_ref)newValue);
+      case AbsPackage.PURE_EXP__OP:
+        setOp((String)newValue);
+        return;
+      case AbsPackage.PURE_EXP__PURE_EXP:
+        setPure_exp((Pure_exp)newValue);
+        return;
+      case AbsPackage.PURE_EXP__AWAIT:
+        setAwait((String)newValue);
+        return;
+      case AbsPackage.PURE_EXP__VAL:
+        setVal((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -883,26 +1184,35 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
   {
     switch (featureID)
     {
+      case AbsPackage.PURE_EXP__L:
+        setL(L_EDEFAULT);
+        return;
+      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
+        setPure_exp_list((Pure_exp_list)null);
+        return;
+      case AbsPackage.PURE_EXP__LIST:
+        getList().clear();
+        return;
       case AbsPackage.PURE_EXP__FUNCTION_LIST:
         getFunction_list().clear();
         return;
       case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
         setPartial_function_pure_exp_list((Pure_exp_list)null);
         return;
-      case AbsPackage.PURE_EXP__FUNCTION_EXPR:
-        setFunction_expr((Pure_exp_list)null);
-        return;
       case AbsPackage.PURE_EXP__VARIADIC_EXP_LIST:
         setVariadic_exp_list((Pure_exp_list)null);
         return;
-      case AbsPackage.PURE_EXP__C:
-        setC((Pure_exp)null);
+      case AbsPackage.PURE_EXP__IF:
+        setIf((Pure_exp)null);
         return;
-      case AbsPackage.PURE_EXP__L:
-        setL((Pure_exp)null);
+      case AbsPackage.PURE_EXP__THEN:
+        setThen((Pure_exp)null);
         return;
       case AbsPackage.PURE_EXP__ELSE:
         setElse((Pure_exp)null);
+        return;
+      case AbsPackage.PURE_EXP__CASE:
+        setCase((Pure_exp)null);
         return;
       case AbsPackage.PURE_EXP__CASEBRANCH:
         getCasebranch().clear();
@@ -919,8 +1229,17 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
       case AbsPackage.PURE_EXP__B:
         setB((Pure_exp)null);
         return;
-      case AbsPackage.PURE_EXP__VAR_OR_FIELD_REF:
-        setVar_or_field_ref((Var_or_field_ref)null);
+      case AbsPackage.PURE_EXP__OP:
+        setOp(OP_EDEFAULT);
+        return;
+      case AbsPackage.PURE_EXP__PURE_EXP:
+        setPure_exp((Pure_exp)null);
+        return;
+      case AbsPackage.PURE_EXP__AWAIT:
+        setAwait(AWAIT_EDEFAULT);
+        return;
+      case AbsPackage.PURE_EXP__VAL:
+        setVal(VAL_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -936,20 +1255,26 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
   {
     switch (featureID)
     {
+      case AbsPackage.PURE_EXP__L:
+        return L_EDEFAULT == null ? l != null : !L_EDEFAULT.equals(l);
+      case AbsPackage.PURE_EXP__PURE_EXP_LIST:
+        return pure_exp_list != null;
+      case AbsPackage.PURE_EXP__LIST:
+        return list != null && !list.isEmpty();
       case AbsPackage.PURE_EXP__FUNCTION_LIST:
         return function_list != null && !function_list.isEmpty();
       case AbsPackage.PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST:
         return partial_function_pure_exp_list != null;
-      case AbsPackage.PURE_EXP__FUNCTION_EXPR:
-        return function_expr != null;
       case AbsPackage.PURE_EXP__VARIADIC_EXP_LIST:
         return variadic_exp_list != null;
-      case AbsPackage.PURE_EXP__C:
-        return c != null;
-      case AbsPackage.PURE_EXP__L:
-        return l != null;
+      case AbsPackage.PURE_EXP__IF:
+        return if_ != null;
+      case AbsPackage.PURE_EXP__THEN:
+        return then != null;
       case AbsPackage.PURE_EXP__ELSE:
         return else_ != null;
+      case AbsPackage.PURE_EXP__CASE:
+        return case_ != null;
       case AbsPackage.PURE_EXP__CASEBRANCH:
         return casebranch != null && !casebranch.isEmpty();
       case AbsPackage.PURE_EXP__TYPE_USE:
@@ -960,10 +1285,58 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
         return i != null;
       case AbsPackage.PURE_EXP__B:
         return b != null;
-      case AbsPackage.PURE_EXP__VAR_OR_FIELD_REF:
-        return var_or_field_ref != null;
+      case AbsPackage.PURE_EXP__OP:
+        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
+      case AbsPackage.PURE_EXP__PURE_EXP:
+        return pure_exp != null;
+      case AbsPackage.PURE_EXP__AWAIT:
+        return AWAIT_EDEFAULT == null ? await != null : !AWAIT_EDEFAULT.equals(await);
+      case AbsPackage.PURE_EXP__VAL:
+        return VAL_EDEFAULT == null ? val != null : !VAL_EDEFAULT.equals(val);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Eff_expr.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case AbsPackage.PURE_EXP__L: return AbsPackage.EFF_EXPR__L;
+        case AbsPackage.PURE_EXP__PURE_EXP_LIST: return AbsPackage.EFF_EXPR__PURE_EXP_LIST;
+        case AbsPackage.PURE_EXP__LIST: return AbsPackage.EFF_EXPR__LIST;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Eff_expr.class)
+    {
+      switch (baseFeatureID)
+      {
+        case AbsPackage.EFF_EXPR__L: return AbsPackage.PURE_EXP__L;
+        case AbsPackage.EFF_EXPR__PURE_EXP_LIST: return AbsPackage.PURE_EXP__PURE_EXP_LIST;
+        case AbsPackage.EFF_EXPR__LIST: return AbsPackage.PURE_EXP__LIST;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -977,8 +1350,16 @@ public class Pure_expImpl extends ExpImpl implements Pure_exp
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
+    result.append(" (l: ");
+    result.append(l);
+    result.append(", value: ");
     result.append(value);
+    result.append(", op: ");
+    result.append(op);
+    result.append(", await: ");
+    result.append(await);
+    result.append(", val: ");
+    result.append(val);
     result.append(')');
     return result.toString();
   }

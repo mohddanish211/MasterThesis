@@ -156,7 +156,7 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
       case AbsPackage.NOT_EXPRESSION: return createNotExpression();
       case AbsPackage.PRODUCT_OR_EXPR: return createProductOr_expr();
       case AbsPackage.PRODUCT_AND_EXP: return createProductAnd_exp();
-      case AbsPackage.PRODUCT_PRIMARY_EXP: return createProductPrimary_exp();
+      case AbsPackage.PRODUCT_MINUS_EXP: return createProductMinus_exp();
       case AbsPackage.MEXP_OR_EXP: return createMexpOr_exp();
       case AbsPackage.MEXP_AND_EXPR: return createMexpAnd_expr();
       case AbsPackage.MEXP_IMPLIES_EXPR: return createMexpImplies_expr();
@@ -1176,10 +1176,10 @@ public class AbsFactoryImpl extends EFactoryImpl implements AbsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ProductPrimary_exp createProductPrimary_exp()
+  public ProductMinus_exp createProductMinus_exp()
   {
-    ProductPrimary_expImpl productPrimary_exp = new ProductPrimary_expImpl();
-    return productPrimary_exp;
+    ProductMinus_expImpl productMinus_exp = new ProductMinus_expImpl();
+    return productMinus_exp;
   }
 
   /**

@@ -3,18 +3,24 @@
  */
 package org.xtext.abs.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.Delta_id;
 import org.xtext.abs.Eff_expr;
-import org.xtext.abs.Pure_exp;
+import org.xtext.abs.Pure_exp_list;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,11 +30,8 @@ import org.xtext.abs.Pure_exp;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.abs.impl.Eff_exprImpl#getL <em>L</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Eff_exprImpl#getC <em>C</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Eff_exprImpl#getA <em>A</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Eff_exprImpl#getO <em>O</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Eff_exprImpl#getM <em>M</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Eff_exprImpl#getD <em>D</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Eff_exprImpl#getPure_exp_list <em>Pure exp list</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Eff_exprImpl#getList <em>List</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,84 +60,24 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
   protected String l = L_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getC() <em>C</em>}' attribute.
+   * The cached value of the '{@link #getPure_exp_list() <em>Pure exp list</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getC()
+   * @see #getPure_exp_list()
    * @generated
    * @ordered
    */
-  protected static final String C_EDEFAULT = null;
+  protected Pure_exp_list pure_exp_list;
 
   /**
-   * The cached value of the '{@link #getC() <em>C</em>}' attribute.
+   * The cached value of the '{@link #getList() <em>List</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getC()
+   * @see #getList()
    * @generated
    * @ordered
    */
-  protected String c = C_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getA() <em>A</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getA()
-   * @generated
-   * @ordered
-   */
-  protected static final String A_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getA() <em>A</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getA()
-   * @generated
-   * @ordered
-   */
-  protected String a = A_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getO() <em>O</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getO()
-   * @generated
-   * @ordered
-   */
-  protected Pure_exp o;
-
-  /**
-   * The default value of the '{@link #getM() <em>M</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getM()
-   * @generated
-   * @ordered
-   */
-  protected static final String M_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getM() <em>M</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getM()
-   * @generated
-   * @ordered
-   */
-  protected String m = M_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getD() <em>D</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getD()
-   * @generated
-   * @ordered
-   */
-  protected Delta_id d;
+  protected EList<Pure_exp_list> list;
 
   /**
    * <!-- begin-user-doc -->
@@ -185,9 +128,9 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getC()
+  public Pure_exp_list getPure_exp_list()
   {
-    return c;
+    return pure_exp_list;
   }
 
   /**
@@ -195,59 +138,13 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setC(String newC)
+  public NotificationChain basicSetPure_exp_list(Pure_exp_list newPure_exp_list, NotificationChain msgs)
   {
-    String oldC = c;
-    c = newC;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EFF_EXPR__C, oldC, c));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getA()
-  {
-    return a;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setA(String newA)
-  {
-    String oldA = a;
-    a = newA;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EFF_EXPR__A, oldA, a));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Pure_exp getO()
-  {
-    return o;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetO(Pure_exp newO, NotificationChain msgs)
-  {
-    Pure_exp oldO = o;
-    o = newO;
+    Pure_exp_list oldPure_exp_list = pure_exp_list;
+    pure_exp_list = newPure_exp_list;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.EFF_EXPR__O, oldO, newO);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.EFF_EXPR__PURE_EXP_LIST, oldPure_exp_list, newPure_exp_list);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -258,20 +155,20 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setO(Pure_exp newO)
+  public void setPure_exp_list(Pure_exp_list newPure_exp_list)
   {
-    if (newO != o)
+    if (newPure_exp_list != pure_exp_list)
     {
       NotificationChain msgs = null;
-      if (o != null)
-        msgs = ((InternalEObject)o).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EFF_EXPR__O, null, msgs);
-      if (newO != null)
-        msgs = ((InternalEObject)newO).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EFF_EXPR__O, null, msgs);
-      msgs = basicSetO(newO, msgs);
+      if (pure_exp_list != null)
+        msgs = ((InternalEObject)pure_exp_list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EFF_EXPR__PURE_EXP_LIST, null, msgs);
+      if (newPure_exp_list != null)
+        msgs = ((InternalEObject)newPure_exp_list).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EFF_EXPR__PURE_EXP_LIST, null, msgs);
+      msgs = basicSetPure_exp_list(newPure_exp_list, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EFF_EXPR__O, newO, newO));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EFF_EXPR__PURE_EXP_LIST, newPure_exp_list, newPure_exp_list));
   }
 
   /**
@@ -279,70 +176,13 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getM()
+  public EList<Pure_exp_list> getList()
   {
-    return m;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setM(String newM)
-  {
-    String oldM = m;
-    m = newM;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EFF_EXPR__M, oldM, m));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Delta_id getD()
-  {
-    return d;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetD(Delta_id newD, NotificationChain msgs)
-  {
-    Delta_id oldD = d;
-    d = newD;
-    if (eNotificationRequired())
+    if (list == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.EFF_EXPR__D, oldD, newD);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      list = new EObjectContainmentEList<Pure_exp_list>(Pure_exp_list.class, this, AbsPackage.EFF_EXPR__LIST);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setD(Delta_id newD)
-  {
-    if (newD != d)
-    {
-      NotificationChain msgs = null;
-      if (d != null)
-        msgs = ((InternalEObject)d).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EFF_EXPR__D, null, msgs);
-      if (newD != null)
-        msgs = ((InternalEObject)newD).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.EFF_EXPR__D, null, msgs);
-      msgs = basicSetD(newD, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.EFF_EXPR__D, newD, newD));
+    return list;
   }
 
   /**
@@ -355,10 +195,10 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
   {
     switch (featureID)
     {
-      case AbsPackage.EFF_EXPR__O:
-        return basicSetO(null, msgs);
-      case AbsPackage.EFF_EXPR__D:
-        return basicSetD(null, msgs);
+      case AbsPackage.EFF_EXPR__PURE_EXP_LIST:
+        return basicSetPure_exp_list(null, msgs);
+      case AbsPackage.EFF_EXPR__LIST:
+        return ((InternalEList<?>)getList()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -375,16 +215,10 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
     {
       case AbsPackage.EFF_EXPR__L:
         return getL();
-      case AbsPackage.EFF_EXPR__C:
-        return getC();
-      case AbsPackage.EFF_EXPR__A:
-        return getA();
-      case AbsPackage.EFF_EXPR__O:
-        return getO();
-      case AbsPackage.EFF_EXPR__M:
-        return getM();
-      case AbsPackage.EFF_EXPR__D:
-        return getD();
+      case AbsPackage.EFF_EXPR__PURE_EXP_LIST:
+        return getPure_exp_list();
+      case AbsPackage.EFF_EXPR__LIST:
+        return getList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -394,6 +228,7 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -402,20 +237,12 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
       case AbsPackage.EFF_EXPR__L:
         setL((String)newValue);
         return;
-      case AbsPackage.EFF_EXPR__C:
-        setC((String)newValue);
+      case AbsPackage.EFF_EXPR__PURE_EXP_LIST:
+        setPure_exp_list((Pure_exp_list)newValue);
         return;
-      case AbsPackage.EFF_EXPR__A:
-        setA((String)newValue);
-        return;
-      case AbsPackage.EFF_EXPR__O:
-        setO((Pure_exp)newValue);
-        return;
-      case AbsPackage.EFF_EXPR__M:
-        setM((String)newValue);
-        return;
-      case AbsPackage.EFF_EXPR__D:
-        setD((Delta_id)newValue);
+      case AbsPackage.EFF_EXPR__LIST:
+        getList().clear();
+        getList().addAll((Collection<? extends Pure_exp_list>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -434,20 +261,11 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
       case AbsPackage.EFF_EXPR__L:
         setL(L_EDEFAULT);
         return;
-      case AbsPackage.EFF_EXPR__C:
-        setC(C_EDEFAULT);
+      case AbsPackage.EFF_EXPR__PURE_EXP_LIST:
+        setPure_exp_list((Pure_exp_list)null);
         return;
-      case AbsPackage.EFF_EXPR__A:
-        setA(A_EDEFAULT);
-        return;
-      case AbsPackage.EFF_EXPR__O:
-        setO((Pure_exp)null);
-        return;
-      case AbsPackage.EFF_EXPR__M:
-        setM(M_EDEFAULT);
-        return;
-      case AbsPackage.EFF_EXPR__D:
-        setD((Delta_id)null);
+      case AbsPackage.EFF_EXPR__LIST:
+        getList().clear();
         return;
     }
     super.eUnset(featureID);
@@ -465,16 +283,10 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
     {
       case AbsPackage.EFF_EXPR__L:
         return L_EDEFAULT == null ? l != null : !L_EDEFAULT.equals(l);
-      case AbsPackage.EFF_EXPR__C:
-        return C_EDEFAULT == null ? c != null : !C_EDEFAULT.equals(c);
-      case AbsPackage.EFF_EXPR__A:
-        return A_EDEFAULT == null ? a != null : !A_EDEFAULT.equals(a);
-      case AbsPackage.EFF_EXPR__O:
-        return o != null;
-      case AbsPackage.EFF_EXPR__M:
-        return M_EDEFAULT == null ? m != null : !M_EDEFAULT.equals(m);
-      case AbsPackage.EFF_EXPR__D:
-        return d != null;
+      case AbsPackage.EFF_EXPR__PURE_EXP_LIST:
+        return pure_exp_list != null;
+      case AbsPackage.EFF_EXPR__LIST:
+        return list != null && !list.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -492,12 +304,6 @@ public class Eff_exprImpl extends ExpImpl implements Eff_expr
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (l: ");
     result.append(l);
-    result.append(", c: ");
-    result.append(c);
-    result.append(", a: ");
-    result.append(a);
-    result.append(", m: ");
-    result.append(m);
     result.append(')');
     return result.toString();
   }

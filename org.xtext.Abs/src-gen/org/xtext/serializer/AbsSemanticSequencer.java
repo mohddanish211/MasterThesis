@@ -55,7 +55,6 @@ import org.xtext.abs.Function_name_param_decl;
 import org.xtext.abs.Guard;
 import org.xtext.abs.Has_condition;
 import org.xtext.abs.Interface_decl;
-import org.xtext.abs.Interface_modifier_fragment;
 import org.xtext.abs.Interface_name;
 import org.xtext.abs.Main_block;
 import org.xtext.abs.Method;
@@ -84,8 +83,8 @@ import org.xtext.abs.Param_list;
 import org.xtext.abs.Pattern;
 import org.xtext.abs.PlusOrMinus_expr;
 import org.xtext.abs.ProductAnd_exp;
+import org.xtext.abs.ProductMinus_exp;
 import org.xtext.abs.ProductOr_expr;
-import org.xtext.abs.ProductPrimary_exp;
 import org.xtext.abs.Product_decl;
 import org.xtext.abs.Product_expr;
 import org.xtext.abs.Product_reconfiguration;
@@ -96,6 +95,7 @@ import org.xtext.abs.Stmt;
 import org.xtext.abs.Trait_decl;
 import org.xtext.abs.Trait_expr;
 import org.xtext.abs.Trait_oper;
+import org.xtext.abs.Trait_usage;
 import org.xtext.abs.Type_exp;
 import org.xtext.abs.Type_use;
 import org.xtext.abs.Typesyn_decl;
@@ -125,8 +125,30 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_AndGuard(context, (AndGuard) semanticObject); 
 				return; 
 			case AbsPackage.AND_EXPR:
-				sequence_And_expr(context, (And_expr) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getPure_expRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()
+						|| rule == grammarAccess.getEquality_exprRule()
+						|| action == grammarAccess.getEquality_exprAccess().getEquality_exprLeftAction_1_0()
+						|| rule == grammarAccess.getComparison_exprRule()
+						|| action == grammarAccess.getComparison_exprAccess().getComparison_exprLeftAction_1_0()
+						|| rule == grammarAccess.getPlusOrMinus_exprRule()
+						|| action == grammarAccess.getPlusOrMinus_exprAccess().getPlusOrMinus_exprLeftAction_1_0()
+						|| rule == grammarAccess.getMulDivOrMod_exprRule()
+						|| action == grammarAccess.getMulDivOrMod_exprAccess().getMulDivOrMod_exprLeftAction_1_0()
+						|| rule == grammarAccess.getUniary_exprRule()
+						|| rule == grammarAccess.getPrimary_exprRule()) {
+					sequence_And_expr(context, (And_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getExpRule()
+						|| rule == grammarAccess.getEff_exprRule()) {
+					sequence_And_expr_Eff_expr(context, (And_expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case AbsPackage.ANNOTATION:
 				sequence_Annotation(context, (Annotation) semanticObject); 
 				return; 
@@ -155,8 +177,30 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Class_modifier_fragment(context, (Class_modifier_fragment) semanticObject); 
 				return; 
 			case AbsPackage.COMPARISON_EXPR:
-				sequence_Comparison_expr(context, (Comparison_expr) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getPure_expRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()
+						|| rule == grammarAccess.getEquality_exprRule()
+						|| action == grammarAccess.getEquality_exprAccess().getEquality_exprLeftAction_1_0()
+						|| rule == grammarAccess.getComparison_exprRule()
+						|| action == grammarAccess.getComparison_exprAccess().getComparison_exprLeftAction_1_0()
+						|| rule == grammarAccess.getPlusOrMinus_exprRule()
+						|| action == grammarAccess.getPlusOrMinus_exprAccess().getPlusOrMinus_exprLeftAction_1_0()
+						|| rule == grammarAccess.getMulDivOrMod_exprRule()
+						|| action == grammarAccess.getMulDivOrMod_exprAccess().getMulDivOrMod_exprLeftAction_1_0()
+						|| rule == grammarAccess.getUniary_exprRule()
+						|| rule == grammarAccess.getPrimary_exprRule()) {
+					sequence_Comparison_expr(context, (Comparison_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getExpRule()
+						|| rule == grammarAccess.getEff_exprRule()) {
+					sequence_Comparison_expr_Eff_expr(context, (Comparison_expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case AbsPackage.COMPILATION_UNIT:
 				sequence_Compilation_Unit(context, (Compilation_Unit) semanticObject); 
 				return; 
@@ -176,8 +220,16 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Delta_decl(context, (Delta_decl) semanticObject); 
 				return; 
 			case AbsPackage.DELTA_ID:
-				sequence_Delta_id(context, (Delta_id) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getDelta_idRule()) {
+					sequence_Delta_id(context, (Delta_id) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getExpRule()
+						|| rule == grammarAccess.getEff_exprRule()) {
+					sequence_Delta_id_Eff_expr(context, (Delta_id) semanticObject); 
+					return; 
+				}
+				else break;
 			case AbsPackage.DELTASPEC:
 				sequence_Deltaspec(context, (Deltaspec) semanticObject); 
 				return; 
@@ -185,8 +237,30 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Eff_expr(context, (Eff_expr) semanticObject); 
 				return; 
 			case AbsPackage.EQUALITY_EXPR:
-				sequence_Equality_expr(context, (Equality_expr) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getExpRule()
+						|| rule == grammarAccess.getEff_exprRule()) {
+					sequence_Eff_expr_Equality_expr(context, (Equality_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPure_expRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()
+						|| rule == grammarAccess.getEquality_exprRule()
+						|| action == grammarAccess.getEquality_exprAccess().getEquality_exprLeftAction_1_0()
+						|| rule == grammarAccess.getComparison_exprRule()
+						|| action == grammarAccess.getComparison_exprAccess().getComparison_exprLeftAction_1_0()
+						|| rule == grammarAccess.getPlusOrMinus_exprRule()
+						|| action == grammarAccess.getPlusOrMinus_exprAccess().getPlusOrMinus_exprLeftAction_1_0()
+						|| rule == grammarAccess.getMulDivOrMod_exprRule()
+						|| action == grammarAccess.getMulDivOrMod_exprAccess().getMulDivOrMod_exprLeftAction_1_0()
+						|| rule == grammarAccess.getUniary_exprRule()
+						|| rule == grammarAccess.getPrimary_exprRule()) {
+					sequence_Equality_expr(context, (Equality_expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case AbsPackage.EXCEPTION_DECL:
 				sequence_Exception_decl(context, (Exception_decl) semanticObject); 
 				return; 
@@ -230,16 +304,13 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Function_name_param_decl(context, (Function_name_param_decl) semanticObject); 
 				return; 
 			case AbsPackage.GUARD:
-				sequence_Guard(context, (Guard) semanticObject); 
+				sequence_Guard_PrimaryGuard(context, (Guard) semanticObject); 
 				return; 
 			case AbsPackage.HAS_CONDITION:
 				sequence_Has_condition(context, (Has_condition) semanticObject); 
 				return; 
 			case AbsPackage.INTERFACE_DECL:
 				sequence_Interface_decl(context, (Interface_decl) semanticObject); 
-				return; 
-			case AbsPackage.INTERFACE_MODIFIER_FRAGMENT:
-				sequence_Interface_modifier_fragment(context, (Interface_modifier_fragment) semanticObject); 
 				return; 
 			case AbsPackage.INTERFACE_NAME:
 				sequence_Interface_name(context, (Interface_name) semanticObject); 
@@ -312,8 +383,30 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Module_import(context, (Module_import) semanticObject); 
 				return; 
 			case AbsPackage.MUL_DIV_OR_MOD_EXPR:
-				sequence_MulDivOrMod_expr(context, (MulDivOrMod_expr) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getExpRule()
+						|| rule == grammarAccess.getEff_exprRule()) {
+					sequence_Eff_expr_MulDivOrMod_expr(context, (MulDivOrMod_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPure_expRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()
+						|| rule == grammarAccess.getEquality_exprRule()
+						|| action == grammarAccess.getEquality_exprAccess().getEquality_exprLeftAction_1_0()
+						|| rule == grammarAccess.getComparison_exprRule()
+						|| action == grammarAccess.getComparison_exprAccess().getComparison_exprLeftAction_1_0()
+						|| rule == grammarAccess.getPlusOrMinus_exprRule()
+						|| action == grammarAccess.getPlusOrMinus_exprAccess().getPlusOrMinus_exprLeftAction_1_0()
+						|| rule == grammarAccess.getMulDivOrMod_exprRule()
+						|| action == grammarAccess.getMulDivOrMod_exprAccess().getMulDivOrMod_exprLeftAction_1_0()
+						|| rule == grammarAccess.getUniary_exprRule()
+						|| rule == grammarAccess.getPrimary_exprRule()) {
+					sequence_MulDivOrMod_expr(context, (MulDivOrMod_expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case AbsPackage.NOT_EXPRESSION:
 				sequence_AppUnary_exp(context, (NotExpression) semanticObject); 
 				return; 
@@ -327,8 +420,30 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Object_update_assign_stmt(context, (Object_update_assign_stmt) semanticObject); 
 				return; 
 			case AbsPackage.OR_EXPR:
-				sequence_Or_expr(context, (Or_expr) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getExpRule()
+						|| rule == grammarAccess.getEff_exprRule()) {
+					sequence_Eff_expr_Or_expr(context, (Or_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPure_expRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()
+						|| rule == grammarAccess.getEquality_exprRule()
+						|| action == grammarAccess.getEquality_exprAccess().getEquality_exprLeftAction_1_0()
+						|| rule == grammarAccess.getComparison_exprRule()
+						|| action == grammarAccess.getComparison_exprAccess().getComparison_exprLeftAction_1_0()
+						|| rule == grammarAccess.getPlusOrMinus_exprRule()
+						|| action == grammarAccess.getPlusOrMinus_exprAccess().getPlusOrMinus_exprLeftAction_1_0()
+						|| rule == grammarAccess.getMulDivOrMod_exprRule()
+						|| action == grammarAccess.getMulDivOrMod_exprAccess().getMulDivOrMod_exprLeftAction_1_0()
+						|| rule == grammarAccess.getUniary_exprRule()
+						|| rule == grammarAccess.getPrimary_exprRule()) {
+					sequence_Or_expr(context, (Or_expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case AbsPackage.PAR_FUNCTION_DECL:
 				sequence_Par_function_decl(context, (Par_function_decl) semanticObject); 
 				return; 
@@ -349,31 +464,12 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				}
 				else break;
 			case AbsPackage.PLUS_OR_MINUS_EXPR:
-				sequence_PlusOrMinus_expr(context, (PlusOrMinus_expr) semanticObject); 
-				return; 
-			case AbsPackage.PRODUCT_AND_EXP:
-				sequence_ProductAnd_exp(context, (ProductAnd_exp) semanticObject); 
-				return; 
-			case AbsPackage.PRODUCT_OR_EXPR:
-				sequence_ProductOr_expr(context, (ProductOr_expr) semanticObject); 
-				return; 
-			case AbsPackage.PRODUCT_PRIMARY_EXP:
-				sequence_ProductPrimary_exp(context, (ProductPrimary_exp) semanticObject); 
-				return; 
-			case AbsPackage.PRODUCT_DECL:
-				sequence_Product_decl(context, (Product_decl) semanticObject); 
-				return; 
-			case AbsPackage.PRODUCT_EXPR:
-				sequence_Product_expr(context, (Product_expr) semanticObject); 
-				return; 
-			case AbsPackage.PRODUCT_RECONFIGURATION:
-				sequence_Product_reconfiguration(context, (Product_reconfiguration) semanticObject); 
-				return; 
-			case AbsPackage.PRODUCTLINE_DECL:
-				sequence_Productline_decl(context, (Productline_decl) semanticObject); 
-				return; 
-			case AbsPackage.PURE_EXP:
-				if (rule == grammarAccess.getPure_expRule()
+				if (rule == grammarAccess.getExpRule()
+						|| rule == grammarAccess.getEff_exprRule()) {
+					sequence_Eff_expr_PlusOrMinus_expr(context, (PlusOrMinus_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPure_expRule()
 						|| rule == grammarAccess.getOr_exprRule()
 						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
 						|| rule == grammarAccess.getAnd_exprRule()
@@ -386,13 +482,62 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 						|| action == grammarAccess.getPlusOrMinus_exprAccess().getPlusOrMinus_exprLeftAction_1_0()
 						|| rule == grammarAccess.getMulDivOrMod_exprRule()
 						|| action == grammarAccess.getMulDivOrMod_exprAccess().getMulDivOrMod_exprLeftAction_1_0()
-						|| rule == grammarAccess.getPrimary_exprRule()
-						|| rule == grammarAccess.getExpRule()) {
-					sequence_Atomic_expr_Primary_expr_Pure_exp(context, (Pure_exp) semanticObject); 
+						|| rule == grammarAccess.getUniary_exprRule()
+						|| rule == grammarAccess.getPrimary_exprRule()) {
+					sequence_PlusOrMinus_expr(context, (PlusOrMinus_expr) semanticObject); 
+					return; 
+				}
+				else break;
+			case AbsPackage.PRODUCT_AND_EXP:
+				sequence_ProductAnd_exp(context, (ProductAnd_exp) semanticObject); 
+				return; 
+			case AbsPackage.PRODUCT_MINUS_EXP:
+				sequence_ProductMinus_exp(context, (ProductMinus_exp) semanticObject); 
+				return; 
+			case AbsPackage.PRODUCT_OR_EXPR:
+				sequence_ProductOr_expr(context, (ProductOr_expr) semanticObject); 
+				return; 
+			case AbsPackage.PRODUCT_DECL:
+				sequence_Product_decl(context, (Product_decl) semanticObject); 
+				return; 
+			case AbsPackage.PRODUCT_EXPR:
+				sequence_AtomicProduct_expr(context, (Product_expr) semanticObject); 
+				return; 
+			case AbsPackage.PRODUCT_RECONFIGURATION:
+				sequence_Product_reconfiguration(context, (Product_reconfiguration) semanticObject); 
+				return; 
+			case AbsPackage.PRODUCTLINE_DECL:
+				sequence_Productline_decl(context, (Productline_decl) semanticObject); 
+				return; 
+			case AbsPackage.PURE_EXP:
+				if (rule == grammarAccess.getExpRule()
+						|| rule == grammarAccess.getEff_exprRule()) {
+					sequence_Atomic_expr_Eff_expr_Pure_exp(context, (Pure_exp) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getAtomic_exprRule()) {
 					sequence_Atomic_expr(context, (Pure_exp) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPure_expRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()
+						|| rule == grammarAccess.getEquality_exprRule()
+						|| action == grammarAccess.getEquality_exprAccess().getEquality_exprLeftAction_1_0()
+						|| rule == grammarAccess.getComparison_exprRule()
+						|| action == grammarAccess.getComparison_exprAccess().getComparison_exprLeftAction_1_0()
+						|| rule == grammarAccess.getPlusOrMinus_exprRule()
+						|| action == grammarAccess.getPlusOrMinus_exprAccess().getPlusOrMinus_exprLeftAction_1_0()
+						|| rule == grammarAccess.getMulDivOrMod_exprRule()
+						|| action == grammarAccess.getMulDivOrMod_exprAccess().getMulDivOrMod_exprLeftAction_1_0()
+						|| rule == grammarAccess.getPrimary_exprRule()) {
+					sequence_Atomic_expr_Pure_exp(context, (Pure_exp) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getUniary_exprRule()) {
+					sequence_Atomic_expr_Pure_exp_Uniary_expr(context, (Pure_exp) semanticObject); 
 					return; 
 				}
 				else break;
@@ -406,10 +551,22 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Trait_decl(context, (Trait_decl) semanticObject); 
 				return; 
 			case AbsPackage.TRAIT_EXPR:
-				sequence_Trait_expr(context, (Trait_expr) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getTrait_exprRule()
+						|| rule == grammarAccess.getPrimary_Trait_exprRule()
+						|| rule == grammarAccess.getClass_modifier_fragmentRule()) {
+					sequence_Trait_expr_trait_Left_expr(context, (Trait_expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getTrait_Left_exprRule()) {
+					sequence_trait_Left_expr(context, (Trait_expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case AbsPackage.TRAIT_OPER:
 				sequence_Trait_oper(context, (Trait_oper) semanticObject); 
+				return; 
+			case AbsPackage.TRAIT_USAGE:
+				sequence_Trait_usage(context, (Trait_usage) semanticObject); 
 				return; 
 			case AbsPackage.TYPE_EXP:
 				sequence_Type_exp(context, (Type_exp) semanticObject); 
@@ -432,8 +589,32 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Update_decl(context, (Update_decl) semanticObject); 
 				return; 
 			case AbsPackage.VAR_OR_FIELD_REF:
-				sequence_Var_or_field_ref(context, (Var_or_field_ref) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getExpRule()
+						|| rule == grammarAccess.getEff_exprRule()) {
+					sequence_Eff_expr_Var_or_field_ref(context, (Var_or_field_ref) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getPure_expRule()
+						|| rule == grammarAccess.getOr_exprRule()
+						|| action == grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0()
+						|| rule == grammarAccess.getAnd_exprRule()
+						|| action == grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0()
+						|| rule == grammarAccess.getEquality_exprRule()
+						|| action == grammarAccess.getEquality_exprAccess().getEquality_exprLeftAction_1_0()
+						|| rule == grammarAccess.getComparison_exprRule()
+						|| action == grammarAccess.getComparison_exprAccess().getComparison_exprLeftAction_1_0()
+						|| rule == grammarAccess.getPlusOrMinus_exprRule()
+						|| action == grammarAccess.getPlusOrMinus_exprAccess().getPlusOrMinus_exprLeftAction_1_0()
+						|| rule == grammarAccess.getMulDivOrMod_exprRule()
+						|| action == grammarAccess.getMulDivOrMod_exprAccess().getMulDivOrMod_exprLeftAction_1_0()
+						|| rule == grammarAccess.getUniary_exprRule()
+						|| rule == grammarAccess.getPrimary_exprRule()
+						|| rule == grammarAccess.getAtomic_exprRule()
+						|| rule == grammarAccess.getVar_or_field_refRule()) {
+					sequence_Var_or_field_ref(context, (Var_or_field_ref) semanticObject); 
+					return; 
+				}
+				else break;
 			case AbsPackage.WHEN_CONDITION:
 				sequence_When_condition(context, (When_condition) semanticObject); 
 				return; 
@@ -496,23 +677,39 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PlusOrMinus_expr.PlusOrMinus_expr_1_0 returns And_expr
 	 *     MulDivOrMod_expr returns And_expr
 	 *     MulDivOrMod_expr.MulDivOrMod_expr_1_0 returns And_expr
+	 *     Uniary_expr returns And_expr
 	 *     Primary_expr returns And_expr
-	 *     Exp returns And_expr
 	 *
 	 * Constraint:
-	 *     (left=And_expr_And_expr_1_0 right=Equality_expr)
+	 *     (left=And_expr_And_expr_1_0 op=ANDAND right=Equality_expr)
 	 */
 	protected void sequence_And_expr(ISerializationContext context, And_expr semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.AND_EXPR__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.AND_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PURE_EXP__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PURE_EXP__OP));
 			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.AND_EXPR__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.AND_EXPR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAnd_exprAccess().getAnd_exprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAnd_exprAccess().getOpANDANDTerminalRuleCall_1_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getAnd_exprAccess().getRightEquality_exprParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns And_expr
+	 *     Eff_expr returns And_expr
+	 *
+	 * Constraint:
+	 *     (left=And_expr_And_expr_1_0 op=ANDAND right=Equality_expr ((await=ID list+=Pure_exp_list) | (val=ID list+=Pure_exp_list))?)
+	 */
+	protected void sequence_And_expr_Eff_expr(ISerializationContext context, And_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -539,7 +736,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Annotation returns Type_use
 	 *
 	 * Constraint:
-	 *     (name=ANY_IDENTIFIER (type_use+=Type_use type_use+=Type_use*)? pure_exp=Pure_exp)
+	 *     (name=QualifiedName (type_use+=Type_use type_use+=Type_use*)? pure_exp=Pure_exp)
 	 */
 	protected void sequence_Annotation_Type_use(ISerializationContext context, Type_use semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -619,10 +816,16 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AppCond_atomic_expr returns Application_condition
 	 *
 	 * Constraint:
-	 *     feature+=[Feature_decl|ID]
+	 *     feature=Feature
 	 */
 	protected void sequence_AppCond_atomic_expr(ISerializationContext context, Application_condition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__FEATURE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAppCond_atomic_exprAccess().getFeatureFeatureParserRuleCall_0(), semanticObject.getFeature());
+		feeder.finish();
 	}
 	
 	
@@ -679,6 +882,61 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Product_expr returns Product_expr
+	 *     ProductOr_expr returns Product_expr
+	 *     ProductOr_expr.ProductOr_expr_1_0 returns Product_expr
+	 *     ProductAnd_exp returns Product_expr
+	 *     ProductAnd_exp.ProductAnd_exp_1_0 returns Product_expr
+	 *     ProductMinus_exp returns Product_expr
+	 *     ProductMinus_exp.ProductMinus_exp_1_0 returns Product_expr
+	 *     ProductPrimary_exp returns Product_expr
+	 *     AtomicProduct_expr returns Product_expr
+	 *
+	 * Constraint:
+	 *     ((feature+=[Feature_decl|QualifiedName] feature+=[Feature_decl|QualifiedName]*) | productDecl=[Product_decl|QualifiedName])
+	 */
+	protected void sequence_AtomicProduct_expr(ISerializationContext context, Product_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Pure_exp
+	 *     Eff_expr returns Pure_exp
+	 *
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             pure_exp_list=Pure_exp_list | 
+	 *             (function_list+=Function_list partial_function_pure_exp_list=Pure_exp_list) | 
+	 *             variadic_exp_list=Pure_exp_list | 
+	 *             (if=Pure_exp then=Pure_exp else=Pure_exp?) | 
+	 *             (case=Pure_exp casebranch+=Case_branch*) | 
+	 *             (type_use=Type_use value=ID i=Pure_exp b=Pure_exp)
+	 *         )? 
+	 *         ((await=ID list+=Pure_exp_list) | (val=ID list+=Pure_exp_list))?
+	 *     )
+	 */
+	protected void sequence_Atomic_expr_Eff_expr_Pure_exp(ISerializationContext context, Pure_exp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Atomic_expr returns Pure_exp
+	 *
+	 * Constraint:
+	 *     {Pure_exp}
+	 */
+	protected void sequence_Atomic_expr(ISerializationContext context, Pure_exp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Pure_exp returns Pure_exp
 	 *     Or_expr returns Pure_exp
 	 *     Or_expr.Or_expr_1_0 returns Pure_exp
@@ -693,34 +951,38 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MulDivOrMod_expr returns Pure_exp
 	 *     MulDivOrMod_expr.MulDivOrMod_expr_1_0 returns Pure_exp
 	 *     Primary_expr returns Pure_exp
-	 *     Exp returns Pure_exp
 	 *
 	 * Constraint:
 	 *     (
 	 *         pure_exp_list=Pure_exp_list | 
 	 *         (function_list+=Function_list partial_function_pure_exp_list=Pure_exp_list) | 
-	 *         function_expr=Pure_exp_list | 
 	 *         variadic_exp_list=Pure_exp_list | 
-	 *         (c=Pure_exp l=Pure_exp else=Pure_exp?) | 
-	 *         (c=Pure_exp casebranch+=Case_branch*) | 
-	 *         (type_use=Type_use value=ID i=Pure_exp b=Pure_exp) | 
-	 *         var_or_field_ref=[Var_or_field_ref|ID] | 
-	 *         pure_exp=Primary_expr
+	 *         (if=Pure_exp then=Pure_exp else=Pure_exp?) | 
+	 *         (case=Pure_exp casebranch+=Case_branch*) | 
+	 *         (type_use=Type_use value=ID i=Pure_exp b=Pure_exp)
 	 *     )?
 	 */
-	protected void sequence_Atomic_expr_Primary_expr_Pure_exp(ISerializationContext context, Pure_exp semanticObject) {
+	protected void sequence_Atomic_expr_Pure_exp(ISerializationContext context, Pure_exp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Atomic_expr returns Pure_exp
+	 *     Uniary_expr returns Pure_exp
 	 *
 	 * Constraint:
-	 *     {Pure_exp}
+	 *     (
+	 *         pure_exp_list=Pure_exp_list | 
+	 *         (function_list+=Function_list partial_function_pure_exp_list=Pure_exp_list) | 
+	 *         variadic_exp_list=Pure_exp_list | 
+	 *         (if=Pure_exp then=Pure_exp else=Pure_exp?) | 
+	 *         (case=Pure_exp casebranch+=Case_branch*) | 
+	 *         (type_use=Type_use value=ID i=Pure_exp b=Pure_exp) | 
+	 *         ((op=NEGATION | op=NEGATION_CREOL | op=MINUS) pure_exp=Pure_exp)
+	 *     )?
 	 */
-	protected void sequence_Atomic_expr(ISerializationContext context, Pure_exp semanticObject) {
+	protected void sequence_Atomic_expr_Pure_exp_Uniary_expr(ISerializationContext context, Pure_exp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -767,7 +1029,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         paramlist=Param_list? 
-	 *         (interface_name+=[Interface_decl|ANY_IDENTIFIER] interface_name+=[Interface_decl|ANY_IDENTIFIER]*)? 
+	 *         (interface_name+=[Interface_decl|QualifiedName] interface_name+=[Interface_decl|QualifiedName]*)? 
 	 *         field_decl+=Field_decl* 
 	 *         stmt+=Stmt* 
 	 *         casestmtbranch+=Casestmtbranch* 
@@ -785,16 +1047,10 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Class_modifier_fragment returns Class_modifier_fragment
 	 *
 	 * Constraint:
-	 *     f=[Field_decl|ID]
+	 *     methodsig+=Methodsig*
 	 */
 	protected void sequence_Class_modifier_fragment(ISerializationContext context, Class_modifier_fragment semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.CLASS_MODIFIER_FRAGMENT__F) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.CLASS_MODIFIER_FRAGMENT__F));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getClass_modifier_fragmentAccess().getFField_declIDTerminalRuleCall_1_1_0_1(), semanticObject.eGet(AbsPackage.Literals.CLASS_MODIFIER_FRAGMENT__F, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -813,13 +1069,31 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PlusOrMinus_expr.PlusOrMinus_expr_1_0 returns Comparison_expr
 	 *     MulDivOrMod_expr returns Comparison_expr
 	 *     MulDivOrMod_expr.MulDivOrMod_expr_1_0 returns Comparison_expr
+	 *     Uniary_expr returns Comparison_expr
 	 *     Primary_expr returns Comparison_expr
-	 *     Exp returns Comparison_expr
 	 *
 	 * Constraint:
 	 *     (left=Comparison_expr_Comparison_expr_1_0 (op=LT | op=GT | op=LTEQ | op=GTEQ) right=PlusOrMinus_expr)
 	 */
 	protected void sequence_Comparison_expr(ISerializationContext context, Comparison_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Comparison_expr
+	 *     Eff_expr returns Comparison_expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         left=Comparison_expr_Comparison_expr_1_0 
+	 *         (op=LT | op=GT | op=LTEQ | op=GTEQ) 
+	 *         right=PlusOrMinus_expr 
+	 *         ((await=ID list+=Pure_exp_list) | (val=ID list+=Pure_exp_list))?
+	 *     )
+	 */
+	protected void sequence_Comparison_expr_Eff_expr(ISerializationContext context, Comparison_expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -852,7 +1126,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Functional_modifier returns DataType_decl
 	 *
 	 * Constraint:
-	 *     (name=ID (lt=LT p+=ID p+=ID* gt=GT)? (data_constructor+=Data_constructor data_constructor+=Data_constructor*)?)
+	 *     (name=ID (p+=ID p+=ID*)? (data_constructor+=Data_constructor data_constructor+=Data_constructor*)?)
 	 */
 	protected void sequence_DataType_decl(ISerializationContext context, DataType_decl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -876,15 +1150,15 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Delta_access returns Delta_access
 	 *
 	 * Constraint:
-	 *     name=ANY_IDENTIFIER
+	 *     module_ref=[Module_decl|ID]
 	 */
 	protected void sequence_Delta_access(ISerializationContext context, Delta_access semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.DELTA_ACCESS__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.DELTA_ACCESS__NAME));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.DELTA_ACCESS__MODULE_REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.DELTA_ACCESS__MODULE_REF));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDelta_accessAccess().getNameANY_IDENTIFIERParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDelta_accessAccess().getModule_refModule_declIDTerminalRuleCall_1_0_1(), semanticObject.eGet(AbsPackage.Literals.DELTA_ACCESS__MODULE_REF, false));
 		feeder.finish();
 	}
 	
@@ -933,6 +1207,19 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Exp returns Delta_id
+	 *     Eff_expr returns Delta_id
+	 *
+	 * Constraint:
+	 *     (name=ID list+=Pure_exp_list)
+	 */
+	protected void sequence_Delta_id_Eff_expr(ISerializationContext context, Delta_id semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Deltaspec returns Deltaspec
 	 *
 	 * Constraint:
@@ -949,15 +1236,89 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Eff_expr returns Eff_expr
 	 *
 	 * Constraint:
-	 *     (
-	 *         pure_exp=Pure_exp | 
-	 *         (l='local'? c=ANY_IDENTIFIER pure_exp_list=Pure_exp_list) | 
-	 *         (a='await'? o=Pure_exp m=ID pure_exp_list=Pure_exp_list) | 
-	 *         (o=Pure_exp m=ID pure_exp_list=Pure_exp_list) | 
-	 *         ((d=Delta_id | c='core')? pure_exp_list=Pure_exp_list)
-	 *     )
+	 *     ((l='local'? pure_exp_list=Pure_exp_list) | list+=Pure_exp_list)
 	 */
 	protected void sequence_Eff_expr(ISerializationContext context, Eff_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Equality_expr
+	 *     Eff_expr returns Equality_expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         left=Equality_expr_Equality_expr_1_0 
+	 *         (op=EQEQ | op=NOTEQ) 
+	 *         right=Comparison_expr 
+	 *         ((await=ID list+=Pure_exp_list) | (val=ID list+=Pure_exp_list))?
+	 *     )
+	 */
+	protected void sequence_Eff_expr_Equality_expr(ISerializationContext context, Equality_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns MulDivOrMod_expr
+	 *     Eff_expr returns MulDivOrMod_expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         left=MulDivOrMod_expr_MulDivOrMod_expr_1_0 
+	 *         (op=MULT | op='/' | op=MOD) 
+	 *         right=Uniary_expr 
+	 *         ((await=ID list+=Pure_exp_list) | (val=ID list+=Pure_exp_list))?
+	 *     )
+	 */
+	protected void sequence_Eff_expr_MulDivOrMod_expr(ISerializationContext context, MulDivOrMod_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Or_expr
+	 *     Eff_expr returns Or_expr
+	 *
+	 * Constraint:
+	 *     (left=Or_expr_Or_expr_1_0 op=OROR right=And_expr ((await=ID list+=Pure_exp_list) | (val=ID list+=Pure_exp_list))?)
+	 */
+	protected void sequence_Eff_expr_Or_expr(ISerializationContext context, Or_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns PlusOrMinus_expr
+	 *     Eff_expr returns PlusOrMinus_expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         left=PlusOrMinus_expr_PlusOrMinus_expr_1_0 
+	 *         (op=PLUS | op=MINUS) 
+	 *         right=MulDivOrMod_expr 
+	 *         ((await=ID list+=Pure_exp_list) | (val=ID list+=Pure_exp_list))?
+	 *     )
+	 */
+	protected void sequence_Eff_expr_PlusOrMinus_expr(ISerializationContext context, PlusOrMinus_expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Var_or_field_ref
+	 *     Eff_expr returns Var_or_field_ref
+	 *
+	 * Constraint:
+	 *     ((name=ID | ref=[Field_decl|ID]) ((await=ID list+=Pure_exp_list) | (val=ID list+=Pure_exp_list))?)
+	 */
+	protected void sequence_Eff_expr_Var_or_field_ref(ISerializationContext context, Var_or_field_ref semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -977,8 +1338,8 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PlusOrMinus_expr.PlusOrMinus_expr_1_0 returns Equality_expr
 	 *     MulDivOrMod_expr returns Equality_expr
 	 *     MulDivOrMod_expr.MulDivOrMod_expr_1_0 returns Equality_expr
+	 *     Uniary_expr returns Equality_expr
 	 *     Primary_expr returns Equality_expr
-	 *     Exp returns Equality_expr
 	 *
 	 * Constraint:
 	 *     (left=Equality_expr_Equality_expr_1_0 (op=EQEQ | op=NOTEQ) right=Comparison_expr)
@@ -1006,7 +1367,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Feature returns Feature
 	 *
 	 * Constraint:
-	 *     (name=ID p='''? (attr_assignment+=Attr_assignment attr_assignment+=Attr_assignment*)?)
+	 *     (feature_decl=[Feature_decl|QualifiedName] p='''? (attr_assignment+=Attr_assignment attr_assignment+=Attr_assignment*)?)
 	 */
 	protected void sequence_Feature(ISerializationContext context, Feature semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1092,7 +1453,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Class_modifier_fragment returns Field_decl
 	 *
 	 * Constraint:
-	 *     (type_use=Type_use name=Var_or_field_ref pure_exp=Pure_exp?)
+	 *     (type_use=Type_use name=ID pure_exp=Pure_exp?)
 	 */
 	protected void sequence_Field_decl(ISerializationContext context, Field_decl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1125,7 +1486,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Functional_modifier returns Function_decl
 	 *
 	 * Constraint:
-	 *     (type_use=Type_use name=ID (lt=LT importedNamespace+=ID importedNamespace+=ID* gt=GT)? paramlist=Param_list pure_exp=Pure_exp?)
+	 *     (type_use=Type_use name=ID (p+=ID p+=ID*)? paramlist=Param_list pure_exp=Pure_exp?)
 	 */
 	protected void sequence_Function_decl(ISerializationContext context, Function_decl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1201,9 +1562,9 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PrimaryGuard returns Guard
 	 *
 	 * Constraint:
-	 *     (name=[Var_or_field_ref|ID] | (min=Pure_exp max=Pure_exp) | e=Pure_exp)
+	 *     (ref=Var_or_field_ref | (min=Pure_exp max=Pure_exp) | guard=Pure_exp)
 	 */
-	protected void sequence_Guard(ISerializationContext context, Guard semanticObject) {
+	protected void sequence_Guard_PrimaryGuard(ISerializationContext context, Guard semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1214,7 +1575,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Has_condition returns Has_condition
 	 *
 	 * Constraint:
-	 *     (f=[Field_decl|ID] | m=[Methodsig|ID] | i=[Interface_decl|ID])
+	 *     (field=[Field_decl|ID] | method=[Methodsig|ID] | interface=[Interface_decl|ID])
 	 */
 	protected void sequence_Has_condition(ISerializationContext context, Has_condition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1227,7 +1588,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Interface_decl returns Interface_decl
 	 *
 	 * Constraint:
-	 *     (name=ID (interface_name+=[Interface_decl|ANY_IDENTIFIER] interface_name+=[Interface_decl|ANY_IDENTIFIER]*)? methodsig+=Methodsig*)
+	 *     (name=ID (interface_name+=[Interface_decl|QualifiedName] interface_name+=[Interface_decl|QualifiedName]*)? methodsig+=Methodsig*)
 	 */
 	protected void sequence_Interface_decl(ISerializationContext context, Interface_decl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1236,28 +1597,10 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Interface_modifier_fragment returns Interface_modifier_fragment
-	 *
-	 * Constraint:
-	 *     removedMethod=[Methodsig|ID]
-	 */
-	protected void sequence_Interface_modifier_fragment(ISerializationContext context, Interface_modifier_fragment semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.INTERFACE_MODIFIER_FRAGMENT__REMOVED_METHOD) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.INTERFACE_MODIFIER_FRAGMENT__REMOVED_METHOD));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInterface_modifier_fragmentAccess().getRemovedMethodMethodsigIDTerminalRuleCall_1_1_0_1(), semanticObject.eGet(AbsPackage.Literals.INTERFACE_MODIFIER_FRAGMENT__REMOVED_METHOD, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Interface_name returns Interface_name
 	 *
 	 * Constraint:
-	 *     name=ANY_IDENTIFIER
+	 *     name=QualifiedName
 	 */
 	protected void sequence_Interface_name(ISerializationContext context, Interface_name semanticObject) {
 		if (errorAcceptor != null) {
@@ -1265,7 +1608,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.INTERFACE_NAME__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInterface_nameAccess().getNameANY_IDENTIFIERParserRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getInterface_nameAccess().getNameQualifiedNameParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -1297,6 +1640,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     Methodsig returns Methodsig
+	 *     Class_modifier_fragment returns Methodsig
 	 *     Interface_modifier_fragment returns Methodsig
 	 *
 	 * Constraint:
@@ -1554,7 +1898,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Module_decl returns Module_decl
 	 *
 	 * Constraint:
-	 *     (name=ANY_IDENTIFIER module_export+=Module_export* module_import+=Module_import* decl+=Decl* main_block+=Main_block?)
+	 *     (name=ID module_export+=Module_export* module_import+=Module_import* decl+=Decl* main_block+=Main_block?)
 	 */
 	protected void sequence_Module_decl(ISerializationContext context, Module_decl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1568,7 +1912,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Namespace_modifier returns Module_export
 	 *
 	 * Constraint:
-	 *     ((star=MULT | (anyPackage+=ANY_IDENTIFIER anyPackage+=ANY_IDENTIFIER*)) importedNamespace+=ANY_IDENTIFIER?)
+	 *     ((star=MULT | (anyPackage+=QualifiedName anyPackage+=QualifiedName*)) importedNamespace+=QualifiedName?)
 	 */
 	protected void sequence_Module_export(ISerializationContext context, Module_export semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1582,11 +1926,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Namespace_modifier returns Module_import
 	 *
 	 * Constraint:
-	 *     (
-	 *         (star=MULT importedNamespace=ANY_IDENTIFIER) | 
-	 *         (name+=ANY_IDENTIFIER name+=ANY_IDENTIFIER* importedNamespace=ANY_IDENTIFIER) | 
-	 *         (name+=ANY_IDENTIFIER name+=ANY_IDENTIFIER*)
-	 *     )
+	 *     ((star=MULT importedNamespace=QualifiedName) | (name+=QualifiedName name+=QualifiedName* importedNamespace=QualifiedName?))
 	 */
 	protected void sequence_Module_import(ISerializationContext context, Module_import semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1608,11 +1948,11 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PlusOrMinus_expr.PlusOrMinus_expr_1_0 returns MulDivOrMod_expr
 	 *     MulDivOrMod_expr returns MulDivOrMod_expr
 	 *     MulDivOrMod_expr.MulDivOrMod_expr_1_0 returns MulDivOrMod_expr
+	 *     Uniary_expr returns MulDivOrMod_expr
 	 *     Primary_expr returns MulDivOrMod_expr
-	 *     Exp returns MulDivOrMod_expr
 	 *
 	 * Constraint:
-	 *     (left=MulDivOrMod_expr_MulDivOrMod_expr_1_0 (op=MULT | op='/' | op=MOD) right=Primary_expr)
+	 *     (left=MulDivOrMod_expr_MulDivOrMod_expr_1_0 (op=MULT | op='/' | op=MOD) right=Uniary_expr)
 	 */
 	protected void sequence_MulDivOrMod_expr(ISerializationContext context, MulDivOrMod_expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1627,11 +1967,17 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         class_decl=Class_decl | 
-	 *         class=[Class_decl|ANY_IDENTIFIER] | 
-	 *         ((i+=Interface_name i+=Interface_name*)? (i+=Interface_name i+=Interface_name*)? class_modifier_fragment+=Class_modifier_fragment*) | 
 	 *         interface_decl=Interface_decl | 
-	 *         (interface=[Interface_decl|ANY_IDENTIFIER] interface_modifier_fragment+=Interface_modifier_fragment*)
-	 *     )?
+	 *         class=[Class_decl|QualifiedName] | 
+	 *         inteface=[Interface_decl|QualifiedName] | 
+	 *         (
+	 *             class=[Class_decl|QualifiedName] 
+	 *             (interfaceName+=Interface_decl interfaceName+=Interface_decl*)? 
+	 *             (removedInterface+=[Interface_decl|QualifiedName] removedInterface+=[Interface_decl|QualifiedName]*)? 
+	 *             class_modifier_fragment+=Class_modifier_fragment*
+	 *         ) | 
+	 *         (interface=[Interface_decl|QualifiedName] interface_modifier_fragment+=Interface_modifier_fragment*)
+	 *     )
 	 */
 	protected void sequence_OO_modifier(ISerializationContext context, OO_modifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1686,21 +2032,24 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PlusOrMinus_expr.PlusOrMinus_expr_1_0 returns Or_expr
 	 *     MulDivOrMod_expr returns Or_expr
 	 *     MulDivOrMod_expr.MulDivOrMod_expr_1_0 returns Or_expr
+	 *     Uniary_expr returns Or_expr
 	 *     Primary_expr returns Or_expr
-	 *     Exp returns Or_expr
 	 *
 	 * Constraint:
-	 *     (left=Or_expr_Or_expr_1_0 right=And_expr)
+	 *     (left=Or_expr_Or_expr_1_0 op=OROR right=And_expr)
 	 */
 	protected void sequence_Or_expr(ISerializationContext context, Or_expr semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.OR_EXPR__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.OR_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PURE_EXP__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PURE_EXP__OP));
 			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.OR_EXPR__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.OR_EXPR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getOr_exprAccess().getOr_exprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getOr_exprAccess().getOpORORTerminalRuleCall_1_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getOr_exprAccess().getRightAnd_exprParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
@@ -1715,7 +2064,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         type_use=Type_use 
 	 *         name=ID 
-	 *         (lt=LT p+=ID p+=ID* gt=GT)? 
+	 *         (p+=ID p+=ID*)? 
 	 *         functions=Function_name_list 
 	 *         params=Param_list 
 	 *         e=Pure_exp
@@ -1787,8 +2136,8 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PlusOrMinus_expr.PlusOrMinus_expr_1_0 returns PlusOrMinus_expr
 	 *     MulDivOrMod_expr returns PlusOrMinus_expr
 	 *     MulDivOrMod_expr.MulDivOrMod_expr_1_0 returns PlusOrMinus_expr
+	 *     Uniary_expr returns PlusOrMinus_expr
 	 *     Primary_expr returns PlusOrMinus_expr
-	 *     Exp returns PlusOrMinus_expr
 	 *
 	 * Constraint:
 	 *     (left=PlusOrMinus_expr_PlusOrMinus_expr_1_0 (op=PLUS | op=MINUS) right=MulDivOrMod_expr)
@@ -1805,21 +2154,45 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ProductOr_expr.ProductOr_expr_1_0 returns ProductAnd_exp
 	 *     ProductAnd_exp returns ProductAnd_exp
 	 *     ProductAnd_exp.ProductAnd_exp_1_0 returns ProductAnd_exp
+	 *     ProductMinus_exp returns ProductAnd_exp
+	 *     ProductMinus_exp.ProductMinus_exp_1_0 returns ProductAnd_exp
 	 *     ProductPrimary_exp returns ProductAnd_exp
 	 *
 	 * Constraint:
-	 *     (left=ProductAnd_exp_ProductAnd_exp_1_0 right=ProductPrimary_exp)
+	 *     (left=ProductAnd_exp_ProductAnd_exp_1_0 right=ProductMinus_exp)
 	 */
 	protected void sequence_ProductAnd_exp(ISerializationContext context, ProductAnd_exp semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_AND_EXP__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_AND_EXP__LEFT));
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_AND_EXP__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_AND_EXP__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getProductAnd_expAccess().getProductAnd_expLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getProductAnd_expAccess().getRightProductPrimary_expParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getProductAnd_expAccess().getRightProductMinus_expParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ProductMinus_exp returns ProductMinus_exp
+	 *     ProductMinus_exp.ProductMinus_exp_1_0 returns ProductMinus_exp
+	 *
+	 * Constraint:
+	 *     (left=ProductMinus_exp_ProductMinus_exp_1_0 right=ProductPrimary_exp)
+	 */
+	protected void sequence_ProductMinus_exp(ISerializationContext context, ProductMinus_exp semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getProductMinus_expAccess().getProductMinus_expLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getProductMinus_expAccess().getRightProductPrimary_expParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -1831,6 +2204,8 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ProductOr_expr.ProductOr_expr_1_0 returns ProductOr_expr
 	 *     ProductAnd_exp returns ProductOr_expr
 	 *     ProductAnd_exp.ProductAnd_exp_1_0 returns ProductOr_expr
+	 *     ProductMinus_exp returns ProductOr_expr
+	 *     ProductMinus_exp.ProductMinus_exp_1_0 returns ProductOr_expr
 	 *     ProductPrimary_exp returns ProductOr_expr
 	 *
 	 * Constraint:
@@ -1838,32 +2213,15 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_ProductOr_expr(ISerializationContext context, ProductOr_expr semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_OR_EXPR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_OR_EXPR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_OR_EXPR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_OR_EXPR__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.PRODUCT_EXPR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getProductOr_exprAccess().getProductOr_exprLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getProductOr_exprAccess().getRightProductAnd_expParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Product_expr returns ProductPrimary_exp
-	 *     ProductOr_expr returns ProductPrimary_exp
-	 *     ProductOr_expr.ProductOr_expr_1_0 returns ProductPrimary_exp
-	 *     ProductAnd_exp returns ProductPrimary_exp
-	 *     ProductAnd_exp.ProductAnd_exp_1_0 returns ProductPrimary_exp
-	 *     ProductPrimary_exp returns ProductPrimary_exp
-	 *
-	 * Constraint:
-	 *     {ProductPrimary_exp}
-	 */
-	protected void sequence_ProductPrimary_exp(ISerializationContext context, ProductPrimary_exp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1875,23 +2233,6 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=ID (((feature+=Feature feature+=Feature*)? product_reconfiguration+=Product_reconfiguration*) | product_expr=Product_expr)?)
 	 */
 	protected void sequence_Product_decl(ISerializationContext context, Product_decl semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Product_expr returns Product_expr
-	 *     ProductOr_expr returns Product_expr
-	 *     ProductOr_expr.ProductOr_expr_1_0 returns Product_expr
-	 *     ProductAnd_exp returns Product_expr
-	 *     ProductAnd_exp.ProductAnd_exp_1_0 returns Product_expr
-	 *     ProductPrimary_exp returns Product_expr
-	 *
-	 * Constraint:
-	 *     (feature+=Feature feature+=Feature*)?
-	 */
-	protected void sequence_Product_expr(ISerializationContext context, Product_expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1913,7 +2254,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Productline_decl returns Productline_decl
 	 *
 	 * Constraint:
-	 *     (name=ID feature+=[Feature_decl|ID] feature+=[Feature_decl|ID]* delta_clause+=Delta_clause*)
+	 *     (name=ID feature+=Feature feature+=Feature* delta_clause+=Delta_clause*)
 	 */
 	protected void sequence_Productline_decl(ISerializationContext context, Productline_decl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1939,19 +2280,19 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (type_exp=Type_exp name=ID exp=Exp?) | 
-	 *         (var_or_field_ref=[Var_or_field_ref|ID] exp=Exp) | 
+	 *         (var_or_field_ref=Var_or_field_ref exp=Exp) | 
 	 *         exp=Exp | 
 	 *         exp=Exp | 
 	 *         stmt+=Stmt+ | 
-	 *         (pure_exp=Pure_exp ifstmt=Stmt r=Stmt?) | 
+	 *         (pure_exp=Pure_exp ifstmt=Stmt elsestmt=Stmt?) | 
 	 *         (condition=Pure_exp whilestmt=Stmt) | 
-	 *         (i=ID l=Pure_exp foreachstmt=Stmt) | 
+	 *         (name=ID l=Pure_exp foreachstmt=Stmt) | 
 	 *         (trystmt=Stmt (casestmtbranch+=Casestmtbranch+ | casestmtbranch+=Casestmtbranch)? stmt+=Stmt?) | 
-	 *         guard=[Guard|ID] | 
+	 *         ref=Guard | 
 	 *         (f=Pure_exp t=Pure_exp) | 
 	 *         throwPureExp=Pure_exp | 
 	 *         diePureExp=Pure_exp | 
-	 *         pure_exp=Pure_exp | 
+	 *         moveCogTo=Pure_exp | 
 	 *         exp=Exp | 
 	 *         (c=Pure_exp casestmtbranch+=Casestmtbranch*)
 	 *     )?
@@ -1967,7 +2308,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Trait_decl returns Trait_decl
 	 *
 	 * Constraint:
-	 *     (name=ID trait_expr=Trait_expr)
+	 *     (name=ID traitExpr=Trait_expr)
 	 */
 	protected void sequence_Trait_decl(ISerializationContext context, Trait_decl semanticObject) {
 		if (errorAcceptor != null) {
@@ -1978,20 +2319,21 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTrait_declAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTrait_declAccess().getTrait_exprTrait_exprParserRuleCall_3_0(), semanticObject.getTrait_expr());
+		feeder.accept(grammarAccess.getTrait_declAccess().getTraitExprTrait_exprParserRuleCall_3_0(), semanticObject.getTraitExpr());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Trait_usage returns Trait_expr
 	 *     Trait_expr returns Trait_expr
+	 *     Primary_Trait_expr returns Trait_expr
+	 *     Class_modifier_fragment returns Trait_expr
 	 *
 	 * Constraint:
-	 *     (method+=[Method|ID]+ | traitMethod=[Method|ID] | name=ID | (trait_expr=[Trait_expr|ID] trait_oper=Trait_oper))?
+	 *     (method+=Method+ | traitMethod=Method | traitName=[Trait_decl|QualifiedName] | (op=Trait_oper trait_expr=Primary_Trait_expr))?
 	 */
-	protected void sequence_Trait_expr(ISerializationContext context, Trait_expr semanticObject) {
+	protected void sequence_Trait_expr_trait_Left_expr(ISerializationContext context, Trait_expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1999,12 +2341,23 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     Trait_oper returns Trait_oper
-	 *     Class_modifier_fragment returns Trait_oper
 	 *
 	 * Constraint:
-	 *     (method=Methodsig | methodsig+=Methodsig+ | trait_expr=Trait_expr | trait_exp=[Trait_expr|ID])?
+	 *     (method=[Methodsig|QualifiedName] | methodsig+=[Methodsig|QualifiedName]+ | trait_expr=Trait_expr | trait_exp=Trait_expr)?
 	 */
 	protected void sequence_Trait_oper(ISerializationContext context, Trait_oper semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Trait_usage returns Trait_usage
+	 *
+	 * Constraint:
+	 *     traitUsage+=[Trait_decl|QualifiedName]*
+	 */
+	protected void sequence_Trait_usage(ISerializationContext context, Trait_usage semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2015,7 +2368,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Update_preamble_declaration returns Type_exp
 	 *
 	 * Constraint:
-	 *     (name=ANY_IDENTIFIER (lt=LT p+=Type_use p+=Type_use* gt=GT)?)
+	 *     (name=QualifiedName (p+=Type_use p+=Type_use*)?)
 	 */
 	protected void sequence_Type_exp(ISerializationContext context, Type_exp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2028,7 +2381,7 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Type_use returns Type_use
 	 *
 	 * Constraint:
-	 *     (name=ANY_IDENTIFIER (type_use+=Type_use type_use+=Type_use*)?)
+	 *     (name=QualifiedName (type_use+=Type_use type_use+=Type_use*)?)
 	 */
 	protected void sequence_Type_use(ISerializationContext context, Type_use semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2086,22 +2439,16 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PlusOrMinus_expr.PlusOrMinus_expr_1_0 returns Var_or_field_ref
 	 *     MulDivOrMod_expr returns Var_or_field_ref
 	 *     MulDivOrMod_expr.MulDivOrMod_expr_1_0 returns Var_or_field_ref
+	 *     Uniary_expr returns Var_or_field_ref
 	 *     Primary_expr returns Var_or_field_ref
 	 *     Atomic_expr returns Var_or_field_ref
 	 *     Var_or_field_ref returns Var_or_field_ref
-	 *     Exp returns Var_or_field_ref
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID | ref=[Field_decl|ID])
 	 */
 	protected void sequence_Var_or_field_ref(ISerializationContext context, Var_or_field_ref semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.VAR_OR_FIELD_REF__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.VAR_OR_FIELD_REF__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVar_or_field_refAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -2119,6 +2466,27 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getWhen_conditionAccess().getApplication_conditionApplication_conditionParserRuleCall_1_0(), semanticObject.getApplication_condition());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     trait_Left_expr returns Trait_expr
+	 *
+	 * Constraint:
+	 *     (op=Trait_oper trait_expr=Primary_Trait_expr)
+	 */
+	protected void sequence_trait_Left_expr(ISerializationContext context, Trait_expr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.TRAIT_EXPR__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.TRAIT_EXPR__OP));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.TRAIT_EXPR__TRAIT_EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.TRAIT_EXPR__TRAIT_EXPR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTrait_Left_exprAccess().getOpTrait_operParserRuleCall_0_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getTrait_Left_exprAccess().getTrait_exprPrimary_Trait_exprParserRuleCall_1_0(), semanticObject.getTrait_expr());
 		feeder.finish();
 	}
 	

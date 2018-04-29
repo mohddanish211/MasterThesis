@@ -6,10 +6,12 @@ package org.xtext.abs.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.abs.AbsPackage;
+import org.xtext.abs.Field_decl;
 import org.xtext.abs.Var_or_field_ref;
 
 /**
@@ -20,6 +22,7 @@ import org.xtext.abs.Var_or_field_ref;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.abs.impl.Var_or_field_refImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Var_or_field_refImpl#getRef <em>Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +49,16 @@ public class Var_or_field_refImpl extends Pure_expImpl implements Var_or_field_r
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRef()
+   * @generated
+   * @ordered
+   */
+  protected Field_decl ref;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,6 +109,49 @@ public class Var_or_field_refImpl extends Pure_expImpl implements Var_or_field_r
    * <!-- end-user-doc -->
    * @generated
    */
+  public Field_decl getRef()
+  {
+    if (ref != null && ref.eIsProxy())
+    {
+      InternalEObject oldRef = (InternalEObject)ref;
+      ref = (Field_decl)eResolveProxy(oldRef);
+      if (ref != oldRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.VAR_OR_FIELD_REF__REF, oldRef, ref));
+      }
+    }
+    return ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Field_decl basicGetRef()
+  {
+    return ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRef(Field_decl newRef)
+  {
+    Field_decl oldRef = ref;
+    ref = newRef;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.VAR_OR_FIELD_REF__REF, oldRef, ref));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -103,6 +159,9 @@ public class Var_or_field_refImpl extends Pure_expImpl implements Var_or_field_r
     {
       case AbsPackage.VAR_OR_FIELD_REF__NAME:
         return getName();
+      case AbsPackage.VAR_OR_FIELD_REF__REF:
+        if (resolve) return getRef();
+        return basicGetRef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,6 +178,9 @@ public class Var_or_field_refImpl extends Pure_expImpl implements Var_or_field_r
     {
       case AbsPackage.VAR_OR_FIELD_REF__NAME:
         setName((String)newValue);
+        return;
+      case AbsPackage.VAR_OR_FIELD_REF__REF:
+        setRef((Field_decl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,6 +199,9 @@ public class Var_or_field_refImpl extends Pure_expImpl implements Var_or_field_r
       case AbsPackage.VAR_OR_FIELD_REF__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case AbsPackage.VAR_OR_FIELD_REF__REF:
+        setRef((Field_decl)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -153,6 +218,8 @@ public class Var_or_field_refImpl extends Pure_expImpl implements Var_or_field_r
     {
       case AbsPackage.VAR_OR_FIELD_REF__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case AbsPackage.VAR_OR_FIELD_REF__REF:
+        return ref != null;
     }
     return super.eIsSet(featureID);
   }

@@ -32,7 +32,7 @@ ruleCompilation_Unit:
 // Rule Module_decl
 ruleModule_decl:
 	'module'
-	ruleANY_IDENTIFIER
+	RULE_ID
 	';'
 	ruleModule_export
 	*
@@ -50,15 +50,15 @@ ruleModule_export:
 	(
 		RULE_MULT
 		    |
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		(
 			','
-			ruleANY_IDENTIFIER
+			ruleQualifiedName
 		)*
 	)
 	(
 		'from'
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 	)?
 	';'
 ;
@@ -69,23 +69,18 @@ ruleModule_import:
 	(
 		RULE_MULT
 		'from'
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		';'
 		    |
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		(
 			','
-			ruleANY_IDENTIFIER
+			ruleQualifiedName
 		)*
-		'from'
-		ruleANY_IDENTIFIER
-		';'
-		    |
-		ruleANY_IDENTIFIER
 		(
-			','
-			ruleANY_IDENTIFIER
-		)*
+			'from'
+			ruleQualifiedName
+		)?
 		';'
 	)
 ;
@@ -205,7 +200,7 @@ ruleAnnotation:
 
 // Rule Type_use
 ruleType_use:
-	ruleANY_IDENTIFIER
+	ruleQualifiedName
 	(
 		RULE_LT
 		ruleType_use
@@ -220,12 +215,12 @@ ruleType_use:
 // Rule Pure_exp
 rulePure_exp:
 	(
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		'('
 		rulePure_exp_list
 		')'
 		    |
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		'('
 		ruleFunction_list
 		')'
@@ -233,14 +228,7 @@ rulePure_exp:
 		rulePure_exp_list
 		')'
 		    |
-		ruleANY_IDENTIFIER
-		(
-			'('
-			rulePure_exp_list
-			')'
-		)?
-		    |
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		'['
 		rulePure_exp_list
 		']'
@@ -275,10 +263,6 @@ rulePure_exp:
 		rulePure_exp
 		'in'
 		rulePure_exp
-		    |
-		RULE_STRING
-		    |
-		RULE_ID
 	)
 ;
 
@@ -348,8 +332,22 @@ ruleMulDivOrMod_expr:
 			    |
 			RULE_MOD
 		)
-		rulePrimary_expr
+		ruleUniary_expr
 	)*
+;
+
+// Rule Uniary_expr
+ruleUniary_expr:
+	(
+		(
+			RULE_NEGATION
+			    |RULE_NEGATION_CREOL
+			    |RULE_MINUS
+		)
+		rulePure_exp
+		    |
+		rulePrimary_expr
+	)
 ;
 
 // Rule Primary_expr
@@ -358,15 +356,6 @@ rulePrimary_expr:
 		'('
 		rulePure_exp
 		')'
-		    |
-		(
-			RULE_NEGATION
-			    |
-			RULE_NEGATION_CREOL
-			    |
-			RULE_MINUS
-		)
-		rulePrimary_expr
 		    |
 		ruleAtomic_expr
 	)
@@ -384,16 +373,22 @@ ruleAtomic_expr:
 		'this'
 		    |
 		'null'
+		    |
+		RULE_STRING
 	)
 ;
 
 // Rule Var_or_field_ref
 ruleVar_or_field_ref:
 	(
-		'this'
-		'.'
-	)?
-	RULE_ID
+		(
+			'this'
+			'.'
+		)?
+		RULE_ID
+		    |
+		RULE_ID
+	)
 ;
 
 // Rule Case_branch
@@ -415,7 +410,7 @@ rulePattern:
 		    |
 		RULE_ID
 		    |
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		'('
 		(
 			rulePattern
@@ -492,7 +487,7 @@ ruleParam_decl:
 
 // Rule Type_exp
 ruleType_exp:
-	ruleANY_IDENTIFIER
+	ruleQualifiedName
 	(
 		RULE_LT
 		ruleType_use
@@ -559,21 +554,16 @@ ruleInterface_decl:
 	RULE_ID
 	(
 		'extends'
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		(
 			','
-			ruleANY_IDENTIFIER
+			ruleQualifiedName
 		)*
 	)?
 	'{'
 	ruleMethodsig
 	*
 	'}'
-;
-
-// Rule Interface_name
-ruleInterface_name:
-	ruleANY_IDENTIFIER
 ;
 
 // Rule Methodsig
@@ -592,10 +582,10 @@ ruleClass_decl:
 	?
 	(
 		'implements'
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		(
 			','
-			ruleANY_IDENTIFIER
+			ruleQualifiedName
 		)*
 	)?
 	'{'
@@ -624,7 +614,7 @@ ruleClass_decl:
 // Rule Field_decl
 ruleField_decl:
 	ruleType_use
-	ruleVar_or_field_ref
+	RULE_ID
 	(
 		'='
 		rulePure_exp
@@ -643,7 +633,7 @@ ruleStmt:
 		)?
 		';'
 		    |
-		RULE_ID
+		ruleVar_or_field_ref
 		'='
 		ruleExp
 		';'
@@ -708,7 +698,7 @@ ruleStmt:
 		)?
 		    |
 		'await'
-		RULE_ID
+		ruleGuard
 		';'
 		    |
 		'suspend'
@@ -765,13 +755,12 @@ ruleEff_expr:
 		'new'
 		'local'
 		?
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		'('
 		rulePure_exp_list
 		')'
 		    |
-		'await'
-		?
+		'await'?
 		rulePure_exp
 		RULE_NEGATION
 		RULE_ID
@@ -809,7 +798,7 @@ ruleDelta_id:
 // Rule Guard
 ruleGuard:
 	(
-		RULE_ID
+		ruleVar_or_field_ref
 		'?'
 		    |
 		'duration'
@@ -820,8 +809,6 @@ ruleGuard:
 		')'
 		    |
 		ruleAndGuard
-		    |
-		rulePure_exp
 	)
 ;
 
@@ -836,9 +823,13 @@ ruleAndGuard:
 
 // Rule PrimaryGuard
 rulePrimaryGuard:
-	'('
-	ruleGuard
-	')'
+	(
+		'('
+		ruleGuard
+		')'
+		    |
+		rulePure_exp
+	)
 ;
 
 // Rule Casestmtbranch
@@ -851,43 +842,58 @@ ruleCasestmtbranch:
 // Rule Trait_usage
 ruleTrait_usage:
 	'uses'
-	ruleTrait_expr
+	ruleQualifiedName
+	*
+	';'
 ;
 
 // Rule Trait_expr
 ruleTrait_expr:
 	(
 		'{'
-		RULE_ID
+		ruleMethod
 		*
 		'}'
 		    |
-		RULE_ID
+		ruleMethod
 		    |
-		RULE_ID
+		ruleQualifiedName
 		    |
-		RULE_ID
-		ruleTrait_oper
+		ruletrait_Left_expr
 	)
+;
+
+// Rule trait_Left_expr
+ruletrait_Left_expr:
+	ruleTrait_oper
+	rulePrimary_Trait_expr
+;
+
+// Rule Primary_Trait_expr
+rulePrimary_Trait_expr:
+	'{'
+	ruleTrait_expr
+	'}'
 ;
 
 // Rule Trait_oper
 ruleTrait_oper:
 	(
 		'removes'
-		ruleMethodsig
-		    |
-		'removes'
-		'{'
-		ruleMethodsig
-		*
-		'}'
+		(
+			ruleQualifiedName
+			    |
+			'{'
+			ruleQualifiedName
+			*
+			'}'
+		)
 		    |
 		'adds'
 		ruleTrait_expr
 		    |
 		'modifies'
-		RULE_ID
+		ruleTrait_expr
 	)
 ;
 
@@ -943,7 +949,7 @@ ruleDelta_param:
 	(
 		ruleParam_decl
 		    |
-		ruleANY_IDENTIFIER
+		ruleQualifiedName
 		ruleHas_condition
 	)
 ;
@@ -965,7 +971,7 @@ ruleHas_condition:
 // Rule Delta_access
 ruleDelta_access:
 	'uses'
-	ruleANY_IDENTIFIER
+	RULE_ID
 	';'
 ;
 
@@ -984,19 +990,20 @@ ruleModule_modifier:
 ruleFunctional_modifier:
 	(
 		'adds'
-		ruleFunction_decl
-		    |
-		'adds'
-		ruleDataType_decl
-		    |
-		'adds'
-		ruleTypesyn_decl
-		    |
-		'modifies'
-		ruleTypesyn_decl
+		(
+			ruleFunction_decl
+			    |
+			ruleDataType_decl
+			    |
+			ruleTypesyn_decl
+		)
 		    |
 		'modifies'
-		ruleDataType_decl
+		(
+			ruleTypesyn_decl
+			    |
+			ruleDataType_decl
+		)
 	)
 ;
 
@@ -1004,52 +1011,54 @@ ruleFunctional_modifier:
 ruleOO_modifier:
 	(
 		'adds'
-		ruleClass_decl
+		(
+			ruleClass_decl
+			    |
+			ruleInterface_decl
+		)
 		    |
 		'removes'
-		'class'
-		ruleANY_IDENTIFIER
+		(
+			'class'
+			ruleQualifiedName
+			    |
+			'interface'
+			ruleQualifiedName
+		)
 		';'
 		    |
 		'modifies'
-		'class'
-		ruleANY_IDENTIFIER
 		(
-			'adds'
-			ruleInterface_name
+			'class'
+			ruleQualifiedName
 			(
-				','
-				ruleInterface_name
-			)*
-		)?
-		(
-			'removes'
-			ruleInterface_name
+				'adds'
+				ruleInterface_decl
+				(
+					','
+					ruleInterface_decl
+				)*
+			)?
 			(
-				','
-				ruleInterface_name
-			)*
-		)?
-		'{'
-		ruleClass_modifier_fragment
-		*
-		'}'
-		    |
-		'adds'
-		ruleInterface_decl
-		    |
-		'removes'
-		'interface'
-		ruleANY_IDENTIFIER
-		';'
-		    |
-		'modifies'
-		'interface'
-		ruleANY_IDENTIFIER
-		'{'
-		ruleInterface_modifier_fragment
-		*
-		'}'
+				'removes'
+				ruleQualifiedName
+				(
+					','
+					ruleQualifiedName
+				)*
+			)?
+			'{'
+			ruleClass_modifier_fragment
+			*
+			'}'
+			    |
+			'interface'
+			ruleQualifiedName
+			'{'
+			ruleInterface_modifier_fragment
+			*
+			'}'
+		)
 	)
 ;
 
@@ -1057,12 +1066,26 @@ ruleOO_modifier:
 ruleClass_modifier_fragment:
 	(
 		'adds'
-		ruleField_decl
+		(
+			ruleField_decl
+			    |
+			ruleTrait_expr
+		)
 		    |
 		'removes'
-		RULE_ID
+		(
+			ruleField_decl
+			    |
+			ruleMethodsig
+			    |
+			'{'
+			ruleMethodsig
+			*
+			'}'
+		)
 		    |
-		ruleTrait_oper
+		'modifies'
+		ruleTrait_expr
 	)
 ;
 
@@ -1073,17 +1096,16 @@ ruleInterface_modifier_fragment:
 		ruleMethodsig
 		    |
 		'removes'
-		RULE_ID
+		ruleMethodsig
 	)
 ;
 
 // Rule Namespace_modifier
 ruleNamespace_modifier:
+	'adds'
 	(
-		'adds'
 		ruleModule_import
 		    |
-		'adds'
 		ruleModule_export
 	)
 ;
@@ -1100,7 +1122,7 @@ ruleUpdate_decl:
 // Rule Object_update
 ruleObject_update:
 	'objectupdate'
-	ruleANY_IDENTIFIER
+	ruleQualifiedName
 	'{'
 	'await'
 	RULE_ID
@@ -1136,10 +1158,10 @@ ruleProductline_decl:
 	RULE_ID
 	';'
 	'features'
-	RULE_ID
+	ruleFeature
 	(
 		','
-		RULE_ID
+		ruleFeature
 	)*
 	';'
 	ruleDelta_clause
@@ -1148,7 +1170,7 @@ ruleProductline_decl:
 
 // Rule Feature
 ruleFeature:
-	RULE_ID
+	ruleQualifiedName
 	'\''
 	?
 	(
@@ -1275,7 +1297,7 @@ ruleAppPrimary_exp:
 
 // Rule AppCond_atomic_expr
 ruleAppCond_atomic_expr:
-	RULE_ID
+	ruleFeature
 ;
 
 // Rule Product_decl
@@ -1309,19 +1331,7 @@ ruleProduct_decl:
 
 // Rule Product_expr
 ruleProduct_expr:
-	(
-		'{'
-		ruleFeature
-		(
-			','
-			ruleFeature
-		)*
-		'}'
-		    |
-		ruleProductOr_expr
-		    |
-		RULE_ID
-	)
+	ruleProductOr_expr
 ;
 
 // Rule ProductOr_expr
@@ -1338,6 +1348,15 @@ ruleProductAnd_exp:
 	ruleProductPrimary_exp
 	(
 		RULE_ANDAND
+		ruleProductMinus_exp
+	)*
+;
+
+// Rule ProductMinus_exp
+ruleProductMinus_exp:
+	ruleProductPrimary_exp
+	(
+		RULE_MINUS
 		ruleProductPrimary_exp
 	)*
 ;
@@ -1346,10 +1365,25 @@ ruleProductAnd_exp:
 ruleProductPrimary_exp:
 	(
 		'('
-		ruleProduct_expr
+		ruleProductOr_expr
 		')'
 		    |
-		RULE_MINUS
+		ruleAtomicProduct_expr
+	)
+;
+
+// Rule AtomicProduct_expr
+ruleAtomicProduct_expr:
+	(
+		'{'
+		ruleQualifiedName
+		(
+			','
+			ruleQualifiedName
+		)*
+		'}'
+		    |
+		ruleQualifiedName
 	)
 ;
 
@@ -1631,13 +1665,13 @@ ruleFextension:
 	'}'
 ;
 
-// Rule ANY_IDENTIFIER
-ruleANY_IDENTIFIER:
-	(
-		RULE_ID
-		'.'
-	)*
+// Rule QualifiedName
+ruleQualifiedName:
 	RULE_ID
+	(
+		'.'
+		RULE_ID
+	)*
 ;
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/' {skip();};

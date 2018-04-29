@@ -13,6 +13,7 @@ package org.xtext.abs;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.abs.Var_or_field_ref#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.Var_or_field_ref#getRef <em>Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,5 +48,31 @@ public interface Var_or_field_ref extends Pure_exp
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ref</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ref</em>' reference.
+   * @see #setRef(Field_decl)
+   * @see org.xtext.abs.AbsPackage#getVar_or_field_ref_Ref()
+   * @model
+   * @generated
+   */
+  Field_decl getRef();
+
+  /**
+   * Sets the value of the '{@link org.xtext.abs.Var_or_field_ref#getRef <em>Ref</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ref</em>' reference.
+   * @see #getRef()
+   * @generated
+   */
+  void setRef(Field_decl value);
 
 } // Var_or_field_ref

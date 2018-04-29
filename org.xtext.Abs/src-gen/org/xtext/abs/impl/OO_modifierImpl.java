@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
@@ -23,7 +24,6 @@ import org.xtext.abs.Class_decl;
 import org.xtext.abs.Class_modifier_fragment;
 import org.xtext.abs.Interface_decl;
 import org.xtext.abs.Interface_modifier_fragment;
-import org.xtext.abs.Interface_name;
 import org.xtext.abs.OO_modifier;
 
 /**
@@ -34,10 +34,12 @@ import org.xtext.abs.OO_modifier;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getClass_decl <em>Class decl</em>}</li>
- *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getI <em>I</em>}</li>
- *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getClass_modifier_fragment <em>Class modifier fragment</em>}</li>
  *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getInterface_decl <em>Interface decl</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getInteface <em>Inteface</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getInterfaceName <em>Interface Name</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getRemovedInterface <em>Removed Interface</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getClass_modifier_fragment <em>Class modifier fragment</em>}</li>
  *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getInterface <em>Interface</em>}</li>
  *   <li>{@link org.xtext.abs.impl.OO_modifierImpl#getInterface_modifier_fragment <em>Interface modifier fragment</em>}</li>
  * </ul>
@@ -58,6 +60,16 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
   protected Class_decl class_decl;
 
   /**
+   * The cached value of the '{@link #getInterface_decl() <em>Interface decl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInterface_decl()
+   * @generated
+   * @ordered
+   */
+  protected Interface_decl interface_decl;
+
+  /**
    * The cached value of the '{@link #getClass_() <em>Class</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -68,14 +80,34 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
   protected Class_decl class_;
 
   /**
-   * The cached value of the '{@link #getI() <em>I</em>}' containment reference list.
+   * The cached value of the '{@link #getInteface() <em>Inteface</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getI()
+   * @see #getInteface()
    * @generated
    * @ordered
    */
-  protected EList<Interface_name> i;
+  protected Interface_decl inteface;
+
+  /**
+   * The cached value of the '{@link #getInterfaceName() <em>Interface Name</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInterfaceName()
+   * @generated
+   * @ordered
+   */
+  protected EList<Interface_decl> interfaceName;
+
+  /**
+   * The cached value of the '{@link #getRemovedInterface() <em>Removed Interface</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRemovedInterface()
+   * @generated
+   * @ordered
+   */
+  protected EList<Interface_decl> removedInterface;
 
   /**
    * The cached value of the '{@link #getClass_modifier_fragment() <em>Class modifier fragment</em>}' containment reference list.
@@ -86,16 +118,6 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
    * @ordered
    */
   protected EList<Class_modifier_fragment> class_modifier_fragment;
-
-  /**
-   * The cached value of the '{@link #getInterface_decl() <em>Interface decl</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInterface_decl()
-   * @generated
-   * @ordered
-   */
-  protected Interface_decl interface_decl;
 
   /**
    * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
@@ -191,6 +213,54 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
    * <!-- end-user-doc -->
    * @generated
    */
+  public Interface_decl getInterface_decl()
+  {
+    return interface_decl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInterface_decl(Interface_decl newInterface_decl, NotificationChain msgs)
+  {
+    Interface_decl oldInterface_decl = interface_decl;
+    interface_decl = newInterface_decl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.OO_MODIFIER__INTERFACE_DECL, oldInterface_decl, newInterface_decl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInterface_decl(Interface_decl newInterface_decl)
+  {
+    if (newInterface_decl != interface_decl)
+    {
+      NotificationChain msgs = null;
+      if (interface_decl != null)
+        msgs = ((InternalEObject)interface_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.OO_MODIFIER__INTERFACE_DECL, null, msgs);
+      if (newInterface_decl != null)
+        msgs = ((InternalEObject)newInterface_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.OO_MODIFIER__INTERFACE_DECL, null, msgs);
+      msgs = basicSetInterface_decl(newInterface_decl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.OO_MODIFIER__INTERFACE_DECL, newInterface_decl, newInterface_decl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Class_decl getClass_()
   {
     if (class_ != null && class_.eIsProxy())
@@ -234,13 +304,70 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Interface_name> getI()
+  public Interface_decl getInteface()
   {
-    if (i == null)
+    if (inteface != null && inteface.eIsProxy())
     {
-      i = new EObjectContainmentEList<Interface_name>(Interface_name.class, this, AbsPackage.OO_MODIFIER__I);
+      InternalEObject oldInteface = (InternalEObject)inteface;
+      inteface = (Interface_decl)eResolveProxy(oldInteface);
+      if (inteface != oldInteface)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.OO_MODIFIER__INTEFACE, oldInteface, inteface));
+      }
     }
-    return i;
+    return inteface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Interface_decl basicGetInteface()
+  {
+    return inteface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInteface(Interface_decl newInteface)
+  {
+    Interface_decl oldInteface = inteface;
+    inteface = newInteface;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.OO_MODIFIER__INTEFACE, oldInteface, inteface));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Interface_decl> getInterfaceName()
+  {
+    if (interfaceName == null)
+    {
+      interfaceName = new EObjectContainmentEList<Interface_decl>(Interface_decl.class, this, AbsPackage.OO_MODIFIER__INTERFACE_NAME);
+    }
+    return interfaceName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Interface_decl> getRemovedInterface()
+  {
+    if (removedInterface == null)
+    {
+      removedInterface = new EObjectResolvingEList<Interface_decl>(Interface_decl.class, this, AbsPackage.OO_MODIFIER__REMOVED_INTERFACE);
+    }
+    return removedInterface;
   }
 
   /**
@@ -255,54 +382,6 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
       class_modifier_fragment = new EObjectContainmentEList<Class_modifier_fragment>(Class_modifier_fragment.class, this, AbsPackage.OO_MODIFIER__CLASS_MODIFIER_FRAGMENT);
     }
     return class_modifier_fragment;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Interface_decl getInterface_decl()
-  {
-    return interface_decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetInterface_decl(Interface_decl newInterface_decl, NotificationChain msgs)
-  {
-    Interface_decl oldInterface_decl = interface_decl;
-    interface_decl = newInterface_decl;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.OO_MODIFIER__INTERFACE_DECL, oldInterface_decl, newInterface_decl);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setInterface_decl(Interface_decl newInterface_decl)
-  {
-    if (newInterface_decl != interface_decl)
-    {
-      NotificationChain msgs = null;
-      if (interface_decl != null)
-        msgs = ((InternalEObject)interface_decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.OO_MODIFIER__INTERFACE_DECL, null, msgs);
-      if (newInterface_decl != null)
-        msgs = ((InternalEObject)newInterface_decl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.OO_MODIFIER__INTERFACE_DECL, null, msgs);
-      msgs = basicSetInterface_decl(newInterface_decl, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.OO_MODIFIER__INTERFACE_DECL, newInterface_decl, newInterface_decl));
   }
 
   /**
@@ -374,12 +453,12 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
     {
       case AbsPackage.OO_MODIFIER__CLASS_DECL:
         return basicSetClass_decl(null, msgs);
-      case AbsPackage.OO_MODIFIER__I:
-        return ((InternalEList<?>)getI()).basicRemove(otherEnd, msgs);
-      case AbsPackage.OO_MODIFIER__CLASS_MODIFIER_FRAGMENT:
-        return ((InternalEList<?>)getClass_modifier_fragment()).basicRemove(otherEnd, msgs);
       case AbsPackage.OO_MODIFIER__INTERFACE_DECL:
         return basicSetInterface_decl(null, msgs);
+      case AbsPackage.OO_MODIFIER__INTERFACE_NAME:
+        return ((InternalEList<?>)getInterfaceName()).basicRemove(otherEnd, msgs);
+      case AbsPackage.OO_MODIFIER__CLASS_MODIFIER_FRAGMENT:
+        return ((InternalEList<?>)getClass_modifier_fragment()).basicRemove(otherEnd, msgs);
       case AbsPackage.OO_MODIFIER__INTERFACE_MODIFIER_FRAGMENT:
         return ((InternalEList<?>)getInterface_modifier_fragment()).basicRemove(otherEnd, msgs);
     }
@@ -398,15 +477,20 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
     {
       case AbsPackage.OO_MODIFIER__CLASS_DECL:
         return getClass_decl();
+      case AbsPackage.OO_MODIFIER__INTERFACE_DECL:
+        return getInterface_decl();
       case AbsPackage.OO_MODIFIER__CLASS:
         if (resolve) return getClass_();
         return basicGetClass();
-      case AbsPackage.OO_MODIFIER__I:
-        return getI();
+      case AbsPackage.OO_MODIFIER__INTEFACE:
+        if (resolve) return getInteface();
+        return basicGetInteface();
+      case AbsPackage.OO_MODIFIER__INTERFACE_NAME:
+        return getInterfaceName();
+      case AbsPackage.OO_MODIFIER__REMOVED_INTERFACE:
+        return getRemovedInterface();
       case AbsPackage.OO_MODIFIER__CLASS_MODIFIER_FRAGMENT:
         return getClass_modifier_fragment();
-      case AbsPackage.OO_MODIFIER__INTERFACE_DECL:
-        return getInterface_decl();
       case AbsPackage.OO_MODIFIER__INTERFACE:
         if (resolve) return getInterface();
         return basicGetInterface();
@@ -430,19 +514,26 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
       case AbsPackage.OO_MODIFIER__CLASS_DECL:
         setClass_decl((Class_decl)newValue);
         return;
+      case AbsPackage.OO_MODIFIER__INTERFACE_DECL:
+        setInterface_decl((Interface_decl)newValue);
+        return;
       case AbsPackage.OO_MODIFIER__CLASS:
         setClass((Class_decl)newValue);
         return;
-      case AbsPackage.OO_MODIFIER__I:
-        getI().clear();
-        getI().addAll((Collection<? extends Interface_name>)newValue);
+      case AbsPackage.OO_MODIFIER__INTEFACE:
+        setInteface((Interface_decl)newValue);
+        return;
+      case AbsPackage.OO_MODIFIER__INTERFACE_NAME:
+        getInterfaceName().clear();
+        getInterfaceName().addAll((Collection<? extends Interface_decl>)newValue);
+        return;
+      case AbsPackage.OO_MODIFIER__REMOVED_INTERFACE:
+        getRemovedInterface().clear();
+        getRemovedInterface().addAll((Collection<? extends Interface_decl>)newValue);
         return;
       case AbsPackage.OO_MODIFIER__CLASS_MODIFIER_FRAGMENT:
         getClass_modifier_fragment().clear();
         getClass_modifier_fragment().addAll((Collection<? extends Class_modifier_fragment>)newValue);
-        return;
-      case AbsPackage.OO_MODIFIER__INTERFACE_DECL:
-        setInterface_decl((Interface_decl)newValue);
         return;
       case AbsPackage.OO_MODIFIER__INTERFACE:
         setInterface((Interface_decl)newValue);
@@ -468,17 +559,23 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
       case AbsPackage.OO_MODIFIER__CLASS_DECL:
         setClass_decl((Class_decl)null);
         return;
+      case AbsPackage.OO_MODIFIER__INTERFACE_DECL:
+        setInterface_decl((Interface_decl)null);
+        return;
       case AbsPackage.OO_MODIFIER__CLASS:
         setClass((Class_decl)null);
         return;
-      case AbsPackage.OO_MODIFIER__I:
-        getI().clear();
+      case AbsPackage.OO_MODIFIER__INTEFACE:
+        setInteface((Interface_decl)null);
+        return;
+      case AbsPackage.OO_MODIFIER__INTERFACE_NAME:
+        getInterfaceName().clear();
+        return;
+      case AbsPackage.OO_MODIFIER__REMOVED_INTERFACE:
+        getRemovedInterface().clear();
         return;
       case AbsPackage.OO_MODIFIER__CLASS_MODIFIER_FRAGMENT:
         getClass_modifier_fragment().clear();
-        return;
-      case AbsPackage.OO_MODIFIER__INTERFACE_DECL:
-        setInterface_decl((Interface_decl)null);
         return;
       case AbsPackage.OO_MODIFIER__INTERFACE:
         setInterface((Interface_decl)null);
@@ -502,14 +599,18 @@ public class OO_modifierImpl extends Module_modifierImpl implements OO_modifier
     {
       case AbsPackage.OO_MODIFIER__CLASS_DECL:
         return class_decl != null;
-      case AbsPackage.OO_MODIFIER__CLASS:
-        return class_ != null;
-      case AbsPackage.OO_MODIFIER__I:
-        return i != null && !i.isEmpty();
-      case AbsPackage.OO_MODIFIER__CLASS_MODIFIER_FRAGMENT:
-        return class_modifier_fragment != null && !class_modifier_fragment.isEmpty();
       case AbsPackage.OO_MODIFIER__INTERFACE_DECL:
         return interface_decl != null;
+      case AbsPackage.OO_MODIFIER__CLASS:
+        return class_ != null;
+      case AbsPackage.OO_MODIFIER__INTEFACE:
+        return inteface != null;
+      case AbsPackage.OO_MODIFIER__INTERFACE_NAME:
+        return interfaceName != null && !interfaceName.isEmpty();
+      case AbsPackage.OO_MODIFIER__REMOVED_INTERFACE:
+        return removedInterface != null && !removedInterface.isEmpty();
+      case AbsPackage.OO_MODIFIER__CLASS_MODIFIER_FRAGMENT:
+        return class_modifier_fragment != null && !class_modifier_fragment.isEmpty();
       case AbsPackage.OO_MODIFIER__INTERFACE:
         return interface_ != null;
       case AbsPackage.OO_MODIFIER__INTERFACE_MODIFIER_FRAGMENT:

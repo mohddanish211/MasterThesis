@@ -24,10 +24,10 @@ import org.xtext.abs.Var_or_field_ref;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.GuardImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.GuardImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link org.xtext.abs.impl.GuardImpl#getMin <em>Min</em>}</li>
  *   <li>{@link org.xtext.abs.impl.GuardImpl#getMax <em>Max</em>}</li>
- *   <li>{@link org.xtext.abs.impl.GuardImpl#getE <em>E</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.GuardImpl#getGuard <em>Guard</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,14 +36,14 @@ import org.xtext.abs.Var_or_field_ref;
 public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
 {
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
+   * The cached value of the '{@link #getRef() <em>Ref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getRef()
    * @generated
    * @ordered
    */
-  protected Var_or_field_ref name;
+  protected Var_or_field_ref ref;
 
   /**
    * The cached value of the '{@link #getMin() <em>Min</em>}' containment reference.
@@ -66,14 +66,14 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   protected Pure_exp max;
 
   /**
-   * The cached value of the '{@link #getE() <em>E</em>}' containment reference.
+   * The cached value of the '{@link #getGuard() <em>Guard</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getE()
+   * @see #getGuard()
    * @generated
    * @ordered
    */
-  protected Pure_exp e;
+  protected Pure_exp guard;
 
   /**
    * <!-- begin-user-doc -->
@@ -101,19 +101,9 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
    * <!-- end-user-doc -->
    * @generated
    */
-  public Var_or_field_ref getName()
+  public Var_or_field_ref getRef()
   {
-    if (name != null && name.eIsProxy())
-    {
-      InternalEObject oldName = (InternalEObject)name;
-      name = (Var_or_field_ref)eResolveProxy(oldName);
-      if (name != oldName)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.GUARD__NAME, oldName, name));
-      }
-    }
-    return name;
+    return ref;
   }
 
   /**
@@ -121,22 +111,37 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
    * <!-- end-user-doc -->
    * @generated
    */
-  public Var_or_field_ref basicGetName()
+  public NotificationChain basicSetRef(Var_or_field_ref newRef, NotificationChain msgs)
   {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(Var_or_field_ref newName)
-  {
-    Var_or_field_ref oldName = name;
-    name = newName;
+    Var_or_field_ref oldRef = ref;
+    ref = newRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.GUARD__NAME, oldName, name));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.GUARD__REF, oldRef, newRef);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRef(Var_or_field_ref newRef)
+  {
+    if (newRef != ref)
+    {
+      NotificationChain msgs = null;
+      if (ref != null)
+        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.GUARD__REF, null, msgs);
+      if (newRef != null)
+        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.GUARD__REF, null, msgs);
+      msgs = basicSetRef(newRef, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.GUARD__REF, newRef, newRef));
   }
 
   /**
@@ -240,9 +245,9 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
    * <!-- end-user-doc -->
    * @generated
    */
-  public Pure_exp getE()
+  public Pure_exp getGuard()
   {
-    return e;
+    return guard;
   }
 
   /**
@@ -250,13 +255,13 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetE(Pure_exp newE, NotificationChain msgs)
+  public NotificationChain basicSetGuard(Pure_exp newGuard, NotificationChain msgs)
   {
-    Pure_exp oldE = e;
-    e = newE;
+    Pure_exp oldGuard = guard;
+    guard = newGuard;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.GUARD__E, oldE, newE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.GUARD__GUARD, oldGuard, newGuard);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -267,20 +272,20 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setE(Pure_exp newE)
+  public void setGuard(Pure_exp newGuard)
   {
-    if (newE != e)
+    if (newGuard != guard)
     {
       NotificationChain msgs = null;
-      if (e != null)
-        msgs = ((InternalEObject)e).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.GUARD__E, null, msgs);
-      if (newE != null)
-        msgs = ((InternalEObject)newE).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.GUARD__E, null, msgs);
-      msgs = basicSetE(newE, msgs);
+      if (guard != null)
+        msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.GUARD__GUARD, null, msgs);
+      if (newGuard != null)
+        msgs = ((InternalEObject)newGuard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.GUARD__GUARD, null, msgs);
+      msgs = basicSetGuard(newGuard, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.GUARD__E, newE, newE));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.GUARD__GUARD, newGuard, newGuard));
   }
 
   /**
@@ -293,12 +298,14 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   {
     switch (featureID)
     {
+      case AbsPackage.GUARD__REF:
+        return basicSetRef(null, msgs);
       case AbsPackage.GUARD__MIN:
         return basicSetMin(null, msgs);
       case AbsPackage.GUARD__MAX:
         return basicSetMax(null, msgs);
-      case AbsPackage.GUARD__E:
-        return basicSetE(null, msgs);
+      case AbsPackage.GUARD__GUARD:
+        return basicSetGuard(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -313,15 +320,14 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   {
     switch (featureID)
     {
-      case AbsPackage.GUARD__NAME:
-        if (resolve) return getName();
-        return basicGetName();
+      case AbsPackage.GUARD__REF:
+        return getRef();
       case AbsPackage.GUARD__MIN:
         return getMin();
       case AbsPackage.GUARD__MAX:
         return getMax();
-      case AbsPackage.GUARD__E:
-        return getE();
+      case AbsPackage.GUARD__GUARD:
+        return getGuard();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -336,8 +342,8 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   {
     switch (featureID)
     {
-      case AbsPackage.GUARD__NAME:
-        setName((Var_or_field_ref)newValue);
+      case AbsPackage.GUARD__REF:
+        setRef((Var_or_field_ref)newValue);
         return;
       case AbsPackage.GUARD__MIN:
         setMin((Pure_exp)newValue);
@@ -345,8 +351,8 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
       case AbsPackage.GUARD__MAX:
         setMax((Pure_exp)newValue);
         return;
-      case AbsPackage.GUARD__E:
-        setE((Pure_exp)newValue);
+      case AbsPackage.GUARD__GUARD:
+        setGuard((Pure_exp)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -362,8 +368,8 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   {
     switch (featureID)
     {
-      case AbsPackage.GUARD__NAME:
-        setName((Var_or_field_ref)null);
+      case AbsPackage.GUARD__REF:
+        setRef((Var_or_field_ref)null);
         return;
       case AbsPackage.GUARD__MIN:
         setMin((Pure_exp)null);
@@ -371,8 +377,8 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
       case AbsPackage.GUARD__MAX:
         setMax((Pure_exp)null);
         return;
-      case AbsPackage.GUARD__E:
-        setE((Pure_exp)null);
+      case AbsPackage.GUARD__GUARD:
+        setGuard((Pure_exp)null);
         return;
     }
     super.eUnset(featureID);
@@ -388,14 +394,14 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   {
     switch (featureID)
     {
-      case AbsPackage.GUARD__NAME:
-        return name != null;
+      case AbsPackage.GUARD__REF:
+        return ref != null;
       case AbsPackage.GUARD__MIN:
         return min != null;
       case AbsPackage.GUARD__MAX:
         return max != null;
-      case AbsPackage.GUARD__E:
-        return e != null;
+      case AbsPackage.GUARD__GUARD:
+        return guard != null;
     }
     return super.eIsSet(featureID);
   }

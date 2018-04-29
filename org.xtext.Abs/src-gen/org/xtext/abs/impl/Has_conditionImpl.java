@@ -23,9 +23,9 @@ import org.xtext.abs.Methodsig;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Has_conditionImpl#getF <em>F</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Has_conditionImpl#getM <em>M</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Has_conditionImpl#getI <em>I</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Has_conditionImpl#getField <em>Field</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Has_conditionImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Has_conditionImpl#getInterface <em>Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,34 +34,34 @@ import org.xtext.abs.Methodsig;
 public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
 {
   /**
-   * The cached value of the '{@link #getF() <em>F</em>}' reference.
+   * The cached value of the '{@link #getField() <em>Field</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getF()
+   * @see #getField()
    * @generated
    * @ordered
    */
-  protected Field_decl f;
+  protected Field_decl field;
 
   /**
-   * The cached value of the '{@link #getM() <em>M</em>}' reference.
+   * The cached value of the '{@link #getMethod() <em>Method</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getM()
+   * @see #getMethod()
    * @generated
    * @ordered
    */
-  protected Methodsig m;
+  protected Methodsig method;
 
   /**
-   * The cached value of the '{@link #getI() <em>I</em>}' reference.
+   * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getI()
+   * @see #getInterface()
    * @generated
    * @ordered
    */
-  protected Interface_decl i;
+  protected Interface_decl interface_;
 
   /**
    * <!-- begin-user-doc -->
@@ -89,19 +89,19 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
    * <!-- end-user-doc -->
    * @generated
    */
-  public Field_decl getF()
+  public Field_decl getField()
   {
-    if (f != null && f.eIsProxy())
+    if (field != null && field.eIsProxy())
     {
-      InternalEObject oldF = (InternalEObject)f;
-      f = (Field_decl)eResolveProxy(oldF);
-      if (f != oldF)
+      InternalEObject oldField = (InternalEObject)field;
+      field = (Field_decl)eResolveProxy(oldField);
+      if (field != oldField)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.HAS_CONDITION__F, oldF, f));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.HAS_CONDITION__FIELD, oldField, field));
       }
     }
-    return f;
+    return field;
   }
 
   /**
@@ -109,9 +109,9 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
    * <!-- end-user-doc -->
    * @generated
    */
-  public Field_decl basicGetF()
+  public Field_decl basicGetField()
   {
-    return f;
+    return field;
   }
 
   /**
@@ -119,12 +119,12 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setF(Field_decl newF)
+  public void setField(Field_decl newField)
   {
-    Field_decl oldF = f;
-    f = newF;
+    Field_decl oldField = field;
+    field = newField;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.HAS_CONDITION__F, oldF, f));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.HAS_CONDITION__FIELD, oldField, field));
   }
 
   /**
@@ -132,19 +132,19 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
    * <!-- end-user-doc -->
    * @generated
    */
-  public Methodsig getM()
+  public Methodsig getMethod()
   {
-    if (m != null && m.eIsProxy())
+    if (method != null && method.eIsProxy())
     {
-      InternalEObject oldM = (InternalEObject)m;
-      m = (Methodsig)eResolveProxy(oldM);
-      if (m != oldM)
+      InternalEObject oldMethod = (InternalEObject)method;
+      method = (Methodsig)eResolveProxy(oldMethod);
+      if (method != oldMethod)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.HAS_CONDITION__M, oldM, m));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.HAS_CONDITION__METHOD, oldMethod, method));
       }
     }
-    return m;
+    return method;
   }
 
   /**
@@ -152,9 +152,9 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
    * <!-- end-user-doc -->
    * @generated
    */
-  public Methodsig basicGetM()
+  public Methodsig basicGetMethod()
   {
-    return m;
+    return method;
   }
 
   /**
@@ -162,12 +162,12 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setM(Methodsig newM)
+  public void setMethod(Methodsig newMethod)
   {
-    Methodsig oldM = m;
-    m = newM;
+    Methodsig oldMethod = method;
+    method = newMethod;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.HAS_CONDITION__M, oldM, m));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.HAS_CONDITION__METHOD, oldMethod, method));
   }
 
   /**
@@ -175,19 +175,19 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
    * <!-- end-user-doc -->
    * @generated
    */
-  public Interface_decl getI()
+  public Interface_decl getInterface()
   {
-    if (i != null && i.eIsProxy())
+    if (interface_ != null && interface_.eIsProxy())
     {
-      InternalEObject oldI = (InternalEObject)i;
-      i = (Interface_decl)eResolveProxy(oldI);
-      if (i != oldI)
+      InternalEObject oldInterface = (InternalEObject)interface_;
+      interface_ = (Interface_decl)eResolveProxy(oldInterface);
+      if (interface_ != oldInterface)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.HAS_CONDITION__I, oldI, i));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.HAS_CONDITION__INTERFACE, oldInterface, interface_));
       }
     }
-    return i;
+    return interface_;
   }
 
   /**
@@ -195,9 +195,9 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
    * <!-- end-user-doc -->
    * @generated
    */
-  public Interface_decl basicGetI()
+  public Interface_decl basicGetInterface()
   {
-    return i;
+    return interface_;
   }
 
   /**
@@ -205,12 +205,12 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setI(Interface_decl newI)
+  public void setInterface(Interface_decl newInterface)
   {
-    Interface_decl oldI = i;
-    i = newI;
+    Interface_decl oldInterface = interface_;
+    interface_ = newInterface;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.HAS_CONDITION__I, oldI, i));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.HAS_CONDITION__INTERFACE, oldInterface, interface_));
   }
 
   /**
@@ -223,15 +223,15 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
   {
     switch (featureID)
     {
-      case AbsPackage.HAS_CONDITION__F:
-        if (resolve) return getF();
-        return basicGetF();
-      case AbsPackage.HAS_CONDITION__M:
-        if (resolve) return getM();
-        return basicGetM();
-      case AbsPackage.HAS_CONDITION__I:
-        if (resolve) return getI();
-        return basicGetI();
+      case AbsPackage.HAS_CONDITION__FIELD:
+        if (resolve) return getField();
+        return basicGetField();
+      case AbsPackage.HAS_CONDITION__METHOD:
+        if (resolve) return getMethod();
+        return basicGetMethod();
+      case AbsPackage.HAS_CONDITION__INTERFACE:
+        if (resolve) return getInterface();
+        return basicGetInterface();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -246,14 +246,14 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
   {
     switch (featureID)
     {
-      case AbsPackage.HAS_CONDITION__F:
-        setF((Field_decl)newValue);
+      case AbsPackage.HAS_CONDITION__FIELD:
+        setField((Field_decl)newValue);
         return;
-      case AbsPackage.HAS_CONDITION__M:
-        setM((Methodsig)newValue);
+      case AbsPackage.HAS_CONDITION__METHOD:
+        setMethod((Methodsig)newValue);
         return;
-      case AbsPackage.HAS_CONDITION__I:
-        setI((Interface_decl)newValue);
+      case AbsPackage.HAS_CONDITION__INTERFACE:
+        setInterface((Interface_decl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -269,14 +269,14 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
   {
     switch (featureID)
     {
-      case AbsPackage.HAS_CONDITION__F:
-        setF((Field_decl)null);
+      case AbsPackage.HAS_CONDITION__FIELD:
+        setField((Field_decl)null);
         return;
-      case AbsPackage.HAS_CONDITION__M:
-        setM((Methodsig)null);
+      case AbsPackage.HAS_CONDITION__METHOD:
+        setMethod((Methodsig)null);
         return;
-      case AbsPackage.HAS_CONDITION__I:
-        setI((Interface_decl)null);
+      case AbsPackage.HAS_CONDITION__INTERFACE:
+        setInterface((Interface_decl)null);
         return;
     }
     super.eUnset(featureID);
@@ -292,12 +292,12 @@ public class Has_conditionImpl extends Delta_paramImpl implements Has_condition
   {
     switch (featureID)
     {
-      case AbsPackage.HAS_CONDITION__F:
-        return f != null;
-      case AbsPackage.HAS_CONDITION__M:
-        return m != null;
-      case AbsPackage.HAS_CONDITION__I:
-        return i != null;
+      case AbsPackage.HAS_CONDITION__FIELD:
+        return field != null;
+      case AbsPackage.HAS_CONDITION__METHOD:
+        return method != null;
+      case AbsPackage.HAS_CONDITION__INTERFACE:
+        return interface_ != null;
     }
     return super.eIsSet(featureID);
   }

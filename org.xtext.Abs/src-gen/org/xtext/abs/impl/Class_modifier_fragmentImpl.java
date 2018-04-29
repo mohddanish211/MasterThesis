@@ -3,17 +3,23 @@
  */
 package org.xtext.abs.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Class_modifier_fragment;
-import org.xtext.abs.Field_decl;
+import org.xtext.abs.Methodsig;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +28,7 @@ import org.xtext.abs.Field_decl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Class_modifier_fragmentImpl#getF <em>F</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Class_modifier_fragmentImpl#getMethodsig <em>Methodsig</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,14 +37,14 @@ import org.xtext.abs.Field_decl;
 public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container implements Class_modifier_fragment
 {
   /**
-   * The cached value of the '{@link #getF() <em>F</em>}' reference.
+   * The cached value of the '{@link #getMethodsig() <em>Methodsig</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getF()
+   * @see #getMethodsig()
    * @generated
    * @ordered
    */
-  protected Field_decl f;
+  protected EList<Methodsig> methodsig;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,19 +72,13 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public Field_decl getF()
+  public EList<Methodsig> getMethodsig()
   {
-    if (f != null && f.eIsProxy())
+    if (methodsig == null)
     {
-      InternalEObject oldF = (InternalEObject)f;
-      f = (Field_decl)eResolveProxy(oldF);
-      if (f != oldF)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.CLASS_MODIFIER_FRAGMENT__F, oldF, f));
-      }
+      methodsig = new EObjectContainmentEList<Methodsig>(Methodsig.class, this, AbsPackage.CLASS_MODIFIER_FRAGMENT__METHODSIG);
     }
-    return f;
+    return methodsig;
   }
 
   /**
@@ -86,22 +86,15 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public Field_decl basicGetF()
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    return f;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setF(Field_decl newF)
-  {
-    Field_decl oldF = f;
-    f = newF;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.CLASS_MODIFIER_FRAGMENT__F, oldF, f));
+    switch (featureID)
+    {
+      case AbsPackage.CLASS_MODIFIER_FRAGMENT__METHODSIG:
+        return ((InternalEList<?>)getMethodsig()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -114,9 +107,8 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__F:
-        if (resolve) return getF();
-        return basicGetF();
+      case AbsPackage.CLASS_MODIFIER_FRAGMENT__METHODSIG:
+        return getMethodsig();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -126,13 +118,15 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__F:
-        setF((Field_decl)newValue);
+      case AbsPackage.CLASS_MODIFIER_FRAGMENT__METHODSIG:
+        getMethodsig().clear();
+        getMethodsig().addAll((Collection<? extends Methodsig>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -148,8 +142,8 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__F:
-        setF((Field_decl)null);
+      case AbsPackage.CLASS_MODIFIER_FRAGMENT__METHODSIG:
+        getMethodsig().clear();
         return;
     }
     super.eUnset(featureID);
@@ -165,8 +159,8 @@ public class Class_modifier_fragmentImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case AbsPackage.CLASS_MODIFIER_FRAGMENT__F:
-        return f != null;
+      case AbsPackage.CLASS_MODIFIER_FRAGMENT__METHODSIG:
+        return methodsig != null && !methodsig.isEmpty();
     }
     return super.eIsSet(featureID);
   }

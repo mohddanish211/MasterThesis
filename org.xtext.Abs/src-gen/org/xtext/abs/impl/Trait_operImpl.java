@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Methodsig;
@@ -39,10 +39,10 @@ import org.xtext.abs.Trait_oper;
  *
  * @generated
  */
-public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait_oper
+public class Trait_operImpl extends MinimalEObjectImpl.Container implements Trait_oper
 {
   /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.
+   * The cached value of the '{@link #getMethod() <em>Method</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMethod()
@@ -52,7 +52,7 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
   protected Methodsig method;
 
   /**
-   * The cached value of the '{@link #getMethodsig() <em>Methodsig</em>}' containment reference list.
+   * The cached value of the '{@link #getMethodsig() <em>Methodsig</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMethodsig()
@@ -72,7 +72,7 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
   protected Trait_expr trait_expr;
 
   /**
-   * The cached value of the '{@link #getTrait_exp() <em>Trait exp</em>}' reference.
+   * The cached value of the '{@link #getTrait_exp() <em>Trait exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTrait_exp()
@@ -109,6 +109,16 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
    */
   public Methodsig getMethod()
   {
+    if (method != null && method.eIsProxy())
+    {
+      InternalEObject oldMethod = (InternalEObject)method;
+      method = (Methodsig)eResolveProxy(oldMethod);
+      if (method != oldMethod)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.TRAIT_OPER__METHOD, oldMethod, method));
+      }
+    }
     return method;
   }
 
@@ -117,16 +127,9 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMethod(Methodsig newMethod, NotificationChain msgs)
+  public Methodsig basicGetMethod()
   {
-    Methodsig oldMethod = method;
-    method = newMethod;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_OPER__METHOD, oldMethod, newMethod);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return method;
   }
 
   /**
@@ -136,18 +139,10 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
    */
   public void setMethod(Methodsig newMethod)
   {
-    if (newMethod != method)
-    {
-      NotificationChain msgs = null;
-      if (method != null)
-        msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_OPER__METHOD, null, msgs);
-      if (newMethod != null)
-        msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_OPER__METHOD, null, msgs);
-      msgs = basicSetMethod(newMethod, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_OPER__METHOD, newMethod, newMethod));
+    Methodsig oldMethod = method;
+    method = newMethod;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_OPER__METHOD, oldMethod, method));
   }
 
   /**
@@ -159,7 +154,7 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
   {
     if (methodsig == null)
     {
-      methodsig = new EObjectContainmentEList<Methodsig>(Methodsig.class, this, AbsPackage.TRAIT_OPER__METHODSIG);
+      methodsig = new EObjectResolvingEList<Methodsig>(Methodsig.class, this, AbsPackage.TRAIT_OPER__METHODSIG);
     }
     return methodsig;
   }
@@ -219,16 +214,6 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
    */
   public Trait_expr getTrait_exp()
   {
-    if (trait_exp != null && trait_exp.eIsProxy())
-    {
-      InternalEObject oldTrait_exp = (InternalEObject)trait_exp;
-      trait_exp = (Trait_expr)eResolveProxy(oldTrait_exp);
-      if (trait_exp != oldTrait_exp)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.TRAIT_OPER__TRAIT_EXP, oldTrait_exp, trait_exp));
-      }
-    }
     return trait_exp;
   }
 
@@ -237,9 +222,16 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
    * <!-- end-user-doc -->
    * @generated
    */
-  public Trait_expr basicGetTrait_exp()
+  public NotificationChain basicSetTrait_exp(Trait_expr newTrait_exp, NotificationChain msgs)
   {
-    return trait_exp;
+    Trait_expr oldTrait_exp = trait_exp;
+    trait_exp = newTrait_exp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_OPER__TRAIT_EXP, oldTrait_exp, newTrait_exp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -249,10 +241,18 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
    */
   public void setTrait_exp(Trait_expr newTrait_exp)
   {
-    Trait_expr oldTrait_exp = trait_exp;
-    trait_exp = newTrait_exp;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_OPER__TRAIT_EXP, oldTrait_exp, trait_exp));
+    if (newTrait_exp != trait_exp)
+    {
+      NotificationChain msgs = null;
+      if (trait_exp != null)
+        msgs = ((InternalEObject)trait_exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_OPER__TRAIT_EXP, null, msgs);
+      if (newTrait_exp != null)
+        msgs = ((InternalEObject)newTrait_exp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_OPER__TRAIT_EXP, null, msgs);
+      msgs = basicSetTrait_exp(newTrait_exp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_OPER__TRAIT_EXP, newTrait_exp, newTrait_exp));
   }
 
   /**
@@ -265,12 +265,10 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
   {
     switch (featureID)
     {
-      case AbsPackage.TRAIT_OPER__METHOD:
-        return basicSetMethod(null, msgs);
-      case AbsPackage.TRAIT_OPER__METHODSIG:
-        return ((InternalEList<?>)getMethodsig()).basicRemove(otherEnd, msgs);
       case AbsPackage.TRAIT_OPER__TRAIT_EXPR:
         return basicSetTrait_expr(null, msgs);
+      case AbsPackage.TRAIT_OPER__TRAIT_EXP:
+        return basicSetTrait_exp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -286,14 +284,14 @@ public class Trait_operImpl extends Class_modifier_fragmentImpl implements Trait
     switch (featureID)
     {
       case AbsPackage.TRAIT_OPER__METHOD:
-        return getMethod();
+        if (resolve) return getMethod();
+        return basicGetMethod();
       case AbsPackage.TRAIT_OPER__METHODSIG:
         return getMethodsig();
       case AbsPackage.TRAIT_OPER__TRAIT_EXPR:
         return getTrait_expr();
       case AbsPackage.TRAIT_OPER__TRAIT_EXP:
-        if (resolve) return getTrait_exp();
-        return basicGetTrait_exp();
+        return getTrait_exp();
     }
     return super.eGet(featureID, resolve, coreType);
   }

@@ -31,7 +31,7 @@ import org.xtext.abs.Type_use;
  *
  * @generated
  */
-public class MethodsigImpl extends Interface_modifier_fragmentImpl implements Methodsig
+public class MethodsigImpl extends Class_modifier_fragmentImpl implements Methodsig
 {
   /**
    * The cached value of the '{@link #getType_use() <em>Type use</em>}' containment reference.

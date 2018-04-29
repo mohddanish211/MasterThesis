@@ -15,7 +15,6 @@ import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Field_decl;
 import org.xtext.abs.Pure_exp;
 import org.xtext.abs.Type_use;
-import org.xtext.abs.Var_or_field_ref;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,14 +44,24 @@ public class Field_declImpl extends Class_modifier_fragmentImpl implements Field
   protected Type_use type_use;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected Var_or_field_ref name;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPure_exp() <em>Pure exp</em>}' containment reference.
@@ -138,7 +147,7 @@ public class Field_declImpl extends Class_modifier_fragmentImpl implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public Var_or_field_ref getName()
+  public String getName()
   {
     return name;
   }
@@ -148,37 +157,12 @@ public class Field_declImpl extends Class_modifier_fragmentImpl implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetName(Var_or_field_ref newName, NotificationChain msgs)
+  public void setName(String newName)
   {
-    Var_or_field_ref oldName = name;
+    String oldName = name;
     name = newName;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.FIELD_DECL__NAME, oldName, newName);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(Var_or_field_ref newName)
-  {
-    if (newName != name)
-    {
-      NotificationChain msgs = null;
-      if (name != null)
-        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FIELD_DECL__NAME, null, msgs);
-      if (newName != null)
-        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.FIELD_DECL__NAME, null, msgs);
-      msgs = basicSetName(newName, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FIELD_DECL__NAME, newName, newName));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FIELD_DECL__NAME, oldName, name));
   }
 
   /**
@@ -241,8 +225,6 @@ public class Field_declImpl extends Class_modifier_fragmentImpl implements Field
     {
       case AbsPackage.FIELD_DECL__TYPE_USE:
         return basicSetType_use(null, msgs);
-      case AbsPackage.FIELD_DECL__NAME:
-        return basicSetName(null, msgs);
       case AbsPackage.FIELD_DECL__PURE_EXP:
         return basicSetPure_exp(null, msgs);
     }
@@ -283,7 +265,7 @@ public class Field_declImpl extends Class_modifier_fragmentImpl implements Field
         setType_use((Type_use)newValue);
         return;
       case AbsPackage.FIELD_DECL__NAME:
-        setName((Var_or_field_ref)newValue);
+        setName((String)newValue);
         return;
       case AbsPackage.FIELD_DECL__PURE_EXP:
         setPure_exp((Pure_exp)newValue);
@@ -306,7 +288,7 @@ public class Field_declImpl extends Class_modifier_fragmentImpl implements Field
         setType_use((Type_use)null);
         return;
       case AbsPackage.FIELD_DECL__NAME:
-        setName((Var_or_field_ref)null);
+        setName(NAME_EDEFAULT);
         return;
       case AbsPackage.FIELD_DECL__PURE_EXP:
         setPure_exp((Pure_exp)null);
@@ -328,11 +310,28 @@ public class Field_declImpl extends Class_modifier_fragmentImpl implements Field
       case AbsPackage.FIELD_DECL__TYPE_USE:
         return type_use != null;
       case AbsPackage.FIELD_DECL__NAME:
-        return name != null;
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AbsPackage.FIELD_DECL__PURE_EXP:
         return pure_exp != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //Field_declImpl

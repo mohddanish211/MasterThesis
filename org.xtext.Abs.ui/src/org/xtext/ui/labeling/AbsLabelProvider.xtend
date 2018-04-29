@@ -25,6 +25,7 @@ import org.xtext.abs.Product_decl
 import org.xtext.abs.Feature_decl
 import org.xtext.abs.impl.Delta_clauseImpl
 import org.xtext.abs.impl.Application_conditionImpl
+import org.xtext.abs.Feature
 
 /**
  * Provides labels for EObjects.
@@ -151,9 +152,9 @@ class AbsLabelProvider extends DefaultEObjectLabelProvider implements IStyledLab
 	}
 	
    def text(Application_conditionImpl ele) {
-		for(Feature_decl f : ele.feature){
-			return f.name
-		}
+		
+			return ele.feature.feature_decl.name
+		
 	}
 	
 	

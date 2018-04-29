@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Feature;
+import org.xtext.abs.Feature_decl;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +28,7 @@ import org.xtext.abs.Feature;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.FeatureImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.FeatureImpl#getFeature_decl <em>Feature decl</em>}</li>
  *   <li>{@link org.xtext.abs.impl.FeatureImpl#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.abs.impl.FeatureImpl#getAttr_assignment <em>Attr assignment</em>}</li>
  * </ul>
@@ -37,24 +39,14 @@ import org.xtext.abs.Feature;
 public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getFeature_decl() <em>Feature decl</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getFeature_decl()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Feature_decl feature_decl;
 
   /**
    * The default value of the '{@link #getP() <em>P</em>}' attribute.
@@ -112,9 +104,19 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Feature_decl getFeature_decl()
   {
-    return name;
+    if (feature_decl != null && feature_decl.eIsProxy())
+    {
+      InternalEObject oldFeature_decl = (InternalEObject)feature_decl;
+      feature_decl = (Feature_decl)eResolveProxy(oldFeature_decl);
+      if (feature_decl != oldFeature_decl)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.FEATURE__FEATURE_DECL, oldFeature_decl, feature_decl));
+      }
+    }
+    return feature_decl;
   }
 
   /**
@@ -122,12 +124,22 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public Feature_decl basicGetFeature_decl()
   {
-    String oldName = name;
-    name = newName;
+    return feature_decl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFeature_decl(Feature_decl newFeature_decl)
+  {
+    Feature_decl oldFeature_decl = feature_decl;
+    feature_decl = newFeature_decl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.FEATURE__FEATURE_DECL, oldFeature_decl, feature_decl));
   }
 
   /**
@@ -177,8 +189,9 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case AbsPackage.FEATURE__NAME:
-        return getName();
+      case AbsPackage.FEATURE__FEATURE_DECL:
+        if (resolve) return getFeature_decl();
+        return basicGetFeature_decl();
       case AbsPackage.FEATURE__P:
         return getP();
       case AbsPackage.FEATURE__ATTR_ASSIGNMENT:
@@ -198,8 +211,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case AbsPackage.FEATURE__NAME:
-        setName((String)newValue);
+      case AbsPackage.FEATURE__FEATURE_DECL:
+        setFeature_decl((Feature_decl)newValue);
         return;
       case AbsPackage.FEATURE__P:
         setP((String)newValue);
@@ -222,8 +235,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case AbsPackage.FEATURE__NAME:
-        setName(NAME_EDEFAULT);
+      case AbsPackage.FEATURE__FEATURE_DECL:
+        setFeature_decl((Feature_decl)null);
         return;
       case AbsPackage.FEATURE__P:
         setP(P_EDEFAULT);
@@ -245,8 +258,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case AbsPackage.FEATURE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case AbsPackage.FEATURE__FEATURE_DECL:
+        return feature_decl != null;
       case AbsPackage.FEATURE__P:
         return P_EDEFAULT == null ? p != null : !P_EDEFAULT.equals(p);
       case AbsPackage.FEATURE__ATTR_ASSIGNMENT:
@@ -266,9 +279,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", p: ");
+    result.append(" (p: ");
     result.append(p);
     result.append(", attr_assignment: ");
     result.append(attr_assignment);

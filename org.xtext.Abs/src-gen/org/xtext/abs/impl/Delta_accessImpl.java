@@ -6,12 +6,14 @@ package org.xtext.abs.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Delta_access;
+import org.xtext.abs.Module_decl;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +22,7 @@ import org.xtext.abs.Delta_access;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.abs.impl.Delta_accessImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Delta_accessImpl#getModule_ref <em>Module ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,24 +31,14 @@ import org.xtext.abs.Delta_access;
 public class Delta_accessImpl extends MinimalEObjectImpl.Container implements Delta_access
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getModule_ref() <em>Module ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getModule_ref()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Module_decl module_ref;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +66,19 @@ public class Delta_accessImpl extends MinimalEObjectImpl.Container implements De
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Module_decl getModule_ref()
   {
-    return name;
+    if (module_ref != null && module_ref.eIsProxy())
+    {
+      InternalEObject oldModule_ref = (InternalEObject)module_ref;
+      module_ref = (Module_decl)eResolveProxy(oldModule_ref);
+      if (module_ref != oldModule_ref)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.DELTA_ACCESS__MODULE_REF, oldModule_ref, module_ref));
+      }
+    }
+    return module_ref;
   }
 
   /**
@@ -84,12 +86,22 @@ public class Delta_accessImpl extends MinimalEObjectImpl.Container implements De
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public Module_decl basicGetModule_ref()
   {
-    String oldName = name;
-    name = newName;
+    return module_ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setModule_ref(Module_decl newModule_ref)
+  {
+    Module_decl oldModule_ref = module_ref;
+    module_ref = newModule_ref;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DELTA_ACCESS__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.DELTA_ACCESS__MODULE_REF, oldModule_ref, module_ref));
   }
 
   /**
@@ -102,8 +114,9 @@ public class Delta_accessImpl extends MinimalEObjectImpl.Container implements De
   {
     switch (featureID)
     {
-      case AbsPackage.DELTA_ACCESS__NAME:
-        return getName();
+      case AbsPackage.DELTA_ACCESS__MODULE_REF:
+        if (resolve) return getModule_ref();
+        return basicGetModule_ref();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +131,8 @@ public class Delta_accessImpl extends MinimalEObjectImpl.Container implements De
   {
     switch (featureID)
     {
-      case AbsPackage.DELTA_ACCESS__NAME:
-        setName((String)newValue);
+      case AbsPackage.DELTA_ACCESS__MODULE_REF:
+        setModule_ref((Module_decl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +148,8 @@ public class Delta_accessImpl extends MinimalEObjectImpl.Container implements De
   {
     switch (featureID)
     {
-      case AbsPackage.DELTA_ACCESS__NAME:
-        setName(NAME_EDEFAULT);
+      case AbsPackage.DELTA_ACCESS__MODULE_REF:
+        setModule_ref((Module_decl)null);
         return;
     }
     super.eUnset(featureID);
@@ -152,27 +165,10 @@ public class Delta_accessImpl extends MinimalEObjectImpl.Container implements De
   {
     switch (featureID)
     {
-      case AbsPackage.DELTA_ACCESS__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case AbsPackage.DELTA_ACCESS__MODULE_REF:
+        return module_ref != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //Delta_accessImpl

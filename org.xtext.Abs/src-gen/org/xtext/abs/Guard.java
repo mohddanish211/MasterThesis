@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Guard#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.Guard#getRef <em>Ref</em>}</li>
  *   <li>{@link org.xtext.abs.Guard#getMin <em>Min</em>}</li>
  *   <li>{@link org.xtext.abs.Guard#getMax <em>Max</em>}</li>
- *   <li>{@link org.xtext.abs.Guard#getE <em>E</em>}</li>
+ *   <li>{@link org.xtext.abs.Guard#getGuard <em>Guard</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,30 +27,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Guard extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' reference.
+   * Returns the value of the '<em><b>Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' reference isn't clear,
+   * If the meaning of the '<em>Ref</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(Var_or_field_ref)
-   * @see org.xtext.abs.AbsPackage#getGuard_Name()
-   * @model
+   * @return the value of the '<em>Ref</em>' containment reference.
+   * @see #setRef(Var_or_field_ref)
+   * @see org.xtext.abs.AbsPackage#getGuard_Ref()
+   * @model containment="true"
    * @generated
    */
-  Var_or_field_ref getName();
+  Var_or_field_ref getRef();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Guard#getName <em>Name</em>}' reference.
+   * Sets the value of the '{@link org.xtext.abs.Guard#getRef <em>Ref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' reference.
-   * @see #getName()
+   * @param value the new value of the '<em>Ref</em>' containment reference.
+   * @see #getRef()
    * @generated
    */
-  void setName(Var_or_field_ref value);
+  void setRef(Var_or_field_ref value);
 
   /**
    * Returns the value of the '<em><b>Min</b></em>' containment reference.
@@ -105,29 +105,29 @@ public interface Guard extends EObject
   void setMax(Pure_exp value);
 
   /**
-   * Returns the value of the '<em><b>E</b></em>' containment reference.
+   * Returns the value of the '<em><b>Guard</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>E</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Guard</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>E</em>' containment reference.
-   * @see #setE(Pure_exp)
-   * @see org.xtext.abs.AbsPackage#getGuard_E()
+   * @return the value of the '<em>Guard</em>' containment reference.
+   * @see #setGuard(Pure_exp)
+   * @see org.xtext.abs.AbsPackage#getGuard_Guard()
    * @model containment="true"
    * @generated
    */
-  Pure_exp getE();
+  Pure_exp getGuard();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Guard#getE <em>E</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Guard#getGuard <em>Guard</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>E</em>' containment reference.
-   * @see #getE()
+   * @param value the new value of the '<em>Guard</em>' containment reference.
+   * @see #getGuard()
    * @generated
    */
-  void setE(Pure_exp value);
+  void setGuard(Pure_exp value);
 
 } // Guard

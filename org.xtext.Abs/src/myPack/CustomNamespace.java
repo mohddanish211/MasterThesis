@@ -17,8 +17,6 @@ import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-import abs.frontend.ast.Feature;
-
 public class CustomNamespace extends ImportedNamespaceAwareLocalScopeProvider{
 	@Inject
 	private IQualifiedNameConverter qualifiedNameConverter;
@@ -29,11 +27,11 @@ public class CustomNamespace extends ImportedNamespaceAwareLocalScopeProvider{
 	
 	@Override
 	protected String getImportedNamespace(EObject object) {
-		System.out.println("Inside @@@@@@@@@****************getImportedNamespace");
-		System.out.println(object.eClass());
+		//System.out.println("Inside @@@@@@@@@****************getImportedNamespace");
+		//System.out.println(object.eClass());
 		EStructuralFeature feature = object.eClass().getEStructuralFeature("importedNamespace");
 		if (feature != null && String.class.equals(feature.getEType().getInstanceClass())) {
-		    System.out.println(feature);
+		   // System.out.println(feature);
 			return (String) object.eGet(feature);
 		}
 		return null;
@@ -41,24 +39,24 @@ public class CustomNamespace extends ImportedNamespaceAwareLocalScopeProvider{
 	
 	
 	protected ImportNormalizer createImportedNamespaceResolver(EObject child,final String namespace, boolean ignoreCase) {
-		System.out.println("Inside createImportedNamespaceREsolver");
-		System.out.println(child);
+		//System.out.println("Inside createImportedNamespaceREsolver");
+		//System.out.println(child);
 		if (Strings.isEmpty(namespace))
 			return null;
 		QualifiedName importedNamespace = qualifiedNameConverter.toQualifiedName(namespace);
-		System.out.println(importedNamespace);
-		System.out.println("Wildcard................");
-		System.out.println(getWildCard());
-		System.out.println(child.eGet(child.eClass().getEStructuralFeature("star")));
-		System.out.println(ignoreCase);
+		//System.out.println(importedNamespace);
+		//System.out.println("Wildcard................");
+		//System.out.println(getWildCard());
+		//System.out.println(child.eGet(child.eClass().getEStructuralFeature("star")));
+		//System.out.println(ignoreCase);
 		if (importedNamespace == null || importedNamespace.isEmpty()) {
 			return null;
 		}
 		boolean hasWildCard = ignoreCase ? 
 				((String) child.eGet(child.eClass().getEStructuralFeature("name"))).equalsIgnoreCase(getWildCard()) :
 					((String) child.eGet(child.eClass().getEStructuralFeature("star"))).equals(getWildCard());
-		System.out.println("hasWildcard");
-		System.out.println(hasWildCard);
+		//System.out.println("hasWildcard");
+		//System.out.println(hasWildCard);
 		if (hasWildCard) {
 			if (importedNamespace.getSegmentCount() <= 1)
 				return null;
@@ -79,13 +77,13 @@ public class CustomNamespace extends ImportedNamespaceAwareLocalScopeProvider{
 	
 	@Override
 	protected List<ImportNormalizer> internalGetImportedNamespaceResolvers(final EObject context, boolean ignoreCase) {
-		System.out.println("inside internalGetImportedNamespaceResolvers");
-		System.out.println(context.eContents());
+		//System.out.println("inside internalGetImportedNamespaceResolvers");
+		//System.out.println(context.eContents());
 		List<ImportNormalizer> importedNamespaceResolvers = Lists.newArrayList();
 		
-		System.out.println(context.eResource());
+		//System.out.println(context.eResource());
 		EList<EObject> eContents = context.eContents();
-		System.out.println("Child are:::::::::::");
+		//System.out.println("Child are:::::::::::");
 		for (EObject child : eContents) {
 			String value = getImportedNamespace(child);
 			ImportNormalizer resolver = createImportedNamespaceResolver(child,value, ignoreCase);

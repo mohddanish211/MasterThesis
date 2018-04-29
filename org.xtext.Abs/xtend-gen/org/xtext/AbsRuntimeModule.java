@@ -10,7 +10,7 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.scoping.IGlobalScopeProvider;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
-import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
+import org.eclipse.xtext.scoping.impl.DefaultGlobalScopeProvider;
 import org.xtext.AbstractAbsRuntimeModule;
 import org.xtext.MyQualifiedNameProvider;
 
@@ -26,7 +26,7 @@ public class AbsRuntimeModule extends AbstractAbsRuntimeModule {
   
   @Override
   public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
-    return ImportUriGlobalScopeProvider.class;
+    return DefaultGlobalScopeProvider.class;
   }
   
   @Override

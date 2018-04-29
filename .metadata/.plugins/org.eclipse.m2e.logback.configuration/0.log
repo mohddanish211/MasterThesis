@@ -640,3 +640,14 @@ Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was
 2018-04-18 01:05:18,729 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5a52429b{/help,null,AVAILABLE}
 2018-04-18 01:05:18,767 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@6e5499bb{HTTP/1.1,[http/1.1]}{127.0.0.1:45735}
 2018-04-18 01:05:18,767 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @28902227ms
+2018-04-29 10:13:04,343 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-29 10:34:23,332 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-29 10:37:42,137 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-29 11:29:15,977 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @3121811ms to org.eclipse.jetty.util.log.Slf4jLog
+2018-04-29 11:29:16,302 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.4.7.v20170914
+2018-04-29 11:29:16,344 [Start Help Server] INFO  org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+2018-04-29 11:29:16,344 [Start Help Server] INFO  org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+2018-04-29 11:29:16,347 [Start Help Server] INFO  org.eclipse.jetty.server.session - Scavenging every 660000ms
+2018-04-29 11:29:16,434 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@71ac27f{/help,null,AVAILABLE}
+2018-04-29 11:29:16,449 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@66916a1b{HTTP/1.1,[http/1.1]}{127.0.0.1:46019}
+2018-04-29 11:29:16,449 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @3122283ms

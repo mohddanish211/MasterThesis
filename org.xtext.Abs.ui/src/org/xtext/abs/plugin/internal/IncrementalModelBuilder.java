@@ -185,9 +185,20 @@ public class IncrementalModelBuilder {
 			System.out.println("Inside try SemanticConditionList");
 			SemanticConditionList semerrors = model.getErrors();
 			/* Don't typecheck with semerrors, it might trip up. */
-			if (!semerrors.containsErrors())
-				semerrors = model.typeCheck();
-
+			if (!semerrors.containsErrors()) {
+				try {
+					model.evaluateAllProductDeclarations();
+				} catch (WrongProgramArgumentException e) {
+					// TODO Auto-generated catch block
+					System.err.println(e.getLocalizedMessage());
+				}
+				//model.flattenTraitOnly();
+				semerrors= model.typeCheck();
+				System.out.println("Afterz");
+				System.out.println(semerrors);
+				System.out.println("Again afterssssssssss");
+			}
+				
 			/* Check products for errors.
 			 * Only the first error is reported (if any), on the product AST-node.
 			 * TODO: May be time-consuming for large projects, hence the checkProducts-switch.

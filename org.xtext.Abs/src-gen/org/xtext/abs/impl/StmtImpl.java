@@ -42,19 +42,19 @@ import org.xtext.abs.Var_or_field_ref;
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getStmt <em>Stmt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getPure_exp <em>Pure exp</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getIfstmt <em>Ifstmt</em>}</li>
- *   <li>{@link org.xtext.abs.impl.StmtImpl#getR <em>R</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.StmtImpl#getElsestmt <em>Elsestmt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getWhilestmt <em>Whilestmt</em>}</li>
- *   <li>{@link org.xtext.abs.impl.StmtImpl#getI <em>I</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getL <em>L</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getForeachstmt <em>Foreachstmt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getTrystmt <em>Trystmt</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getCasestmtbranch <em>Casestmtbranch</em>}</li>
- *   <li>{@link org.xtext.abs.impl.StmtImpl#getGuard <em>Guard</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.StmtImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getF <em>F</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getT <em>T</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getThrowPureExp <em>Throw Pure Exp</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getDiePureExp <em>Die Pure Exp</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.StmtImpl#getMoveCogTo <em>Move Cog To</em>}</li>
  *   <li>{@link org.xtext.abs.impl.StmtImpl#getC <em>C</em>}</li>
  * </ul>
  * </p>
@@ -104,7 +104,7 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
   protected Exp exp;
 
   /**
-   * The cached value of the '{@link #getVar_or_field_ref() <em>Var or field ref</em>}' reference.
+   * The cached value of the '{@link #getVar_or_field_ref() <em>Var or field ref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVar_or_field_ref()
@@ -144,14 +144,14 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
   protected Stmt ifstmt;
 
   /**
-   * The cached value of the '{@link #getR() <em>R</em>}' containment reference.
+   * The cached value of the '{@link #getElsestmt() <em>Elsestmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getR()
+   * @see #getElsestmt()
    * @generated
    * @ordered
    */
-  protected Stmt r;
+  protected Stmt elsestmt;
 
   /**
    * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -172,26 +172,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    * @ordered
    */
   protected Stmt whilestmt;
-
-  /**
-   * The default value of the '{@link #getI() <em>I</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getI()
-   * @generated
-   * @ordered
-   */
-  protected static final String I_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getI() <em>I</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getI()
-   * @generated
-   * @ordered
-   */
-  protected String i = I_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getL() <em>L</em>}' containment reference.
@@ -234,14 +214,14 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
   protected EList<Casestmtbranch> casestmtbranch;
 
   /**
-   * The cached value of the '{@link #getGuard() <em>Guard</em>}' reference.
+   * The cached value of the '{@link #getRef() <em>Ref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGuard()
+   * @see #getRef()
    * @generated
    * @ordered
    */
-  protected Guard guard;
+  protected Guard ref;
 
   /**
    * The cached value of the '{@link #getF() <em>F</em>}' containment reference.
@@ -282,6 +262,16 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    * @ordered
    */
   protected Pure_exp diePureExp;
+
+  /**
+   * The cached value of the '{@link #getMoveCogTo() <em>Move Cog To</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMoveCogTo()
+   * @generated
+   * @ordered
+   */
+  protected Pure_exp moveCogTo;
 
   /**
    * The cached value of the '{@link #getC() <em>C</em>}' containment reference.
@@ -440,16 +430,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    */
   public Var_or_field_ref getVar_or_field_ref()
   {
-    if (var_or_field_ref != null && var_or_field_ref.eIsProxy())
-    {
-      InternalEObject oldVar_or_field_ref = (InternalEObject)var_or_field_ref;
-      var_or_field_ref = (Var_or_field_ref)eResolveProxy(oldVar_or_field_ref);
-      if (var_or_field_ref != oldVar_or_field_ref)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.STMT__VAR_OR_FIELD_REF, oldVar_or_field_ref, var_or_field_ref));
-      }
-    }
     return var_or_field_ref;
   }
 
@@ -458,9 +438,16 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public Var_or_field_ref basicGetVar_or_field_ref()
+  public NotificationChain basicSetVar_or_field_ref(Var_or_field_ref newVar_or_field_ref, NotificationChain msgs)
   {
-    return var_or_field_ref;
+    Var_or_field_ref oldVar_or_field_ref = var_or_field_ref;
+    var_or_field_ref = newVar_or_field_ref;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__VAR_OR_FIELD_REF, oldVar_or_field_ref, newVar_or_field_ref);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -470,10 +457,18 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    */
   public void setVar_or_field_ref(Var_or_field_ref newVar_or_field_ref)
   {
-    Var_or_field_ref oldVar_or_field_ref = var_or_field_ref;
-    var_or_field_ref = newVar_or_field_ref;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__VAR_OR_FIELD_REF, oldVar_or_field_ref, var_or_field_ref));
+    if (newVar_or_field_ref != var_or_field_ref)
+    {
+      NotificationChain msgs = null;
+      if (var_or_field_ref != null)
+        msgs = ((InternalEObject)var_or_field_ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__VAR_OR_FIELD_REF, null, msgs);
+      if (newVar_or_field_ref != null)
+        msgs = ((InternalEObject)newVar_or_field_ref).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__VAR_OR_FIELD_REF, null, msgs);
+      msgs = basicSetVar_or_field_ref(newVar_or_field_ref, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__VAR_OR_FIELD_REF, newVar_or_field_ref, newVar_or_field_ref));
   }
 
   /**
@@ -591,9 +586,9 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stmt getR()
+  public Stmt getElsestmt()
   {
-    return r;
+    return elsestmt;
   }
 
   /**
@@ -601,13 +596,13 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetR(Stmt newR, NotificationChain msgs)
+  public NotificationChain basicSetElsestmt(Stmt newElsestmt, NotificationChain msgs)
   {
-    Stmt oldR = r;
-    r = newR;
+    Stmt oldElsestmt = elsestmt;
+    elsestmt = newElsestmt;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__R, oldR, newR);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__ELSESTMT, oldElsestmt, newElsestmt);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -618,20 +613,20 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setR(Stmt newR)
+  public void setElsestmt(Stmt newElsestmt)
   {
-    if (newR != r)
+    if (newElsestmt != elsestmt)
     {
       NotificationChain msgs = null;
-      if (r != null)
-        msgs = ((InternalEObject)r).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__R, null, msgs);
-      if (newR != null)
-        msgs = ((InternalEObject)newR).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__R, null, msgs);
-      msgs = basicSetR(newR, msgs);
+      if (elsestmt != null)
+        msgs = ((InternalEObject)elsestmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__ELSESTMT, null, msgs);
+      if (newElsestmt != null)
+        msgs = ((InternalEObject)newElsestmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__ELSESTMT, null, msgs);
+      msgs = basicSetElsestmt(newElsestmt, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__R, newR, newR));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__ELSESTMT, newElsestmt, newElsestmt));
   }
 
   /**
@@ -728,29 +723,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__WHILESTMT, newWhilestmt, newWhilestmt));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getI()
-  {
-    return i;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setI(String newI)
-  {
-    String oldI = i;
-    i = newI;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__I, oldI, i));
   }
 
   /**
@@ -916,19 +888,9 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public Guard getGuard()
+  public Guard getRef()
   {
-    if (guard != null && guard.eIsProxy())
-    {
-      InternalEObject oldGuard = (InternalEObject)guard;
-      guard = (Guard)eResolveProxy(oldGuard);
-      if (guard != oldGuard)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.STMT__GUARD, oldGuard, guard));
-      }
-    }
-    return guard;
+    return ref;
   }
 
   /**
@@ -936,22 +898,37 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public Guard basicGetGuard()
+  public NotificationChain basicSetRef(Guard newRef, NotificationChain msgs)
   {
-    return guard;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setGuard(Guard newGuard)
-  {
-    Guard oldGuard = guard;
-    guard = newGuard;
+    Guard oldRef = ref;
+    ref = newRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__GUARD, oldGuard, guard));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__REF, oldRef, newRef);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRef(Guard newRef)
+  {
+    if (newRef != ref)
+    {
+      NotificationChain msgs = null;
+      if (ref != null)
+        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__REF, null, msgs);
+      if (newRef != null)
+        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__REF, null, msgs);
+      msgs = basicSetRef(newRef, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__REF, newRef, newRef));
   }
 
   /**
@@ -1151,6 +1128,54 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
    * <!-- end-user-doc -->
    * @generated
    */
+  public Pure_exp getMoveCogTo()
+  {
+    return moveCogTo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMoveCogTo(Pure_exp newMoveCogTo, NotificationChain msgs)
+  {
+    Pure_exp oldMoveCogTo = moveCogTo;
+    moveCogTo = newMoveCogTo;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__MOVE_COG_TO, oldMoveCogTo, newMoveCogTo);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMoveCogTo(Pure_exp newMoveCogTo)
+  {
+    if (newMoveCogTo != moveCogTo)
+    {
+      NotificationChain msgs = null;
+      if (moveCogTo != null)
+        msgs = ((InternalEObject)moveCogTo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__MOVE_COG_TO, null, msgs);
+      if (newMoveCogTo != null)
+        msgs = ((InternalEObject)newMoveCogTo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.STMT__MOVE_COG_TO, null, msgs);
+      msgs = basicSetMoveCogTo(newMoveCogTo, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.STMT__MOVE_COG_TO, newMoveCogTo, newMoveCogTo));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Pure_exp getC()
   {
     return c;
@@ -1208,14 +1233,16 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return basicSetType_exp(null, msgs);
       case AbsPackage.STMT__EXP:
         return basicSetExp(null, msgs);
+      case AbsPackage.STMT__VAR_OR_FIELD_REF:
+        return basicSetVar_or_field_ref(null, msgs);
       case AbsPackage.STMT__STMT:
         return ((InternalEList<?>)getStmt()).basicRemove(otherEnd, msgs);
       case AbsPackage.STMT__PURE_EXP:
         return basicSetPure_exp(null, msgs);
       case AbsPackage.STMT__IFSTMT:
         return basicSetIfstmt(null, msgs);
-      case AbsPackage.STMT__R:
-        return basicSetR(null, msgs);
+      case AbsPackage.STMT__ELSESTMT:
+        return basicSetElsestmt(null, msgs);
       case AbsPackage.STMT__CONDITION:
         return basicSetCondition(null, msgs);
       case AbsPackage.STMT__WHILESTMT:
@@ -1228,6 +1255,8 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return basicSetTrystmt(null, msgs);
       case AbsPackage.STMT__CASESTMTBRANCH:
         return ((InternalEList<?>)getCasestmtbranch()).basicRemove(otherEnd, msgs);
+      case AbsPackage.STMT__REF:
+        return basicSetRef(null, msgs);
       case AbsPackage.STMT__F:
         return basicSetF(null, msgs);
       case AbsPackage.STMT__T:
@@ -1236,6 +1265,8 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return basicSetThrowPureExp(null, msgs);
       case AbsPackage.STMT__DIE_PURE_EXP:
         return basicSetDiePureExp(null, msgs);
+      case AbsPackage.STMT__MOVE_COG_TO:
+        return basicSetMoveCogTo(null, msgs);
       case AbsPackage.STMT__C:
         return basicSetC(null, msgs);
     }
@@ -1259,22 +1290,19 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
       case AbsPackage.STMT__EXP:
         return getExp();
       case AbsPackage.STMT__VAR_OR_FIELD_REF:
-        if (resolve) return getVar_or_field_ref();
-        return basicGetVar_or_field_ref();
+        return getVar_or_field_ref();
       case AbsPackage.STMT__STMT:
         return getStmt();
       case AbsPackage.STMT__PURE_EXP:
         return getPure_exp();
       case AbsPackage.STMT__IFSTMT:
         return getIfstmt();
-      case AbsPackage.STMT__R:
-        return getR();
+      case AbsPackage.STMT__ELSESTMT:
+        return getElsestmt();
       case AbsPackage.STMT__CONDITION:
         return getCondition();
       case AbsPackage.STMT__WHILESTMT:
         return getWhilestmt();
-      case AbsPackage.STMT__I:
-        return getI();
       case AbsPackage.STMT__L:
         return getL();
       case AbsPackage.STMT__FOREACHSTMT:
@@ -1283,9 +1311,8 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return getTrystmt();
       case AbsPackage.STMT__CASESTMTBRANCH:
         return getCasestmtbranch();
-      case AbsPackage.STMT__GUARD:
-        if (resolve) return getGuard();
-        return basicGetGuard();
+      case AbsPackage.STMT__REF:
+        return getRef();
       case AbsPackage.STMT__F:
         return getF();
       case AbsPackage.STMT__T:
@@ -1294,6 +1321,8 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return getThrowPureExp();
       case AbsPackage.STMT__DIE_PURE_EXP:
         return getDiePureExp();
+      case AbsPackage.STMT__MOVE_COG_TO:
+        return getMoveCogTo();
       case AbsPackage.STMT__C:
         return getC();
     }
@@ -1333,17 +1362,14 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
       case AbsPackage.STMT__IFSTMT:
         setIfstmt((Stmt)newValue);
         return;
-      case AbsPackage.STMT__R:
-        setR((Stmt)newValue);
+      case AbsPackage.STMT__ELSESTMT:
+        setElsestmt((Stmt)newValue);
         return;
       case AbsPackage.STMT__CONDITION:
         setCondition((Pure_exp)newValue);
         return;
       case AbsPackage.STMT__WHILESTMT:
         setWhilestmt((Stmt)newValue);
-        return;
-      case AbsPackage.STMT__I:
-        setI((String)newValue);
         return;
       case AbsPackage.STMT__L:
         setL((Pure_exp)newValue);
@@ -1358,8 +1384,8 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         getCasestmtbranch().clear();
         getCasestmtbranch().addAll((Collection<? extends Casestmtbranch>)newValue);
         return;
-      case AbsPackage.STMT__GUARD:
-        setGuard((Guard)newValue);
+      case AbsPackage.STMT__REF:
+        setRef((Guard)newValue);
         return;
       case AbsPackage.STMT__F:
         setF((Pure_exp)newValue);
@@ -1372,6 +1398,9 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return;
       case AbsPackage.STMT__DIE_PURE_EXP:
         setDiePureExp((Pure_exp)newValue);
+        return;
+      case AbsPackage.STMT__MOVE_COG_TO:
+        setMoveCogTo((Pure_exp)newValue);
         return;
       case AbsPackage.STMT__C:
         setC((Pure_exp)newValue);
@@ -1411,17 +1440,14 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
       case AbsPackage.STMT__IFSTMT:
         setIfstmt((Stmt)null);
         return;
-      case AbsPackage.STMT__R:
-        setR((Stmt)null);
+      case AbsPackage.STMT__ELSESTMT:
+        setElsestmt((Stmt)null);
         return;
       case AbsPackage.STMT__CONDITION:
         setCondition((Pure_exp)null);
         return;
       case AbsPackage.STMT__WHILESTMT:
         setWhilestmt((Stmt)null);
-        return;
-      case AbsPackage.STMT__I:
-        setI(I_EDEFAULT);
         return;
       case AbsPackage.STMT__L:
         setL((Pure_exp)null);
@@ -1435,8 +1461,8 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
       case AbsPackage.STMT__CASESTMTBRANCH:
         getCasestmtbranch().clear();
         return;
-      case AbsPackage.STMT__GUARD:
-        setGuard((Guard)null);
+      case AbsPackage.STMT__REF:
+        setRef((Guard)null);
         return;
       case AbsPackage.STMT__F:
         setF((Pure_exp)null);
@@ -1449,6 +1475,9 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return;
       case AbsPackage.STMT__DIE_PURE_EXP:
         setDiePureExp((Pure_exp)null);
+        return;
+      case AbsPackage.STMT__MOVE_COG_TO:
+        setMoveCogTo((Pure_exp)null);
         return;
       case AbsPackage.STMT__C:
         setC((Pure_exp)null);
@@ -1481,14 +1510,12 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return pure_exp != null;
       case AbsPackage.STMT__IFSTMT:
         return ifstmt != null;
-      case AbsPackage.STMT__R:
-        return r != null;
+      case AbsPackage.STMT__ELSESTMT:
+        return elsestmt != null;
       case AbsPackage.STMT__CONDITION:
         return condition != null;
       case AbsPackage.STMT__WHILESTMT:
         return whilestmt != null;
-      case AbsPackage.STMT__I:
-        return I_EDEFAULT == null ? i != null : !I_EDEFAULT.equals(i);
       case AbsPackage.STMT__L:
         return l != null;
       case AbsPackage.STMT__FOREACHSTMT:
@@ -1497,8 +1524,8 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return trystmt != null;
       case AbsPackage.STMT__CASESTMTBRANCH:
         return casestmtbranch != null && !casestmtbranch.isEmpty();
-      case AbsPackage.STMT__GUARD:
-        return guard != null;
+      case AbsPackage.STMT__REF:
+        return ref != null;
       case AbsPackage.STMT__F:
         return f != null;
       case AbsPackage.STMT__T:
@@ -1507,6 +1534,8 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
         return throwPureExp != null;
       case AbsPackage.STMT__DIE_PURE_EXP:
         return diePureExp != null;
+      case AbsPackage.STMT__MOVE_COG_TO:
+        return moveCogTo != null;
       case AbsPackage.STMT__C:
         return c != null;
     }
@@ -1526,8 +1555,6 @@ public class StmtImpl extends MinimalEObjectImpl.Container implements Stmt
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", i: ");
-    result.append(i);
     result.append(')');
     return result.toString();
   }

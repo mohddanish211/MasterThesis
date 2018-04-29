@@ -6,25 +6,25 @@ package org.xtext.abs.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.xtext.abs.AbsPackage;
-import org.xtext.abs.ProductPrimary_exp;
+import org.xtext.abs.ProductMinus_exp;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Product Primary exp</b></em>'.
+ * An implementation of the model object '<em><b>Product Minus exp</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class ProductPrimary_expImpl extends Product_exprImpl implements ProductPrimary_exp
+public class ProductMinus_expImpl extends Product_exprImpl implements ProductMinus_exp
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ProductPrimary_expImpl()
+  protected ProductMinus_expImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class ProductPrimary_expImpl extends Product_exprImpl implements ProductP
   @Override
   protected EClass eStaticClass()
   {
-    return AbsPackage.Literals.PRODUCT_PRIMARY_EXP;
+    return AbsPackage.Literals.PRODUCT_MINUS_EXP;
   }
 
-} //ProductPrimary_expImpl
+} //ProductMinus_expImpl

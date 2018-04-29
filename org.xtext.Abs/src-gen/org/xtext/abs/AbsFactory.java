@@ -843,13 +843,13 @@ public interface AbsFactory extends EFactory
   ProductAnd_exp createProductAnd_exp();
 
   /**
-   * Returns a new object of class '<em>Product Primary exp</em>'.
+   * Returns a new object of class '<em>Product Minus exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Product Primary exp</em>'.
+   * @return a new object of class '<em>Product Minus exp</em>'.
    * @generated
    */
-  ProductPrimary_exp createProductPrimary_exp();
+  ProductMinus_exp createProductMinus_exp();
 
   /**
    * Returns a new object of class '<em>Mexp Or exp</em>'.

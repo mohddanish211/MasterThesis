@@ -51,30 +51,30 @@ public interface Field_decl extends Class_modifier_fragment
   void setType_use(Type_use value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' containment reference.
-   * @see #setName(Var_or_field_ref)
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
    * @see org.xtext.abs.AbsPackage#getField_decl_Name()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Var_or_field_ref getName();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Field_decl#getName <em>Name</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Field_decl#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @param value the new value of the '<em>Name</em>' attribute.
    * @see #getName()
    * @generated
    */
-  void setName(Var_or_field_ref value);
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Pure exp</b></em>' containment reference.

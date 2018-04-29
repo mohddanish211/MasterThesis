@@ -53,7 +53,7 @@ class AbsValidator extends AbstractAbsValidator {
    			 def void checkNameStartsWithCapital(Trait_decl trait_decl) {
    			 if (!Character.isUpperCase(trait_decl.name.charAt(0))) {
            			 error("Trait name should start with a capital letter", 
-                	AbsPackage.Literals.TRAIT_EXPR__NAME);
+                	null);
         }
     }
     		@Check

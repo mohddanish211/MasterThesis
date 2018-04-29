@@ -17,12 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Delta_clause;
-import org.xtext.abs.Feature_decl;
+import org.xtext.abs.Feature;
 import org.xtext.abs.Productline_decl;
 
 /**
@@ -63,14 +62,14 @@ public class Productline_declImpl extends MinimalEObjectImpl.Container implement
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getFeature() <em>Feature</em>}' reference list.
+   * The cached value of the '{@link #getFeature() <em>Feature</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFeature()
    * @generated
    * @ordered
    */
-  protected EList<Feature_decl> feature;
+  protected EList<Feature> feature;
 
   /**
    * The cached value of the '{@link #getDelta_clause() <em>Delta clause</em>}' containment reference list.
@@ -131,11 +130,11 @@ public class Productline_declImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Feature_decl> getFeature()
+  public EList<Feature> getFeature()
   {
     if (feature == null)
     {
-      feature = new EObjectResolvingEList<Feature_decl>(Feature_decl.class, this, AbsPackage.PRODUCTLINE_DECL__FEATURE);
+      feature = new EObjectContainmentEList<Feature>(Feature.class, this, AbsPackage.PRODUCTLINE_DECL__FEATURE);
     }
     return feature;
   }
@@ -164,6 +163,8 @@ public class Productline_declImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case AbsPackage.PRODUCTLINE_DECL__FEATURE:
+        return ((InternalEList<?>)getFeature()).basicRemove(otherEnd, msgs);
       case AbsPackage.PRODUCTLINE_DECL__DELTA_CLAUSE:
         return ((InternalEList<?>)getDelta_clause()).basicRemove(otherEnd, msgs);
     }
@@ -206,7 +207,7 @@ public class Productline_declImpl extends MinimalEObjectImpl.Container implement
         return;
       case AbsPackage.PRODUCTLINE_DECL__FEATURE:
         getFeature().clear();
-        getFeature().addAll((Collection<? extends Feature_decl>)newValue);
+        getFeature().addAll((Collection<? extends Feature>)newValue);
         return;
       case AbsPackage.PRODUCTLINE_DECL__DELTA_CLAUSE:
         getDelta_clause().clear();

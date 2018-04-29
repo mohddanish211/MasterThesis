@@ -23,7 +23,9 @@ import org.xtext.abs.AppOr_exp;
 import org.xtext.abs.Application_condition;
 import org.xtext.abs.Delta_clause;
 import org.xtext.abs.Delta_decl;
+import org.xtext.abs.Feature;
 import org.xtext.abs.Feature_decl;
+import org.xtext.abs.Productline_decl;
 import org.xtext.abs.When_condition;
 import org.xtext.abs.impl.Compilation_UnitImpl;
 import org.xtext.abs.impl.Delta_clauseImpl;
@@ -124,14 +126,16 @@ public class AbsGenerator extends AbstractGenerator {
         EObject _customResourceFinder = this.customReferenceFinder.customResourceFinder(sourcePlatformUri, feature_decl);
         final Compilation_UnitImpl compilationUnit = ((Compilation_UnitImpl) _customResourceFinder);
         InputOutput.<String>println("------++++++++++++++++++++++++++++++++++++++++_------------");
-        InputOutput.println();
-        InputOutput.println();
+        InputOutput.<Compilation_UnitImpl>println(compilationUnit);
+        InputOutput.<Productline_decl>println(compilationUnit.getProductline_decl());
+        InputOutput.<EList<Delta_clause>>println(compilationUnit.getProductline_decl().getDelta_clause());
         EList<Delta_clause> _delta_clause = compilationUnit.getProductline_decl().getDelta_clause();
         for (final Delta_clause clause : _delta_clause) {
           try {
             Application_condition _application_condition = clause.getWhen_condition().getApplication_condition();
             boolean _tripleNotEquals = (_application_condition != null);
             if (_tripleNotEquals) {
+              InputOutput.<Application_condition>println(clause.getWhen_condition().getApplication_condition());
               this.resolveApplicationConditionForF2D(clause.getWhen_condition().getApplication_condition(), feature_decl, deltaDeclList, clause);
             }
           } catch (final Throwable _t) {
@@ -170,19 +174,30 @@ public class AbsGenerator extends AbstractGenerator {
           }
           _xifexpression_1 = _xblockexpression_1;
         } else {
-          EList<Feature_decl> _feature = app_cond.getFeature();
+          boolean _xifexpression_2 = false;
+          Feature _feature = app_cond.getFeature();
           boolean _tripleNotEquals = (_feature != null);
           if (_tripleNotEquals) {
-            EList<Feature_decl> _feature_1 = app_cond.getFeature();
-            for (final EObject featureObj : _feature_1) {
+            boolean _xblockexpression_2 = false;
+            {
+              Feature_decl _feature_decl = app_cond.getFeature().getFeature_decl();
+              final EObject featureObj = ((EObject) _feature_decl);
+              boolean _xifexpression_3 = false;
               boolean _equals = featureObj.eGet(featureObj.eClass().getEStructuralFeature("name")).equals(featureDecl.getName());
               if (_equals) {
-                InputOutput.<String>println("Adding to Delta List");
-                InputOutput.<Delta_decl>println(deltaClause.getDeltaspec());
-                deltaDeclList.add(deltaClause.getDeltaspec());
+                boolean _xblockexpression_3 = false;
+                {
+                  InputOutput.<String>println("Adding to Delta List");
+                  InputOutput.<Delta_decl>println(deltaClause.getDeltaspec());
+                  _xblockexpression_3 = deltaDeclList.add(deltaClause.getDeltaspec());
+                }
+                _xifexpression_3 = _xblockexpression_3;
               }
+              _xblockexpression_2 = _xifexpression_3;
             }
+            _xifexpression_2 = _xblockexpression_2;
           }
+          _xifexpression_1 = Boolean.valueOf(_xifexpression_2);
         }
         _xifexpression = _xifexpression_1;
       }
@@ -225,7 +240,7 @@ public class AbsGenerator extends AbstractGenerator {
             _xifexpression_1 = _xblockexpression_2;
           } else {
             boolean _xifexpression_2 = false;
-            EList<Feature_decl> _feature = app_cond.getFeature();
+            Feature _feature = app_cond.getFeature();
             boolean _tripleNotEquals = (_feature != null);
             if (_tripleNotEquals) {
               _xifexpression_2 = featureDecl.add(app_cond.getFeature());

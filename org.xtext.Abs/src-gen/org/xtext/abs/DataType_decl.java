@@ -13,9 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.DataType_decl#getLt <em>Lt</em>}</li>
  *   <li>{@link org.xtext.abs.DataType_decl#getP <em>P</em>}</li>
- *   <li>{@link org.xtext.abs.DataType_decl#getGt <em>Gt</em>}</li>
  *   <li>{@link org.xtext.abs.DataType_decl#getData_constructor <em>Data constructor</em>}</li>
  * </ul>
  * </p>
@@ -26,32 +24,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DataType_decl extends Decl, Functional_modifier
 {
-  /**
-   * Returns the value of the '<em><b>Lt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Lt</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Lt</em>' attribute.
-   * @see #setLt(String)
-   * @see org.xtext.abs.AbsPackage#getDataType_decl_Lt()
-   * @model
-   * @generated
-   */
-  String getLt();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.DataType_decl#getLt <em>Lt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lt</em>' attribute.
-   * @see #getLt()
-   * @generated
-   */
-  void setLt(String value);
-
   /**
    * Returns the value of the '<em><b>P</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
@@ -67,32 +39,6 @@ public interface DataType_decl extends Decl, Functional_modifier
    * @generated
    */
   EList<String> getP();
-
-  /**
-   * Returns the value of the '<em><b>Gt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Gt</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Gt</em>' attribute.
-   * @see #setGt(String)
-   * @see org.xtext.abs.AbsPackage#getDataType_decl_Gt()
-   * @model
-   * @generated
-   */
-  String getGt();
-
-  /**
-   * Sets the value of the '{@link org.xtext.abs.DataType_decl#getGt <em>Gt</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Gt</em>' attribute.
-   * @see #getGt()
-   * @generated
-   */
-  void setGt(String value);
 
   /**
    * Returns the value of the '<em><b>Data constructor</b></em>' containment reference list.

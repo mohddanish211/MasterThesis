@@ -4,7 +4,6 @@
 package org.xtext.ui.labeling;
 
 import com.google.inject.Inject;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider;
@@ -135,10 +134,6 @@ public class AbsLabelProvider extends DefaultEObjectLabelProvider implements Del
   }
   
   public String text(final Application_conditionImpl ele) {
-    EList<Feature_decl> _feature = ele.getFeature();
-    for (final Feature_decl f : _feature) {
-      return f.getName();
-    }
-    return null;
+    return ele.getFeature().getFeature_decl().getName();
   }
 }

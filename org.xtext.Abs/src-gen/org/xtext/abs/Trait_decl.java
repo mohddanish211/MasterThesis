@@ -12,7 +12,7 @@ package org.xtext.abs;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Trait_decl#getTrait_expr <em>Trait expr</em>}</li>
+ *   <li>{@link org.xtext.abs.Trait_decl#getTraitExpr <em>Trait Expr</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,29 +23,29 @@ package org.xtext.abs;
 public interface Trait_decl extends Decl
 {
   /**
-   * Returns the value of the '<em><b>Trait expr</b></em>' containment reference.
+   * Returns the value of the '<em><b>Trait Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Trait expr</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Trait Expr</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Trait expr</em>' containment reference.
-   * @see #setTrait_expr(Trait_expr)
-   * @see org.xtext.abs.AbsPackage#getTrait_decl_Trait_expr()
+   * @return the value of the '<em>Trait Expr</em>' containment reference.
+   * @see #setTraitExpr(Trait_expr)
+   * @see org.xtext.abs.AbsPackage#getTrait_decl_TraitExpr()
    * @model containment="true"
    * @generated
    */
-  Trait_expr getTrait_expr();
+  Trait_expr getTraitExpr();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Trait_decl#getTrait_expr <em>Trait expr</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Trait_decl#getTraitExpr <em>Trait Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Trait expr</em>' containment reference.
-   * @see #getTrait_expr()
+   * @param value the new value of the '<em>Trait Expr</em>' containment reference.
+   * @see #getTraitExpr()
    * @generated
    */
-  void setTrait_expr(Trait_expr value);
+  void setTraitExpr(Trait_expr value);
 
 } // Trait_decl

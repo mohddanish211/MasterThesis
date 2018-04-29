@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Delta_id;
@@ -26,7 +25,7 @@ import org.xtext.abs.Delta_id;
  *
  * @generated
  */
-public class Delta_idImpl extends MinimalEObjectImpl.Container implements Delta_id
+public class Delta_idImpl extends Eff_exprImpl implements Delta_id
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

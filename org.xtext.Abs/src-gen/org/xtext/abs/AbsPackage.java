@@ -418,31 +418,13 @@ public interface AbsPackage extends EPackage
   int PAR_FUNCTION_DECL__TYPE_USE = DECL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Lt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PAR_FUNCTION_DECL__LT = DECL_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>P</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PAR_FUNCTION_DECL__P = DECL_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Gt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PAR_FUNCTION_DECL__GT = DECL_FEATURE_COUNT + 3;
+  int PAR_FUNCTION_DECL__P = DECL_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Functions</b></em>' containment reference.
@@ -451,7 +433,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAR_FUNCTION_DECL__FUNCTIONS = DECL_FEATURE_COUNT + 4;
+  int PAR_FUNCTION_DECL__FUNCTIONS = DECL_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference.
@@ -460,7 +442,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAR_FUNCTION_DECL__PARAMS = DECL_FEATURE_COUNT + 5;
+  int PAR_FUNCTION_DECL__PARAMS = DECL_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -469,7 +451,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAR_FUNCTION_DECL__E = DECL_FEATURE_COUNT + 6;
+  int PAR_FUNCTION_DECL__E = DECL_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Par function decl</em>' class.
@@ -478,7 +460,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAR_FUNCTION_DECL_FEATURE_COUNT = DECL_FEATURE_COUNT + 7;
+  int PAR_FUNCTION_DECL_FEATURE_COUNT = DECL_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Function_name_listImpl <em>Function name list</em>}' class.
@@ -556,31 +538,13 @@ public interface AbsPackage extends EPackage
   int DATA_TYPE_DECL__NAME = DECL__NAME;
 
   /**
-   * The feature id for the '<em><b>Lt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_TYPE_DECL__LT = DECL_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>P</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_TYPE_DECL__P = DECL_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Gt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_TYPE_DECL__GT = DECL_FEATURE_COUNT + 2;
+  int DATA_TYPE_DECL__P = DECL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Data constructor</b></em>' containment reference list.
@@ -589,7 +553,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_TYPE_DECL__DATA_CONSTRUCTOR = DECL_FEATURE_COUNT + 3;
+  int DATA_TYPE_DECL__DATA_CONSTRUCTOR = DECL_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Data Type decl</em>' class.
@@ -598,7 +562,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_TYPE_DECL_FEATURE_COUNT = DECL_FEATURE_COUNT + 4;
+  int DATA_TYPE_DECL_FEATURE_COUNT = DECL_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Data_constructorImpl <em>Data constructor</em>}' class.
@@ -769,31 +733,13 @@ public interface AbsPackage extends EPackage
   int EXP = 36;
 
   /**
-   * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP__PURE_EXP_LIST = 0;
-
-  /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP__PURE_EXP = 1;
-
-  /**
    * The number of structural features of the '<em>Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP_FEATURE_COUNT = 2;
+  int EXP_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Pure_expImpl <em>Pure exp</em>}' class.
@@ -806,22 +752,31 @@ public interface AbsPackage extends EPackage
   int PURE_EXP = 15;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PURE_EXP__L = EXP_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PURE_EXP__PURE_EXP_LIST = EXP__PURE_EXP_LIST;
+  int PURE_EXP__PURE_EXP_LIST = EXP_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PURE_EXP__PURE_EXP = EXP__PURE_EXP;
+  int PURE_EXP__LIST = EXP_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Function list</b></em>' containment reference list.
@@ -830,7 +785,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP__FUNCTION_LIST = EXP_FEATURE_COUNT + 0;
+  int PURE_EXP__FUNCTION_LIST = EXP_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Partial function pure exp list</b></em>' containment reference.
@@ -839,16 +794,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST = EXP_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Function expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PURE_EXP__FUNCTION_EXPR = EXP_FEATURE_COUNT + 2;
+  int PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST = EXP_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Variadic exp list</b></em>' containment reference.
@@ -857,25 +803,25 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP__VARIADIC_EXP_LIST = EXP_FEATURE_COUNT + 3;
+  int PURE_EXP__VARIADIC_EXP_LIST = EXP_FEATURE_COUNT + 5;
 
   /**
-   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * The feature id for the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PURE_EXP__C = EXP_FEATURE_COUNT + 4;
+  int PURE_EXP__IF = EXP_FEATURE_COUNT + 6;
 
   /**
-   * The feature id for the '<em><b>L</b></em>' containment reference.
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PURE_EXP__L = EXP_FEATURE_COUNT + 5;
+  int PURE_EXP__THEN = EXP_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -884,7 +830,16 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP__ELSE = EXP_FEATURE_COUNT + 6;
+  int PURE_EXP__ELSE = EXP_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PURE_EXP__CASE = EXP_FEATURE_COUNT + 9;
 
   /**
    * The feature id for the '<em><b>Casebranch</b></em>' containment reference list.
@@ -893,7 +848,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP__CASEBRANCH = EXP_FEATURE_COUNT + 7;
+  int PURE_EXP__CASEBRANCH = EXP_FEATURE_COUNT + 10;
 
   /**
    * The feature id for the '<em><b>Type use</b></em>' containment reference.
@@ -902,7 +857,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP__TYPE_USE = EXP_FEATURE_COUNT + 8;
+  int PURE_EXP__TYPE_USE = EXP_FEATURE_COUNT + 11;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -911,7 +866,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP__VALUE = EXP_FEATURE_COUNT + 9;
+  int PURE_EXP__VALUE = EXP_FEATURE_COUNT + 12;
 
   /**
    * The feature id for the '<em><b>I</b></em>' containment reference.
@@ -920,7 +875,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP__I = EXP_FEATURE_COUNT + 10;
+  int PURE_EXP__I = EXP_FEATURE_COUNT + 13;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -929,16 +884,43 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP__B = EXP_FEATURE_COUNT + 11;
+  int PURE_EXP__B = EXP_FEATURE_COUNT + 14;
 
   /**
-   * The feature id for the '<em><b>Var or field ref</b></em>' reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PURE_EXP__VAR_OR_FIELD_REF = EXP_FEATURE_COUNT + 12;
+  int PURE_EXP__OP = EXP_FEATURE_COUNT + 15;
+
+  /**
+   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PURE_EXP__PURE_EXP = EXP_FEATURE_COUNT + 16;
+
+  /**
+   * The feature id for the '<em><b>Await</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PURE_EXP__AWAIT = EXP_FEATURE_COUNT + 17;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PURE_EXP__VAL = EXP_FEATURE_COUNT + 18;
 
   /**
    * The number of structural features of the '<em>Pure exp</em>' class.
@@ -947,7 +929,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PURE_EXP_FEATURE_COUNT = EXP_FEATURE_COUNT + 13;
+  int PURE_EXP_FEATURE_COUNT = EXP_FEATURE_COUNT + 19;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Var_or_field_refImpl <em>Var or field ref</em>}' class.
@@ -960,6 +942,15 @@ public interface AbsPackage extends EPackage
   int VAR_OR_FIELD_REF = 16;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_OR_FIELD_REF__L = PURE_EXP__L;
+
+  /**
    * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -969,13 +960,13 @@ public interface AbsPackage extends EPackage
   int VAR_OR_FIELD_REF__PURE_EXP_LIST = PURE_EXP__PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_OR_FIELD_REF__PURE_EXP = PURE_EXP__PURE_EXP;
+  int VAR_OR_FIELD_REF__LIST = PURE_EXP__LIST;
 
   /**
    * The feature id for the '<em><b>Function list</b></em>' containment reference list.
@@ -996,15 +987,6 @@ public interface AbsPackage extends EPackage
   int VAR_OR_FIELD_REF__PARTIAL_FUNCTION_PURE_EXP_LIST = PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Function expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_OR_FIELD_REF__FUNCTION_EXPR = PURE_EXP__FUNCTION_EXPR;
-
-  /**
    * The feature id for the '<em><b>Variadic exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1014,22 +996,22 @@ public interface AbsPackage extends EPackage
   int VAR_OR_FIELD_REF__VARIADIC_EXP_LIST = PURE_EXP__VARIADIC_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * The feature id for the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_OR_FIELD_REF__C = PURE_EXP__C;
+  int VAR_OR_FIELD_REF__IF = PURE_EXP__IF;
 
   /**
-   * The feature id for the '<em><b>L</b></em>' containment reference.
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_OR_FIELD_REF__L = PURE_EXP__L;
+  int VAR_OR_FIELD_REF__THEN = PURE_EXP__THEN;
 
   /**
    * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -1039,6 +1021,15 @@ public interface AbsPackage extends EPackage
    * @ordered
    */
   int VAR_OR_FIELD_REF__ELSE = PURE_EXP__ELSE;
+
+  /**
+   * The feature id for the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_OR_FIELD_REF__CASE = PURE_EXP__CASE;
 
   /**
    * The feature id for the '<em><b>Casebranch</b></em>' containment reference list.
@@ -1086,13 +1077,40 @@ public interface AbsPackage extends EPackage
   int VAR_OR_FIELD_REF__B = PURE_EXP__B;
 
   /**
-   * The feature id for the '<em><b>Var or field ref</b></em>' reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_OR_FIELD_REF__VAR_OR_FIELD_REF = PURE_EXP__VAR_OR_FIELD_REF;
+  int VAR_OR_FIELD_REF__OP = PURE_EXP__OP;
+
+  /**
+   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_OR_FIELD_REF__PURE_EXP = PURE_EXP__PURE_EXP;
+
+  /**
+   * The feature id for the '<em><b>Await</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_OR_FIELD_REF__AWAIT = PURE_EXP__AWAIT;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_OR_FIELD_REF__VAL = PURE_EXP__VAL;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1104,13 +1122,22 @@ public interface AbsPackage extends EPackage
   int VAR_OR_FIELD_REF__NAME = PURE_EXP_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_OR_FIELD_REF__REF = PURE_EXP_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Var or field ref</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_OR_FIELD_REF_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 1;
+  int VAR_OR_FIELD_REF_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Case_branchImpl <em>Case branch</em>}' class.
@@ -1431,31 +1458,13 @@ public interface AbsPackage extends EPackage
   int TYPE_EXP__NAME = UPDATE_PREAMBLE_DECLARATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Lt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_EXP__LT = UPDATE_PREAMBLE_DECLARATION_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>P</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_EXP__P = UPDATE_PREAMBLE_DECLARATION_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Gt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_EXP__GT = UPDATE_PREAMBLE_DECLARATION_FEATURE_COUNT + 3;
+  int TYPE_EXP__P = UPDATE_PREAMBLE_DECLARATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Type exp</em>' class.
@@ -1464,7 +1473,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_EXP_FEATURE_COUNT = UPDATE_PREAMBLE_DECLARATION_FEATURE_COUNT + 4;
+  int TYPE_EXP_FEATURE_COUNT = UPDATE_PREAMBLE_DECLARATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Function_declImpl <em>Function decl</em>}' class.
@@ -1495,31 +1504,13 @@ public interface AbsPackage extends EPackage
   int FUNCTION_DECL__TYPE_USE = DECL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Lt</b></em>' attribute.
+   * The feature id for the '<em><b>P</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_DECL__LT = DECL_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DECL__IMPORTED_NAMESPACE = DECL_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Gt</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DECL__GT = DECL_FEATURE_COUNT + 3;
+  int FUNCTION_DECL__P = DECL_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Paramlist</b></em>' containment reference.
@@ -1528,7 +1519,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DECL__PARAMLIST = DECL_FEATURE_COUNT + 4;
+  int FUNCTION_DECL__PARAMLIST = DECL_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
@@ -1537,7 +1528,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DECL__PURE_EXP = DECL_FEATURE_COUNT + 5;
+  int FUNCTION_DECL__PURE_EXP = DECL_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Function decl</em>' class.
@@ -1546,7 +1537,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DECL_FEATURE_COUNT = DECL_FEATURE_COUNT + 6;
+  int FUNCTION_DECL_FEATURE_COUNT = DECL_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Typesyn_declImpl <em>Typesyn decl</em>}' class.
@@ -1697,32 +1688,32 @@ public interface AbsPackage extends EPackage
   int INTERFACE_NAME_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.abs.impl.Interface_modifier_fragmentImpl <em>Interface modifier fragment</em>}' class.
+   * The meta object id for the '{@link org.xtext.abs.impl.Class_modifier_fragmentImpl <em>Class modifier fragment</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.abs.impl.Interface_modifier_fragmentImpl
-   * @see org.xtext.abs.impl.AbsPackageImpl#getInterface_modifier_fragment()
+   * @see org.xtext.abs.impl.Class_modifier_fragmentImpl
+   * @see org.xtext.abs.impl.AbsPackageImpl#getClass_modifier_fragment()
    * @generated
    */
-  int INTERFACE_MODIFIER_FRAGMENT = 55;
+  int CLASS_MODIFIER_FRAGMENT = 54;
 
   /**
-   * The feature id for the '<em><b>Removed Method</b></em>' reference.
+   * The feature id for the '<em><b>Methodsig</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE_MODIFIER_FRAGMENT__REMOVED_METHOD = 0;
+  int CLASS_MODIFIER_FRAGMENT__METHODSIG = 0;
 
   /**
-   * The number of structural features of the '<em>Interface modifier fragment</em>' class.
+   * The number of structural features of the '<em>Class modifier fragment</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE_MODIFIER_FRAGMENT_FEATURE_COUNT = 1;
+  int CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.MethodsigImpl <em>Methodsig</em>}' class.
@@ -1735,13 +1726,13 @@ public interface AbsPackage extends EPackage
   int METHODSIG = 32;
 
   /**
-   * The feature id for the '<em><b>Removed Method</b></em>' reference.
+   * The feature id for the '<em><b>Methodsig</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHODSIG__REMOVED_METHOD = INTERFACE_MODIFIER_FRAGMENT__REMOVED_METHOD;
+  int METHODSIG__METHODSIG = CLASS_MODIFIER_FRAGMENT__METHODSIG;
 
   /**
    * The feature id for the '<em><b>Type use</b></em>' containment reference.
@@ -1750,7 +1741,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHODSIG__TYPE_USE = INTERFACE_MODIFIER_FRAGMENT_FEATURE_COUNT + 0;
+  int METHODSIG__TYPE_USE = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1759,7 +1750,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHODSIG__NAME = INTERFACE_MODIFIER_FRAGMENT_FEATURE_COUNT + 1;
+  int METHODSIG__NAME = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Paramlist</b></em>' containment reference.
@@ -1768,7 +1759,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHODSIG__PARAMLIST = INTERFACE_MODIFIER_FRAGMENT_FEATURE_COUNT + 2;
+  int METHODSIG__PARAMLIST = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Methodsig</em>' class.
@@ -1777,7 +1768,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHODSIG_FEATURE_COUNT = INTERFACE_MODIFIER_FRAGMENT_FEATURE_COUNT + 3;
+  int METHODSIG_FEATURE_COUNT = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Class_declImpl <em>Class decl</em>}' class.
@@ -1871,34 +1862,6 @@ public interface AbsPackage extends EPackage
   int CLASS_DECL_FEATURE_COUNT = DECL_FEATURE_COUNT + 7;
 
   /**
-   * The meta object id for the '{@link org.xtext.abs.impl.Class_modifier_fragmentImpl <em>Class modifier fragment</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.abs.impl.Class_modifier_fragmentImpl
-   * @see org.xtext.abs.impl.AbsPackageImpl#getClass_modifier_fragment()
-   * @generated
-   */
-  int CLASS_MODIFIER_FRAGMENT = 54;
-
-  /**
-   * The feature id for the '<em><b>F</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_MODIFIER_FRAGMENT__F = 0;
-
-  /**
-   * The number of structural features of the '<em>Class modifier fragment</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.abs.impl.Field_declImpl <em>Field decl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1909,13 +1872,13 @@ public interface AbsPackage extends EPackage
   int FIELD_DECL = 34;
 
   /**
-   * The feature id for the '<em><b>F</b></em>' reference.
+   * The feature id for the '<em><b>Methodsig</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_DECL__F = CLASS_MODIFIER_FRAGMENT__F;
+  int FIELD_DECL__METHODSIG = CLASS_MODIFIER_FRAGMENT__METHODSIG;
 
   /**
    * The feature id for the '<em><b>Type use</b></em>' containment reference.
@@ -1927,7 +1890,7 @@ public interface AbsPackage extends EPackage
   int FIELD_DECL__TYPE_USE = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1991,7 +1954,7 @@ public interface AbsPackage extends EPackage
   int STMT__EXP = 2;
 
   /**
-   * The feature id for the '<em><b>Var or field ref</b></em>' reference.
+   * The feature id for the '<em><b>Var or field ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2027,13 +1990,13 @@ public interface AbsPackage extends EPackage
   int STMT__IFSTMT = 6;
 
   /**
-   * The feature id for the '<em><b>R</b></em>' containment reference.
+   * The feature id for the '<em><b>Elsestmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STMT__R = 7;
+  int STMT__ELSESTMT = 7;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -2054,22 +2017,13 @@ public interface AbsPackage extends EPackage
   int STMT__WHILESTMT = 9;
 
   /**
-   * The feature id for the '<em><b>I</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__I = 10;
-
-  /**
    * The feature id for the '<em><b>L</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STMT__L = 11;
+  int STMT__L = 10;
 
   /**
    * The feature id for the '<em><b>Foreachstmt</b></em>' containment reference.
@@ -2078,7 +2032,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMT__FOREACHSTMT = 12;
+  int STMT__FOREACHSTMT = 11;
 
   /**
    * The feature id for the '<em><b>Trystmt</b></em>' containment reference.
@@ -2087,7 +2041,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMT__TRYSTMT = 13;
+  int STMT__TRYSTMT = 12;
 
   /**
    * The feature id for the '<em><b>Casestmtbranch</b></em>' containment reference list.
@@ -2096,16 +2050,16 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMT__CASESTMTBRANCH = 14;
+  int STMT__CASESTMTBRANCH = 13;
 
   /**
-   * The feature id for the '<em><b>Guard</b></em>' reference.
+   * The feature id for the '<em><b>Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STMT__GUARD = 15;
+  int STMT__REF = 14;
 
   /**
    * The feature id for the '<em><b>F</b></em>' containment reference.
@@ -2114,7 +2068,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMT__F = 16;
+  int STMT__F = 15;
 
   /**
    * The feature id for the '<em><b>T</b></em>' containment reference.
@@ -2123,7 +2077,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMT__T = 17;
+  int STMT__T = 16;
 
   /**
    * The feature id for the '<em><b>Throw Pure Exp</b></em>' containment reference.
@@ -2132,7 +2086,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMT__THROW_PURE_EXP = 18;
+  int STMT__THROW_PURE_EXP = 17;
 
   /**
    * The feature id for the '<em><b>Die Pure Exp</b></em>' containment reference.
@@ -2141,7 +2095,16 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMT__DIE_PURE_EXP = 19;
+  int STMT__DIE_PURE_EXP = 18;
+
+  /**
+   * The feature id for the '<em><b>Move Cog To</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMT__MOVE_COG_TO = 19;
 
   /**
    * The feature id for the '<em><b>C</b></em>' containment reference.
@@ -2172,24 +2135,6 @@ public interface AbsPackage extends EPackage
   int EFF_EXPR = 37;
 
   /**
-   * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EFF_EXPR__PURE_EXP_LIST = EXP__PURE_EXP_LIST;
-
-  /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EFF_EXPR__PURE_EXP = EXP__PURE_EXP;
-
-  /**
    * The feature id for the '<em><b>L</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2199,49 +2144,22 @@ public interface AbsPackage extends EPackage
   int EFF_EXPR__L = EXP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>C</b></em>' attribute.
+   * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EFF_EXPR__C = EXP_FEATURE_COUNT + 1;
+  int EFF_EXPR__PURE_EXP_LIST = EXP_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>A</b></em>' attribute.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EFF_EXPR__A = EXP_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>O</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EFF_EXPR__O = EXP_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>M</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EFF_EXPR__M = EXP_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>D</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EFF_EXPR__D = EXP_FEATURE_COUNT + 5;
+  int EFF_EXPR__LIST = EXP_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Eff expr</em>' class.
@@ -2250,7 +2168,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EFF_EXPR_FEATURE_COUNT = EXP_FEATURE_COUNT + 6;
+  int EFF_EXPR_FEATURE_COUNT = EXP_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Delta_idImpl <em>Delta id</em>}' class.
@@ -2263,13 +2181,40 @@ public interface AbsPackage extends EPackage
   int DELTA_ID = 38;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELTA_ID__L = EFF_EXPR__L;
+
+  /**
+   * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELTA_ID__PURE_EXP_LIST = EFF_EXPR__PURE_EXP_LIST;
+
+  /**
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELTA_ID__LIST = EFF_EXPR__LIST;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELTA_ID__NAME = 0;
+  int DELTA_ID__NAME = EFF_EXPR_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Delta id</em>' class.
@@ -2278,7 +2223,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELTA_ID_FEATURE_COUNT = 1;
+  int DELTA_ID_FEATURE_COUNT = EFF_EXPR_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.GuardImpl <em>Guard</em>}' class.
@@ -2291,13 +2236,13 @@ public interface AbsPackage extends EPackage
   int GUARD = 39;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GUARD__NAME = 0;
+  int GUARD__REF = 0;
 
   /**
    * The feature id for the '<em><b>Min</b></em>' containment reference.
@@ -2318,13 +2263,13 @@ public interface AbsPackage extends EPackage
   int GUARD__MAX = 2;
 
   /**
-   * The feature id for the '<em><b>E</b></em>' containment reference.
+   * The feature id for the '<em><b>Guard</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GUARD__E = 3;
+  int GUARD__GUARD = 3;
 
   /**
    * The number of structural features of the '<em>Guard</em>' class.
@@ -2383,13 +2328,22 @@ public interface AbsPackage extends EPackage
   int TRAIT_USAGE = 41;
 
   /**
+   * The feature id for the '<em><b>Trait Usage</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRAIT_USAGE__TRAIT_USAGE = 0;
+
+  /**
    * The number of structural features of the '<em>Trait usage</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRAIT_USAGE_FEATURE_COUNT = 0;
+  int TRAIT_USAGE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Trait_exprImpl <em>Trait expr</em>}' class.
@@ -2402,49 +2356,58 @@ public interface AbsPackage extends EPackage
   int TRAIT_EXPR = 42;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' reference list.
+   * The feature id for the '<em><b>Methodsig</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRAIT_EXPR__METHOD = TRAIT_USAGE_FEATURE_COUNT + 0;
+  int TRAIT_EXPR__METHODSIG = CLASS_MODIFIER_FRAGMENT__METHODSIG;
 
   /**
-   * The feature id for the '<em><b>Trait Method</b></em>' reference.
+   * The feature id for the '<em><b>Method</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRAIT_EXPR__TRAIT_METHOD = TRAIT_USAGE_FEATURE_COUNT + 1;
+  int TRAIT_EXPR__METHOD = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Trait Method</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRAIT_EXPR__NAME = TRAIT_USAGE_FEATURE_COUNT + 2;
+  int TRAIT_EXPR__TRAIT_METHOD = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Trait expr</b></em>' reference.
+   * The feature id for the '<em><b>Trait Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRAIT_EXPR__TRAIT_EXPR = TRAIT_USAGE_FEATURE_COUNT + 3;
+  int TRAIT_EXPR__TRAIT_NAME = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Trait oper</b></em>' containment reference.
+   * The feature id for the '<em><b>Op</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRAIT_EXPR__TRAIT_OPER = TRAIT_USAGE_FEATURE_COUNT + 4;
+  int TRAIT_EXPR__OP = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Trait expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRAIT_EXPR__TRAIT_EXPR = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Trait expr</em>' class.
@@ -2453,7 +2416,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRAIT_EXPR_FEATURE_COUNT = TRAIT_USAGE_FEATURE_COUNT + 5;
+  int TRAIT_EXPR_FEATURE_COUNT = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Trait_operImpl <em>Trait oper</em>}' class.
@@ -2466,31 +2429,22 @@ public interface AbsPackage extends EPackage
   int TRAIT_OPER = 43;
 
   /**
-   * The feature id for the '<em><b>F</b></em>' reference.
+   * The feature id for the '<em><b>Method</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRAIT_OPER__F = CLASS_MODIFIER_FRAGMENT__F;
+  int TRAIT_OPER__METHOD = 0;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference.
+   * The feature id for the '<em><b>Methodsig</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRAIT_OPER__METHOD = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Methodsig</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRAIT_OPER__METHODSIG = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 1;
+  int TRAIT_OPER__METHODSIG = 1;
 
   /**
    * The feature id for the '<em><b>Trait expr</b></em>' containment reference.
@@ -2499,16 +2453,16 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRAIT_OPER__TRAIT_EXPR = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 2;
+  int TRAIT_OPER__TRAIT_EXPR = 2;
 
   /**
-   * The feature id for the '<em><b>Trait exp</b></em>' reference.
+   * The feature id for the '<em><b>Trait exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRAIT_OPER__TRAIT_EXP = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 3;
+  int TRAIT_OPER__TRAIT_EXP = 3;
 
   /**
    * The number of structural features of the '<em>Trait oper</em>' class.
@@ -2517,7 +2471,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRAIT_OPER_FEATURE_COUNT = CLASS_MODIFIER_FRAGMENT_FEATURE_COUNT + 4;
+  int TRAIT_OPER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.MethodImpl <em>Method</em>}' class.
@@ -2594,7 +2548,7 @@ public interface AbsPackage extends EPackage
   int TRAIT_DECL__NAME = DECL__NAME;
 
   /**
-   * The feature id for the '<em><b>Trait expr</b></em>' containment reference.
+   * The feature id for the '<em><b>Trait Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2705,31 +2659,31 @@ public interface AbsPackage extends EPackage
   int HAS_CONDITION = 49;
 
   /**
-   * The feature id for the '<em><b>F</b></em>' reference.
+   * The feature id for the '<em><b>Field</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HAS_CONDITION__F = DELTA_PARAM_FEATURE_COUNT + 0;
+  int HAS_CONDITION__FIELD = DELTA_PARAM_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>M</b></em>' reference.
+   * The feature id for the '<em><b>Method</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HAS_CONDITION__M = DELTA_PARAM_FEATURE_COUNT + 1;
+  int HAS_CONDITION__METHOD = DELTA_PARAM_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>I</b></em>' reference.
+   * The feature id for the '<em><b>Interface</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HAS_CONDITION__I = DELTA_PARAM_FEATURE_COUNT + 2;
+  int HAS_CONDITION__INTERFACE = DELTA_PARAM_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Has condition</em>' class.
@@ -2751,13 +2705,13 @@ public interface AbsPackage extends EPackage
   int DELTA_ACCESS = 50;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Module ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELTA_ACCESS__NAME = 0;
+  int DELTA_ACCESS__MODULE_REF = 0;
 
   /**
    * The number of structural features of the '<em>Delta access</em>' class.
@@ -2807,22 +2761,49 @@ public interface AbsPackage extends EPackage
   int OO_MODIFIER__CLASS_DECL = MODULE_MODIFIER_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Interface decl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OO_MODIFIER__INTERFACE_DECL = MODULE_MODIFIER_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Class</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OO_MODIFIER__CLASS = MODULE_MODIFIER_FEATURE_COUNT + 1;
+  int OO_MODIFIER__CLASS = MODULE_MODIFIER_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>I</b></em>' containment reference list.
+   * The feature id for the '<em><b>Inteface</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OO_MODIFIER__I = MODULE_MODIFIER_FEATURE_COUNT + 2;
+  int OO_MODIFIER__INTEFACE = MODULE_MODIFIER_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Interface Name</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OO_MODIFIER__INTERFACE_NAME = MODULE_MODIFIER_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Removed Interface</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OO_MODIFIER__REMOVED_INTERFACE = MODULE_MODIFIER_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Class modifier fragment</b></em>' containment reference list.
@@ -2831,16 +2812,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OO_MODIFIER__CLASS_MODIFIER_FRAGMENT = MODULE_MODIFIER_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Interface decl</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OO_MODIFIER__INTERFACE_DECL = MODULE_MODIFIER_FEATURE_COUNT + 4;
+  int OO_MODIFIER__CLASS_MODIFIER_FRAGMENT = MODULE_MODIFIER_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Interface</b></em>' reference.
@@ -2849,7 +2821,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OO_MODIFIER__INTERFACE = MODULE_MODIFIER_FEATURE_COUNT + 5;
+  int OO_MODIFIER__INTERFACE = MODULE_MODIFIER_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Interface modifier fragment</b></em>' containment reference list.
@@ -2858,7 +2830,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OO_MODIFIER__INTERFACE_MODIFIER_FRAGMENT = MODULE_MODIFIER_FEATURE_COUNT + 6;
+  int OO_MODIFIER__INTERFACE_MODIFIER_FRAGMENT = MODULE_MODIFIER_FEATURE_COUNT + 8;
 
   /**
    * The number of structural features of the '<em>OO modifier</em>' class.
@@ -2867,7 +2839,26 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OO_MODIFIER_FEATURE_COUNT = MODULE_MODIFIER_FEATURE_COUNT + 7;
+  int OO_MODIFIER_FEATURE_COUNT = MODULE_MODIFIER_FEATURE_COUNT + 9;
+
+  /**
+   * The meta object id for the '{@link org.xtext.abs.impl.Interface_modifier_fragmentImpl <em>Interface modifier fragment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.abs.impl.Interface_modifier_fragmentImpl
+   * @see org.xtext.abs.impl.AbsPackageImpl#getInterface_modifier_fragment()
+   * @generated
+   */
+  int INTERFACE_MODIFIER_FRAGMENT = 55;
+
+  /**
+   * The number of structural features of the '<em>Interface modifier fragment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_MODIFIER_FRAGMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Update_declImpl <em>Update decl</em>}' class.
@@ -3018,7 +3009,7 @@ public interface AbsPackage extends EPackage
   int PRODUCTLINE_DECL__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' reference list.
+   * The feature id for the '<em><b>Feature</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3055,13 +3046,13 @@ public interface AbsPackage extends EPackage
   int FEATURE = 62;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Feature decl</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE__NAME = 0;
+  int FEATURE__FEATURE_DECL = 0;
 
   /**
    * The feature id for the '<em><b>P</b></em>' attribute.
@@ -3277,7 +3268,7 @@ public interface AbsPackage extends EPackage
   int APPLICATION_CONDITION = 68;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' reference list.
+   * The feature id for the '<em><b>Feature</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3360,7 +3351,7 @@ public interface AbsPackage extends EPackage
   int PRODUCT_EXPR = 70;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Feature</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3369,13 +3360,40 @@ public interface AbsPackage extends EPackage
   int PRODUCT_EXPR__FEATURE = 0;
 
   /**
+   * The feature id for the '<em><b>Product Decl</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_EXPR__PRODUCT_DECL = 1;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_EXPR__LEFT = 2;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_EXPR__RIGHT = 3;
+
+  /**
    * The number of structural features of the '<em>Product expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRODUCT_EXPR_FEATURE_COUNT = 1;
+  int PRODUCT_EXPR_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Product_reconfigurationImpl <em>Product reconfiguration</em>}' class.
@@ -3693,6 +3711,15 @@ public interface AbsPackage extends EPackage
   int OR_EXPR = 79;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__L = PURE_EXP__L;
+
+  /**
    * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3702,13 +3729,13 @@ public interface AbsPackage extends EPackage
   int OR_EXPR__PURE_EXP_LIST = PURE_EXP__PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OR_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+  int OR_EXPR__LIST = PURE_EXP__LIST;
 
   /**
    * The feature id for the '<em><b>Function list</b></em>' containment reference list.
@@ -3729,15 +3756,6 @@ public interface AbsPackage extends EPackage
   int OR_EXPR__PARTIAL_FUNCTION_PURE_EXP_LIST = PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Function expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OR_EXPR__FUNCTION_EXPR = PURE_EXP__FUNCTION_EXPR;
-
-  /**
    * The feature id for the '<em><b>Variadic exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3747,22 +3765,22 @@ public interface AbsPackage extends EPackage
   int OR_EXPR__VARIADIC_EXP_LIST = PURE_EXP__VARIADIC_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * The feature id for the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OR_EXPR__C = PURE_EXP__C;
+  int OR_EXPR__IF = PURE_EXP__IF;
 
   /**
-   * The feature id for the '<em><b>L</b></em>' containment reference.
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OR_EXPR__L = PURE_EXP__L;
+  int OR_EXPR__THEN = PURE_EXP__THEN;
 
   /**
    * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -3772,6 +3790,15 @@ public interface AbsPackage extends EPackage
    * @ordered
    */
   int OR_EXPR__ELSE = PURE_EXP__ELSE;
+
+  /**
+   * The feature id for the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__CASE = PURE_EXP__CASE;
 
   /**
    * The feature id for the '<em><b>Casebranch</b></em>' containment reference list.
@@ -3819,13 +3846,40 @@ public interface AbsPackage extends EPackage
   int OR_EXPR__B = PURE_EXP__B;
 
   /**
-   * The feature id for the '<em><b>Var or field ref</b></em>' reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OR_EXPR__VAR_OR_FIELD_REF = PURE_EXP__VAR_OR_FIELD_REF;
+  int OR_EXPR__OP = PURE_EXP__OP;
+
+  /**
+   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+
+  /**
+   * The feature id for the '<em><b>Await</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__AWAIT = PURE_EXP__AWAIT;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__VAL = PURE_EXP__VAL;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3865,6 +3919,15 @@ public interface AbsPackage extends EPackage
   int AND_EXPR = 80;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__L = PURE_EXP__L;
+
+  /**
    * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3874,13 +3937,13 @@ public interface AbsPackage extends EPackage
   int AND_EXPR__PURE_EXP_LIST = PURE_EXP__PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+  int AND_EXPR__LIST = PURE_EXP__LIST;
 
   /**
    * The feature id for the '<em><b>Function list</b></em>' containment reference list.
@@ -3901,15 +3964,6 @@ public interface AbsPackage extends EPackage
   int AND_EXPR__PARTIAL_FUNCTION_PURE_EXP_LIST = PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Function expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND_EXPR__FUNCTION_EXPR = PURE_EXP__FUNCTION_EXPR;
-
-  /**
    * The feature id for the '<em><b>Variadic exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3919,22 +3973,22 @@ public interface AbsPackage extends EPackage
   int AND_EXPR__VARIADIC_EXP_LIST = PURE_EXP__VARIADIC_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * The feature id for the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_EXPR__C = PURE_EXP__C;
+  int AND_EXPR__IF = PURE_EXP__IF;
 
   /**
-   * The feature id for the '<em><b>L</b></em>' containment reference.
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_EXPR__L = PURE_EXP__L;
+  int AND_EXPR__THEN = PURE_EXP__THEN;
 
   /**
    * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -3944,6 +3998,15 @@ public interface AbsPackage extends EPackage
    * @ordered
    */
   int AND_EXPR__ELSE = PURE_EXP__ELSE;
+
+  /**
+   * The feature id for the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__CASE = PURE_EXP__CASE;
 
   /**
    * The feature id for the '<em><b>Casebranch</b></em>' containment reference list.
@@ -3991,13 +4054,40 @@ public interface AbsPackage extends EPackage
   int AND_EXPR__B = PURE_EXP__B;
 
   /**
-   * The feature id for the '<em><b>Var or field ref</b></em>' reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_EXPR__VAR_OR_FIELD_REF = PURE_EXP__VAR_OR_FIELD_REF;
+  int AND_EXPR__OP = PURE_EXP__OP;
+
+  /**
+   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+
+  /**
+   * The feature id for the '<em><b>Await</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__AWAIT = PURE_EXP__AWAIT;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPR__VAL = PURE_EXP__VAL;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -4037,6 +4127,15 @@ public interface AbsPackage extends EPackage
   int EQUALITY_EXPR = 81;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUALITY_EXPR__L = PURE_EXP__L;
+
+  /**
    * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4046,13 +4145,13 @@ public interface AbsPackage extends EPackage
   int EQUALITY_EXPR__PURE_EXP_LIST = PURE_EXP__PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+  int EQUALITY_EXPR__LIST = PURE_EXP__LIST;
 
   /**
    * The feature id for the '<em><b>Function list</b></em>' containment reference list.
@@ -4073,15 +4172,6 @@ public interface AbsPackage extends EPackage
   int EQUALITY_EXPR__PARTIAL_FUNCTION_PURE_EXP_LIST = PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Function expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUALITY_EXPR__FUNCTION_EXPR = PURE_EXP__FUNCTION_EXPR;
-
-  /**
    * The feature id for the '<em><b>Variadic exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4091,22 +4181,22 @@ public interface AbsPackage extends EPackage
   int EQUALITY_EXPR__VARIADIC_EXP_LIST = PURE_EXP__VARIADIC_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * The feature id for the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPR__C = PURE_EXP__C;
+  int EQUALITY_EXPR__IF = PURE_EXP__IF;
 
   /**
-   * The feature id for the '<em><b>L</b></em>' containment reference.
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPR__L = PURE_EXP__L;
+  int EQUALITY_EXPR__THEN = PURE_EXP__THEN;
 
   /**
    * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -4116,6 +4206,15 @@ public interface AbsPackage extends EPackage
    * @ordered
    */
   int EQUALITY_EXPR__ELSE = PURE_EXP__ELSE;
+
+  /**
+   * The feature id for the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUALITY_EXPR__CASE = PURE_EXP__CASE;
 
   /**
    * The feature id for the '<em><b>Casebranch</b></em>' containment reference list.
@@ -4163,13 +4262,40 @@ public interface AbsPackage extends EPackage
   int EQUALITY_EXPR__B = PURE_EXP__B;
 
   /**
-   * The feature id for the '<em><b>Var or field ref</b></em>' reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPR__VAR_OR_FIELD_REF = PURE_EXP__VAR_OR_FIELD_REF;
+  int EQUALITY_EXPR__OP = PURE_EXP__OP;
+
+  /**
+   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUALITY_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+
+  /**
+   * The feature id for the '<em><b>Await</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUALITY_EXPR__AWAIT = PURE_EXP__AWAIT;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUALITY_EXPR__VAL = PURE_EXP__VAL;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -4181,22 +4307,13 @@ public interface AbsPackage extends EPackage
   int EQUALITY_EXPR__LEFT = PURE_EXP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUALITY_EXPR__OP = PURE_EXP_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPR__RIGHT = PURE_EXP_FEATURE_COUNT + 2;
+  int EQUALITY_EXPR__RIGHT = PURE_EXP_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Equality expr</em>' class.
@@ -4205,7 +4322,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPR_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 3;
+  int EQUALITY_EXPR_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.Comparison_exprImpl <em>Comparison expr</em>}' class.
@@ -4218,6 +4335,15 @@ public interface AbsPackage extends EPackage
   int COMPARISON_EXPR = 82;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON_EXPR__L = PURE_EXP__L;
+
+  /**
    * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4227,13 +4353,13 @@ public interface AbsPackage extends EPackage
   int COMPARISON_EXPR__PURE_EXP_LIST = PURE_EXP__PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+  int COMPARISON_EXPR__LIST = PURE_EXP__LIST;
 
   /**
    * The feature id for the '<em><b>Function list</b></em>' containment reference list.
@@ -4254,15 +4380,6 @@ public interface AbsPackage extends EPackage
   int COMPARISON_EXPR__PARTIAL_FUNCTION_PURE_EXP_LIST = PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Function expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON_EXPR__FUNCTION_EXPR = PURE_EXP__FUNCTION_EXPR;
-
-  /**
    * The feature id for the '<em><b>Variadic exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4272,22 +4389,22 @@ public interface AbsPackage extends EPackage
   int COMPARISON_EXPR__VARIADIC_EXP_LIST = PURE_EXP__VARIADIC_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * The feature id for the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON_EXPR__C = PURE_EXP__C;
+  int COMPARISON_EXPR__IF = PURE_EXP__IF;
 
   /**
-   * The feature id for the '<em><b>L</b></em>' containment reference.
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON_EXPR__L = PURE_EXP__L;
+  int COMPARISON_EXPR__THEN = PURE_EXP__THEN;
 
   /**
    * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -4297,6 +4414,15 @@ public interface AbsPackage extends EPackage
    * @ordered
    */
   int COMPARISON_EXPR__ELSE = PURE_EXP__ELSE;
+
+  /**
+   * The feature id for the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON_EXPR__CASE = PURE_EXP__CASE;
 
   /**
    * The feature id for the '<em><b>Casebranch</b></em>' containment reference list.
@@ -4344,13 +4470,40 @@ public interface AbsPackage extends EPackage
   int COMPARISON_EXPR__B = PURE_EXP__B;
 
   /**
-   * The feature id for the '<em><b>Var or field ref</b></em>' reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON_EXPR__VAR_OR_FIELD_REF = PURE_EXP__VAR_OR_FIELD_REF;
+  int COMPARISON_EXPR__OP = PURE_EXP__OP;
+
+  /**
+   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+
+  /**
+   * The feature id for the '<em><b>Await</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON_EXPR__AWAIT = PURE_EXP__AWAIT;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON_EXPR__VAL = PURE_EXP__VAL;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -4362,22 +4515,13 @@ public interface AbsPackage extends EPackage
   int COMPARISON_EXPR__LEFT = PURE_EXP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON_EXPR__OP = PURE_EXP_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPARISON_EXPR__RIGHT = PURE_EXP_FEATURE_COUNT + 2;
+  int COMPARISON_EXPR__RIGHT = PURE_EXP_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Comparison expr</em>' class.
@@ -4386,7 +4530,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARISON_EXPR_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 3;
+  int COMPARISON_EXPR_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.PlusOrMinus_exprImpl <em>Plus Or Minus expr</em>}' class.
@@ -4399,6 +4543,15 @@ public interface AbsPackage extends EPackage
   int PLUS_OR_MINUS_EXPR = 83;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_OR_MINUS_EXPR__L = PURE_EXP__L;
+
+  /**
    * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4408,13 +4561,13 @@ public interface AbsPackage extends EPackage
   int PLUS_OR_MINUS_EXPR__PURE_EXP_LIST = PURE_EXP__PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUS_OR_MINUS_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+  int PLUS_OR_MINUS_EXPR__LIST = PURE_EXP__LIST;
 
   /**
    * The feature id for the '<em><b>Function list</b></em>' containment reference list.
@@ -4435,15 +4588,6 @@ public interface AbsPackage extends EPackage
   int PLUS_OR_MINUS_EXPR__PARTIAL_FUNCTION_PURE_EXP_LIST = PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Function expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS_OR_MINUS_EXPR__FUNCTION_EXPR = PURE_EXP__FUNCTION_EXPR;
-
-  /**
    * The feature id for the '<em><b>Variadic exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4453,22 +4597,22 @@ public interface AbsPackage extends EPackage
   int PLUS_OR_MINUS_EXPR__VARIADIC_EXP_LIST = PURE_EXP__VARIADIC_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * The feature id for the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUS_OR_MINUS_EXPR__C = PURE_EXP__C;
+  int PLUS_OR_MINUS_EXPR__IF = PURE_EXP__IF;
 
   /**
-   * The feature id for the '<em><b>L</b></em>' containment reference.
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUS_OR_MINUS_EXPR__L = PURE_EXP__L;
+  int PLUS_OR_MINUS_EXPR__THEN = PURE_EXP__THEN;
 
   /**
    * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -4478,6 +4622,15 @@ public interface AbsPackage extends EPackage
    * @ordered
    */
   int PLUS_OR_MINUS_EXPR__ELSE = PURE_EXP__ELSE;
+
+  /**
+   * The feature id for the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_OR_MINUS_EXPR__CASE = PURE_EXP__CASE;
 
   /**
    * The feature id for the '<em><b>Casebranch</b></em>' containment reference list.
@@ -4525,13 +4678,40 @@ public interface AbsPackage extends EPackage
   int PLUS_OR_MINUS_EXPR__B = PURE_EXP__B;
 
   /**
-   * The feature id for the '<em><b>Var or field ref</b></em>' reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUS_OR_MINUS_EXPR__VAR_OR_FIELD_REF = PURE_EXP__VAR_OR_FIELD_REF;
+  int PLUS_OR_MINUS_EXPR__OP = PURE_EXP__OP;
+
+  /**
+   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_OR_MINUS_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+
+  /**
+   * The feature id for the '<em><b>Await</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_OR_MINUS_EXPR__AWAIT = PURE_EXP__AWAIT;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_OR_MINUS_EXPR__VAL = PURE_EXP__VAL;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -4543,22 +4723,13 @@ public interface AbsPackage extends EPackage
   int PLUS_OR_MINUS_EXPR__LEFT = PURE_EXP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS_OR_MINUS_EXPR__OP = PURE_EXP_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUS_OR_MINUS_EXPR__RIGHT = PURE_EXP_FEATURE_COUNT + 2;
+  int PLUS_OR_MINUS_EXPR__RIGHT = PURE_EXP_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Plus Or Minus expr</em>' class.
@@ -4567,7 +4738,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PLUS_OR_MINUS_EXPR_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 3;
+  int PLUS_OR_MINUS_EXPR_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.MulDivOrMod_exprImpl <em>Mul Div Or Mod expr</em>}' class.
@@ -4580,6 +4751,15 @@ public interface AbsPackage extends EPackage
   int MUL_DIV_OR_MOD_EXPR = 84;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_DIV_OR_MOD_EXPR__L = PURE_EXP__L;
+
+  /**
    * The feature id for the '<em><b>Pure exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4589,13 +4769,13 @@ public interface AbsPackage extends EPackage
   int MUL_DIV_OR_MOD_EXPR__PURE_EXP_LIST = PURE_EXP__PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MUL_DIV_OR_MOD_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+  int MUL_DIV_OR_MOD_EXPR__LIST = PURE_EXP__LIST;
 
   /**
    * The feature id for the '<em><b>Function list</b></em>' containment reference list.
@@ -4616,15 +4796,6 @@ public interface AbsPackage extends EPackage
   int MUL_DIV_OR_MOD_EXPR__PARTIAL_FUNCTION_PURE_EXP_LIST = PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>Function expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MUL_DIV_OR_MOD_EXPR__FUNCTION_EXPR = PURE_EXP__FUNCTION_EXPR;
-
-  /**
    * The feature id for the '<em><b>Variadic exp list</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4634,22 +4805,22 @@ public interface AbsPackage extends EPackage
   int MUL_DIV_OR_MOD_EXPR__VARIADIC_EXP_LIST = PURE_EXP__VARIADIC_EXP_LIST;
 
   /**
-   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * The feature id for the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MUL_DIV_OR_MOD_EXPR__C = PURE_EXP__C;
+  int MUL_DIV_OR_MOD_EXPR__IF = PURE_EXP__IF;
 
   /**
-   * The feature id for the '<em><b>L</b></em>' containment reference.
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MUL_DIV_OR_MOD_EXPR__L = PURE_EXP__L;
+  int MUL_DIV_OR_MOD_EXPR__THEN = PURE_EXP__THEN;
 
   /**
    * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -4659,6 +4830,15 @@ public interface AbsPackage extends EPackage
    * @ordered
    */
   int MUL_DIV_OR_MOD_EXPR__ELSE = PURE_EXP__ELSE;
+
+  /**
+   * The feature id for the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_DIV_OR_MOD_EXPR__CASE = PURE_EXP__CASE;
 
   /**
    * The feature id for the '<em><b>Casebranch</b></em>' containment reference list.
@@ -4706,13 +4886,40 @@ public interface AbsPackage extends EPackage
   int MUL_DIV_OR_MOD_EXPR__B = PURE_EXP__B;
 
   /**
-   * The feature id for the '<em><b>Var or field ref</b></em>' reference.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MUL_DIV_OR_MOD_EXPR__VAR_OR_FIELD_REF = PURE_EXP__VAR_OR_FIELD_REF;
+  int MUL_DIV_OR_MOD_EXPR__OP = PURE_EXP__OP;
+
+  /**
+   * The feature id for the '<em><b>Pure exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_DIV_OR_MOD_EXPR__PURE_EXP = PURE_EXP__PURE_EXP;
+
+  /**
+   * The feature id for the '<em><b>Await</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_DIV_OR_MOD_EXPR__AWAIT = PURE_EXP__AWAIT;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_DIV_OR_MOD_EXPR__VAL = PURE_EXP__VAL;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -4724,22 +4931,13 @@ public interface AbsPackage extends EPackage
   int MUL_DIV_OR_MOD_EXPR__LEFT = PURE_EXP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MUL_DIV_OR_MOD_EXPR__OP = PURE_EXP_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MUL_DIV_OR_MOD_EXPR__RIGHT = PURE_EXP_FEATURE_COUNT + 2;
+  int MUL_DIV_OR_MOD_EXPR__RIGHT = PURE_EXP_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Mul Div Or Mod expr</em>' class.
@@ -4748,7 +4946,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MUL_DIV_OR_MOD_EXPR_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 3;
+  int MUL_DIV_OR_MOD_EXPR_FEATURE_COUNT = PURE_EXP_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.AndGuardImpl <em>And Guard</em>}' class.
@@ -4761,13 +4959,13 @@ public interface AbsPackage extends EPackage
   int AND_GUARD = 85;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_GUARD__NAME = GUARD__NAME;
+  int AND_GUARD__REF = GUARD__REF;
 
   /**
    * The feature id for the '<em><b>Min</b></em>' containment reference.
@@ -4788,13 +4986,13 @@ public interface AbsPackage extends EPackage
   int AND_GUARD__MAX = GUARD__MAX;
 
   /**
-   * The feature id for the '<em><b>E</b></em>' containment reference.
+   * The feature id for the '<em><b>Guard</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_GUARD__E = GUARD__E;
+  int AND_GUARD__GUARD = GUARD__GUARD;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -4843,7 +5041,7 @@ public interface AbsPackage extends EPackage
   int APP_OR_EXP = 86;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' reference list.
+   * The feature id for the '<em><b>Feature</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -4889,7 +5087,7 @@ public interface AbsPackage extends EPackage
   int APP_AND_EXP = 87;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' reference list.
+   * The feature id for the '<em><b>Feature</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -4935,7 +5133,7 @@ public interface AbsPackage extends EPackage
   int NOT_EXPRESSION = 88;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' reference list.
+   * The feature id for the '<em><b>Feature</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -4972,7 +5170,7 @@ public interface AbsPackage extends EPackage
   int PRODUCT_OR_EXPR = 89;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Feature</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -4981,13 +5179,22 @@ public interface AbsPackage extends EPackage
   int PRODUCT_OR_EXPR__FEATURE = PRODUCT_EXPR__FEATURE;
 
   /**
+   * The feature id for the '<em><b>Product Decl</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_OR_EXPR__PRODUCT_DECL = PRODUCT_EXPR__PRODUCT_DECL;
+
+  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRODUCT_OR_EXPR__LEFT = PRODUCT_EXPR_FEATURE_COUNT + 0;
+  int PRODUCT_OR_EXPR__LEFT = PRODUCT_EXPR__LEFT;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -4996,7 +5203,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRODUCT_OR_EXPR__RIGHT = PRODUCT_EXPR_FEATURE_COUNT + 1;
+  int PRODUCT_OR_EXPR__RIGHT = PRODUCT_EXPR__RIGHT;
 
   /**
    * The number of structural features of the '<em>Product Or expr</em>' class.
@@ -5005,7 +5212,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRODUCT_OR_EXPR_FEATURE_COUNT = PRODUCT_EXPR_FEATURE_COUNT + 2;
+  int PRODUCT_OR_EXPR_FEATURE_COUNT = PRODUCT_EXPR_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.ProductAnd_expImpl <em>Product And exp</em>}' class.
@@ -5018,7 +5225,7 @@ public interface AbsPackage extends EPackage
   int PRODUCT_AND_EXP = 90;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Feature</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -5027,13 +5234,22 @@ public interface AbsPackage extends EPackage
   int PRODUCT_AND_EXP__FEATURE = PRODUCT_EXPR__FEATURE;
 
   /**
+   * The feature id for the '<em><b>Product Decl</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_AND_EXP__PRODUCT_DECL = PRODUCT_EXPR__PRODUCT_DECL;
+
+  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRODUCT_AND_EXP__LEFT = PRODUCT_EXPR_FEATURE_COUNT + 0;
+  int PRODUCT_AND_EXP__LEFT = PRODUCT_EXPR__LEFT;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -5042,7 +5258,7 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRODUCT_AND_EXP__RIGHT = PRODUCT_EXPR_FEATURE_COUNT + 1;
+  int PRODUCT_AND_EXP__RIGHT = PRODUCT_EXPR__RIGHT;
 
   /**
    * The number of structural features of the '<em>Product And exp</em>' class.
@@ -5051,35 +5267,62 @@ public interface AbsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRODUCT_AND_EXP_FEATURE_COUNT = PRODUCT_EXPR_FEATURE_COUNT + 2;
+  int PRODUCT_AND_EXP_FEATURE_COUNT = PRODUCT_EXPR_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.abs.impl.ProductPrimary_expImpl <em>Product Primary exp</em>}' class.
+   * The meta object id for the '{@link org.xtext.abs.impl.ProductMinus_expImpl <em>Product Minus exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.abs.impl.ProductPrimary_expImpl
-   * @see org.xtext.abs.impl.AbsPackageImpl#getProductPrimary_exp()
+   * @see org.xtext.abs.impl.ProductMinus_expImpl
+   * @see org.xtext.abs.impl.AbsPackageImpl#getProductMinus_exp()
    * @generated
    */
-  int PRODUCT_PRIMARY_EXP = 91;
+  int PRODUCT_MINUS_EXP = 91;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRODUCT_PRIMARY_EXP__FEATURE = PRODUCT_EXPR__FEATURE;
-
-  /**
-   * The number of structural features of the '<em>Product Primary exp</em>' class.
+   * The feature id for the '<em><b>Feature</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRODUCT_PRIMARY_EXP_FEATURE_COUNT = PRODUCT_EXPR_FEATURE_COUNT + 0;
+  int PRODUCT_MINUS_EXP__FEATURE = PRODUCT_EXPR__FEATURE;
+
+  /**
+   * The feature id for the '<em><b>Product Decl</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_MINUS_EXP__PRODUCT_DECL = PRODUCT_EXPR__PRODUCT_DECL;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_MINUS_EXP__LEFT = PRODUCT_EXPR__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_MINUS_EXP__RIGHT = PRODUCT_EXPR__RIGHT;
+
+  /**
+   * The number of structural features of the '<em>Product Minus exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_MINUS_EXP_FEATURE_COUNT = PRODUCT_EXPR_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.abs.impl.MexpOr_expImpl <em>Mexp Or exp</em>}' class.
@@ -5755,17 +5998,6 @@ public interface AbsPackage extends EPackage
   EReference getPar_function_decl_Type_use();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Par_function_decl#getLt <em>Lt</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Lt</em>'.
-   * @see org.xtext.abs.Par_function_decl#getLt()
-   * @see #getPar_function_decl()
-   * @generated
-   */
-  EAttribute getPar_function_decl_Lt();
-
-  /**
    * Returns the meta object for the attribute list '{@link org.xtext.abs.Par_function_decl#getP <em>P</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5775,17 +6007,6 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EAttribute getPar_function_decl_P();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Par_function_decl#getGt <em>Gt</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Gt</em>'.
-   * @see org.xtext.abs.Par_function_decl#getGt()
-   * @see #getPar_function_decl()
-   * @generated
-   */
-  EAttribute getPar_function_decl_Gt();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Par_function_decl#getFunctions <em>Functions</em>}'.
@@ -5873,17 +6094,6 @@ public interface AbsPackage extends EPackage
   EClass getDataType_decl();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.DataType_decl#getLt <em>Lt</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Lt</em>'.
-   * @see org.xtext.abs.DataType_decl#getLt()
-   * @see #getDataType_decl()
-   * @generated
-   */
-  EAttribute getDataType_decl_Lt();
-
-  /**
    * Returns the meta object for the attribute list '{@link org.xtext.abs.DataType_decl#getP <em>P</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5893,17 +6103,6 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EAttribute getDataType_decl_P();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.DataType_decl#getGt <em>Gt</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Gt</em>'.
-   * @see org.xtext.abs.DataType_decl#getGt()
-   * @see #getDataType_decl()
-   * @generated
-   */
-  EAttribute getDataType_decl_Gt();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.abs.DataType_decl#getData_constructor <em>Data constructor</em>}'.
@@ -6065,17 +6264,6 @@ public interface AbsPackage extends EPackage
   EReference getPure_exp_Partial_function_pure_exp_list();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Pure_exp#getFunction_expr <em>Function expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Function expr</em>'.
-   * @see org.xtext.abs.Pure_exp#getFunction_expr()
-   * @see #getPure_exp()
-   * @generated
-   */
-  EReference getPure_exp_Function_expr();
-
-  /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Pure_exp#getVariadic_exp_list <em>Variadic exp list</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6087,26 +6275,26 @@ public interface AbsPackage extends EPackage
   EReference getPure_exp_Variadic_exp_list();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Pure_exp#getC <em>C</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Pure_exp#getIf <em>If</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>C</em>'.
-   * @see org.xtext.abs.Pure_exp#getC()
+   * @return the meta object for the containment reference '<em>If</em>'.
+   * @see org.xtext.abs.Pure_exp#getIf()
    * @see #getPure_exp()
    * @generated
    */
-  EReference getPure_exp_C();
+  EReference getPure_exp_If();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Pure_exp#getL <em>L</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Pure_exp#getThen <em>Then</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>L</em>'.
-   * @see org.xtext.abs.Pure_exp#getL()
+   * @return the meta object for the containment reference '<em>Then</em>'.
+   * @see org.xtext.abs.Pure_exp#getThen()
    * @see #getPure_exp()
    * @generated
    */
-  EReference getPure_exp_L();
+  EReference getPure_exp_Then();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Pure_exp#getElse <em>Else</em>}'.
@@ -6118,6 +6306,17 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EReference getPure_exp_Else();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Pure_exp#getCase <em>Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Case</em>'.
+   * @see org.xtext.abs.Pure_exp#getCase()
+   * @see #getPure_exp()
+   * @generated
+   */
+  EReference getPure_exp_Case();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.abs.Pure_exp#getCasebranch <em>Casebranch</em>}'.
@@ -6175,15 +6374,48 @@ public interface AbsPackage extends EPackage
   EReference getPure_exp_B();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Pure_exp#getVar_or_field_ref <em>Var or field ref</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.abs.Pure_exp#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Var or field ref</em>'.
-   * @see org.xtext.abs.Pure_exp#getVar_or_field_ref()
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.xtext.abs.Pure_exp#getOp()
    * @see #getPure_exp()
    * @generated
    */
-  EReference getPure_exp_Var_or_field_ref();
+  EAttribute getPure_exp_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Pure_exp#getPure_exp <em>Pure exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Pure exp</em>'.
+   * @see org.xtext.abs.Pure_exp#getPure_exp()
+   * @see #getPure_exp()
+   * @generated
+   */
+  EReference getPure_exp_Pure_exp();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.abs.Pure_exp#getAwait <em>Await</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Await</em>'.
+   * @see org.xtext.abs.Pure_exp#getAwait()
+   * @see #getPure_exp()
+   * @generated
+   */
+  EAttribute getPure_exp_Await();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.abs.Pure_exp#getVal <em>Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Val</em>'.
+   * @see org.xtext.abs.Pure_exp#getVal()
+   * @see #getPure_exp()
+   * @generated
+   */
+  EAttribute getPure_exp_Val();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Var_or_field_ref <em>Var or field ref</em>}'.
@@ -6205,6 +6437,17 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EAttribute getVar_or_field_ref_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.abs.Var_or_field_ref#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see org.xtext.abs.Var_or_field_ref#getRef()
+   * @see #getVar_or_field_ref()
+   * @generated
+   */
+  EReference getVar_or_field_ref_Ref();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Case_branch <em>Case branch</em>}'.
@@ -6428,17 +6671,6 @@ public interface AbsPackage extends EPackage
   EAttribute getType_exp_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Type_exp#getLt <em>Lt</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Lt</em>'.
-   * @see org.xtext.abs.Type_exp#getLt()
-   * @see #getType_exp()
-   * @generated
-   */
-  EAttribute getType_exp_Lt();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.abs.Type_exp#getP <em>P</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6448,17 +6680,6 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EReference getType_exp_P();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Type_exp#getGt <em>Gt</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Gt</em>'.
-   * @see org.xtext.abs.Type_exp#getGt()
-   * @see #getType_exp()
-   * @generated
-   */
-  EAttribute getType_exp_Gt();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Function_decl <em>Function decl</em>}'.
@@ -6482,37 +6703,15 @@ public interface AbsPackage extends EPackage
   EReference getFunction_decl_Type_use();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Function_decl#getLt <em>Lt</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.abs.Function_decl#getP <em>P</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Lt</em>'.
-   * @see org.xtext.abs.Function_decl#getLt()
+   * @return the meta object for the attribute list '<em>P</em>'.
+   * @see org.xtext.abs.Function_decl#getP()
    * @see #getFunction_decl()
    * @generated
    */
-  EAttribute getFunction_decl_Lt();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.abs.Function_decl#getImportedNamespace <em>Imported Namespace</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Imported Namespace</em>'.
-   * @see org.xtext.abs.Function_decl#getImportedNamespace()
-   * @see #getFunction_decl()
-   * @generated
-   */
-  EAttribute getFunction_decl_ImportedNamespace();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Function_decl#getGt <em>Gt</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Gt</em>'.
-   * @see org.xtext.abs.Function_decl#getGt()
-   * @see #getFunction_decl()
-   * @generated
-   */
-  EAttribute getFunction_decl_Gt();
+  EAttribute getFunction_decl_P();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Function_decl#getParamlist <em>Paramlist</em>}'.
@@ -6783,15 +6982,15 @@ public interface AbsPackage extends EPackage
   EReference getField_decl_Type_use();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Field_decl#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.abs.Field_decl#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @return the meta object for the attribute '<em>Name</em>'.
    * @see org.xtext.abs.Field_decl#getName()
    * @see #getField_decl()
    * @generated
    */
-  EReference getField_decl_Name();
+  EAttribute getField_decl_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Field_decl#getPure_exp <em>Pure exp</em>}'.
@@ -6848,10 +7047,10 @@ public interface AbsPackage extends EPackage
   EReference getStmt_Exp();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Stmt#getVar_or_field_ref <em>Var or field ref</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Stmt#getVar_or_field_ref <em>Var or field ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Var or field ref</em>'.
+   * @return the meta object for the containment reference '<em>Var or field ref</em>'.
    * @see org.xtext.abs.Stmt#getVar_or_field_ref()
    * @see #getStmt()
    * @generated
@@ -6892,15 +7091,15 @@ public interface AbsPackage extends EPackage
   EReference getStmt_Ifstmt();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Stmt#getR <em>R</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Stmt#getElsestmt <em>Elsestmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>R</em>'.
-   * @see org.xtext.abs.Stmt#getR()
+   * @return the meta object for the containment reference '<em>Elsestmt</em>'.
+   * @see org.xtext.abs.Stmt#getElsestmt()
    * @see #getStmt()
    * @generated
    */
-  EReference getStmt_R();
+  EReference getStmt_Elsestmt();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Stmt#getCondition <em>Condition</em>}'.
@@ -6923,17 +7122,6 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EReference getStmt_Whilestmt();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Stmt#getI <em>I</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>I</em>'.
-   * @see org.xtext.abs.Stmt#getI()
-   * @see #getStmt()
-   * @generated
-   */
-  EAttribute getStmt_I();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Stmt#getL <em>L</em>}'.
@@ -6980,15 +7168,15 @@ public interface AbsPackage extends EPackage
   EReference getStmt_Casestmtbranch();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Stmt#getGuard <em>Guard</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Stmt#getRef <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Guard</em>'.
-   * @see org.xtext.abs.Stmt#getGuard()
+   * @return the meta object for the containment reference '<em>Ref</em>'.
+   * @see org.xtext.abs.Stmt#getRef()
    * @see #getStmt()
    * @generated
    */
-  EReference getStmt_Guard();
+  EReference getStmt_Ref();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Stmt#getF <em>F</em>}'.
@@ -7035,6 +7223,17 @@ public interface AbsPackage extends EPackage
   EReference getStmt_DiePureExp();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Stmt#getMoveCogTo <em>Move Cog To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Move Cog To</em>'.
+   * @see org.xtext.abs.Stmt#getMoveCogTo()
+   * @see #getStmt()
+   * @generated
+   */
+  EReference getStmt_MoveCogTo();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Stmt#getC <em>C</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7054,28 +7253,6 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EClass getExp();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Exp#getPure_exp_list <em>Pure exp list</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Pure exp list</em>'.
-   * @see org.xtext.abs.Exp#getPure_exp_list()
-   * @see #getExp()
-   * @generated
-   */
-  EReference getExp_Pure_exp_list();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Exp#getPure_exp <em>Pure exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Pure exp</em>'.
-   * @see org.xtext.abs.Exp#getPure_exp()
-   * @see #getExp()
-   * @generated
-   */
-  EReference getExp_Pure_exp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Eff_expr <em>Eff expr</em>}'.
@@ -7099,59 +7276,26 @@ public interface AbsPackage extends EPackage
   EAttribute getEff_expr_L();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Eff_expr#getC <em>C</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Eff_expr#getPure_exp_list <em>Pure exp list</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>C</em>'.
-   * @see org.xtext.abs.Eff_expr#getC()
+   * @return the meta object for the containment reference '<em>Pure exp list</em>'.
+   * @see org.xtext.abs.Eff_expr#getPure_exp_list()
    * @see #getEff_expr()
    * @generated
    */
-  EAttribute getEff_expr_C();
+  EReference getEff_expr_Pure_exp_list();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Eff_expr#getA <em>A</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.abs.Eff_expr#getList <em>List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>A</em>'.
-   * @see org.xtext.abs.Eff_expr#getA()
+   * @return the meta object for the containment reference list '<em>List</em>'.
+   * @see org.xtext.abs.Eff_expr#getList()
    * @see #getEff_expr()
    * @generated
    */
-  EAttribute getEff_expr_A();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Eff_expr#getO <em>O</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>O</em>'.
-   * @see org.xtext.abs.Eff_expr#getO()
-   * @see #getEff_expr()
-   * @generated
-   */
-  EReference getEff_expr_O();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Eff_expr#getM <em>M</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>M</em>'.
-   * @see org.xtext.abs.Eff_expr#getM()
-   * @see #getEff_expr()
-   * @generated
-   */
-  EAttribute getEff_expr_M();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Eff_expr#getD <em>D</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>D</em>'.
-   * @see org.xtext.abs.Eff_expr#getD()
-   * @see #getEff_expr()
-   * @generated
-   */
-  EReference getEff_expr_D();
+  EReference getEff_expr_List();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Delta_id <em>Delta id</em>}'.
@@ -7185,15 +7329,15 @@ public interface AbsPackage extends EPackage
   EClass getGuard();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Guard#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Guard#getRef <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
-   * @see org.xtext.abs.Guard#getName()
+   * @return the meta object for the containment reference '<em>Ref</em>'.
+   * @see org.xtext.abs.Guard#getRef()
    * @see #getGuard()
    * @generated
    */
-  EReference getGuard_Name();
+  EReference getGuard_Ref();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Guard#getMin <em>Min</em>}'.
@@ -7218,15 +7362,15 @@ public interface AbsPackage extends EPackage
   EReference getGuard_Max();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Guard#getE <em>E</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Guard#getGuard <em>Guard</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>E</em>'.
-   * @see org.xtext.abs.Guard#getE()
+   * @return the meta object for the containment reference '<em>Guard</em>'.
+   * @see org.xtext.abs.Guard#getGuard()
    * @see #getGuard()
    * @generated
    */
-  EReference getGuard_E();
+  EReference getGuard_Guard();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Casestmtbranch <em>Casestmtbranch</em>}'.
@@ -7271,6 +7415,17 @@ public interface AbsPackage extends EPackage
   EClass getTrait_usage();
 
   /**
+   * Returns the meta object for the reference list '{@link org.xtext.abs.Trait_usage#getTraitUsage <em>Trait Usage</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Trait Usage</em>'.
+   * @see org.xtext.abs.Trait_usage#getTraitUsage()
+   * @see #getTrait_usage()
+   * @generated
+   */
+  EReference getTrait_usage_TraitUsage();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.abs.Trait_expr <em>Trait expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7281,10 +7436,10 @@ public interface AbsPackage extends EPackage
   EClass getTrait_expr();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.abs.Trait_expr#getMethod <em>Method</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.abs.Trait_expr#getMethod <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Method</em>'.
+   * @return the meta object for the containment reference list '<em>Method</em>'.
    * @see org.xtext.abs.Trait_expr#getMethod()
    * @see #getTrait_expr()
    * @generated
@@ -7292,10 +7447,10 @@ public interface AbsPackage extends EPackage
   EReference getTrait_expr_Method();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Trait_expr#getTraitMethod <em>Trait Method</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Trait_expr#getTraitMethod <em>Trait Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Trait Method</em>'.
+   * @return the meta object for the containment reference '<em>Trait Method</em>'.
    * @see org.xtext.abs.Trait_expr#getTraitMethod()
    * @see #getTrait_expr()
    * @generated
@@ -7303,37 +7458,37 @@ public interface AbsPackage extends EPackage
   EReference getTrait_expr_TraitMethod();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Trait_expr#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.abs.Trait_expr#getTraitName <em>Trait Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.abs.Trait_expr#getName()
+   * @return the meta object for the reference '<em>Trait Name</em>'.
+   * @see org.xtext.abs.Trait_expr#getTraitName()
    * @see #getTrait_expr()
    * @generated
    */
-  EAttribute getTrait_expr_Name();
+  EReference getTrait_expr_TraitName();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Trait_expr#getTrait_expr <em>Trait expr</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Trait_expr#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Trait expr</em>'.
+   * @return the meta object for the containment reference '<em>Op</em>'.
+   * @see org.xtext.abs.Trait_expr#getOp()
+   * @see #getTrait_expr()
+   * @generated
+   */
+  EReference getTrait_expr_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Trait_expr#getTrait_expr <em>Trait expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Trait expr</em>'.
    * @see org.xtext.abs.Trait_expr#getTrait_expr()
    * @see #getTrait_expr()
    * @generated
    */
   EReference getTrait_expr_Trait_expr();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Trait_expr#getTrait_oper <em>Trait oper</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Trait oper</em>'.
-   * @see org.xtext.abs.Trait_expr#getTrait_oper()
-   * @see #getTrait_expr()
-   * @generated
-   */
-  EReference getTrait_expr_Trait_oper();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Trait_oper <em>Trait oper</em>}'.
@@ -7346,10 +7501,10 @@ public interface AbsPackage extends EPackage
   EClass getTrait_oper();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Trait_oper#getMethod <em>Method</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.abs.Trait_oper#getMethod <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Method</em>'.
+   * @return the meta object for the reference '<em>Method</em>'.
    * @see org.xtext.abs.Trait_oper#getMethod()
    * @see #getTrait_oper()
    * @generated
@@ -7357,10 +7512,10 @@ public interface AbsPackage extends EPackage
   EReference getTrait_oper_Method();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.abs.Trait_oper#getMethodsig <em>Methodsig</em>}'.
+   * Returns the meta object for the reference list '{@link org.xtext.abs.Trait_oper#getMethodsig <em>Methodsig</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Methodsig</em>'.
+   * @return the meta object for the reference list '<em>Methodsig</em>'.
    * @see org.xtext.abs.Trait_oper#getMethodsig()
    * @see #getTrait_oper()
    * @generated
@@ -7379,10 +7534,10 @@ public interface AbsPackage extends EPackage
   EReference getTrait_oper_Trait_expr();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Trait_oper#getTrait_exp <em>Trait exp</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Trait_oper#getTrait_exp <em>Trait exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Trait exp</em>'.
+   * @return the meta object for the containment reference '<em>Trait exp</em>'.
    * @see org.xtext.abs.Trait_oper#getTrait_exp()
    * @see #getTrait_oper()
    * @generated
@@ -7454,15 +7609,15 @@ public interface AbsPackage extends EPackage
   EClass getTrait_decl();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.Trait_decl#getTrait_expr <em>Trait expr</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Trait_decl#getTraitExpr <em>Trait Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Trait expr</em>'.
-   * @see org.xtext.abs.Trait_decl#getTrait_expr()
+   * @return the meta object for the containment reference '<em>Trait Expr</em>'.
+   * @see org.xtext.abs.Trait_decl#getTraitExpr()
    * @see #getTrait_decl()
    * @generated
    */
-  EReference getTrait_decl_Trait_expr();
+  EReference getTrait_decl_TraitExpr();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Main_block <em>Main block</em>}'.
@@ -7560,37 +7715,37 @@ public interface AbsPackage extends EPackage
   EClass getHas_condition();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Has_condition#getF <em>F</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.abs.Has_condition#getField <em>Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>F</em>'.
-   * @see org.xtext.abs.Has_condition#getF()
+   * @return the meta object for the reference '<em>Field</em>'.
+   * @see org.xtext.abs.Has_condition#getField()
    * @see #getHas_condition()
    * @generated
    */
-  EReference getHas_condition_F();
+  EReference getHas_condition_Field();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Has_condition#getM <em>M</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.abs.Has_condition#getMethod <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>M</em>'.
-   * @see org.xtext.abs.Has_condition#getM()
+   * @return the meta object for the reference '<em>Method</em>'.
+   * @see org.xtext.abs.Has_condition#getMethod()
    * @see #getHas_condition()
    * @generated
    */
-  EReference getHas_condition_M();
+  EReference getHas_condition_Method();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Has_condition#getI <em>I</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.abs.Has_condition#getInterface <em>Interface</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>I</em>'.
-   * @see org.xtext.abs.Has_condition#getI()
+   * @return the meta object for the reference '<em>Interface</em>'.
+   * @see org.xtext.abs.Has_condition#getInterface()
    * @see #getHas_condition()
    * @generated
    */
-  EReference getHas_condition_I();
+  EReference getHas_condition_Interface();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Delta_access <em>Delta access</em>}'.
@@ -7603,15 +7758,15 @@ public interface AbsPackage extends EPackage
   EClass getDelta_access();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Delta_access#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.abs.Delta_access#getModule_ref <em>Module ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.abs.Delta_access#getName()
+   * @return the meta object for the reference '<em>Module ref</em>'.
+   * @see org.xtext.abs.Delta_access#getModule_ref()
    * @see #getDelta_access()
    * @generated
    */
-  EAttribute getDelta_access_Name();
+  EReference getDelta_access_Module_ref();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Module_modifier <em>Module modifier</em>}'.
@@ -7655,6 +7810,17 @@ public interface AbsPackage extends EPackage
   EReference getOO_modifier_Class_decl();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.OO_modifier#getInterface_decl <em>Interface decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Interface decl</em>'.
+   * @see org.xtext.abs.OO_modifier#getInterface_decl()
+   * @see #getOO_modifier()
+   * @generated
+   */
+  EReference getOO_modifier_Interface_decl();
+
+  /**
    * Returns the meta object for the reference '{@link org.xtext.abs.OO_modifier#getClass_ <em>Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7666,15 +7832,37 @@ public interface AbsPackage extends EPackage
   EReference getOO_modifier_Class();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.abs.OO_modifier#getI <em>I</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.abs.OO_modifier#getInteface <em>Inteface</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>I</em>'.
-   * @see org.xtext.abs.OO_modifier#getI()
+   * @return the meta object for the reference '<em>Inteface</em>'.
+   * @see org.xtext.abs.OO_modifier#getInteface()
    * @see #getOO_modifier()
    * @generated
    */
-  EReference getOO_modifier_I();
+  EReference getOO_modifier_Inteface();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.abs.OO_modifier#getInterfaceName <em>Interface Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Interface Name</em>'.
+   * @see org.xtext.abs.OO_modifier#getInterfaceName()
+   * @see #getOO_modifier()
+   * @generated
+   */
+  EReference getOO_modifier_InterfaceName();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.abs.OO_modifier#getRemovedInterface <em>Removed Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Removed Interface</em>'.
+   * @see org.xtext.abs.OO_modifier#getRemovedInterface()
+   * @see #getOO_modifier()
+   * @generated
+   */
+  EReference getOO_modifier_RemovedInterface();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.abs.OO_modifier#getClass_modifier_fragment <em>Class modifier fragment</em>}'.
@@ -7686,17 +7874,6 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EReference getOO_modifier_Class_modifier_fragment();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.OO_modifier#getInterface_decl <em>Interface decl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Interface decl</em>'.
-   * @see org.xtext.abs.OO_modifier#getInterface_decl()
-   * @see #getOO_modifier()
-   * @generated
-   */
-  EReference getOO_modifier_Interface_decl();
 
   /**
    * Returns the meta object for the reference '{@link org.xtext.abs.OO_modifier#getInterface <em>Interface</em>}'.
@@ -7731,15 +7908,15 @@ public interface AbsPackage extends EPackage
   EClass getClass_modifier_fragment();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Class_modifier_fragment#getF <em>F</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.abs.Class_modifier_fragment#getMethodsig <em>Methodsig</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>F</em>'.
-   * @see org.xtext.abs.Class_modifier_fragment#getF()
+   * @return the meta object for the containment reference list '<em>Methodsig</em>'.
+   * @see org.xtext.abs.Class_modifier_fragment#getMethodsig()
    * @see #getClass_modifier_fragment()
    * @generated
    */
-  EReference getClass_modifier_fragment_F();
+  EReference getClass_modifier_fragment_Methodsig();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Interface_modifier_fragment <em>Interface modifier fragment</em>}'.
@@ -7750,17 +7927,6 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EClass getInterface_modifier_fragment();
-
-  /**
-   * Returns the meta object for the reference '{@link org.xtext.abs.Interface_modifier_fragment#getRemovedMethod <em>Removed Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Removed Method</em>'.
-   * @see org.xtext.abs.Interface_modifier_fragment#getRemovedMethod()
-   * @see #getInterface_modifier_fragment()
-   * @generated
-   */
-  EReference getInterface_modifier_fragment_RemovedMethod();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Namespace_modifier <em>Namespace modifier</em>}'.
@@ -7933,10 +8099,10 @@ public interface AbsPackage extends EPackage
   EAttribute getProductline_decl_Name();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.abs.Productline_decl#getFeature <em>Feature</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.abs.Productline_decl#getFeature <em>Feature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Feature</em>'.
+   * @return the meta object for the containment reference list '<em>Feature</em>'.
    * @see org.xtext.abs.Productline_decl#getFeature()
    * @see #getProductline_decl()
    * @generated
@@ -7965,15 +8131,15 @@ public interface AbsPackage extends EPackage
   EClass getFeature();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Feature#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.abs.Feature#getFeature_decl <em>Feature decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.abs.Feature#getName()
+   * @return the meta object for the reference '<em>Feature decl</em>'.
+   * @see org.xtext.abs.Feature#getFeature_decl()
    * @see #getFeature()
    * @generated
    */
-  EAttribute getFeature_Name();
+  EReference getFeature_Feature_decl();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.abs.Feature#getP <em>P</em>}'.
@@ -8157,10 +8323,10 @@ public interface AbsPackage extends EPackage
   EClass getApplication_condition();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.abs.Application_condition#getFeature <em>Feature</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Application_condition#getFeature <em>Feature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Feature</em>'.
+   * @return the meta object for the containment reference '<em>Feature</em>'.
    * @see org.xtext.abs.Application_condition#getFeature()
    * @see #getApplication_condition()
    * @generated
@@ -8232,15 +8398,48 @@ public interface AbsPackage extends EPackage
   EClass getProduct_expr();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.abs.Product_expr#getFeature <em>Feature</em>}'.
+   * Returns the meta object for the reference list '{@link org.xtext.abs.Product_expr#getFeature <em>Feature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Feature</em>'.
+   * @return the meta object for the reference list '<em>Feature</em>'.
    * @see org.xtext.abs.Product_expr#getFeature()
    * @see #getProduct_expr()
    * @generated
    */
   EReference getProduct_expr_Feature();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.abs.Product_expr#getProductDecl <em>Product Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Product Decl</em>'.
+   * @see org.xtext.abs.Product_expr#getProductDecl()
+   * @see #getProduct_expr()
+   * @generated
+   */
+  EReference getProduct_expr_ProductDecl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Product_expr#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.abs.Product_expr#getLeft()
+   * @see #getProduct_expr()
+   * @generated
+   */
+  EReference getProduct_expr_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.abs.Product_expr#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.abs.Product_expr#getRight()
+   * @see #getProduct_expr()
+   * @generated
+   */
+  EReference getProduct_expr_Right();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.Product_reconfiguration <em>Product reconfiguration</em>}'.
@@ -8595,17 +8794,6 @@ public interface AbsPackage extends EPackage
   EReference getEquality_expr_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Equality_expr#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.xtext.abs.Equality_expr#getOp()
-   * @see #getEquality_expr()
-   * @generated
-   */
-  EAttribute getEquality_expr_Op();
-
-  /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Equality_expr#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8636,17 +8824,6 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EReference getComparison_expr_Left();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.Comparison_expr#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.xtext.abs.Comparison_expr#getOp()
-   * @see #getComparison_expr()
-   * @generated
-   */
-  EAttribute getComparison_expr_Op();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.Comparison_expr#getRight <em>Right</em>}'.
@@ -8681,17 +8858,6 @@ public interface AbsPackage extends EPackage
   EReference getPlusOrMinus_expr_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.PlusOrMinus_expr#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.xtext.abs.PlusOrMinus_expr#getOp()
-   * @see #getPlusOrMinus_expr()
-   * @generated
-   */
-  EAttribute getPlusOrMinus_expr_Op();
-
-  /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.PlusOrMinus_expr#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8722,17 +8888,6 @@ public interface AbsPackage extends EPackage
    * @generated
    */
   EReference getMulDivOrMod_expr_Left();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.abs.MulDivOrMod_expr#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.xtext.abs.MulDivOrMod_expr#getOp()
-   * @see #getMulDivOrMod_expr()
-   * @generated
-   */
-  EAttribute getMulDivOrMod_expr_Op();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.abs.MulDivOrMod_expr#getRight <em>Right</em>}'.
@@ -8884,28 +9039,6 @@ public interface AbsPackage extends EPackage
   EClass getProductOr_expr();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.ProductOr_expr#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.xtext.abs.ProductOr_expr#getLeft()
-   * @see #getProductOr_expr()
-   * @generated
-   */
-  EReference getProductOr_expr_Left();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.ProductOr_expr#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.xtext.abs.ProductOr_expr#getRight()
-   * @see #getProductOr_expr()
-   * @generated
-   */
-  EReference getProductOr_expr_Right();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.abs.ProductAnd_exp <em>Product And exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8916,36 +9049,14 @@ public interface AbsPackage extends EPackage
   EClass getProductAnd_exp();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.ProductAnd_exp#getLeft <em>Left</em>}'.
+   * Returns the meta object for class '{@link org.xtext.abs.ProductMinus_exp <em>Product Minus exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.xtext.abs.ProductAnd_exp#getLeft()
-   * @see #getProductAnd_exp()
+   * @return the meta object for class '<em>Product Minus exp</em>'.
+   * @see org.xtext.abs.ProductMinus_exp
    * @generated
    */
-  EReference getProductAnd_exp_Left();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.abs.ProductAnd_exp#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.xtext.abs.ProductAnd_exp#getRight()
-   * @see #getProductAnd_exp()
-   * @generated
-   */
-  EReference getProductAnd_exp_Right();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.abs.ProductPrimary_exp <em>Product Primary exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Product Primary exp</em>'.
-   * @see org.xtext.abs.ProductPrimary_exp
-   * @generated
-   */
-  EClass getProductPrimary_exp();
+  EClass getProductMinus_exp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.abs.MexpOr_exp <em>Mexp Or exp</em>}'.
@@ -9485,28 +9596,12 @@ public interface AbsPackage extends EPackage
     EReference PAR_FUNCTION_DECL__TYPE_USE = eINSTANCE.getPar_function_decl_Type_use();
 
     /**
-     * The meta object literal for the '<em><b>Lt</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PAR_FUNCTION_DECL__LT = eINSTANCE.getPar_function_decl_Lt();
-
-    /**
      * The meta object literal for the '<em><b>P</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute PAR_FUNCTION_DECL__P = eINSTANCE.getPar_function_decl_P();
-
-    /**
-     * The meta object literal for the '<em><b>Gt</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PAR_FUNCTION_DECL__GT = eINSTANCE.getPar_function_decl_Gt();
 
     /**
      * The meta object literal for the '<em><b>Functions</b></em>' containment reference feature.
@@ -9579,28 +9674,12 @@ public interface AbsPackage extends EPackage
     EClass DATA_TYPE_DECL = eINSTANCE.getDataType_decl();
 
     /**
-     * The meta object literal for the '<em><b>Lt</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DATA_TYPE_DECL__LT = eINSTANCE.getDataType_decl_Lt();
-
-    /**
      * The meta object literal for the '<em><b>P</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute DATA_TYPE_DECL__P = eINSTANCE.getDataType_decl_P();
-
-    /**
-     * The meta object literal for the '<em><b>Gt</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DATA_TYPE_DECL__GT = eINSTANCE.getDataType_decl_Gt();
 
     /**
      * The meta object literal for the '<em><b>Data constructor</b></em>' containment reference list feature.
@@ -9735,14 +9814,6 @@ public interface AbsPackage extends EPackage
     EReference PURE_EXP__PARTIAL_FUNCTION_PURE_EXP_LIST = eINSTANCE.getPure_exp_Partial_function_pure_exp_list();
 
     /**
-     * The meta object literal for the '<em><b>Function expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PURE_EXP__FUNCTION_EXPR = eINSTANCE.getPure_exp_Function_expr();
-
-    /**
      * The meta object literal for the '<em><b>Variadic exp list</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9751,20 +9822,20 @@ public interface AbsPackage extends EPackage
     EReference PURE_EXP__VARIADIC_EXP_LIST = eINSTANCE.getPure_exp_Variadic_exp_list();
 
     /**
-     * The meta object literal for the '<em><b>C</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>If</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PURE_EXP__C = eINSTANCE.getPure_exp_C();
+    EReference PURE_EXP__IF = eINSTANCE.getPure_exp_If();
 
     /**
-     * The meta object literal for the '<em><b>L</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Then</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PURE_EXP__L = eINSTANCE.getPure_exp_L();
+    EReference PURE_EXP__THEN = eINSTANCE.getPure_exp_Then();
 
     /**
      * The meta object literal for the '<em><b>Else</b></em>' containment reference feature.
@@ -9773,6 +9844,14 @@ public interface AbsPackage extends EPackage
      * @generated
      */
     EReference PURE_EXP__ELSE = eINSTANCE.getPure_exp_Else();
+
+    /**
+     * The meta object literal for the '<em><b>Case</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PURE_EXP__CASE = eINSTANCE.getPure_exp_Case();
 
     /**
      * The meta object literal for the '<em><b>Casebranch</b></em>' containment reference list feature.
@@ -9815,12 +9894,36 @@ public interface AbsPackage extends EPackage
     EReference PURE_EXP__B = eINSTANCE.getPure_exp_B();
 
     /**
-     * The meta object literal for the '<em><b>Var or field ref</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PURE_EXP__VAR_OR_FIELD_REF = eINSTANCE.getPure_exp_Var_or_field_ref();
+    EAttribute PURE_EXP__OP = eINSTANCE.getPure_exp_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Pure exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PURE_EXP__PURE_EXP = eINSTANCE.getPure_exp_Pure_exp();
+
+    /**
+     * The meta object literal for the '<em><b>Await</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PURE_EXP__AWAIT = eINSTANCE.getPure_exp_Await();
+
+    /**
+     * The meta object literal for the '<em><b>Val</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PURE_EXP__VAL = eINSTANCE.getPure_exp_Val();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Var_or_field_refImpl <em>Var or field ref</em>}' class.
@@ -9839,6 +9942,14 @@ public interface AbsPackage extends EPackage
      * @generated
      */
     EAttribute VAR_OR_FIELD_REF__NAME = eINSTANCE.getVar_or_field_ref_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_OR_FIELD_REF__REF = eINSTANCE.getVar_or_field_ref_Ref();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Case_branchImpl <em>Case branch</em>}' class.
@@ -10029,28 +10140,12 @@ public interface AbsPackage extends EPackage
     EAttribute TYPE_EXP__NAME = eINSTANCE.getType_exp_Name();
 
     /**
-     * The meta object literal for the '<em><b>Lt</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_EXP__LT = eINSTANCE.getType_exp_Lt();
-
-    /**
      * The meta object literal for the '<em><b>P</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference TYPE_EXP__P = eINSTANCE.getType_exp_P();
-
-    /**
-     * The meta object literal for the '<em><b>Gt</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_EXP__GT = eINSTANCE.getType_exp_Gt();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Function_declImpl <em>Function decl</em>}' class.
@@ -10071,28 +10166,12 @@ public interface AbsPackage extends EPackage
     EReference FUNCTION_DECL__TYPE_USE = eINSTANCE.getFunction_decl_Type_use();
 
     /**
-     * The meta object literal for the '<em><b>Lt</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>P</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FUNCTION_DECL__LT = eINSTANCE.getFunction_decl_Lt();
-
-    /**
-     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FUNCTION_DECL__IMPORTED_NAMESPACE = eINSTANCE.getFunction_decl_ImportedNamespace();
-
-    /**
-     * The meta object literal for the '<em><b>Gt</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FUNCTION_DECL__GT = eINSTANCE.getFunction_decl_Gt();
+    EAttribute FUNCTION_DECL__P = eINSTANCE.getFunction_decl_P();
 
     /**
      * The meta object literal for the '<em><b>Paramlist</b></em>' containment reference feature.
@@ -10309,12 +10388,12 @@ public interface AbsPackage extends EPackage
     EReference FIELD_DECL__TYPE_USE = eINSTANCE.getField_decl_Type_use();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FIELD_DECL__NAME = eINSTANCE.getField_decl_Name();
+    EAttribute FIELD_DECL__NAME = eINSTANCE.getField_decl_Name();
 
     /**
      * The meta object literal for the '<em><b>Pure exp</b></em>' containment reference feature.
@@ -10359,7 +10438,7 @@ public interface AbsPackage extends EPackage
     EReference STMT__EXP = eINSTANCE.getStmt_Exp();
 
     /**
-     * The meta object literal for the '<em><b>Var or field ref</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Var or field ref</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -10391,12 +10470,12 @@ public interface AbsPackage extends EPackage
     EReference STMT__IFSTMT = eINSTANCE.getStmt_Ifstmt();
 
     /**
-     * The meta object literal for the '<em><b>R</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Elsestmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STMT__R = eINSTANCE.getStmt_R();
+    EReference STMT__ELSESTMT = eINSTANCE.getStmt_Elsestmt();
 
     /**
      * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
@@ -10413,14 +10492,6 @@ public interface AbsPackage extends EPackage
      * @generated
      */
     EReference STMT__WHILESTMT = eINSTANCE.getStmt_Whilestmt();
-
-    /**
-     * The meta object literal for the '<em><b>I</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STMT__I = eINSTANCE.getStmt_I();
 
     /**
      * The meta object literal for the '<em><b>L</b></em>' containment reference feature.
@@ -10455,12 +10526,12 @@ public interface AbsPackage extends EPackage
     EReference STMT__CASESTMTBRANCH = eINSTANCE.getStmt_Casestmtbranch();
 
     /**
-     * The meta object literal for the '<em><b>Guard</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STMT__GUARD = eINSTANCE.getStmt_Guard();
+    EReference STMT__REF = eINSTANCE.getStmt_Ref();
 
     /**
      * The meta object literal for the '<em><b>F</b></em>' containment reference feature.
@@ -10495,6 +10566,14 @@ public interface AbsPackage extends EPackage
     EReference STMT__DIE_PURE_EXP = eINSTANCE.getStmt_DiePureExp();
 
     /**
+     * The meta object literal for the '<em><b>Move Cog To</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STMT__MOVE_COG_TO = eINSTANCE.getStmt_MoveCogTo();
+
+    /**
      * The meta object literal for the '<em><b>C</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10511,22 +10590,6 @@ public interface AbsPackage extends EPackage
      * @generated
      */
     EClass EXP = eINSTANCE.getExp();
-
-    /**
-     * The meta object literal for the '<em><b>Pure exp list</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXP__PURE_EXP_LIST = eINSTANCE.getExp_Pure_exp_list();
-
-    /**
-     * The meta object literal for the '<em><b>Pure exp</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXP__PURE_EXP = eINSTANCE.getExp_Pure_exp();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Eff_exprImpl <em>Eff expr</em>}' class.
@@ -10547,44 +10610,20 @@ public interface AbsPackage extends EPackage
     EAttribute EFF_EXPR__L = eINSTANCE.getEff_expr_L();
 
     /**
-     * The meta object literal for the '<em><b>C</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Pure exp list</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EFF_EXPR__C = eINSTANCE.getEff_expr_C();
+    EReference EFF_EXPR__PURE_EXP_LIST = eINSTANCE.getEff_expr_Pure_exp_list();
 
     /**
-     * The meta object literal for the '<em><b>A</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>List</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EFF_EXPR__A = eINSTANCE.getEff_expr_A();
-
-    /**
-     * The meta object literal for the '<em><b>O</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EFF_EXPR__O = eINSTANCE.getEff_expr_O();
-
-    /**
-     * The meta object literal for the '<em><b>M</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EFF_EXPR__M = eINSTANCE.getEff_expr_M();
-
-    /**
-     * The meta object literal for the '<em><b>D</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EFF_EXPR__D = eINSTANCE.getEff_expr_D();
+    EReference EFF_EXPR__LIST = eINSTANCE.getEff_expr_List();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Delta_idImpl <em>Delta id</em>}' class.
@@ -10615,12 +10654,12 @@ public interface AbsPackage extends EPackage
     EClass GUARD = eINSTANCE.getGuard();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GUARD__NAME = eINSTANCE.getGuard_Name();
+    EReference GUARD__REF = eINSTANCE.getGuard_Ref();
 
     /**
      * The meta object literal for the '<em><b>Min</b></em>' containment reference feature.
@@ -10639,12 +10678,12 @@ public interface AbsPackage extends EPackage
     EReference GUARD__MAX = eINSTANCE.getGuard_Max();
 
     /**
-     * The meta object literal for the '<em><b>E</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Guard</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GUARD__E = eINSTANCE.getGuard_E();
+    EReference GUARD__GUARD = eINSTANCE.getGuard_Guard();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.CasestmtbranchImpl <em>Casestmtbranch</em>}' class.
@@ -10683,6 +10722,14 @@ public interface AbsPackage extends EPackage
     EClass TRAIT_USAGE = eINSTANCE.getTrait_usage();
 
     /**
+     * The meta object literal for the '<em><b>Trait Usage</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRAIT_USAGE__TRAIT_USAGE = eINSTANCE.getTrait_usage_TraitUsage();
+
+    /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Trait_exprImpl <em>Trait expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10693,7 +10740,7 @@ public interface AbsPackage extends EPackage
     EClass TRAIT_EXPR = eINSTANCE.getTrait_expr();
 
     /**
-     * The meta object literal for the '<em><b>Method</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Method</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -10701,7 +10748,7 @@ public interface AbsPackage extends EPackage
     EReference TRAIT_EXPR__METHOD = eINSTANCE.getTrait_expr_Method();
 
     /**
-     * The meta object literal for the '<em><b>Trait Method</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Trait Method</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -10709,28 +10756,28 @@ public interface AbsPackage extends EPackage
     EReference TRAIT_EXPR__TRAIT_METHOD = eINSTANCE.getTrait_expr_TraitMethod();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Trait Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TRAIT_EXPR__NAME = eINSTANCE.getTrait_expr_Name();
+    EReference TRAIT_EXPR__TRAIT_NAME = eINSTANCE.getTrait_expr_TraitName();
 
     /**
-     * The meta object literal for the '<em><b>Trait expr</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRAIT_EXPR__OP = eINSTANCE.getTrait_expr_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Trait expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference TRAIT_EXPR__TRAIT_EXPR = eINSTANCE.getTrait_expr_Trait_expr();
-
-    /**
-     * The meta object literal for the '<em><b>Trait oper</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TRAIT_EXPR__TRAIT_OPER = eINSTANCE.getTrait_expr_Trait_oper();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Trait_operImpl <em>Trait oper</em>}' class.
@@ -10743,7 +10790,7 @@ public interface AbsPackage extends EPackage
     EClass TRAIT_OPER = eINSTANCE.getTrait_oper();
 
     /**
-     * The meta object literal for the '<em><b>Method</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Method</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -10751,7 +10798,7 @@ public interface AbsPackage extends EPackage
     EReference TRAIT_OPER__METHOD = eINSTANCE.getTrait_oper_Method();
 
     /**
-     * The meta object literal for the '<em><b>Methodsig</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Methodsig</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -10767,7 +10814,7 @@ public interface AbsPackage extends EPackage
     EReference TRAIT_OPER__TRAIT_EXPR = eINSTANCE.getTrait_oper_Trait_expr();
 
     /**
-     * The meta object literal for the '<em><b>Trait exp</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Trait exp</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -10827,12 +10874,12 @@ public interface AbsPackage extends EPackage
     EClass TRAIT_DECL = eINSTANCE.getTrait_decl();
 
     /**
-     * The meta object literal for the '<em><b>Trait expr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Trait Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRAIT_DECL__TRAIT_EXPR = eINSTANCE.getTrait_decl_Trait_expr();
+    EReference TRAIT_DECL__TRAIT_EXPR = eINSTANCE.getTrait_decl_TraitExpr();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Main_blockImpl <em>Main block</em>}' class.
@@ -10915,28 +10962,28 @@ public interface AbsPackage extends EPackage
     EClass HAS_CONDITION = eINSTANCE.getHas_condition();
 
     /**
-     * The meta object literal for the '<em><b>F</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Field</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference HAS_CONDITION__F = eINSTANCE.getHas_condition_F();
+    EReference HAS_CONDITION__FIELD = eINSTANCE.getHas_condition_Field();
 
     /**
-     * The meta object literal for the '<em><b>M</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Method</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference HAS_CONDITION__M = eINSTANCE.getHas_condition_M();
+    EReference HAS_CONDITION__METHOD = eINSTANCE.getHas_condition_Method();
 
     /**
-     * The meta object literal for the '<em><b>I</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference HAS_CONDITION__I = eINSTANCE.getHas_condition_I();
+    EReference HAS_CONDITION__INTERFACE = eINSTANCE.getHas_condition_Interface();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Delta_accessImpl <em>Delta access</em>}' class.
@@ -10949,12 +10996,12 @@ public interface AbsPackage extends EPackage
     EClass DELTA_ACCESS = eINSTANCE.getDelta_access();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Module ref</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DELTA_ACCESS__NAME = eINSTANCE.getDelta_access_Name();
+    EReference DELTA_ACCESS__MODULE_REF = eINSTANCE.getDelta_access_Module_ref();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Module_modifierImpl <em>Module modifier</em>}' class.
@@ -10995,6 +11042,14 @@ public interface AbsPackage extends EPackage
     EReference OO_MODIFIER__CLASS_DECL = eINSTANCE.getOO_modifier_Class_decl();
 
     /**
+     * The meta object literal for the '<em><b>Interface decl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OO_MODIFIER__INTERFACE_DECL = eINSTANCE.getOO_modifier_Interface_decl();
+
+    /**
      * The meta object literal for the '<em><b>Class</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11003,12 +11058,28 @@ public interface AbsPackage extends EPackage
     EReference OO_MODIFIER__CLASS = eINSTANCE.getOO_modifier_Class();
 
     /**
-     * The meta object literal for the '<em><b>I</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Inteface</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OO_MODIFIER__I = eINSTANCE.getOO_modifier_I();
+    EReference OO_MODIFIER__INTEFACE = eINSTANCE.getOO_modifier_Inteface();
+
+    /**
+     * The meta object literal for the '<em><b>Interface Name</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OO_MODIFIER__INTERFACE_NAME = eINSTANCE.getOO_modifier_InterfaceName();
+
+    /**
+     * The meta object literal for the '<em><b>Removed Interface</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OO_MODIFIER__REMOVED_INTERFACE = eINSTANCE.getOO_modifier_RemovedInterface();
 
     /**
      * The meta object literal for the '<em><b>Class modifier fragment</b></em>' containment reference list feature.
@@ -11017,14 +11088,6 @@ public interface AbsPackage extends EPackage
      * @generated
      */
     EReference OO_MODIFIER__CLASS_MODIFIER_FRAGMENT = eINSTANCE.getOO_modifier_Class_modifier_fragment();
-
-    /**
-     * The meta object literal for the '<em><b>Interface decl</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OO_MODIFIER__INTERFACE_DECL = eINSTANCE.getOO_modifier_Interface_decl();
 
     /**
      * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
@@ -11053,12 +11116,12 @@ public interface AbsPackage extends EPackage
     EClass CLASS_MODIFIER_FRAGMENT = eINSTANCE.getClass_modifier_fragment();
 
     /**
-     * The meta object literal for the '<em><b>F</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Methodsig</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS_MODIFIER_FRAGMENT__F = eINSTANCE.getClass_modifier_fragment_F();
+    EReference CLASS_MODIFIER_FRAGMENT__METHODSIG = eINSTANCE.getClass_modifier_fragment_Methodsig();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Interface_modifier_fragmentImpl <em>Interface modifier fragment</em>}' class.
@@ -11069,14 +11132,6 @@ public interface AbsPackage extends EPackage
      * @generated
      */
     EClass INTERFACE_MODIFIER_FRAGMENT = eINSTANCE.getInterface_modifier_fragment();
-
-    /**
-     * The meta object literal for the '<em><b>Removed Method</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INTERFACE_MODIFIER_FRAGMENT__REMOVED_METHOD = eINSTANCE.getInterface_modifier_fragment_RemovedMethod();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Namespace_modifierImpl <em>Namespace modifier</em>}' class.
@@ -11219,7 +11274,7 @@ public interface AbsPackage extends EPackage
     EAttribute PRODUCTLINE_DECL__NAME = eINSTANCE.getProductline_decl_Name();
 
     /**
-     * The meta object literal for the '<em><b>Feature</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Feature</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -11245,12 +11300,12 @@ public interface AbsPackage extends EPackage
     EClass FEATURE = eINSTANCE.getFeature();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Feature decl</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FEATURE__NAME = eINSTANCE.getFeature_Name();
+    EReference FEATURE__FEATURE_DECL = eINSTANCE.getFeature_Feature_decl();
 
     /**
      * The meta object literal for the '<em><b>P</b></em>' attribute feature.
@@ -11401,7 +11456,7 @@ public interface AbsPackage extends EPackage
     EClass APPLICATION_CONDITION = eINSTANCE.getApplication_condition();
 
     /**
-     * The meta object literal for the '<em><b>Feature</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Feature</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -11461,12 +11516,36 @@ public interface AbsPackage extends EPackage
     EClass PRODUCT_EXPR = eINSTANCE.getProduct_expr();
 
     /**
-     * The meta object literal for the '<em><b>Feature</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Feature</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PRODUCT_EXPR__FEATURE = eINSTANCE.getProduct_expr_Feature();
+
+    /**
+     * The meta object literal for the '<em><b>Product Decl</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRODUCT_EXPR__PRODUCT_DECL = eINSTANCE.getProduct_expr_ProductDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRODUCT_EXPR__LEFT = eINSTANCE.getProduct_expr_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRODUCT_EXPR__RIGHT = eINSTANCE.getProduct_expr_Right();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.Product_reconfigurationImpl <em>Product reconfiguration</em>}' class.
@@ -11755,14 +11834,6 @@ public interface AbsPackage extends EPackage
     EReference EQUALITY_EXPR__LEFT = eINSTANCE.getEquality_expr_Left();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EQUALITY_EXPR__OP = eINSTANCE.getEquality_expr_Op();
-
-    /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11787,14 +11858,6 @@ public interface AbsPackage extends EPackage
      * @generated
      */
     EReference COMPARISON_EXPR__LEFT = eINSTANCE.getComparison_expr_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPARISON_EXPR__OP = eINSTANCE.getComparison_expr_Op();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -11823,14 +11886,6 @@ public interface AbsPackage extends EPackage
     EReference PLUS_OR_MINUS_EXPR__LEFT = eINSTANCE.getPlusOrMinus_expr_Left();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PLUS_OR_MINUS_EXPR__OP = eINSTANCE.getPlusOrMinus_expr_Op();
-
-    /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11855,14 +11910,6 @@ public interface AbsPackage extends EPackage
      * @generated
      */
     EReference MUL_DIV_OR_MOD_EXPR__LEFT = eINSTANCE.getMulDivOrMod_expr_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MUL_DIV_OR_MOD_EXPR__OP = eINSTANCE.getMulDivOrMod_expr_Op();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -11987,22 +12034,6 @@ public interface AbsPackage extends EPackage
     EClass PRODUCT_OR_EXPR = eINSTANCE.getProductOr_expr();
 
     /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRODUCT_OR_EXPR__LEFT = eINSTANCE.getProductOr_expr_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRODUCT_OR_EXPR__RIGHT = eINSTANCE.getProductOr_expr_Right();
-
-    /**
      * The meta object literal for the '{@link org.xtext.abs.impl.ProductAnd_expImpl <em>Product And exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12013,30 +12044,14 @@ public interface AbsPackage extends EPackage
     EClass PRODUCT_AND_EXP = eINSTANCE.getProductAnd_exp();
 
     /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.xtext.abs.impl.ProductMinus_expImpl <em>Product Minus exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.abs.impl.ProductMinus_expImpl
+     * @see org.xtext.abs.impl.AbsPackageImpl#getProductMinus_exp()
      * @generated
      */
-    EReference PRODUCT_AND_EXP__LEFT = eINSTANCE.getProductAnd_exp_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRODUCT_AND_EXP__RIGHT = eINSTANCE.getProductAnd_exp_Right();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.abs.impl.ProductPrimary_expImpl <em>Product Primary exp</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.abs.impl.ProductPrimary_expImpl
-     * @see org.xtext.abs.impl.AbsPackageImpl#getProductPrimary_exp()
-     * @generated
-     */
-    EClass PRODUCT_PRIMARY_EXP = eINSTANCE.getProductPrimary_exp();
+    EClass PRODUCT_MINUS_EXP = eINSTANCE.getProductMinus_exp();
 
     /**
      * The meta object literal for the '{@link org.xtext.abs.impl.MexpOr_expImpl <em>Mexp Or exp</em>}' class.

@@ -531,9 +531,9 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
         return createProductAnd_expAdapter();
       }
       @Override
-      public Adapter caseProductPrimary_exp(ProductPrimary_exp object)
+      public Adapter caseProductMinus_exp(ProductMinus_exp object)
       {
-        return createProductPrimary_expAdapter();
+        return createProductMinus_expAdapter();
       }
       @Override
       public Adapter caseMexpOr_exp(MexpOr_exp object)
@@ -1963,16 +1963,16 @@ public class AbsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.abs.ProductPrimary_exp <em>Product Primary exp</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.abs.ProductMinus_exp <em>Product Minus exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.abs.ProductPrimary_exp
+   * @see org.xtext.abs.ProductMinus_exp
    * @generated
    */
-  public Adapter createProductPrimary_expAdapter()
+  public Adapter createProductMinus_expAdapter()
   {
     return null;
   }

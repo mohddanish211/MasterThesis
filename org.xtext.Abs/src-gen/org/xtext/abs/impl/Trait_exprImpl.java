@@ -15,10 +15,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.abs.AbsPackage;
 import org.xtext.abs.Method;
+import org.xtext.abs.Trait_decl;
 import org.xtext.abs.Trait_expr;
 import org.xtext.abs.Trait_oper;
 
@@ -31,18 +33,18 @@ import org.xtext.abs.Trait_oper;
  * <ul>
  *   <li>{@link org.xtext.abs.impl.Trait_exprImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Trait_exprImpl#getTraitMethod <em>Trait Method</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Trait_exprImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Trait_exprImpl#getTraitName <em>Trait Name</em>}</li>
+ *   <li>{@link org.xtext.abs.impl.Trait_exprImpl#getOp <em>Op</em>}</li>
  *   <li>{@link org.xtext.abs.impl.Trait_exprImpl#getTrait_expr <em>Trait expr</em>}</li>
- *   <li>{@link org.xtext.abs.impl.Trait_exprImpl#getTrait_oper <em>Trait oper</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
+public class Trait_exprImpl extends Class_modifier_fragmentImpl implements Trait_expr
 {
   /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' reference list.
+   * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMethod()
@@ -52,7 +54,7 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
   protected EList<Method> method;
 
   /**
-   * The cached value of the '{@link #getTraitMethod() <em>Trait Method</em>}' reference.
+   * The cached value of the '{@link #getTraitMethod() <em>Trait Method</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTraitMethod()
@@ -62,27 +64,27 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
   protected Method traitMethod;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getTraitName() <em>Trait Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getTraitName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected Trait_decl traitName;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getOp() <em>Op</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getOp()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected Trait_oper op;
 
   /**
-   * The cached value of the '{@link #getTrait_expr() <em>Trait expr</em>}' reference.
+   * The cached value of the '{@link #getTrait_expr() <em>Trait expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTrait_expr()
@@ -90,16 +92,6 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
    * @ordered
    */
   protected Trait_expr trait_expr;
-
-  /**
-   * The cached value of the '{@link #getTrait_oper() <em>Trait oper</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTrait_oper()
-   * @generated
-   * @ordered
-   */
-  protected Trait_oper trait_oper;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,7 +123,7 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
   {
     if (method == null)
     {
-      method = new EObjectResolvingEList<Method>(Method.class, this, AbsPackage.TRAIT_EXPR__METHOD);
+      method = new EObjectContainmentEList<Method>(Method.class, this, AbsPackage.TRAIT_EXPR__METHOD);
     }
     return method;
   }
@@ -143,16 +135,6 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
    */
   public Method getTraitMethod()
   {
-    if (traitMethod != null && traitMethod.eIsProxy())
-    {
-      InternalEObject oldTraitMethod = (InternalEObject)traitMethod;
-      traitMethod = (Method)eResolveProxy(oldTraitMethod);
-      if (traitMethod != oldTraitMethod)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.TRAIT_EXPR__TRAIT_METHOD, oldTraitMethod, traitMethod));
-      }
-    }
     return traitMethod;
   }
 
@@ -161,112 +143,13 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Method basicGetTraitMethod()
-  {
-    return traitMethod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTraitMethod(Method newTraitMethod)
+  public NotificationChain basicSetTraitMethod(Method newTraitMethod, NotificationChain msgs)
   {
     Method oldTraitMethod = traitMethod;
     traitMethod = newTraitMethod;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__TRAIT_METHOD, oldTraitMethod, traitMethod));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Trait_expr getTrait_expr()
-  {
-    if (trait_expr != null && trait_expr.eIsProxy())
     {
-      InternalEObject oldTrait_expr = (InternalEObject)trait_expr;
-      trait_expr = (Trait_expr)eResolveProxy(oldTrait_expr);
-      if (trait_expr != oldTrait_expr)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.TRAIT_EXPR__TRAIT_EXPR, oldTrait_expr, trait_expr));
-      }
-    }
-    return trait_expr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Trait_expr basicGetTrait_expr()
-  {
-    return trait_expr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTrait_expr(Trait_expr newTrait_expr)
-  {
-    Trait_expr oldTrait_expr = trait_expr;
-    trait_expr = newTrait_expr;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__TRAIT_EXPR, oldTrait_expr, trait_expr));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Trait_oper getTrait_oper()
-  {
-    return trait_oper;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTrait_oper(Trait_oper newTrait_oper, NotificationChain msgs)
-  {
-    Trait_oper oldTrait_oper = trait_oper;
-    trait_oper = newTrait_oper;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__TRAIT_OPER, oldTrait_oper, newTrait_oper);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__TRAIT_METHOD, oldTraitMethod, newTraitMethod);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -277,20 +160,159 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTrait_oper(Trait_oper newTrait_oper)
+  public void setTraitMethod(Method newTraitMethod)
   {
-    if (newTrait_oper != trait_oper)
+    if (newTraitMethod != traitMethod)
     {
       NotificationChain msgs = null;
-      if (trait_oper != null)
-        msgs = ((InternalEObject)trait_oper).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_EXPR__TRAIT_OPER, null, msgs);
-      if (newTrait_oper != null)
-        msgs = ((InternalEObject)newTrait_oper).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_EXPR__TRAIT_OPER, null, msgs);
-      msgs = basicSetTrait_oper(newTrait_oper, msgs);
+      if (traitMethod != null)
+        msgs = ((InternalEObject)traitMethod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_EXPR__TRAIT_METHOD, null, msgs);
+      if (newTraitMethod != null)
+        msgs = ((InternalEObject)newTraitMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_EXPR__TRAIT_METHOD, null, msgs);
+      msgs = basicSetTraitMethod(newTraitMethod, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__TRAIT_OPER, newTrait_oper, newTrait_oper));
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__TRAIT_METHOD, newTraitMethod, newTraitMethod));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Trait_decl getTraitName()
+  {
+    if (traitName != null && traitName.eIsProxy())
+    {
+      InternalEObject oldTraitName = (InternalEObject)traitName;
+      traitName = (Trait_decl)eResolveProxy(oldTraitName);
+      if (traitName != oldTraitName)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AbsPackage.TRAIT_EXPR__TRAIT_NAME, oldTraitName, traitName));
+      }
+    }
+    return traitName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Trait_decl basicGetTraitName()
+  {
+    return traitName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTraitName(Trait_decl newTraitName)
+  {
+    Trait_decl oldTraitName = traitName;
+    traitName = newTraitName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__TRAIT_NAME, oldTraitName, traitName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Trait_oper getOp()
+  {
+    return op;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOp(Trait_oper newOp, NotificationChain msgs)
+  {
+    Trait_oper oldOp = op;
+    op = newOp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__OP, oldOp, newOp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOp(Trait_oper newOp)
+  {
+    if (newOp != op)
+    {
+      NotificationChain msgs = null;
+      if (op != null)
+        msgs = ((InternalEObject)op).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_EXPR__OP, null, msgs);
+      if (newOp != null)
+        msgs = ((InternalEObject)newOp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_EXPR__OP, null, msgs);
+      msgs = basicSetOp(newOp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__OP, newOp, newOp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Trait_expr getTrait_expr()
+  {
+    return trait_expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTrait_expr(Trait_expr newTrait_expr, NotificationChain msgs)
+  {
+    Trait_expr oldTrait_expr = trait_expr;
+    trait_expr = newTrait_expr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__TRAIT_EXPR, oldTrait_expr, newTrait_expr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTrait_expr(Trait_expr newTrait_expr)
+  {
+    if (newTrait_expr != trait_expr)
+    {
+      NotificationChain msgs = null;
+      if (trait_expr != null)
+        msgs = ((InternalEObject)trait_expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_EXPR__TRAIT_EXPR, null, msgs);
+      if (newTrait_expr != null)
+        msgs = ((InternalEObject)newTrait_expr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AbsPackage.TRAIT_EXPR__TRAIT_EXPR, null, msgs);
+      msgs = basicSetTrait_expr(newTrait_expr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AbsPackage.TRAIT_EXPR__TRAIT_EXPR, newTrait_expr, newTrait_expr));
   }
 
   /**
@@ -303,8 +325,14 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
   {
     switch (featureID)
     {
-      case AbsPackage.TRAIT_EXPR__TRAIT_OPER:
-        return basicSetTrait_oper(null, msgs);
+      case AbsPackage.TRAIT_EXPR__METHOD:
+        return ((InternalEList<?>)getMethod()).basicRemove(otherEnd, msgs);
+      case AbsPackage.TRAIT_EXPR__TRAIT_METHOD:
+        return basicSetTraitMethod(null, msgs);
+      case AbsPackage.TRAIT_EXPR__OP:
+        return basicSetOp(null, msgs);
+      case AbsPackage.TRAIT_EXPR__TRAIT_EXPR:
+        return basicSetTrait_expr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -322,15 +350,14 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
       case AbsPackage.TRAIT_EXPR__METHOD:
         return getMethod();
       case AbsPackage.TRAIT_EXPR__TRAIT_METHOD:
-        if (resolve) return getTraitMethod();
-        return basicGetTraitMethod();
-      case AbsPackage.TRAIT_EXPR__NAME:
-        return getName();
+        return getTraitMethod();
+      case AbsPackage.TRAIT_EXPR__TRAIT_NAME:
+        if (resolve) return getTraitName();
+        return basicGetTraitName();
+      case AbsPackage.TRAIT_EXPR__OP:
+        return getOp();
       case AbsPackage.TRAIT_EXPR__TRAIT_EXPR:
-        if (resolve) return getTrait_expr();
-        return basicGetTrait_expr();
-      case AbsPackage.TRAIT_EXPR__TRAIT_OPER:
-        return getTrait_oper();
+        return getTrait_expr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -353,14 +380,14 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
       case AbsPackage.TRAIT_EXPR__TRAIT_METHOD:
         setTraitMethod((Method)newValue);
         return;
-      case AbsPackage.TRAIT_EXPR__NAME:
-        setName((String)newValue);
+      case AbsPackage.TRAIT_EXPR__TRAIT_NAME:
+        setTraitName((Trait_decl)newValue);
+        return;
+      case AbsPackage.TRAIT_EXPR__OP:
+        setOp((Trait_oper)newValue);
         return;
       case AbsPackage.TRAIT_EXPR__TRAIT_EXPR:
         setTrait_expr((Trait_expr)newValue);
-        return;
-      case AbsPackage.TRAIT_EXPR__TRAIT_OPER:
-        setTrait_oper((Trait_oper)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -382,14 +409,14 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
       case AbsPackage.TRAIT_EXPR__TRAIT_METHOD:
         setTraitMethod((Method)null);
         return;
-      case AbsPackage.TRAIT_EXPR__NAME:
-        setName(NAME_EDEFAULT);
+      case AbsPackage.TRAIT_EXPR__TRAIT_NAME:
+        setTraitName((Trait_decl)null);
+        return;
+      case AbsPackage.TRAIT_EXPR__OP:
+        setOp((Trait_oper)null);
         return;
       case AbsPackage.TRAIT_EXPR__TRAIT_EXPR:
         setTrait_expr((Trait_expr)null);
-        return;
-      case AbsPackage.TRAIT_EXPR__TRAIT_OPER:
-        setTrait_oper((Trait_oper)null);
         return;
     }
     super.eUnset(featureID);
@@ -409,31 +436,14 @@ public class Trait_exprImpl extends Trait_usageImpl implements Trait_expr
         return method != null && !method.isEmpty();
       case AbsPackage.TRAIT_EXPR__TRAIT_METHOD:
         return traitMethod != null;
-      case AbsPackage.TRAIT_EXPR__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case AbsPackage.TRAIT_EXPR__TRAIT_NAME:
+        return traitName != null;
+      case AbsPackage.TRAIT_EXPR__OP:
+        return op != null;
       case AbsPackage.TRAIT_EXPR__TRAIT_EXPR:
         return trait_expr != null;
-      case AbsPackage.TRAIT_EXPR__TRAIT_OPER:
-        return trait_oper != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //Trait_exprImpl

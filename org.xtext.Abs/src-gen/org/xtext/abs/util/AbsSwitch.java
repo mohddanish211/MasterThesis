@@ -193,6 +193,7 @@ public class AbsSwitch<T> extends Switch<T>
       {
         Pure_exp pure_exp = (Pure_exp)theEObject;
         T result = casePure_exp(pure_exp);
+        if (result == null) result = caseEff_expr(pure_exp);
         if (result == null) result = caseExp(pure_exp);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -202,6 +203,7 @@ public class AbsSwitch<T> extends Switch<T>
         Var_or_field_ref var_or_field_ref = (Var_or_field_ref)theEObject;
         T result = caseVar_or_field_ref(var_or_field_ref);
         if (result == null) result = casePure_exp(var_or_field_ref);
+        if (result == null) result = caseEff_expr(var_or_field_ref);
         if (result == null) result = caseExp(var_or_field_ref);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -328,6 +330,7 @@ public class AbsSwitch<T> extends Switch<T>
       {
         Methodsig methodsig = (Methodsig)theEObject;
         T result = caseMethodsig(methodsig);
+        if (result == null) result = caseClass_modifier_fragment(methodsig);
         if (result == null) result = caseInterface_modifier_fragment(methodsig);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -374,6 +377,8 @@ public class AbsSwitch<T> extends Switch<T>
       {
         Delta_id delta_id = (Delta_id)theEObject;
         T result = caseDelta_id(delta_id);
+        if (result == null) result = caseEff_expr(delta_id);
+        if (result == null) result = caseExp(delta_id);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -402,7 +407,7 @@ public class AbsSwitch<T> extends Switch<T>
       {
         Trait_expr trait_expr = (Trait_expr)theEObject;
         T result = caseTrait_expr(trait_expr);
-        if (result == null) result = caseTrait_usage(trait_expr);
+        if (result == null) result = caseClass_modifier_fragment(trait_expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -410,7 +415,6 @@ public class AbsSwitch<T> extends Switch<T>
       {
         Trait_oper trait_oper = (Trait_oper)theEObject;
         T result = caseTrait_oper(trait_oper);
-        if (result == null) result = caseClass_modifier_fragment(trait_oper);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -670,6 +674,7 @@ public class AbsSwitch<T> extends Switch<T>
         Or_expr or_expr = (Or_expr)theEObject;
         T result = caseOr_expr(or_expr);
         if (result == null) result = casePure_exp(or_expr);
+        if (result == null) result = caseEff_expr(or_expr);
         if (result == null) result = caseExp(or_expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -679,6 +684,7 @@ public class AbsSwitch<T> extends Switch<T>
         And_expr and_expr = (And_expr)theEObject;
         T result = caseAnd_expr(and_expr);
         if (result == null) result = casePure_exp(and_expr);
+        if (result == null) result = caseEff_expr(and_expr);
         if (result == null) result = caseExp(and_expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -688,6 +694,7 @@ public class AbsSwitch<T> extends Switch<T>
         Equality_expr equality_expr = (Equality_expr)theEObject;
         T result = caseEquality_expr(equality_expr);
         if (result == null) result = casePure_exp(equality_expr);
+        if (result == null) result = caseEff_expr(equality_expr);
         if (result == null) result = caseExp(equality_expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -697,6 +704,7 @@ public class AbsSwitch<T> extends Switch<T>
         Comparison_expr comparison_expr = (Comparison_expr)theEObject;
         T result = caseComparison_expr(comparison_expr);
         if (result == null) result = casePure_exp(comparison_expr);
+        if (result == null) result = caseEff_expr(comparison_expr);
         if (result == null) result = caseExp(comparison_expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -706,6 +714,7 @@ public class AbsSwitch<T> extends Switch<T>
         PlusOrMinus_expr plusOrMinus_expr = (PlusOrMinus_expr)theEObject;
         T result = casePlusOrMinus_expr(plusOrMinus_expr);
         if (result == null) result = casePure_exp(plusOrMinus_expr);
+        if (result == null) result = caseEff_expr(plusOrMinus_expr);
         if (result == null) result = caseExp(plusOrMinus_expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -715,6 +724,7 @@ public class AbsSwitch<T> extends Switch<T>
         MulDivOrMod_expr mulDivOrMod_expr = (MulDivOrMod_expr)theEObject;
         T result = caseMulDivOrMod_expr(mulDivOrMod_expr);
         if (result == null) result = casePure_exp(mulDivOrMod_expr);
+        if (result == null) result = caseEff_expr(mulDivOrMod_expr);
         if (result == null) result = caseExp(mulDivOrMod_expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -767,11 +777,11 @@ public class AbsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AbsPackage.PRODUCT_PRIMARY_EXP:
+      case AbsPackage.PRODUCT_MINUS_EXP:
       {
-        ProductPrimary_exp productPrimary_exp = (ProductPrimary_exp)theEObject;
-        T result = caseProductPrimary_exp(productPrimary_exp);
-        if (result == null) result = caseProduct_expr(productPrimary_exp);
+        ProductMinus_exp productMinus_exp = (ProductMinus_exp)theEObject;
+        T result = caseProductMinus_exp(productMinus_exp);
+        if (result == null) result = caseProduct_expr(productMinus_exp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2300,17 +2310,17 @@ public class AbsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Product Primary exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Product Minus exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Product Primary exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Product Minus exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseProductPrimary_exp(ProductPrimary_exp object)
+  public T caseProductMinus_exp(ProductMinus_exp object)
   {
     return null;
   }

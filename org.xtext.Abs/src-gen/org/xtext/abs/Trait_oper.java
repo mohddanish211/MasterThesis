@@ -5,6 +5,8 @@ package org.xtext.abs;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Trait oper</b></em>'.
@@ -24,46 +26,46 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Trait_oper extends Class_modifier_fragment
+public interface Trait_oper extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Method</b></em>' containment reference.
+   * Returns the value of the '<em><b>Method</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Method</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Method</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Method</em>' containment reference.
+   * @return the value of the '<em>Method</em>' reference.
    * @see #setMethod(Methodsig)
    * @see org.xtext.abs.AbsPackage#getTrait_oper_Method()
-   * @model containment="true"
+   * @model
    * @generated
    */
   Methodsig getMethod();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Trait_oper#getMethod <em>Method</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.abs.Trait_oper#getMethod <em>Method</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Method</em>' containment reference.
+   * @param value the new value of the '<em>Method</em>' reference.
    * @see #getMethod()
    * @generated
    */
   void setMethod(Methodsig value);
 
   /**
-   * Returns the value of the '<em><b>Methodsig</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Methodsig</b></em>' reference list.
    * The list contents are of type {@link org.xtext.abs.Methodsig}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Methodsig</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Methodsig</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Methodsig</em>' containment reference list.
+   * @return the value of the '<em>Methodsig</em>' reference list.
    * @see org.xtext.abs.AbsPackage#getTrait_oper_Methodsig()
-   * @model containment="true"
+   * @model
    * @generated
    */
   EList<Methodsig> getMethodsig();
@@ -95,26 +97,26 @@ public interface Trait_oper extends Class_modifier_fragment
   void setTrait_expr(Trait_expr value);
 
   /**
-   * Returns the value of the '<em><b>Trait exp</b></em>' reference.
+   * Returns the value of the '<em><b>Trait exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Trait exp</em>' reference isn't clear,
+   * If the meaning of the '<em>Trait exp</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Trait exp</em>' reference.
+   * @return the value of the '<em>Trait exp</em>' containment reference.
    * @see #setTrait_exp(Trait_expr)
    * @see org.xtext.abs.AbsPackage#getTrait_oper_Trait_exp()
-   * @model
+   * @model containment="true"
    * @generated
    */
   Trait_expr getTrait_exp();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Trait_oper#getTrait_exp <em>Trait exp</em>}' reference.
+   * Sets the value of the '{@link org.xtext.abs.Trait_oper#getTrait_exp <em>Trait exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Trait exp</em>' reference.
+   * @param value the new value of the '<em>Trait exp</em>' containment reference.
    * @see #getTrait_exp()
    * @generated
    */

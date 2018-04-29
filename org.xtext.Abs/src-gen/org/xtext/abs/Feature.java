@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.abs.Feature#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.abs.Feature#getFeature_decl <em>Feature decl</em>}</li>
  *   <li>{@link org.xtext.abs.Feature#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.abs.Feature#getAttr_assignment <em>Attr assignment</em>}</li>
  * </ul>
@@ -28,30 +28,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Feature extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Feature decl</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Feature decl</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.abs.AbsPackage#getFeature_Name()
+   * @return the value of the '<em>Feature decl</em>' reference.
+   * @see #setFeature_decl(Feature_decl)
+   * @see org.xtext.abs.AbsPackage#getFeature_Feature_decl()
    * @model
    * @generated
    */
-  String getName();
+  Feature_decl getFeature_decl();
 
   /**
-   * Sets the value of the '{@link org.xtext.abs.Feature#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.abs.Feature#getFeature_decl <em>Feature decl</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Feature decl</em>' reference.
+   * @see #getFeature_decl()
    * @generated
    */
-  void setName(String value);
+  void setFeature_decl(Feature_decl value);
 
   /**
    * Returns the value of the '<em><b>P</b></em>' attribute.

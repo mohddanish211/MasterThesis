@@ -14,7 +14,9 @@ Compilation_Unit:{Compilation_Unit} (module+=Module_decl)* (deltaDecl+=Delta_dec
 ;
 
 //Module_Decl
-Module_decl:'module' name=ANY_IDENTIFIER ';'
+
+//Module_Decl
+Module_decl:'module' name=ID ';'
 	 (module_export+=Module_export)* (module_import+=Module_import)* (decl+=Decl)*  
 	(main_block+=Main_block)? 
 ;
@@ -22,14 +24,14 @@ Module_decl:'module' name=ANY_IDENTIFIER ';'
 
 //Module_export
 Module_export:{Module_export}'export' 
-				(star=MULT |anyPackage+=ANY_IDENTIFIER(',' anyPackage+=ANY_IDENTIFIER)*)
-				('from' importedNamespace+=ANY_IDENTIFIER)?';'
+				(star=MULT |anyPackage+=QualifiedName(',' anyPackage+=QualifiedName)*)
+				('from' importedNamespace+=QualifiedName)?';'
 ;
 
 //Module_import
-Module_import:'import' (star=MULT 'from' importedNamespace=ANY_IDENTIFIER ';'
-	|name+=ANY_IDENTIFIER(',' name+=ANY_IDENTIFIER)* 'from' importedNamespace=ANY_IDENTIFIER ';'
-	|name+=ANY_IDENTIFIER(',' name+=ANY_IDENTIFIER)* ';')
+Module_import:'import' (star=MULT 'from' importedNamespace=QualifiedName ';'
+	|name+=QualifiedName(',' name+=QualifiedName)* ('from' importedNamespace=QualifiedName)? ';')
+	//|name+=QualifiedName(',' name+=QualifiedName)* ';')
 ;
 
 
@@ -49,7 +51,7 @@ Decl:
 Par_function_decl:
 	 //annotation+=Annotation 
 	 'def' type_use=Type_use name=ID 
-	(lt=LT p+=ID(',' p+=ID)* gt=GT)?
+	(LT p+=ID(',' p+=ID)* GT)?
 	'(' functions=Function_name_list ')' params=Param_list '=' e=Pure_exp ';'	
 ;
 
@@ -65,7 +67,7 @@ Function_name_decl: name=ID
 //DataType_decl
 DataType_decl: //annotations=Annotations 
 	'data' name=ID
-	(lt=LT p+=ID(',' p+=ID)* gt=GT)?
+	(LT p+=ID(',' p+=ID)* GT)?
 	('=' data_constructor+=Data_constructor('|' data_constructor+=Data_constructor)*)?';'
 ;
 
@@ -89,33 +91,32 @@ Annotation:(Type_use ':')? pure_exp=Pure_exp;
 
 //Type_use (Check may have error, removed annotations from starting)
 Type_use: //annotations=Annotations 
-		name=ANY_IDENTIFIER
+		name=QualifiedName
 	(LT type_use+=Type_use (',' type_use+=Type_use)* GT)?
 ;
  
 //Pure_exp
 Pure_exp:
-	{Pure_exp}ANY_IDENTIFIER '(' pure_exp_list=Pure_exp_list ')'
-	|ANY_IDENTIFIER'('function_list+=Function_list ')' '('partial_function_pure_exp_list=Pure_exp_list ')'
-	|{Pure_exp}ANY_IDENTIFIER ('('function_expr=Pure_exp_list')')?
-	|ANY_IDENTIFIER '['variadic_exp_list=Pure_exp_list']'
+	 QualifiedName '(' pure_exp_list=Pure_exp_list ')'
+	|QualifiedName'('function_list+=Function_list ')' '('partial_function_pure_exp_list=Pure_exp_list ')'
+	|QualifiedName '['variadic_exp_list=Pure_exp_list']'
 	|Or_expr
-	|'if' c=Pure_exp 'then' l=Pure_exp (=>'else' else=Pure_exp)?
-	|'case' c=Pure_exp '{' casebranch+=Case_branch* '}'  
+	|'if' if=Pure_exp 'then' then=Pure_exp (=> 'else' else=Pure_exp)?
+	|'case' case=Pure_exp '{' casebranch+=Case_branch* '}'  
 	|'let' '(' type_use=Type_use value=ID ')' '=' i=Pure_exp 'in' b=Pure_exp 
-	|{Pure_exp}STRING
-	|var_or_field_ref=[Var_or_field_ref|ID]
+	//|{Pure_exp}STRING
+	//|var_or_field_ref=[Var_or_field_ref|ID]
 	 
 ;
 
 //Or_expr
 Or_expr returns Pure_exp:
-	And_expr ({Or_expr.left=current} OROR right=And_expr)*
+	And_expr ({Or_expr.left=current} op=OROR right=And_expr)*
 ;
 
 //And_expr
 And_expr returns Pure_exp:
-	Equality_expr({And_expr.left=current} ANDAND right=Equality_expr)*
+	Equality_expr({And_expr.left=current} op=ANDAND right=Equality_expr)*
 ;
 
 //Equality_expr
@@ -135,12 +136,17 @@ PlusOrMinus_expr returns Pure_exp:
 
 //MulDivOrMod_expr
 MulDivOrMod_expr returns Pure_exp:
-	Primary_expr({MulDivOrMod_expr.left=current} op=(MULT|'/'|MOD) right=Primary_expr)*
+	Primary_expr({MulDivOrMod_expr.left=current} op=(MULT|'/'|MOD) right=Uniary_expr)*
+;
+
+Uniary_expr returns Pure_exp:
+	op=(NEGATION|NEGATION_CREOL|MINUS) pure_exp=Pure_exp|Primary_expr
 ;
 
 //Primary_expr
 Primary_expr returns Pure_exp:
-	'('Pure_exp')'|(NEGATION|NEGATION_CREOL|MINUS) pure_exp=Primary_expr|Atomic_expr	
+	'('Pure_exp')'
+	|Atomic_expr	
 ;
 
 //Atomic_expr
@@ -149,9 +155,13 @@ Atomic_expr returns Pure_exp:
 				|{Pure_exp}STRINGLITERAL
 				|Var_or_field_ref
 				|{Pure_exp}'this'
-				|{Pure_exp}'null';
+				|{Pure_exp}'null'
+				|{Pure_exp}STRING
+;
 
-Var_or_field_ref:('this' '.')? name=ID;
+Var_or_field_ref:('this' '.')? name=ID 
+	|ref=[Field_decl|ID]
+;
 
 //Case_branch
 Case_branch:
@@ -163,7 +173,7 @@ Pattern:{Pattern}('_'
 	|INT
 	|STRINGLITERAL
 	|ID
-	|ANY_IDENTIFIER('('(pattern+=Pattern(',' pattern+=Pattern )*)?')'))
+	|QualifiedName('('(pattern+=Pattern(',' pattern+=Pattern )*)?')'))
 	
 ;
 
@@ -198,14 +208,14 @@ Param_decl://annotations=Annotation
 ;
 
 //Type Expression
-Type_exp:name=ANY_IDENTIFIER
-(lt=LT p+=Type_use (',' p+=Type_use)* gt=GT)?
+Type_exp:name=QualifiedName
+(LT p+=Type_use (',' p+=Type_use)* GT)?
 ;
 
 //Function Declaration
 Function_decl: //annotations=Annotations 
 	'def' type_use=Type_use name=ID
-	(lt=LT importedNamespace+=ID(',' importedNamespace+=ID)* gt=GT)?
+	(LT p+=ID(',' p+=ID)* GT)?
 	paramlist=Param_list '=' ('builtin'|pure_exp=Pure_exp)';'
 ;
 
@@ -224,13 +234,13 @@ Exception_decl://annotations=Annotations
 //Interface Declaration
 Interface_decl://annotations=Annotations 
 	'interface' name=ID
-	('extends' interface_name+=[Interface_decl|ANY_IDENTIFIER]
-		(',' interface_name+=[Interface_decl|ANY_IDENTIFIER])*)?
+	('extends' interface_name+=[Interface_decl|QualifiedName]
+		(',' interface_name+=[Interface_decl|QualifiedName])*)?
 	'{' methodsig+=Methodsig* '}'
 ;
 
 //Interface Name
-Interface_name: name=ANY_IDENTIFIER	
+Interface_name: name=QualifiedName	
 ;
 
 //Method Signature 
@@ -242,8 +252,8 @@ Methodsig://annotations=Annotations
 //Class Declaration
 Class_decl://annotations=Annotations 
 	'class' name=ID (paramlist=Param_list)?
-	('implements' interface_name+=[Interface_decl|ANY_IDENTIFIER] 
-		(',' interface_name+=[Interface_decl|ANY_IDENTIFIER])*)?	
+	('implements' interface_name+=[Interface_decl|QualifiedName] 
+		(',' interface_name+=[Interface_decl|QualifiedName])*)?	
 	'{'
 	(field_decl+=Field_decl)* 
 	('{'stmt+=Stmt* '}')?
@@ -256,44 +266,43 @@ Class_decl://annotations=Annotations
 // Field Declaration Error due to left recursion solve
 Field_decl://annotations=Annotations 
 	type_use=Type_use 
-	name=Var_or_field_ref ('=' pure_exp=Pure_exp)?';'
+	name=ID ('=' pure_exp=Pure_exp)?';'
 ;
 
 //Statements Declaration
 Stmt: {Stmt}//stmt_annotations=Annotations 
 	(type_exp=Type_exp name=ID
 	('=' exp=Exp)? ';'
-	|var_or_field_ref=[Var_or_field_ref|ID] '=' exp=Exp ';'
+	|var_or_field_ref=Var_or_field_ref '=' exp=Exp ';'
 	|'skip' ';'
 	|'return' exp=Exp ';'
 	|'assert' exp=Exp ';'
 	|'{'stmt+=Stmt*'}'
-	|'if' '('pure_exp=Pure_exp')' ifstmt=Stmt (=>'else' r=Stmt)?
+	|'if' '('pure_exp=Pure_exp')' ifstmt=Stmt (=>'else' elsestmt=Stmt)?
 	|'while' '(' condition=Pure_exp ')' whilestmt=Stmt
-	|'foreach' '(' i=ID 'in' l=Pure_exp ')' foreachstmt=Stmt
+	|'foreach' '(' name=ID 'in' l=Pure_exp ')' foreachstmt=Stmt
 	|'try' trystmt=Stmt 'catch' (('{'casestmtbranch+=Casestmtbranch*'}')
 		|casestmtbranch+=Casestmtbranch) ('finally' stmt+=Stmt )? 
-	|'await' guard=[Guard|ID] ';'
+	|'await' ref=Guard ';'
 	|'suspend' ';'
 	|'duration' '(' f=Pure_exp ',' t=Pure_exp ')' ';'
 	|'throw' throwPureExp=Pure_exp ';'
 	|'die' diePureExp=Pure_exp ';'
-	|'movecogto' pure_exp=Pure_exp ';'
+	|'movecogto' moveCogTo=Pure_exp ';'
 	|exp=Exp ';'
 	|'case' c=Pure_exp '{' casestmtbranch+=Casestmtbranch* '}')
 ;
 
 // Expressions Error check causing error
-Exp: Eff_expr	|
-	Pure_exp
+Exp: Eff_expr | Pure_exp
 ;
 
 //Eff Expression
-Eff_expr: pure_exp=Pure_exp '.' 'get'
-	|'new' l='local'? c=ANY_IDENTIFIER '('pure_exp_list=Pure_exp_list')'
-	|a='await'? o=Pure_exp NEGATION m=ID '('pure_exp_list=Pure_exp_list')'
-	|o=Pure_exp '.' m=ID '('pure_exp_list=Pure_exp_list')'
-	|((d=Delta_id|c='core') '.')? 'original' '('pure_exp_list=Pure_exp_list')'
+Eff_expr: Pure_exp '.' 'get'
+	|'new' l='local'? QualifiedName '('pure_exp_list=Pure_exp_list')'
+	|'await'? Pure_exp NEGATION await=ID '('list+=Pure_exp_list')'
+	|Pure_exp '.' val=ID '('list+=Pure_exp_list')'
+	|((Delta_id|'core') '.')? 'original' '('list+=Pure_exp_list')'
 ;
 
 //Delta ID
@@ -301,17 +310,17 @@ Delta_id: name=ID
 ;
 
 //Guard Declaration
-Guard:name=[Var_or_field_ref|ID] '?'
+Guard:ref=Var_or_field_ref '?'
 	|'duration' '(' min=Pure_exp ',' max=Pure_exp ')'
 	|AndGuard
-	| e=Pure_exp// Check this not working,left recursion error remove reference
+	//| e=Pure_exp// Check this not working,left recursion error remove reference
 ;
 
 AndGuard returns Guard:
 	PrimaryGuard({AndGuard.left=current} op='&' right=PrimaryGuard)*	
 ;
 PrimaryGuard returns Guard:
-	'(' Guard ')'
+	'(' Guard ')'|guard=Pure_exp
 ;
 
 //Case statement Branch
@@ -320,24 +329,30 @@ Casestmtbranch:
 ;
 
 //Trait Usage
-Trait_usage:
-	'uses' Trait_expr 
+Trait_usage:{Trait_usage}
+	'uses' traitUsage+=[Trait_decl|QualifiedName]* ';'
 ;
 
 //Trait Expression CHECK LAST OPTION
-Trait_expr:{Trait_expr}  '{' method+=[Method|ID]* '}' 
-	|traitMethod=[Method|ID]
-	|name=ID
-	|trait_expr=[Trait_expr|ID] trait_oper=Trait_oper
-	
+Trait_expr:{Trait_expr}'{' method+=Method* '}' 
+	|traitMethod=Method
+	|traitName=[Trait_decl|QualifiedName]
+	|trait_Left_expr	
+;
+
+trait_Left_expr returns Trait_expr:
+  op=(Trait_oper) trait_expr= Primary_Trait_expr
+;
+
+Primary_Trait_expr returns Trait_expr:
+	'{'Trait_expr'}'
 ;
 
 //Trait Operation
 Trait_oper:
-	'removes' method=Methodsig
-	|{Trait_oper}'removes' '{' methodsig+=Methodsig*'}'
+	 {Trait_oper} 'removes' ( method=[Methodsig|QualifiedName]| '{' methodsig+=[Methodsig|QualifiedName]*'}')
 	|'adds' trait_expr=Trait_expr
-	|'modifies' trait_exp=[Trait_expr|ID]
+	|'modifies' trait_exp=Trait_expr
 ;
 
 //Method Declaration
@@ -348,7 +363,7 @@ Method:
 ;
 
 //Trait Declaration
-Trait_decl: 'trait' name=ID '=' trait_expr=Trait_expr
+Trait_decl: 'trait' name=ID '=' traitExpr=Trait_expr
 ;
 
 //Main Block Remove annotation uncommented solve the error later
@@ -367,15 +382,15 @@ Delta_decl:'delta' name=ID
 ;
 	
 Delta_param:
-	Param_decl |(ANY_IDENTIFIER Has_condition)	
+	Param_decl |(QualifiedName Has_condition)	
 ;
 
-Has_condition:'hasField' f=[Field_decl|ID]
-	|'hasMethod' m=[Methodsig|ID]
-	|'hasInterface' i=[Interface_decl|ID]
+Has_condition:'hasField' field=[Field_decl|ID]
+	|'hasMethod' method=[Methodsig|ID]
+	|'hasInterface' interface=[Interface_decl|ID]
 ;
 
-Delta_access:'uses' name=ANY_IDENTIFIER ';'
+Delta_access:'uses' module_ref=[Module_decl|ID] ';'
 ;
 
 Module_modifier:Functional_modifier
@@ -383,38 +398,32 @@ Module_modifier:Functional_modifier
 				|Namespace_modifier
 ;
 
-Functional_modifier:  'adds' Function_decl
-					| 'adds' DataType_decl
-					| 'adds' Typesyn_decl
-					| 'modifies' Typesyn_decl
-					| 'modifies' DataType_decl
+Functional_modifier:  'adds' (Function_decl|DataType_decl|Typesyn_decl)
+					| 'modifies' (Typesyn_decl|DataType_decl)
 	
 ;
 
-OO_modifier:{OO_modifier}('adds' class_decl=Class_decl
-			| 'removes' 'class' class=[Class_decl|ANY_IDENTIFIER] ';'
-			| 'modifies' 'class' ANY_IDENTIFIER 
-			('adds' i+=Interface_name (',' i+=Interface_name)*)?
-			('removes' i+=Interface_name (',' i+=Interface_name)*)?
-			'{' ((class_modifier_fragment+=Class_modifier_fragment)*) '}'
-			| 'adds' interface_decl=Interface_decl
-			| 'removes' 'interface' ANY_IDENTIFIER ';' 
-			| 'modifies' 'interface' interface=[Interface_decl|ANY_IDENTIFIER]
-	  		'{' (interface_modifier_fragment+=Interface_modifier_fragment)* '}' )
+OO_modifier:{OO_modifier}'adds' (class_decl=Class_decl | interface_decl=Interface_decl) //Class and Interface
+			| 'removes' ('class' class=[Class_decl|QualifiedName]|'interface' inteface=[Interface_decl|QualifiedName]) ';'
+			| 'modifies' ( ('class' class=[Class_decl|QualifiedName] 
+				('adds' interfaceName+=Interface_decl (',' interfaceName+=Interface_decl)*)?
+				('removes' removedInterface+=[Interface_decl|QualifiedName] (',' removedInterface+=[Interface_decl|QualifiedName])*)?
+				'{' ((class_modifier_fragment+=Class_modifier_fragment)*) '}')
+				| 'interface' interface=[Interface_decl|QualifiedName]
+	  			'{' (interface_modifier_fragment+=Interface_modifier_fragment)* '}' )
 ;
 
-//Error trait_oper is commented temporarily
-Class_modifier_fragment:'adds' Field_decl
-						| 'removes' f=[Field_decl|ID]
-						| Trait_oper 
+
+Class_modifier_fragment:'adds' (Field_decl | Trait_expr)
+	|'removes' (Field_decl|Methodsig |{Class_modifier_fragment}'{' methodsig+=Methodsig* '}')
+	|'modifies' Trait_expr 
 ;
 
 Interface_modifier_fragment:'adds' Methodsig
-							|'removes' removedMethod=[Methodsig|ID]
+							|'removes' Methodsig
 ;
 
-Namespace_modifier:   'adds' Module_import
-					| 'adds' Module_export
+Namespace_modifier:   'adds' (Module_import|Module_export)
 	
 ;
 
@@ -429,7 +438,7 @@ Update_decl:'stateupdate' name=ID ';' object_update+=Object_update*
 	
 ;
 
-Object_update: 'objectupdate' ANY_IDENTIFIER '{' 'await' guard=[Guard|ID] ';' 
+Object_update: 'objectupdate' QualifiedName '{' 'await' guard=[Guard|ID] ';' 
 	update_preamble_declaration+=Update_preamble_declaration*
 	pre+=Object_update_assign_stmt*
 	'classupdate' ';' post+=Object_update_assign_stmt* '}'
@@ -450,12 +459,12 @@ Object_update_assign_stmt: var_or_field_ref=[Var_or_field_ref|ID] '=' exp=Exp ';
  */
 
 Productline_decl:'productline' name=ID ';' 
-	'features' feature+=[Feature_decl|ID](',' feature+=[Feature_decl|ID])* ';'
+	'features' feature+=Feature(',' feature+=Feature)* ';'
 	(delta_clause+=Delta_clause)*
 	
 ;
 
-Feature:name=ID (p='\'')? ('{' 
+Feature:feature_decl=[Feature_decl|QualifiedName] (p='\'')? ('{' 
 	attr_assignment+=Attr_assignment(',' attr_assignment+=Attr_assignment)* '}')?
 	
 ;
@@ -510,7 +519,7 @@ AppPrimary_exp returns Application_condition:
 ;
 
 AppCond_atomic_expr returns Application_condition:
-	feature+=[Feature_decl|ID]
+	feature=Feature
 ;
 
 /*
@@ -521,14 +530,11 @@ AppCond_atomic_expr returns Application_condition:
 Product_decl:{Product_decl}'product' name=ID
 	('(' (feature+=Feature(',' feature+=Feature)*)? ')' 
 		('{' product_reconfiguration+=Product_reconfiguration* '}' | ';') 
-		| '=' product_expr=Product_expr ';'
-	)
+		| '=' product_expr=Product_expr 
+	';')
 ;
 
-Product_expr:{Product_expr}'{' feature+=Feature(',' feature+=Feature)* '}'
-	|ProductOr_expr
-	|{Product_expr}ID
-	
+Product_expr: ProductOr_expr
 ;
 
 ProductOr_expr returns Product_expr:
@@ -536,12 +542,22 @@ ProductOr_expr returns Product_expr:
 ;
 
 ProductAnd_exp returns Product_expr:
-	ProductPrimary_exp({ProductAnd_exp.left=current} ANDAND right=ProductPrimary_exp)*
+	ProductPrimary_exp({ProductAnd_exp.left=current} ANDAND right=ProductMinus_exp)*
 	
 ;
 
+ProductMinus_exp returns Product_expr:
+	ProductPrimary_exp({ProductMinus_exp.left=current} MINUS right=ProductPrimary_exp)*
+;
+
 ProductPrimary_exp returns Product_expr:
-	'(' Product_expr ')'|{ProductPrimary_exp}MINUS
+	'(' ProductOr_expr ')'
+	| AtomicProduct_expr
+;
+
+AtomicProduct_expr returns Product_expr:
+	'{' feature+=[Feature_decl|QualifiedName](',' feature+=[Feature_decl|QualifiedName])* '}' 
+	| productDecl=[Product_decl|QualifiedName]
 ;
 
 
@@ -737,7 +753,13 @@ terminal INT returns ecore::EInt: ('0'..'9')+
 	
 ;
 
-
-ANY_IDENTIFIER:
-	(ID'.')* ID 
+QualifiedName:
+	ID('.' ID)*
 ;
+
+QualifiedNameWithWildcard:
+	QualifiedName '.'?
+;
+/*ANY_IDENTIFIER:
+	(ID'.')* ID 
+;*/
