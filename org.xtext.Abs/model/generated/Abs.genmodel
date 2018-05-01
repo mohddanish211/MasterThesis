@@ -306,7 +306,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//When_condition/application_condition"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Application_condition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Application_condition/operand"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Application_condition/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Application_condition/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//Application_condition/right"/>
     </genClasses>
     <genClasses ecoreClass="Abs.ecore#//Product_decl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//Product_decl/name"/>
@@ -381,17 +384,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Abs.ecore#//AndGuard/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//AndGuard/right"/>
     </genClasses>
-    <genClasses ecoreClass="Abs.ecore#//AppOr_exp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//AppOr_exp/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//AppOr_exp/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Abs.ecore#//AppAnd_exp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//AppAnd_exp/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//AppAnd_exp/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Abs.ecore#//NotExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Abs.ecore#//NotExpression/operand"/>
-    </genClasses>
+    <genClasses ecoreClass="Abs.ecore#//AppOr_exp"/>
+    <genClasses ecoreClass="Abs.ecore#//AppAnd_exp"/>
     <genClasses ecoreClass="Abs.ecore#//ProductOr_expr"/>
     <genClasses ecoreClass="Abs.ecore#//ProductAnd_exp"/>
     <genClasses ecoreClass="Abs.ecore#//ProductMinus_exp"/>

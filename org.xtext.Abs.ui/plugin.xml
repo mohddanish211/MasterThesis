@@ -551,7 +551,7 @@
    </extension> 
    <extension 
    	id="sampleABSBuilder" 
-   	name="Sample ABS Project Builder" 
+   	name="ABS Project Builder" 
    	point="org.eclipse.core.resources.builders"> 
       <builder
             hasNature="true">

@@ -12,11 +12,11 @@ public class PerspectiveAction implements IWorkbenchWindowActionDelegate{
 	@Override
 	public void run(IAction action) {
 		   try {
-			   System.out.println("Runningggggggggggggggggggggg Actionssssssssssssssssss");
+			   //System.out.println("Runningggggggggggggggggggggg Actionssssssssssssssssss");
 			ConsoleManager.displayConsoleView();
 		} catch (PartInitException e) {
 			// TODO Auto-generated catch block
-			System.out.println("No console is attached");
+			//System.out.println("No console is attached");
 			e.printStackTrace();
 		}
 		// TODO Auto-generated method stub

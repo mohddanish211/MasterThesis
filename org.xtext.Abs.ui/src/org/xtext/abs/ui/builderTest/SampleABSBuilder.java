@@ -65,27 +65,20 @@ public class SampleABSBuilder extends IncrementalProjectBuilder {
 		public boolean visit(IResourceDelta delta) throws CoreException {
 			IResource resource = delta.getResource();
 			SampleABSNature nature = getSampleABSNature(resource);
-			System.out.println("Inside Abs visit");
-			System.out.println("delta.getKind()--->"+delta.getKind());
 			switch (delta.getKind()) {
 			case IResourceDelta.ADDED:
 				// handle added resource
-				System.out.println("Inside delta Added");
 				if (nature.toIncludeInScope(resource)) {
-					System.out.println("toIncludeInScope");
 					nature.parseABSFile(resource,false,monitor);
 					changedFiles.add(resource.getFullPath().toString());
 				}
 				break;
 			case IResourceDelta.REMOVED:
 				// handle removed resource
-				System.out.println("Indside Removed Resource");
 				break;
 			case IResourceDelta.CHANGED:
 				// handle changed resource
-				System.out.println("Indside changed Resource");
 				if (nature.toIncludeInScope(resource)) {
-					System.out.println("Parsing ABS File");
 					nature.parseABSFile(resource,false,monitor);
 					changedFiles.add(resource.getFullPath().toString());
 				}
@@ -232,14 +225,12 @@ public class SampleABSBuilder extends IncrementalProjectBuilder {
 	protected void fullBuild(final IProgressMonitor monitor,HashSet<String> changedFiles)
 			throws CoreException {
 		try {
-			System.out.println("Inside full build");
 			getProject().accept(new SampleResourceVisitor(monitor,changedFiles));
 			//abs.frontend.parser.Main compiler = new abs.frontend.parser.Main();
 			/*compiler.mainMethod("/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/runtime-EclipseApplication/AbsPlugin/src/Demopack/Delta.abs");;
 			compiler.parseArgs(new String[] {});
 			Model m = compiler.parse(changedFiles.toArray(new String[0]));*/
 			
-			String[] args = {"/mnt/13bfdb9b-a7d7-4b10-876b-8940ff09b47e/Data_Drive/ICH_TUCAN_SUBJECTS/Thesis/SoftwareEngg/eclipse/runtime-EclipseApplication/AbsPlugin/src/Demopack/Delta.abs"};
 			//String [] args= {};
 			
 			//MessageConsoleStream out = myConsole			
@@ -265,7 +256,7 @@ public class SampleABSBuilder extends IncrementalProjectBuilder {
 	}
 
 	protected void startupOnInitialize() {
-		System.out.println("Running Intializationxxxxxxxxxxxxxxxxxxxx");
+		
 	}
 
 

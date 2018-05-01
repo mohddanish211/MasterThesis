@@ -83,24 +83,10 @@ public class CustomReferenceFinder {
 	public EObject customResourceFinder(URI uri,EObject eObject) {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		XtextResource resource =(XtextResource)resourceSet.getResource(uri,true);
-		System.out.println("---------------kjjjjllkjk----------------------"+uri);
-		System.out.println(resource.getEObject(uri.fragment()).eContainer());
-		/*INode root = resource.getParseResult().getRootNode();
-		BidiTreeIterator<INode> it = root.getAsTreeIterable().iterator();
-		Map<INode,XtextResource> nodeAndResourceMap = new HashMap<>();
-		while(it.hasNext())
-		{
-			INode node = it.next();
-			String nodeName= node.getText();
-			//System.out.println(nodeName);
-			//System.out.println(node.getGrammarElement());
-		}*/
 		if(eObject instanceof Delta_decl) {
-			System.out.println("Inside if");
 			return resource.getEObject(uri.fragment()).eContainer();
 			}
 		else {
-			System.out.println("Inside else");
 			return EcoreUtil.getRootContainer(resource.getEObject(uri.fragment()));
 			}
 	}

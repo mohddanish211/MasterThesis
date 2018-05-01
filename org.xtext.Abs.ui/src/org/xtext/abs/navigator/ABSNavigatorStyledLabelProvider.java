@@ -23,16 +23,10 @@ public class ABSNavigatorStyledLabelProvider extends StyledCellLabelProvider imp
 	@Override
 	public void update(ViewerCell cell) {
 		Object obj = cell.getElement();
-		System.out.println("inside update ABSNavigatorStyledLabelProvider");
-
 		StyledString styledString = getStyledString(obj);
-		System.out.println(styledString);
 		cell.setText(styledString.toString());
-		System.out.println("cell.setText");
 		cell.setStyleRanges(styledString.getStyleRanges());
-		System.out.println("styledString.getStyleRanges()");
 		cell.setImage(getImage(obj));
-		System.out.println("cell.setImage(getImage");
 		super.update(cell);
 	}
 
@@ -72,7 +66,6 @@ public class ABSNavigatorStyledLabelProvider extends StyledCellLabelProvider imp
 
 	@Override
 	public Image getImage(Object element) {
-		System.out.println("GetImage");
 		return getImageForObject(element);
 	}
 

@@ -223,10 +223,7 @@ public class SampleABSNature extends XtextNature implements IProjectNature {
 
 
 	public void parseABSFile(IResource resource, final boolean withincomplete, IProgressMonitor monitor) {
-		System.out.println("parseABSFile ");
-		System.out.println(resource);
 		if (resource.exists() && isABSFile(resource)) {
-			System.out.println("Resource exists and is a abs file?? "+isABSFile(resource));
 			final IFile file = (IFile) resource;
 			assert file.exists();
 			try {
@@ -254,16 +251,12 @@ public class SampleABSNature extends XtextNature implements IProjectNature {
 							if (isABSPackage(file)) {
 								units.addAll(m.parseABSPackageFile(file.getLocation().toFile()));
 							} else {
-								System.out.println("Parsing units");
 								CompilationUnit cu = m.parseUnit(file.getLocation().toFile(), null, new InputStreamReader(file.getContents()));
 								cu.setName(file.getLocation().toFile().getAbsolutePath());
 								units.add(cu);
 							}
 							modelbuilder.addCompilationUnits(units);
-							System.out.println("Checking for parse error");
 							for (CompilationUnit cu : units) {
-								System.out.println(cu);
-								System.out.println("................................");
 								if(cu.hasParserErrors()){
 									for(ParserError err : cu.getParserErrors()){
 										addMarker(file, err);
@@ -329,7 +322,6 @@ public class SampleABSNature extends XtextNature implements IProjectNature {
 		getProject().deleteMarkers(TYPECHECK_MARKER_TYPE, true, IResource.DEPTH_INFINITE);
 		getProject().deleteMarkers(LOCATION_TYPE_INFERENCE_MARKER_TYPE, true, IResource.DEPTH_INFINITE);
 		boolean dolocationtypecheck = getProjectPreferenceStore().getBoolean(LOCATION_TYPECHECK);
-		System.out.println("dolocationtypecheck::"+dolocationtypecheck);
 		String defaultlocationtype = getProjectPreferenceStore().getString(DEFAULT_LOCATION_TYPE);
 		String defaultlocationtypeprecision = getProjectPreferenceStore().getString(LOCATION_TYPE_PRECISION);
 		boolean checkProducts = getProjectPreferenceStore().getBoolean(PRODUCT_TYPECHECK);
@@ -381,7 +373,6 @@ public class SampleABSNature extends XtextNature implements IProjectNature {
 			for (PackageEntry entry : packageContainer.getPackages()) {
 				File file = new File(entry.getPath());
 				if (isABSPackage(file)) {
-					System.out.println("Yes!! is abs file");
 					units.addAll(m.parseABSPackageFile(file));
 				}
 			}
@@ -491,7 +482,7 @@ public class SampleABSNature extends XtextNature implements IProjectNature {
 				// Now it should be ready:
 				model = modelbuilder.getCompleteModel();
 			} catch (CoreException e) {
-				System.out.println("Erroor in getCompleteModel");
+				System.out.println("Error in getCompleteModel");
 				//LOGGER.getLogger(A).logException(e);
 			}
 		}

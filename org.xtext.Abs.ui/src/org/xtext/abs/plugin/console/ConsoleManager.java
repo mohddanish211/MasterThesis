@@ -105,14 +105,9 @@ public class ConsoleManager {
 	public static void displayConsoleView() throws PartInitException{
 		
 		IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-		
-		
-		System.out.println("I am Running!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		if (activeWorkbenchWindow != null){
-			System.out.println("activeWorkbenchWindow Not Nulllll");
 			IWorkbenchPage activePage = activeWorkbenchWindow.getActivePage();
 			if (activePage != null){
-				System.out.println("activePage Not Nulllll");
 				ConsolePlugin plugin = ConsolePlugin.getDefault();
 				IConsoleManager conMan = plugin.getConsoleManager();
 				IConsole[] existing = conMan.getConsoles();

@@ -93,7 +93,6 @@ public class UtilityFunctions {
 	}
 
 	public static SampleABSNature getSampleABSNature(IResource file){
-		System.out.println("Nature Id for file: "+file.getName());
 		if(file==null)
 			return null;
 		return getAbsNature(file.getProject());
@@ -101,9 +100,7 @@ public class UtilityFunctions {
 	
 	public static SampleABSNature getAbsNature(IProject project){
 		try {
-			System.out.println("Inside getAbsNature(IProject project)");
 			if (project != null && project.isAccessible()){
-				System.out.println("Inside if getAbsNature(IProject project)");
 				return (SampleABSNature)project.getNature(Constants.NATURE_ID);
 			}
 		} catch (CoreException e) {

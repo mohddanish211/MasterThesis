@@ -19,12 +19,7 @@ import com.google.inject.Inject
 import myPack.CustomReferenceFinder
 import org.eclipse.xtext.resource.IReferenceDescription
 import org.xtext.abs.impl.Delta_clauseImpl
-import org.eclipse.emf.common.CommonPlugin
-import org.eclipse.xtext.resource.XtextResource
-import org.eclipse.emf.common.util.URI
-import org.eclipse.core.runtime.IPath
-import org.eclipse.core.runtime.Path
-import org.xtext.abs.Feature
+import abs.frontend.ast.AppCondNot
 
 /**
 * Generates code from your model files on save.
@@ -82,13 +77,10 @@ return "error"
 // Delta to Feature Visualization
 def computeDeltaToFeature(Delta_decl deltaDecl) {
 var ArrayList<Object> featureDeclList = new ArrayList<Object>();
-println("_____________________________________________");
 //println(deltaDecl.eContainer);
 for(IReferenceDescription r: customReferenceFinder.findReferencesTo(deltaDecl)){
 	val sourcePlatformUri = r.sourceEObjectUri; 
 	val productlineDecl=customReferenceFinder.customResourceFinder(sourcePlatformUri,deltaDecl);
-	println("Productline decl..........")
-	println(productlineDecl.eContents)	
 	for(EObject delta_clause: productlineDecl.eContents.filter(Delta_clauseImpl)){
 		val clause=delta_clause as Delta_clauseImpl;
 		println(clause.when_condition);
@@ -98,7 +90,6 @@ for(IReferenceDescription r: customReferenceFinder.findReferencesTo(deltaDecl)){
             if((clause.when_condition.application_condition)!==null){
             resolveApplicationConditionForD2F(clause.when_condition.application_condition,featureDeclList);
                 }
-            println(clause.deltaspec.name+"----->"+featureDeclList.size);
             
             return featureDeclList;
             }
@@ -121,10 +112,6 @@ val ArrayList<Object> deltaDeclList = new ArrayList<Object>();
 for(IReferenceDescription r: customReferenceFinder.findReferencesTo(feature_decl)){
 	val sourcePlatformUri = r.sourceEObjectUri; 
 	val compilationUnit =customReferenceFinder.customResourceFinder(sourcePlatformUri,feature_decl) as Compilation_UnitImpl;	
-	println("------++++++++++++++++++++++++++++++++++++++++_------------")
-	println(compilationUnit);
-	println(compilationUnit.productline_decl)
-	println(compilationUnit.productline_decl.delta_clause)
 	for(Delta_clause clause: compilationUnit.productline_decl.delta_clause){
 		try{
 		 	if((clause.when_condition.application_condition)!==null){
@@ -157,9 +144,7 @@ try{
     }else{
         if(app_cond.feature!== null){
         	    val featureObj=  app_cond.feature.feature_decl as EObject;
-        		if((featureObj.eGet(featureObj.eClass.getEStructuralFeature("name"))).equals(featureDecl.name)){
-        			println("Adding to Delta List")
-        			println(deltaClause.deltaspec)
+        	    if((featureObj.eGet(featureObj.eClass.getEStructuralFeature("name"))).equals(featureDecl.name)){
         			deltaDeclList.add(deltaClause.deltaspec);
         		}
         	
@@ -177,18 +162,16 @@ try{
 def resolveApplicationConditionForD2F(Application_condition app_cond,ArrayList<Object> featureDecl){
 try{
     
-	println("Application condition");
-	println(app_cond);
-	println("--------------------------------------------");
-    if(app_cond instanceof AppOr_exp){
+	if(app_cond instanceof AppOr_exp){
         resolveApplicationConditionForD2F(app_cond.left,featureDecl);
         resolveApplicationConditionForD2F(app_cond.right,featureDecl);
     }else if(app_cond instanceof AppAnd_exp){
         resolveApplicationConditionForD2F(app_cond.left,featureDecl);
         resolveApplicationConditionForD2F(app_cond.right,featureDecl);
     }else{
-        if(app_cond.feature!== null){	
-            featureDecl.add(app_cond.feature);
+        if(app_cond.feature!== null){
+        	val featureObj=  app_cond.feature.feature_decl as EObject;
+        	featureDecl.add(app_cond.feature);
         }
         
   	  }

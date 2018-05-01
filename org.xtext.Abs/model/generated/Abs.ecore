@@ -429,7 +429,13 @@
         eType="#//Application_condition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Application_condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" eType="#//Application_condition"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="#//Feature"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Application_condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Application_condition"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Product_decl">
@@ -534,22 +540,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Guard"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AppOr_exp" eSuperTypes="#//Application_condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Application_condition"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Application_condition"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AppAnd_exp" eSuperTypes="#//Application_condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Application_condition"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Application_condition"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NotExpression" eSuperTypes="#//Application_condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" eType="#//Application_condition"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppOr_exp" eSuperTypes="#//Application_condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AppAnd_exp" eSuperTypes="#//Application_condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProductOr_expr" eSuperTypes="#//Product_expr"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProductAnd_exp" eSuperTypes="#//Product_expr"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProductMinus_exp" eSuperTypes="#//Product_expr"/>

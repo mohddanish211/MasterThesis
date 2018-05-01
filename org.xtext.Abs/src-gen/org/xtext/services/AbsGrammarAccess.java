@@ -5395,43 +5395,39 @@ public class AbsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cAppPrimary_expParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cNotExpressionAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
-		private final RuleCall cNEGATIONTerminalRuleCall_1_1_0 = (RuleCall)cAlternatives_1_1.eContents().get(0);
-		private final RuleCall cNEGATION_CREOLTerminalRuleCall_1_1_1 = (RuleCall)cAlternatives_1_1.eContents().get(1);
-		private final Assignment cOperandAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cOperandAppUnary_expParserRuleCall_1_2_0 = (RuleCall)cOperandAssignment_1_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final RuleCall cNEGATIONTerminalRuleCall_1_0_0 = (RuleCall)cAlternatives_1_0.eContents().get(0);
+		private final RuleCall cNEGATION_CREOLTerminalRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
+		private final Assignment cOperandAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cOperandAppUnary_expParserRuleCall_1_1_0 = (RuleCall)cOperandAssignment_1_1.eContents().get(0);
 		
 		//AppUnary_exp Application_condition:
-		//	AppPrimary_exp | {NotExpression} (NEGATION | NEGATION_CREOL) operand=AppUnary_exp;
+		//	AppPrimary_exp | (NEGATION | NEGATION_CREOL) operand=AppUnary_exp;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//AppPrimary_exp | {NotExpression} (NEGATION | NEGATION_CREOL) operand=AppUnary_exp
+		//AppPrimary_exp | (NEGATION | NEGATION_CREOL) operand=AppUnary_exp
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//AppPrimary_exp
 		public RuleCall getAppPrimary_expParserRuleCall_0() { return cAppPrimary_expParserRuleCall_0; }
 		
-		//{NotExpression} (NEGATION | NEGATION_CREOL) operand=AppUnary_exp
+		//(NEGATION | NEGATION_CREOL) operand=AppUnary_exp
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{NotExpression}
-		public Action getNotExpressionAction_1_0() { return cNotExpressionAction_1_0; }
-		
 		//NEGATION | NEGATION_CREOL
-		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
 		
 		//NEGATION
-		public RuleCall getNEGATIONTerminalRuleCall_1_1_0() { return cNEGATIONTerminalRuleCall_1_1_0; }
+		public RuleCall getNEGATIONTerminalRuleCall_1_0_0() { return cNEGATIONTerminalRuleCall_1_0_0; }
 		
 		//NEGATION_CREOL
-		public RuleCall getNEGATION_CREOLTerminalRuleCall_1_1_1() { return cNEGATION_CREOLTerminalRuleCall_1_1_1; }
+		public RuleCall getNEGATION_CREOLTerminalRuleCall_1_0_1() { return cNEGATION_CREOLTerminalRuleCall_1_0_1; }
 		
 		//operand=AppUnary_exp
-		public Assignment getOperandAssignment_1_2() { return cOperandAssignment_1_2; }
+		public Assignment getOperandAssignment_1_1() { return cOperandAssignment_1_1; }
 		
 		//AppUnary_exp
-		public RuleCall getOperandAppUnary_expParserRuleCall_1_2_0() { return cOperandAppUnary_expParserRuleCall_1_2_0; }
+		public RuleCall getOperandAppUnary_expParserRuleCall_1_1_0() { return cOperandAppUnary_expParserRuleCall_1_1_0; }
 	}
 	public class AppPrimary_expElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.Abs.AppPrimary_exp");
@@ -8325,7 +8321,7 @@ public class AbsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AppUnary_exp Application_condition:
-	//	AppPrimary_exp | {NotExpression} (NEGATION | NEGATION_CREOL) operand=AppUnary_exp;
+	//	AppPrimary_exp | (NEGATION | NEGATION_CREOL) operand=AppUnary_exp;
 	public AppUnary_expElements getAppUnary_expAccess() {
 		return pAppUnary_exp;
 	}

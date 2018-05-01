@@ -651,3 +651,12 @@ Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was
 2018-04-29 11:29:16,434 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@71ac27f{/help,null,AVAILABLE}
 2018-04-29 11:29:16,449 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@66916a1b{HTTP/1.1,[http/1.1]}{127.0.0.1:46019}
 2018-04-29 11:29:16,449 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @3122283ms
+2018-05-01 16:22:33,372 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-01 16:36:38,864 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @922693ms to org.eclipse.jetty.util.log.Slf4jLog
+2018-05-01 16:36:39,332 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.4.7.v20170914
+2018-05-01 16:36:39,407 [Start Help Server] INFO  org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+2018-05-01 16:36:39,407 [Start Help Server] INFO  org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+2018-05-01 16:36:39,410 [Start Help Server] INFO  org.eclipse.jetty.server.session - Scavenging every 600000ms
+2018-05-01 16:36:39,531 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@15cc6432{/help,null,AVAILABLE}
+2018-05-01 16:36:39,556 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@2d5413a{HTTP/1.1,[http/1.1]}{127.0.0.1:45093}
+2018-05-01 16:36:39,556 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @923385ms

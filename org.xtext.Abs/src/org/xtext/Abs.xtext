@@ -510,8 +510,7 @@ AppAnd_exp returns Application_condition:
 ;
 
 AppUnary_exp returns Application_condition:
-	 AppPrimary_exp | {NotExpression}  
-       (NEGATION|NEGATION_CREOL) operand=AppUnary_exp
+	 AppPrimary_exp |  (NEGATION|NEGATION_CREOL) operand=AppUnary_exp
 ;
 
 AppPrimary_exp returns Application_condition:

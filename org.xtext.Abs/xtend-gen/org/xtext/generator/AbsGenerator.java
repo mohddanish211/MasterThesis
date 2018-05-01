@@ -25,7 +25,6 @@ import org.xtext.abs.Delta_clause;
 import org.xtext.abs.Delta_decl;
 import org.xtext.abs.Feature;
 import org.xtext.abs.Feature_decl;
-import org.xtext.abs.Productline_decl;
 import org.xtext.abs.When_condition;
 import org.xtext.abs.impl.Compilation_UnitImpl;
 import org.xtext.abs.impl.Delta_clauseImpl;
@@ -72,14 +71,11 @@ public class AbsGenerator extends AbstractGenerator {
    */
   public ArrayList<Object> computeDeltaToFeature(final Delta_decl deltaDecl) {
     ArrayList<Object> featureDeclList = new ArrayList<Object>();
-    InputOutput.<String>println("_____________________________________________");
     List<IReferenceDescription> _findReferencesTo = this.customReferenceFinder.findReferencesTo(deltaDecl);
     for (final IReferenceDescription r : _findReferencesTo) {
       {
         final URI sourcePlatformUri = r.getSourceEObjectUri();
         final EObject productlineDecl = this.customReferenceFinder.customResourceFinder(sourcePlatformUri, deltaDecl);
-        InputOutput.<String>println("Productline decl..........");
-        InputOutput.<EList<EObject>>println(productlineDecl.eContents());
         Iterable<Delta_clauseImpl> _filter = Iterables.<Delta_clauseImpl>filter(productlineDecl.eContents(), Delta_clauseImpl.class);
         for (final EObject delta_clause : _filter) {
           {
@@ -94,11 +90,6 @@ public class AbsGenerator extends AbstractGenerator {
                 if (_tripleNotEquals) {
                   this.resolveApplicationConditionForD2F(clause.getWhen_condition().getApplication_condition(), featureDeclList);
                 }
-                String _name = clause.getDeltaspec().getName();
-                String _plus = (_name + "----->");
-                int _size = featureDeclList.size();
-                String _plus_1 = (_plus + Integer.valueOf(_size));
-                InputOutput.<String>println(_plus_1);
                 return featureDeclList;
               }
             } catch (final Throwable _t) {
@@ -125,10 +116,6 @@ public class AbsGenerator extends AbstractGenerator {
         final URI sourcePlatformUri = r.getSourceEObjectUri();
         EObject _customResourceFinder = this.customReferenceFinder.customResourceFinder(sourcePlatformUri, feature_decl);
         final Compilation_UnitImpl compilationUnit = ((Compilation_UnitImpl) _customResourceFinder);
-        InputOutput.<String>println("------++++++++++++++++++++++++++++++++++++++++_------------");
-        InputOutput.<Compilation_UnitImpl>println(compilationUnit);
-        InputOutput.<Productline_decl>println(compilationUnit.getProductline_decl());
-        InputOutput.<EList<Delta_clause>>println(compilationUnit.getProductline_decl().getDelta_clause());
         EList<Delta_clause> _delta_clause = compilationUnit.getProductline_decl().getDelta_clause();
         for (final Delta_clause clause : _delta_clause) {
           try {
@@ -185,13 +172,7 @@ public class AbsGenerator extends AbstractGenerator {
               boolean _xifexpression_3 = false;
               boolean _equals = featureObj.eGet(featureObj.eClass().getEStructuralFeature("name")).equals(featureDecl.getName());
               if (_equals) {
-                boolean _xblockexpression_3 = false;
-                {
-                  InputOutput.<String>println("Adding to Delta List");
-                  InputOutput.<Delta_decl>println(deltaClause.getDeltaspec());
-                  _xblockexpression_3 = deltaDeclList.add(deltaClause.getDeltaspec());
-                }
-                _xifexpression_3 = _xblockexpression_3;
+                _xifexpression_3 = deltaDeclList.add(deltaClause.getDeltaspec());
               }
               _xblockexpression_2 = _xifexpression_3;
             }
@@ -216,42 +197,41 @@ public class AbsGenerator extends AbstractGenerator {
   public Object resolveApplicationConditionForD2F(final Application_condition app_cond, final ArrayList<Object> featureDecl) {
     Object _xtrycatchfinallyexpression = null;
     try {
-      Object _xblockexpression = null;
-      {
-        InputOutput.<String>println("Application condition");
-        InputOutput.<Application_condition>println(app_cond);
-        InputOutput.<String>println("--------------------------------------------");
-        Object _xifexpression = null;
-        if ((app_cond instanceof AppOr_exp)) {
+      Object _xifexpression = null;
+      if ((app_cond instanceof AppOr_exp)) {
+        Object _xblockexpression = null;
+        {
+          this.resolveApplicationConditionForD2F(((AppOr_exp)app_cond).getLeft(), featureDecl);
+          _xblockexpression = this.resolveApplicationConditionForD2F(((AppOr_exp)app_cond).getRight(), featureDecl);
+        }
+        _xifexpression = _xblockexpression;
+      } else {
+        Object _xifexpression_1 = null;
+        if ((app_cond instanceof AppAnd_exp)) {
           Object _xblockexpression_1 = null;
           {
-            this.resolveApplicationConditionForD2F(((AppOr_exp)app_cond).getLeft(), featureDecl);
-            _xblockexpression_1 = this.resolveApplicationConditionForD2F(((AppOr_exp)app_cond).getRight(), featureDecl);
+            this.resolveApplicationConditionForD2F(((AppAnd_exp)app_cond).getLeft(), featureDecl);
+            _xblockexpression_1 = this.resolveApplicationConditionForD2F(((AppAnd_exp)app_cond).getRight(), featureDecl);
           }
-          _xifexpression = _xblockexpression_1;
+          _xifexpression_1 = _xblockexpression_1;
         } else {
-          Object _xifexpression_1 = null;
-          if ((app_cond instanceof AppAnd_exp)) {
-            Object _xblockexpression_2 = null;
+          boolean _xifexpression_2 = false;
+          Feature _feature = app_cond.getFeature();
+          boolean _tripleNotEquals = (_feature != null);
+          if (_tripleNotEquals) {
+            boolean _xblockexpression_2 = false;
             {
-              this.resolveApplicationConditionForD2F(((AppAnd_exp)app_cond).getLeft(), featureDecl);
-              _xblockexpression_2 = this.resolveApplicationConditionForD2F(((AppAnd_exp)app_cond).getRight(), featureDecl);
+              Feature_decl _feature_decl = app_cond.getFeature().getFeature_decl();
+              final EObject featureObj = ((EObject) _feature_decl);
+              _xblockexpression_2 = featureDecl.add(app_cond.getFeature());
             }
-            _xifexpression_1 = _xblockexpression_2;
-          } else {
-            boolean _xifexpression_2 = false;
-            Feature _feature = app_cond.getFeature();
-            boolean _tripleNotEquals = (_feature != null);
-            if (_tripleNotEquals) {
-              _xifexpression_2 = featureDecl.add(app_cond.getFeature());
-            }
-            _xifexpression_1 = Boolean.valueOf(_xifexpression_2);
+            _xifexpression_2 = _xblockexpression_2;
           }
-          _xifexpression = _xifexpression_1;
+          _xifexpression_1 = Boolean.valueOf(_xifexpression_2);
         }
-        _xblockexpression = _xifexpression;
+        _xifexpression = _xifexpression_1;
       }
-      _xtrycatchfinallyexpression = _xblockexpression;
+      _xtrycatchfinallyexpression = _xifexpression;
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception e = (Exception)_t;

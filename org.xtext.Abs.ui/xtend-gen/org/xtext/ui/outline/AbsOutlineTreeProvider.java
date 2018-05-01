@@ -25,7 +25,6 @@ import org.xtext.abs.impl.Feature_decl_groupImpl;
 import org.xtext.abs.impl.Field_declImpl;
 import org.xtext.abs.impl.GuardImpl;
 import org.xtext.abs.impl.MethodImpl;
-import org.xtext.abs.impl.NotExpressionImpl;
 import org.xtext.abs.impl.OO_modifierImpl;
 import org.xtext.abs.impl.Param_declImpl;
 import org.xtext.abs.impl.Param_listImpl;
@@ -57,7 +56,7 @@ public class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
   protected void _createChildren(final IOutlineNode parentNode, final Productline_decl productlineDecl) {
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(productlineDecl.eAllContents());
     for (final EObject eObject : _iterable) {
-      if (((((((eObject instanceof Application_conditionImpl) || (eObject instanceof NotExpressionImpl)) || (eObject instanceof AppOr_expImpl)) || (eObject instanceof AppAnd_expImpl)) || (eObject instanceof When_conditionImpl)) || (eObject instanceof After_conditionImpl))) {
+      if ((((((eObject instanceof Application_conditionImpl) || (eObject instanceof AppOr_expImpl)) || (eObject instanceof AppAnd_expImpl)) || (eObject instanceof When_conditionImpl)) || (eObject instanceof After_conditionImpl))) {
       } else {
         this.createNode(parentNode, eObject);
       }
@@ -67,7 +66,7 @@ public class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
   protected void _createChildren(final IOutlineNode parentNode, final Delta_clause deltaClause) {
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(deltaClause.eAllContents());
     for (final EObject eObject : _iterable) {
-      if ((((((eObject instanceof NotExpressionImpl) || (eObject instanceof AppOr_expImpl)) || (eObject instanceof AppAnd_expImpl)) || (eObject instanceof When_conditionImpl)) || (eObject instanceof After_conditionImpl))) {
+      if (((((eObject instanceof AppOr_expImpl) || (eObject instanceof AppAnd_expImpl)) || (eObject instanceof When_conditionImpl)) || (eObject instanceof After_conditionImpl))) {
       } else {
         this.createNode(parentNode, eObject);
       }

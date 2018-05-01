@@ -14,7 +14,6 @@ import org.xtext.abs.impl.When_conditionImpl
 import org.xtext.abs.impl.AppOr_expImpl
 import org.xtext.abs.impl.AppAnd_expImpl
 import org.xtext.abs.Delta_clause
-import org.xtext.abs.impl.NotExpressionImpl
 import org.xtext.abs.impl.Application_conditionImpl
 import org.xtext.abs.Delta_decl
 import org.xtext.abs.impl.OO_modifierImpl
@@ -59,7 +58,7 @@ class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
     
     def protected _createChildren(IOutlineNode parentNode, Productline_decl productlineDecl) {
         for(EObject eObject: productlineDecl.eAllContents.toIterable){
-        	if((eObject instanceof Application_conditionImpl)||(eObject instanceof NotExpressionImpl)||
+        	if((eObject instanceof Application_conditionImpl)||
         	(eObject instanceof AppOr_expImpl)||
         	(eObject instanceof AppAnd_expImpl)|| 
         	(eObject instanceof When_conditionImpl)||(eObject instanceof After_conditionImpl)){
@@ -72,7 +71,7 @@ class AbsOutlineTreeProvider extends DefaultOutlineTreeProvider {
     
     def protected _createChildren(IOutlineNode parentNode, Delta_clause deltaClause) {
         for(EObject eObject: deltaClause.eAllContents.toIterable){
-        	if((eObject instanceof NotExpressionImpl)||(eObject instanceof AppOr_expImpl)||
+        	if((eObject instanceof AppOr_expImpl)||
         		(eObject instanceof AppAnd_expImpl)|| 
         		(eObject instanceof When_conditionImpl)||(eObject instanceof After_conditionImpl)){
         		

@@ -76,10 +76,8 @@ public class IncrementalModelBuilder {
 
 	public synchronized void addCompilationUnits(Iterable<CompilationUnit> units) throws IOException, NoModelException {
 		// Initialize the model.
-		System.out.println("Inside addCompilationUnits");
 		if(model == null){
 			model = new abs.frontend.ast.Model();
-			System.out.println("Before getStdLibCompilationUnit()");
 			model.addCompilationUnit(getStdLibCompilationUnit());
 		}
 		for (CompilationUnit u : units) {
@@ -160,16 +158,12 @@ public class IncrementalModelBuilder {
 	
 	@SuppressWarnings("deprecation")
 	public synchronized SemanticConditionList typeCheckModel(IProgressMonitor monitor, boolean locationTypeChecking, String defaultloctype, String locationTypePrecision, boolean checkProducts) throws NoModelException, TypecheckInternalException{
-		System.out.println(">>>>>>>>>>>>>>>>>. type check Model>>>>>");
-		System.out.println(model);
 		if(model == null) throw new NoModelException();
 		if(model.hasParserErrors())
 			return new SemanticConditionList(); // don't typecheck if the model has parsererrors
 //			throw new TypecheckInternalException(new Exception("Model has parser errors!"));
 //		model.flushCache();
-		System.out.println("Model has Parse Errors");
 		flushAll(model);
-		System.out.println("Model after flush All");
 		model.getTypeExt().clearTypeSystemExtensions();
 		/*System.out.println("Model model.getTypeExt().clearTypeSystemExtensions");
 		if (locationTypeChecking) {
@@ -182,7 +176,6 @@ public class IncrementalModelBuilder {
 	        model.registerTypeSystemExtension(ltie);
 		}*/
 		try {
-			System.out.println("Inside try SemanticConditionList");
 			SemanticConditionList semerrors = model.getErrors();
 			/* Don't typecheck with semerrors, it might trip up. */
 			if (!semerrors.containsErrors()) {
@@ -194,9 +187,6 @@ public class IncrementalModelBuilder {
 				}
 				//model.flattenTraitOnly();
 				semerrors= model.typeCheck();
-				System.out.println("Afterz");
-				System.out.println(semerrors);
-				System.out.println("Again afterssssssssss");
 			}
 				
 			/* Check products for errors.
@@ -208,10 +198,6 @@ public class IncrementalModelBuilder {
 			 */
 						
 			if (!semerrors.containsErrors() && checkProducts) {
-				System.out.println("!semerrors.containsErrors()");
-				System.out.println(semerrors.containsErrors());
-				System.out.println("checkProducts");
-				System.out.println(checkProducts);
 				monitor = new SubProgressMonitor(monitor, 10); // arbitrary value
 				monitor.beginTask("Checking products", model.getProductDecls().size());
 				for (ProductDecl p : model.getProductDecls()) {

@@ -816,15 +816,6 @@ public interface AbsFactory extends EFactory
   AppAnd_exp createAppAnd_exp();
 
   /**
-   * Returns a new object of class '<em>Not Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Not Expression</em>'.
-   * @generated
-   */
-  NotExpression createNotExpression();
-
-  /**
    * Returns a new object of class '<em>Product Or expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

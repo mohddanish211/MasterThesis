@@ -31,7 +31,8 @@ public class CustomNamespace extends ImportedNamespaceAwareLocalScopeProvider{
 		//System.out.println(object.eClass());
 		EStructuralFeature feature = object.eClass().getEStructuralFeature("importedNamespace");
 		if (feature != null && String.class.equals(feature.getEType().getInstanceClass())) {
-		   // System.out.println(feature);
+		    System.out.println("Hurray!!");
+			System.out.println(feature);
 			return (String) object.eGet(feature);
 		}
 		return null;

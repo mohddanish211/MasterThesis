@@ -10,7 +10,6 @@ public class MyLinkService extends DefaultHyperlinkDetector{
 	@Override
 	public IHyperlink[] detectHyperlinks(ITextViewer textViewer,
 			IRegion region, boolean canShowMultipleHyperlinks) {
-		System.out.println("Inside MyLinkService");
 		//this.setHelper(new MyHyperLinkHelper());
 		return super.detectHyperlinks(textViewer, region, canShowMultipleHyperlinks);
 	}

@@ -72,7 +72,6 @@ import org.xtext.abs.Module_decl;
 import org.xtext.abs.Module_export;
 import org.xtext.abs.Module_import;
 import org.xtext.abs.MulDivOrMod_expr;
-import org.xtext.abs.NotExpression;
 import org.xtext.abs.OO_modifier;
 import org.xtext.abs.Object_update;
 import org.xtext.abs.Object_update_assign_stmt;
@@ -165,8 +164,21 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_AppOr_exp(context, (AppOr_exp) semanticObject); 
 				return; 
 			case AbsPackage.APPLICATION_CONDITION:
-				sequence_AppCond_atomic_expr(context, (Application_condition) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getApplication_conditionRule()
+						|| rule == grammarAccess.getAppOr_expRule()
+						|| action == grammarAccess.getAppOr_expAccess().getAppOr_expLeftAction_1_0()
+						|| rule == grammarAccess.getAppAnd_expRule()
+						|| action == grammarAccess.getAppAnd_expAccess().getAppAnd_expLeftAction_1_0()
+						|| rule == grammarAccess.getAppUnary_expRule()
+						|| rule == grammarAccess.getAppPrimary_expRule()) {
+					sequence_AppCond_atomic_expr_AppUnary_exp(context, (Application_condition) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getAppCond_atomic_exprRule()) {
+					sequence_AppCond_atomic_expr(context, (Application_condition) semanticObject); 
+					return; 
+				}
+				else break;
 			case AbsPackage.CASESTMTBRANCH:
 				sequence_Casestmtbranch(context, (Casestmtbranch) semanticObject); 
 				return; 
@@ -407,9 +419,6 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case AbsPackage.NOT_EXPRESSION:
-				sequence_AppUnary_exp(context, (NotExpression) semanticObject); 
-				return; 
 			case AbsPackage.OO_MODIFIER:
 				sequence_OO_modifier(context, (OO_modifier) semanticObject); 
 				return; 
@@ -792,10 +801,10 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_AppAnd_exp(ISerializationContext context, AppAnd_exp semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.APP_AND_EXP__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.APP_AND_EXP__LEFT));
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.APP_AND_EXP__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.APP_AND_EXP__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAppAnd_expAccess().getAppAnd_expLeftAction_1_0(), semanticObject.getLeft());
@@ -813,6 +822,17 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AppAnd_exp.AppAnd_exp_1_0 returns Application_condition
 	 *     AppUnary_exp returns Application_condition
 	 *     AppPrimary_exp returns Application_condition
+	 *
+	 * Constraint:
+	 *     (operand=AppUnary_exp | feature=Feature)
+	 */
+	protected void sequence_AppCond_atomic_expr_AppUnary_exp(ISerializationContext context, Application_condition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     AppCond_atomic_expr returns Application_condition
 	 *
 	 * Constraint:
@@ -844,38 +864,14 @@ public class AbsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_AppOr_exp(ISerializationContext context, AppOr_exp semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.APP_OR_EXP__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.APP_OR_EXP__LEFT));
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.APP_OR_EXP__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.APP_OR_EXP__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.APPLICATION_CONDITION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAppOr_expAccess().getAppOr_expLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getAppOr_expAccess().getRightAppAnd_expParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Application_condition returns NotExpression
-	 *     AppOr_exp returns NotExpression
-	 *     AppOr_exp.AppOr_exp_1_0 returns NotExpression
-	 *     AppAnd_exp returns NotExpression
-	 *     AppAnd_exp.AppAnd_exp_1_0 returns NotExpression
-	 *     AppUnary_exp returns NotExpression
-	 *     AppPrimary_exp returns NotExpression
-	 *
-	 * Constraint:
-	 *     operand=AppUnary_exp
-	 */
-	protected void sequence_AppUnary_exp(ISerializationContext context, NotExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbsPackage.Literals.NOT_EXPRESSION__OPERAND) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbsPackage.Literals.NOT_EXPRESSION__OPERAND));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAppUnary_expAccess().getOperandAppUnary_expParserRuleCall_1_2_0(), semanticObject.getOperand());
 		feeder.finish();
 	}
 	

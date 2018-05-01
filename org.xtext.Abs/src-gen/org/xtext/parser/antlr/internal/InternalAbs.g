@@ -8613,32 +8613,22 @@ ruleAppUnary_exp returns [EObject current=null]
 		    |
 		(
 			(
+				this_NEGATION_1=RULE_NEGATION
 				{
-					/* */
-				}
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getAppUnary_expAccess().getNotExpressionAction_1_0(),
-						$current);
-				}
-			)
-			(
-				this_NEGATION_2=RULE_NEGATION
-				{
-					newLeafNode(this_NEGATION_2, grammarAccess.getAppUnary_expAccess().getNEGATIONTerminalRuleCall_1_1_0());
+					newLeafNode(this_NEGATION_1, grammarAccess.getAppUnary_expAccess().getNEGATIONTerminalRuleCall_1_0_0());
 				}
 				    |
-				this_NEGATION_CREOL_3=RULE_NEGATION_CREOL
+				this_NEGATION_CREOL_2=RULE_NEGATION_CREOL
 				{
-					newLeafNode(this_NEGATION_CREOL_3, grammarAccess.getAppUnary_expAccess().getNEGATION_CREOLTerminalRuleCall_1_1_1());
+					newLeafNode(this_NEGATION_CREOL_2, grammarAccess.getAppUnary_expAccess().getNEGATION_CREOLTerminalRuleCall_1_0_1());
 				}
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppUnary_expAccess().getOperandAppUnary_expParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getAppUnary_expAccess().getOperandAppUnary_expParserRuleCall_1_1_0());
 					}
-					lv_operand_4_0=ruleAppUnary_exp
+					lv_operand_3_0=ruleAppUnary_exp
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAppUnary_expRule());
@@ -8646,7 +8636,7 @@ ruleAppUnary_exp returns [EObject current=null]
 						set(
 							$current,
 							"operand",
-							lv_operand_4_0,
+							lv_operand_3_0,
 							"org.xtext.Abs.AppUnary_exp");
 						afterParserOrEnumRuleCall();
 					}

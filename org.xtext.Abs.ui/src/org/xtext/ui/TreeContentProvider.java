@@ -15,9 +15,6 @@ public class TreeContentProvider extends BaseLabelProvider implements ILabelProv
 	@Override
 	public String getText(Object element) {
 		// TODO Auto-generated method stub
-		System.out.println("Element is");
-		System.err.println(element);
-		System.out.println(element);
 		return null;
 	}
 	
